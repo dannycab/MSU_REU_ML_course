@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 1 In-Class Assignment: Pandas and exploring data &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Day 2 Pre-class Assignment: Intro to Machine Learning" href="../day-2/day-2_pandas_and_plotting.html" />
+    <link rel="prev" title="Day 1 Pre-Class Assignment: Pandas" href="day-1_Pre-Class_pandas.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">2021 MSU REU Machine Learning Short Course</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   2021 MSU REU Short Course on Machine Learning
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="day-1_Pre-Class_pandas.html">
+   Day 1 Pre-Class Assignment: Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Day 1 In-Class Assignment: Pandas and exploring data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/day-2_pandas_and_plotting.html">
+   Day 2 Pre-class Assignment: Intro to Machine Learning
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Modeling Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-3/day-3_classification.html">
+   Day 3 In-Class Assignment: Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-4/day-4_Pre-Class_regression.html">
+   Day-4 Pre-Class Assignment: Polynomial Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-4/day-4_In-Class_regression.html">
+   Day 4 In-Class Assignment: Multidimensional Regression
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-1/day-1_In-Class_pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-1/day-1_In-Class_pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goals-for-today-s-in-class-assignment">
+   Goals for today’s In-class assignment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assignment-instructions">
+     Assignment instructions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agenda-for-today">
+   Agenda for today:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#useful-imports-make-sure-to-execute-this-cell">
+     Useful imports (make sure to execute this cell!)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#review-of-pre-class-assignment">
+   1. Review of pre-class assignment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-and-exploring-a-dataset">
+   2. Loading and exploring a dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-used-to-looking-for-useful-information-on-the-internet">
+     2.1 Getting used to looking for useful information on the internet
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-iris-data">
+       The Iris data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-in-a-file">
+     2.2 Reading in a file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#describing-your-data">
+     2.3 Describing your data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grouping-your-data">
+     2.4 Grouping your data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-your-data">
+   3 Visualizing your data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-a-scatter-matrix">
+     3.1 Making a scatter matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#color-coding-your-data">
+     3.2 Color coding your data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#separating-species-of-irises">
+     3.3 Separating species of irises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-if-we-didn-t-have-pandas-to-read-in-this-data">
+   4 What if we didn’t have Pandas to read in this data?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-review-loading-the-iris-data-with-basic-python">
+     4.1 Code review: Loading the iris data with basic Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-code-importing-the-functions-and-reading-in-the-data">
+     4.2 Using the code: importing the functions and reading in the data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#you-made-it-to-the-end">
+     🛑 You made it to the end!
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="day-1-in-class-assignment-pandas-and-exploring-data">
+<h1>Day 1 In-Class Assignment: Pandas and exploring data<a class="headerlink" href="#day-1-in-class-assignment-pandas-and-exploring-data" title="Permalink to this headline">¶</a></h1>
+<img src="https://miro.medium.com/max/819/1*Dss7A8Z-M4x8LD9ccgw7pQ.png" width="500px"><div class="section" id="goals-for-today-s-in-class-assignment">
+<h2>Goals for today’s In-class assignment<a class="headerlink" href="#goals-for-today-s-in-class-assignment" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Make sure that everyone remembers how to do the basics with Pandas.</p></li>
+<li><p>Do a little data analysis with some existing data sets.</p></li>
+<li><p>Make some simple visualizations of the data.</p></li>
+</ol>
+<div class="section" id="assignment-instructions">
+<h3>Assignment instructions<a class="headerlink" href="#assignment-instructions" title="Permalink to this headline">¶</a></h3>
+<p>Work through the notebook making sure to write all necessary code and answer any questions.</p>
+</div>
+</div>
+<div class="section" id="agenda-for-today">
+<h2>Agenda for today:<a class="headerlink" href="#agenda-for-today" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#review">Review of pre-class assignment</a></p></li>
+<li><p><a class="reference external" href="#loading">Loading and exploring a dataset</a></p></li>
+<li><p><a class="reference external" href="#visualizing">Visualizing your data</a></p></li>
+</ol>
+<div class="section" id="useful-imports-make-sure-to-execute-this-cell">
+<h3>Useful imports (make sure to execute this cell!)<a class="headerlink" href="#useful-imports-make-sure-to-execute-this-cell" title="Permalink to this headline">¶</a></h3>
+<p>Let’s get a few of our imports out of the way. If you find others you need to add, consider coming back and putting them here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># necessary imports for this notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">scatter_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a id="review"></a></p>
+</div>
+</div>
+<div class="section" id="review-of-pre-class-assignment">
+<h2>1. Review of pre-class assignment<a class="headerlink" href="#review-of-pre-class-assignment" title="Permalink to this headline">¶</a></h2>
+<p>Did anyone have any specific issues with the pre-class assignment?</p>
+<p>Let’s take a moment to highlight some key concepts. <strong>Discuss with your table</strong> the following prompts and write down a brief definition of each of these concepts.</p>
+<p><strong>If you don’t feel like you have good working definitions yet, try doing a quick internet search to see if you can find a definition that makes sense to you.</strong></p>
+<p>✅ <strong>Question 1:</strong> What are the features of a Pandas Series?</p>
+<p><font size=+3>✎</font> Do This -  Write your disussion notes here.</p>
+<p>✅ <strong>Question 2:</strong> What are the differences between a DataFrame and a Series?</p>
+<p><font size=+3>✎</font> Do This -  Write your disussion notes here.</p>
+<hr class="docutils" />
+<p><a id="loading"></a></p>
+</div>
+<div class="section" id="loading-and-exploring-a-dataset">
+<h2>2. Loading and exploring a dataset<a class="headerlink" href="#loading-and-exploring-a-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Though you review how one can build a DataFrame by hand in your pre-class assignment, the goal is typically to read some sort of preexisting data <strong>into</strong> a DataFrame so we can work with it.</p>
+<p>Pandas is pretty flexible about reading in data and can read in a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">variety of formats</a>. However, it sometimes needs a little help. Let’s start with a “toy” dataset, the <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set"> Iris Data set </a>.</p>
+<p>A toy dataset is often one that has a particularly nice set of features or is of a manageable size such that it can be used as a good dataset for learning new data analysis techiques or testing out code. This allows one to focus on the code and data science methods without getting too caught up in wrangling the data. However, <strong>data wrangling</strong> is an authentic part of doing any sort of meaningful data analysis as data more often messier than not.</p>
+<p>Although you will be working with a toy dataset today, you may still have to do a bit of wrangling along the way.</p>
+<div class="section" id="getting-used-to-looking-for-useful-information-on-the-internet">
+<h3>2.1 Getting used to looking for useful information on the internet<a class="headerlink" href="#getting-used-to-looking-for-useful-information-on-the-internet" title="Permalink to this headline">¶</a></h3>
+<p>Another authentic part of working as a computational professional is getting comfortable with searching for help on the internet when you get stuck or run into something that is unfamiliar to you. The Python data analysis/computional modeling world can be complicated and is ever-evolving. There is also a large number of publicly available toolsets with varying levels of complexity and nuance. Through practice and experience, we become better computational folks by learning how to search for better, more efficient, clearer ways to do things.</p>
+<div class="section" id="the-iris-data">
+<h4>The Iris data<a class="headerlink" href="#the-iris-data" title="Permalink to this headline">¶</a></h4>
+<p>The iris data set is pretty straight forward (review the wikipedia link above if you haven’t yet), especially if someone has done all of the data wrangling and cleaning for you. To make it a little more interesting we provide it in a raw form that you might encounter with other data.</p>
+<p><strong>✅ Do This:</strong>  To get started, <strong>you’ll need to download the following two files</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/msu-cmse-courses/cmse202-S21-student/master/data/iris.data</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/msu-cmse-courses/cmse202-S21-student/master/data/iris.names</span></code></p>
+<p>Once you’ve done so, you should have access to the following : <code class="docutils literal notranslate"><span class="pre">iris.data</span></code> and <code class="docutils literal notranslate"><span class="pre">iris.names</span></code>. Open them both and discuss what you see. This is a good opportunity to use you favorite text editor or use something new. Feel free to ask your group members or instructors what they prefer to use.</p>
+<p>✅ <strong>Question 3</strong>: Describe the data and the information in the names file. What characteristics are provided there? Perhaps the iris dataset link above will help.</p>
+<p><font size=+3>✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text). <strong>Practice using appropriate Markdown formating to make your answer’s easy to read.</strong></p>
+</div>
+</div>
+<div class="section" id="reading-in-a-file">
+<h3>2.2 Reading in a file<a class="headerlink" href="#reading-in-a-file" title="Permalink to this headline">¶</a></h3>
+<p>Pandas supports a number of file formats, but one of the most common is the one provided by the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function. Typically, the phrase <strong>csv</strong> stands for “comma separated values”, a text file format that excel and other spread sheets use. In a typical csv file, each line represents a line in a spreadsheet and each cell value is separated from the next by a comma.</p>
+<p>However, you can use other separators as well. Look at the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">documentation for <code class="docutils literal notranslate"><span class="pre">read_csv</span></code></a>.</p>
+<p><strong>✅ Do This:</strong> Read the <code class="docutils literal notranslate"><span class="pre">iris.data</span></code> file into your notebook <strong>with the appropriate column headers</strong>. Display the DataFrame to make sure it looks reasonable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace this cell with code to read in the iris.data file with column headers. Use appropriate headers!</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="describing-your-data">
+<h3>2.3 Describing your data<a class="headerlink" href="#describing-your-data" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> methods tells you about the data. If the data is too big to see (height and width) you can use the two options below to show more of the data. You can change the values to suit your needs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># expand what is shown (rows and cols) by pandas, any time you change default options -- be thoughtful about your choices!</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>✅ Do This:</strong> Run the <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> method on the data you read in. If you think about how you might classify the species contained in the dataset based on the four available features, can you discern anything helpful? Put your answer in the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><font size=+3>✎</font> Do This - Erase the contents of this cell and replace it with your answer. Did you find any useful features? What makes those features useful in classfying the species of the irises?</p>
+</div>
+<div class="section" id="grouping-your-data">
+<h3>2.4 Grouping your data<a class="headerlink" href="#grouping-your-data" title="Permalink to this headline">¶</a></h3>
+<p>You can perform operations to group elements using the <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> method. The result of the use of <code class="docutils literal notranslate"><span class="pre">.groupby</span></code> is a <code class="docutils literal notranslate"><span class="pre">GroupBy</span></code> object. If you were to print it you see only the class instance name as nothing is computed until an operation is performed on the groups, much like other iterators. However, you can use <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> on the result of a <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> call. If you haven’t used this before, you may need to consult the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html">documentation for <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code></a></p>
+<p><strong>✅ Do This:</strong> Make a GroupBy object using the iris DataFrame and group by the class/species of the data. Then run <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> on the group result. Now take a look at the data from the group. Thinking again about classification, do you see any data features you could use to classify the data when you look at it this way?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><font size=+3>✎</font> Do this - Erase this and put your answer here. Did you find any useful features? What makes those features useful in classfying the species of the irises? How did using <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> help (or not) in finding useful features?</p>
+<hr class="docutils" />
+<p><a id="visualizing"></a></p>
+</div>
+</div>
+<div class="section" id="visualizing-your-data">
+<h2>3 Visualizing your data<a class="headerlink" href="#visualizing-your-data" title="Permalink to this headline">¶</a></h2>
+<p>We are often limited in understanding our data because it is complex, has many features, or is quite large. In these situations, visualizations (plots, charts, and graphs) can help represent our data in ways that help us gain greater insight into the trends, features, and classes we want to understand.</p>
+<div class="section" id="making-a-scatter-matrix">
+<h3>3.1 Making a scatter matrix<a class="headerlink" href="#making-a-scatter-matrix" title="Permalink to this headline">¶</a></h3>
+<p>Rather than just looking at the raw values or exploring basic statistical values for our data, it would be better if we were to visualize the differences. Since the number of features is small, we can use a plotting feature of Pandas called <code class="docutils literal notranslate"><span class="pre">scatter_matrix()</span></code>. Did you noticed that we imported <code class="docutils literal notranslate"><span class="pre">scatter_matrix</span></code> at the start of this notebook?</p>
+<p><strong>✅ Do This:</strong> Try calling the <code class="docutils literal notranslate"><span class="pre">scatter_matrix</span></code> function on your dataframe. Use a <code class="docutils literal notranslate"><span class="pre">marker</span></code> that you prefer. Look up the documentation for <code class="docutils literal notranslate"><span class="pre">scatter_matrix</span></code> on the Pandas website for more information! You may need to make the figure bigger to get a good look at it.</p>
+<p><strong>Note</strong>: There is a similar sort of plot that can be made with the <a class="reference external" href="https://seaborn.pydata.org/index.html">seaborn</a> package, which you may have seen before. If so, do you remember what it is?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✅ <strong>Question 4</strong>: Does this visualization help you to determine the features that might be useful for classification? Why or why not?</p>
+<p><font size=+3>✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text). <strong>Practice using appropriate Markdown formating to make your answer’s easy to read.</strong></p>
+</div>
+<div class="section" id="color-coding-your-data">
+<h3>3.2 Color coding your data<a class="headerlink" href="#color-coding-your-data" title="Permalink to this headline">¶</a></h3>
+<p>The default scatter matrix probably isn’t as helpful as we might hope as it’s impossible to tell which points on the plot represent our classes/sepcies.</p>
+<p>We could really use a separate color indication for each dot so we can tell the species apart. Essentially, we need to create an array such that, for each observation in the DataFrame, we can assign a color value to associate it with the appropriate species. It could be just an integer, or it could be one of the standard colors such as “red”.</p>
+<p><strong>✅ Do This:</strong> Create a new list, array, or Pandas Series object that maps each species to a particular color. Then recreate the scatter matrix using the <code class="docutils literal notranslate"><span class="pre">c</span></code> argument to give the points in the plot different colors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hope you got something that’s a little more useful! OK, how do we read this now?</p>
+<ul class="simple">
+<li><p>The diagonal shows the distribution of the four  numeric variables of our example data.</p></li>
+<li><p>In the other cells of the plot matrix, we have the scatterplots (i.e. correlation plot) of each variable combination of our dataframe.</p></li>
+</ul>
+<p>✅ <strong>Question 5</strong>: Are you better able to discern features that might be useful in classfying irises? What can you say about the features of each iris species? Can you separate one species easily? If so, using which feature(s)?</p>
+<p><font size=+3>✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text). <strong>Practice using appropriate Markdown formating to make your answer’s easy to read.</strong></p>
+</div>
+<div class="section" id="separating-species-of-irises">
+<h3>3.3 Separating species of irises<a class="headerlink" href="#separating-species-of-irises" title="Permalink to this headline">¶</a></h3>
+<p>Now we will use the feature(s) you found above to try to separate iris species. In future parts of the course, we may explore how to do this using models, but for now, you will try to do this by slicing the DataFrame.</p>
+<p><strong>✅ Do This:</strong> One of these species is obviously easier to separate than the others. Can you use a Boolean mask on the dataframe and isolate that one species using the features and <em>not the species label</em>? Try to do so below and confirm that you were successful.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>✅ Do This:</strong> Can you write a sequence of Boolean masks that separate the other two as well? Are these as effective as the first? Can you think of anything you might do to improve the separation?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><font size=+3>✎</font> Do This - Erase the contents of this cell and replace it with your answer. How effective your Boolean mask separation of the 3 species? Any ideas for improvements?</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="what-if-we-didn-t-have-pandas-to-read-in-this-data">
+<h2>4 What if we didn’t have Pandas to read in this data?<a class="headerlink" href="#what-if-we-didn-t-have-pandas-to-read-in-this-data" title="Permalink to this headline">¶</a></h2>
+<p>While Pandas makes life pretty easy for reading in csv and other file formats, all of this functionality is built on top of the standard Python capability. Python can natively open and read files lines by line, but working with files in this context might not be something you’re familiar with. For this part of the assignment, you’re going to explore how you can use <strong>just Python</strong> without any special packages to read in the iris data.</p>
+<div class="section" id="code-review-loading-the-iris-data-with-basic-python">
+<h3>4.1 Code review: Loading the iris data with basic Python<a class="headerlink" href="#code-review-loading-the-iris-data-with-basic-python" title="Permalink to this headline">¶</a></h3>
+<p><strong>✅ Do This:</strong>  To get started, <strong>you’ll need to download the following file</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/msu-cmse-courses/cmse202-S21-student/master/code_samples/my_pandas.py</span></code></p>
+<p><strong>✅ Do This:</strong> Once you have the file downloaded and in the same location as this notebook <strong>open the file and read through it carefully</strong>. As you read the file <strong>add comments to the lines marked with <code class="docutils literal notranslate"><span class="pre">#</span></code> to explain what you understand the code to be doing</strong>.</p>
+<p>There may be bits of Python code that you’ve not encounted before so make sure to <strong>talk with your group</strong> and <strong>search for information on the internet</strong> as you try to make sense of the code!</p>
+<p>Jot down some of the things you learned or struggled you had in the cell below.</p>
+<p><font size=+3>✎</font> Do This - Erase the contents of this cell and make note of anything new you learned from reading through the code or highlight anything you don’t feel like you understand.</p>
+</div>
+<div class="section" id="using-the-code-importing-the-functions-and-reading-in-the-data">
+<h3>4.2 Using the code: importing the functions and reading in the data<a class="headerlink" href="#using-the-code-importing-the-functions-and-reading-in-the-data" title="Permalink to this headline">¶</a></h3>
+<p>Now that you have the hand-made functions for reading in the iris data, we’re going to practice <strong>importing functions from script and then using them in your notebook</strong>.</p>
+<p>The technique for doing this is the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="p">[</span><span class="n">PACKAGENAME</span><span class="p">]</span> <span class="kn">import</span> <span class="p">[</span><span class="n">FUNCTION</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Where “PACKAGENAME” is the name of the script but without the “.py” part. So for <code class="docutils literal notranslate"><span class="pre">my_pandas.py</span></code>, the PACKAGENAME would be <code class="docutils literal notranslate"><span class="pre">my_pandas</span></code>. Then the FUNCTION is the name of the function from the script that you want to import, e.g. <code class="docutils literal notranslate"><span class="pre">my_pandas_idx</span></code>.</p>
+<p><strong>We’ll using this functionality in future assignments, so make sure you feel comfortable with this idea.</strong></p>
+<p><strong>✅ Do This:</strong> Import the <code class="docutils literal notranslate"><span class="pre">my_pandas</span></code> function and the <code class="docutils literal notranslate"><span class="pre">my_pandas_idx</span></code> function (you can do this on one line, check to see if anyone one in your group knows how). Then, <strong>use these two functions to first read in the data and then extract just the second column from the data</strong>.</p>
+<p>Once you’ve done this, <strong>print the first three rows of the iris data and all of the second column.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="you-made-it-to-the-end">
+<h3>🛑 You made it to the end!<a class="headerlink" href="#you-made-it-to-the-end" title="Permalink to this headline">¶</a></h3>
+<p>Is there anything that we covered today that you’re still not feeling certain about? Talk to your group or check in with an instructor.</p>
+<hr class="docutils" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/day-1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="day-1_Pre-Class_pandas.html" title="previous page">Day 1 Pre-Class Assignment: Pandas</a>
+    <a class='right-next' id="next-link" href="../day-2/day-2_pandas_and_plotting.html" title="next page">Day 2 Pre-class Assignment: Intro to Machine Learning</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, and Jane Kim<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

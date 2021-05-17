@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2 Pre-class Assignment: Intro to Machine Learning &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Day 3 In-Class Assignment: Machine Learning" href="../day-3/day-3_classification.html" />
+    <link rel="prev" title="Day 1 In-Class Assignment: Pandas and exploring data" href="../day-1/day-1_In-Class_pandas.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">2021 MSU REU Machine Learning Short Course</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   2021 MSU REU Short Course on Machine Learning
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/day-1_Pre-Class_pandas.html">
+   Day 1 Pre-Class Assignment: Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/day-1_In-Class_pandas.html">
+   Day 1 In-Class Assignment: Pandas and exploring data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Day 2 Pre-class Assignment: Intro to Machine Learning
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Modeling Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-3/day-3_classification.html">
+   Day 3 In-Class Assignment: Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-4/day-4_Pre-Class_regression.html">
+   Day-4 Pre-Class Assignment: Polynomial Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-4/day-4_In-Class_regression.html">
+   Day 4 In-Class Assignment: Multidimensional Regression
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-2/day-2_pandas_and_plotting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-2/day-2_pandas_and_plotting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goals-for-today-s-pre-class-assignment">
+   Goals for today’s pre-class assignment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#our-imports">
+   Our Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-quick-introduction-to-machine-learning">
+   1. A quick introduction to machine learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#various-kinds-of-machine-learning">
+   2. Various kinds of machine learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification">
+   3. Classification
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-some-data">
+     3.1 Making some data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-some-examples">
+     3.2 Plot some examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started-with-classification-logistic-regression">
+   4. Getting Started with Classification: Logistic Regression
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="day-2-pre-class-assignment-intro-to-machine-learning">
+<h1>Day 2 Pre-class Assignment: Intro to Machine Learning<a class="headerlink" href="#day-2-pre-class-assignment-intro-to-machine-learning" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goals-for-today-s-pre-class-assignment">
+<h2>Goals for today’s pre-class assignment<a class="headerlink" href="#goals-for-today-s-pre-class-assignment" title="Permalink to this headline">¶</a></h2>
+</p>
+<ol class="simple">
+<li><p>Define machine learning and describe the seven steps used to build machine learning models of data.</p></li>
+<li><p>Explain what a classification problem is, and the concepts of false positives and false negatives.</p></li>
+<li><p>Make a data set that could be used for classification and plot the data</p></li>
+</ol>
+</div>
+<div class="section" id="our-imports">
+<h2>Our Imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-quick-introduction-to-machine-learning">
+<h2>1. A quick introduction to machine learning<a class="headerlink" href="#a-quick-introduction-to-machine-learning" title="Permalink to this headline">¶</a></h2>
+<p>In this assignment, we’ll begin our dive into “Machine Learning”. You may have heard the term thrown about before, but might not entirely understand what it is or how it is used.</p>
+<p>The two videos included below should give you a basic understanding for what machine learning is and how it is used.</p>
+<p><strong>Watch the videos and answer the questions.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;HcqpanDadyQ&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="640"
+            height="360"
+            src="https://www.youtube.com/embed/HcqpanDadyQ"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
+</div>
+<p><strong>Question 1 :</strong> List three examples of machine learning in our world today.</p>
+<p><font size=8 color="#009600">✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text)</p>
+<p><strong>Question 2:</strong> According to video, what is the definition of machine learning?</p>
+<p><font size=8 color="#009600">✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;nKW8Ndu7Mjw&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="640"
+            height="360"
+            src="https://www.youtube.com/embed/nKW8Ndu7Mjw"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
+</div>
+<p><strong>Question 3:</strong> Why might it be important to seperate the testing data from the training data ?</p>
+<p><font size=8 color="#009600">✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text)</p>
+<p><strong>Question 4:</strong> Why is it important to prepare data before putting it in to a model?</p>
+<p><font size=8 color="#009600">✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text)</p>
+<p><strong>Question 5</strong>: The video is about the “7 Steps of Machine Learning”. Those steps are reproduced below. <strong>In your own words, try to explain what each of those steps involve with a sentence or two.</strong></p>
+<p><font size=8 color="#009600">✎</font> Do This - Fill out the 7 Steps of Machine Learning:</p>
+<ol class="simple">
+<li><p>Gathering data involves…</p></li>
+<li><p>Preparing that Data involves…</p></li>
+<li><p>Choosing a Model involves…</p></li>
+<li><p>Training involves…</p></li>
+<li><p>Evaluation involves…</p></li>
+<li><p>Hyperparameter Tuning involves…</p></li>
+<li><p>Prediction involves…</p></li>
+</ol>
+</div>
+<div class="section" id="various-kinds-of-machine-learning">
+<h2>2. Various kinds of machine learning<a class="headerlink" href="#various-kinds-of-machine-learning" title="Permalink to this headline">¶</a></h2>
+<p>There are lots of different kinds of machine learning out there. You might only associate ML with the kind of deep neural networks you see discussed by Google. But there are many kinds. Look at the image below:</p>
+<img src="https://drive.google.com/uc?id=1f-1hXjQwMaVaZ5dGQzJFsBDMo-QnPu-Z"><p>See anything that looks familiar? Regression is a whole category and OLS is one kind of machine learning. The diagram above is based on algorithmic approaches but here is another based on the process:</p>
+<img src="https://drive.google.com/uc?id=1gi6AKhfpA2XW9InP4iQ34lqJRGu7D8rb"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;TJveOYsK6MY&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="640"
+            height="360"
+            src="https://www.youtube.com/embed/TJveOYsK6MY"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
+</div>
+<p><strong>Question 6:</strong> Look up the terms “Supervised”, “Unsupervised” and “Reinforcement” Learning. Provide a brief definition of each below. You could of course copy from somewhere, but see if you can do it in your own terms</p>
+<p><font size=8 color="#009600">✎</font> Supervised learning is:</p>
+<p><font size=8 color="#009600">✎</font> Unsupervised learning is:</p>
+<p><font size=8 color="#009600">✎</font> Reinforcement learning is:</p>
+</div>
+<div class="section" id="classification">
+<h2>3. Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
+<p>Classification represents a group of algorithms that map observations (features) into class labels. We’ve seen examples of classification before. The Iris data set is an example of mapping a set of observations, 4 features per observation, into one of three class labels, a particular Iris type. It’s easy to imagine many applications and there are multiple algorithms focus on the classification task.</p>
+<p>Classification is a <strong>supervised</strong> learning task. One of the principal concerns we have for a classifier is how often it makes mistakes (i.e., false positives and false negatives relative to its true predictions)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;Ivc8c9ijWIQ&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="640"
+            height="360"
+            src="https://www.youtube.com/embed/Ivc8c9ijWIQ"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
+</div>
+<p><strong>Question 7:</strong> After watching this video explain in your own words the concepts of false positives and false negatives. Feel free to use your own examples.</p>
+<p><font size=8 color="#009600">✎</font> Answer here.</p>
+<div class="section" id="making-some-data">
+<h3>3.1 Making some data<a class="headerlink" href="#making-some-data" title="Permalink to this headline">¶</a></h3>
+<p>We spend a lot of time reading in data but sometimes it is easier to generate some data, under our control, and see what we get. To get a better handle on how easy/hard classification might be, we can use the function <code class="docutils literal notranslate"><span class="pre">make_classification</span></code></p>
+<p>This function is part of the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> library, which is the standard for machine learning in python, much like <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is the standard for data handling. We have used <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> in the past, mostly for its improved statistical properties, but <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> is a big, broad, and well maintained library. We will use it a lot during the rest of the class as will you in your data science future.</p>
+<p>Take a look at the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html#sklearn.datasets.make_classification"> make-classification </a> documentation. It has a lot of parts but most are fairly clear:</p>
+<ul class="simple">
+<li><p>how many samples</p></li>
+<li><p>how many features</p></li>
+<li><p>how many of those features are:</p>
+<ul>
+<li><p>informative</p></li>
+<li><p>redundant (basically random noise)</p></li>
+<li><p>repeated (some combo of informative and redundant)</p></li>
+</ul>
+</li>
+<li><p>number of classes (how many labels)</p></li>
+</ul>
+<p>It returns two values: an array of shape(n_samples, n_features) and the integer labels (the class they belong to) for each sample.</p>
+<p>You can look at the rest or take defaults.</p>
+<p>Let’s start by making a scatter plot of a sample of data with 3 features including 1 that is redundant with only 1 cluster per class (i.e., 1 grouping per labeled class). Because we have 3 features, we should look at scatter plots of each pair of features. Note that we use <code class="docutils literal notranslate"><span class="pre">c=class_labels</span></code> to send <code class="docutils literal notranslate"><span class="pre">class_labels</span></code> to the color attribute, which colorizes different classes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="p">,</span> <span class="n">class_labels</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_features</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n_redundant</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">features</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">class_labels</span><span class="p">,</span> <span class="n">ec</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;feature 0&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;feature 1&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">features</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">class_labels</span><span class="p">,</span> <span class="n">ec</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;feature 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;feature 2&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">features</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">class_labels</span><span class="p">,</span> <span class="n">ec</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;feature 0&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;feature 2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;feature 2&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Given your plots (you might run the code a few times), what does a “redundant feature” appear to be?</p>
+<p><font size=8 color="#009600">✎</font> Answer here.</p>
+</div>
+<div class="section" id="plot-some-examples">
+<h3>3.2 Plot some examples<a class="headerlink" href="#plot-some-examples" title="Permalink to this headline">¶</a></h3>
+<p>Some data are easier to classify than others. You might remember this from the work we did with the iris data set earlier in the semester. As a reminder, we include a plot of the iris data set below along with the classfication of each sample.</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Iris_dataset_scatterplot.svg/768px-Iris_dataset_scatterplot.svg.png"/>
+<p>Let’s plot some examples of made-up data to explore in what way we might find it easier or difficult to classify that data. Please generate:</p>
+<ul class="simple">
+<li><p>100 samples (that’s the default), 2 features, no redundant features, one informative feature, one cluster per class</p></li>
+<li><p>100 samples (that’s the default), 2 features, no redundant features, <strong>two</strong> informative features, one cluster per class</p></li>
+<li><p>100 samples (that’s the default), 4 features, <strong>two</strong>  redundant features, <strong>two</strong> informative features, one cluster per class</p></li>
+<li><p>100 samples (that’s the default), 4 features, <strong>two</strong>  redundant features, <strong>two</strong> informative features, <strong>two</strong> clusters per class</p></li>
+</ul>
+<p>Make a scatter plot of these data. For the data with 4 features, you might want to look at different pairs of features before answering the question below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Given the plots here, which of these would be easiest to classify? Why? You might think back to the iris data set if it helps.</p>
+<p><font size=8 color="#009600">✎</font> Answer here.</p>
+</div>
+</div>
+<div class="section" id="getting-started-with-classification-logistic-regression">
+<h2>4. Getting Started with Classification: Logistic Regression<a class="headerlink" href="#getting-started-with-classification-logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p>We will learn a variety of classifiers in this class. We will start with one of the most widely used ones: Logistic Regression. The video below provides a conceptual explanation of the technique.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;yIYKR4sgzI8&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="640"
+            height="360"
+            src="https://www.youtube.com/embed/yIYKR4sgzI8"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
+</div>
+<p>Think about a siutation where you might want to classify some set of things using logistic regression. What is that set? What are the classes? And what kinds of features would you use to build that model?</p>
+<p><font size=8 color="#009600">✎</font> Answer here.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/day-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../day-1/day-1_In-Class_pandas.html" title="previous page">Day 1 In-Class Assignment: Pandas and exploring data</a>
+    <a class='right-next' id="next-link" href="../day-3/day-3_classification.html" title="next page">Day 3 In-Class Assignment: Machine Learning</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, and Jane Kim<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
