@@ -1,4 +1,4 @@
-name: teaching
+name: ml-short-course
 channels:
   - conda-forge
   - defaults
