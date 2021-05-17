@@ -408,9 +408,10 @@ instance/
 # Scrapy stuff:
 .scrapy
 
-# Sphinx documentation
-docs/_build/
-doc/_build/
+## COMMENTED OUT FOR HTML FILES
+## Sphinx documentation
+#docs/_build/
+#doc/_build/
 
 # PyBuilder
 target/
