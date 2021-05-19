@@ -1,5 +1,9 @@
 - file: intro.md
 
+- part: Schedule
+  chapters:
+  - file: schedule.md
+
 - part: Working with Data
   chapters:
   - file: notebooks/day-1/day-1_Pre-Class_pandas.ipynb
