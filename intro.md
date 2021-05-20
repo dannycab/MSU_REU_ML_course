@@ -21,9 +21,9 @@ By the end of this six week short course, you should be able to:
 
 The course will be conducted over the next six weeks. We will meet virtually via Zoom from 2-4pm EDT. The course will make use of Jupyter notebooks, so you will need to make sure that you have installed the [Anaconda distribution of Python with Jupyter](https://www.anaconda.com/products/individual) or something equivalent. The course is broken down into 6 topics:
 
-1. May 27th - Reading, organizing, cleaning, and slicing/filtering data with pandas (instructor: DC)
-2. June 3rd - Plotting data and creating models of data (instructor: DC)
-3. June 10th - Classification models using sci-kit learn (instructor: DC)
-4. June 17th - Regression models using sci-kit learn (instructor: DC)
-5. June 24th - Advanced topics 1 (instructor: JK)
-6. July 1st - Advanced topics 2 (instructor: JB)
+1. May 27th - Introduction to Jupyter Notebooks, Working with Data (instructor: DC)
+2. June 3rd - Building a Regression Model (instructor: DC)
+3. June 10th - Building a Classification Model (instructor: DC)
+4. June 17th - Using A Multiplicity of Models (instructor: DC)
+5. June 24th - Advanced topics 1 (instructor: JB)
+6. July 1st - Advanced topics 2 (instructor: JK)

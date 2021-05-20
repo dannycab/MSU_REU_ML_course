@@ -16,9 +16,6 @@ repository:
 html:
   use_repository_button: true
 
-launch_buttons:
-  binderhub_url             : https://mybinder.org
-
 html:
   use_issues_button: true
 
@@ -64,9 +61,9 @@ latex:
 launch_buttons:
   notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
-#  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  colab_url                 : "https://colab.research.google.com"
+  jupyterhub_url            : "https://jupyterhub.egr.msu.edu"  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
   thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
-#  colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
 
 repository:
   url                       : https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html  # The URL to your book's repository

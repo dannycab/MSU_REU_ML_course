@@ -6,12 +6,14 @@
 
 - part: Working with Data
   chapters:
-  - file: notebooks/day-1/day-1_Pre-Class_pandas.ipynb
-  - file: notebooks/day-1/day-1_In-Class_pandas.ipynb
-  - file: notebooks/day-2/day-2_pandas_and_plotting.ipynb
+  - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb
+  - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb
+  - file: day1_wrap_up.md
+
 
 - part: Modeling Data
   chapters:
+  - file: notebooks/day-2/day-2_pandas_and_plotting.ipynb
   - file: notebooks/day-3/day-3_classification.ipynb
   - file: notebooks/day-4/day-4_Pre-Class_regression.ipynb
   - file: notebooks/day-4/day-4_In-Class_regression.ipynb

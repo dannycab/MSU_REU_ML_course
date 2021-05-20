@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 1 In-Class Assignment: Pandas and exploring data &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    <title>Exploring data with Pandas &#8212; 2021 MSU REU Machine Learning Short Course</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,8 +54,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Day 2 Pre-class Assignment: Intro to Machine Learning" href="../day-2/day-2_pandas_and_plotting.html" />
-    <link rel="prev" title="Day 1 - Getting Started with Pandas" href="Day-1_Getting-Started-with-Pandas.html" />
+    <link rel="next" title="Wrap Up" href="../../day1_wrap_up.html" />
+    <link rel="prev" title="Getting Started with Pandas" href="Day-1_Getting-Started-with-Pandas.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -112,17 +112,17 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Day-1_Getting-Started-with-Pandas.html">
-   Day 1 - Getting Started with Pandas
+   Getting Started with Pandas
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Day 1 In-Class Assignment: Pandas and exploring data
+   Exploring data with Pandas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../day-2/day-2_pandas_and_plotting.html">
-   Day 2 Pre-class Assignment: Intro to Machine Learning
+  <a class="reference internal" href="../../day1_wrap_up.html">
+   Wrap Up
   </a>
  </li>
 </ul>
@@ -132,6 +132,11 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/day-2_pandas_and_plotting.html">
+   Day 2 Pre-class Assignment: Intro to Machine Learning
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../day-3/day-3_classification.html">
    Day 3 In-Class Assignment: Machine Learning
@@ -187,7 +192,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/day-1/day-1_In-Class_pandas.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -212,21 +217,21 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-1/day-1_In-Class_pandas.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-1/day-1_In-Class_pandas.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-1/day-1_In-Class_pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -365,8 +370,8 @@
         
               <div>
                 
-  <div class="section" id="day-1-in-class-assignment-pandas-and-exploring-data">
-<h1>Day 1 In-Class Assignment: Pandas and exploring data<a class="headerlink" href="#day-1-in-class-assignment-pandas-and-exploring-data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="exploring-data-with-pandas">
+<h1>Exploring data with Pandas<a class="headerlink" href="#exploring-data-with-pandas" title="Permalink to this headline">¶</a></h1>
 <img src="https://miro.medium.com/max/819/1*Dss7A8Z-M4x8LD9ccgw7pQ.png" width="500px"><div class="section" id="goals-for-today-s-in-class-assignment">
 <h2>Goals for today’s In-class assignment<a class="headerlink" href="#goals-for-today-s-in-class-assignment" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
@@ -612,8 +617,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Day-1_Getting-Started-with-Pandas.html" title="previous page">Day 1 - Getting Started with Pandas</a>
-    <a class='right-next' id="next-link" href="../day-2/day-2_pandas_and_plotting.html" title="next page">Day 2 Pre-class Assignment: Intro to Machine Learning</a>
+    <a class='left-prev' id="prev-link" href="Day-1_Getting-Started-with-Pandas.html" title="previous page">Getting Started with Pandas</a>
+    <a class='right-next' id="next-link" href="../../day1_wrap_up.html" title="next page">Wrap Up</a>
 
         </div>
         
