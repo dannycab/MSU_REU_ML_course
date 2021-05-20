@@ -17,3 +17,7 @@
   - file: notebooks/day-3/day-3_classification.ipynb
   - file: notebooks/day-4/day-4_Pre-Class_regression.ipynb
   - file: notebooks/day-4/day-4_In-Class_regression.ipynb
+
+- part: Acknowledgements
+  chapters:
+  - file: contributions.md

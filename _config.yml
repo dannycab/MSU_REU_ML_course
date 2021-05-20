@@ -2,6 +2,8 @@ title: 2021 MSU REU Machine Learning Short Course
 author: Danny Caballero, Morten Hjorth-Jensen, Julie Butler, and Jane Kim
 logo: images/logo.png
 
+copyright: "2021, Michigan State University"
+
 format: jb-book
 root: intro.md
 

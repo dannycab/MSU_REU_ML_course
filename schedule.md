@@ -19,8 +19,6 @@
 
 * [Day 1 notebook - Getting Started](./notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb)
 * [Day 1 notebook - Exploring Data](./notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb)
-* [Data file](./notebooks/day-1/iris.data)
-* [Names file](./notebooks/day-1/iris.names)
 
 ## Day 2 - Building a Regression Model
 

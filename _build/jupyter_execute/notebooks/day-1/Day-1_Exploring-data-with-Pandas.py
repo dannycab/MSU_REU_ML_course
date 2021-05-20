@@ -5,19 +5,19 @@
 # 
 # <img src="https://miro.medium.com/max/819/1*Dss7A8Z-M4x8LD9ccgw7pQ.png" width="500px">
 
-# ## Goals for today's In-class assignment 
+# Today, we will:
 # 
-# 1. Make sure that everyone remembers how to do the basics with Pandas.
-# 2. Do a little data analysis with some existing data sets.
-# 3. Make some simple visualizations of the data.
+# 1. Make sure that everyone remembers how to do the basics with `pandas`.
+# 2. Do some data analysis with existing data sets.
+# 3. Make some visualizations of the data.
 # 
-# ### Assignment instructions
+# ## Notebook instructions
 # 
 # Work through the notebook making sure to write all necessary code and answer any questions.
 # 
-# ## Agenda for today:
+# ### Outline:
 # 
-# 1. [Review of pre-class assignment](#review)
+# 1. [Review of `pandas`](#review)
 # 2. [Loading and exploring a dataset](#loading)
 # 3. [Visualizing your data](#visualizing)
 
@@ -35,27 +35,25 @@ from pandas.plotting import scatter_matrix
 
 # ----
 # <a id="review"></a>
-# ## 1. Review of pre-class assignment
+# ## 1. Review of `pandas`
 # 
-# Did anyone have any specific issues with the pre-class assignment?
-# 
-# Let's take a moment to highlight some key concepts. **Discuss with your table** the following prompts and write down a brief definition of each of these concepts.
+# Let's take a moment to highlight some key concepts. **Discuss with your group mates** the following prompts and write down a brief definition of each of these concepts.
 # 
 # **If you don't feel like you have good working definitions yet, try doing a quick internet search to see if you can find a definition that makes sense to you.**
 # 
 # &#9989; **Question 1:** What are the features of a Pandas Series?
 
-# <font size=+3>&#9998;</font> Do This -  Write your disussion notes here.
+# <font size=+3>&#9998;</font> Do This -  Write your discussion notes here.
 
 # &#9989; **Question 2:** What are the differences between a DataFrame and a Series?
 
-# <font size=+3>&#9998;</font> Do This -  Write your disussion notes here.
+# <font size=+3>&#9998;</font> Do This -  Write your discussion notes here.
 
 # ---
 # <a id="loading"></a>
 # ## 2. Loading and exploring a dataset
 # 
-# Though you review how one can build a DataFrame by hand in your pre-class assignment, the goal is typically to read some sort of preexisting data **into** a DataFrame so we can work with it. 
+# The goal is typically to read some sort of preexisting data **into** a DataFrame so we can work with it. 
 # 
 # Pandas is pretty flexible about reading in data and can read in a [variety of formats](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html). However, it sometimes needs a little help. Let's start with a "toy" dataset, the <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set"> Iris Data set </a>. 
 # 
@@ -73,9 +71,9 @@ from pandas.plotting import scatter_matrix
 # 
 # **&#9989; Do This:**  To get started, **you'll need to download the following two files**:
 # 
-# `https://raw.githubusercontent.com/msu-cmse-courses/cmse202-S21-student/master/data/iris.data`
+# `https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-1/iris.data`
 # 
-# `https://raw.githubusercontent.com/msu-cmse-courses/cmse202-S21-student/master/data/iris.names`
+# `https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-1/iris.names`
 # 
 # Once you've done so, you should have access to the following : `iris.data` and `iris.names`. Open them both and discuss what you see. This is a good opportunity to use you favorite text editor or use something new. Feel free to ask your group members or instructors what they prefer to use.
 
@@ -134,7 +132,7 @@ pd.set_option('display.max_columns', 500)
 
 # -----
 # <a id="visualizing"></a>
-# ## 3 Visualizing your data
+# ## 3. Visualizing your data
 # 
 # We are often limited in understanding our data because it is complex, has many features, or is quite large. In these situations, visualizations (plots, charts, and graphs) can help represent our data in ways that help us gain greater insight into the trends, features, and classes we want to understand.
 
@@ -154,7 +152,7 @@ pd.set_option('display.max_columns', 500)
 
 # &#9989; **Question 4**: Does this visualization help you to determine the features that might be useful for classification? Why or why not?
 
-# <font size=+3>&#9998;</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text). **Practice using appropriate Markdown formating to make your answer's easy to read.**
+# <font size=+3>&#9998;</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text). **Practice using appropriate Markdown formating to make your answers easy to read.**
 
 # ### 3.2 Color coding your data
 # 
@@ -176,7 +174,7 @@ pd.set_option('display.max_columns', 500)
 
 # &#9989; **Question 5**: Are you better able to discern features that might be useful in classfying irises? What can you say about the features of each iris species? Can you separate one species easily? If so, using which feature(s)?
 
-# <font size=+3>&#9998;</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text). **Practice using appropriate Markdown formating to make your answer's easy to read.**
+# <font size=+3>&#9998;</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text). **Practice using appropriate Markdown formating to make your answers easy to read.**
 
 # ### 3.3 Separating species of irises
 
@@ -201,15 +199,15 @@ pd.set_option('display.max_columns', 500)
 # <font size=+3>&#9998;</font> Do This - Erase the contents of this cell and replace it with your answer. How effective your Boolean mask separation of the 3 species? Any ideas for improvements?
 
 # ---
-# ## 4 What if we didn't have Pandas to read in this data?
+# ## 4. What if we didn't have Pandas to read in this data?
 # 
-# While Pandas makes life pretty easy for reading in csv and other file formats, all of this functionality is built on top of the standard Python capability. Python can natively open and read files lines by line, but working with files in this context might not be something you're familiar with. For this part of the assignment, you're going to explore how you can use **just Python** without any special packages to read in the iris data.
+# While Pandas makes life pretty easy for reading in csv and other file formats, all of this functionality is built on top of the standard Python capability. Python can natively open and read files lines by line, but working with files in this context might not be something you're familiar with. For this part of the notebook, you're going to explore how you can use **just Python** without any special packages to read in the iris data.
 # 
 # ### 4.1 Code review: Loading the iris data with basic Python
 # 
 # **&#9989; Do This:**  To get started, **you'll need to download the following file**:
 # 
-# `https://raw.githubusercontent.com/msu-cmse-courses/cmse202-S21-student/master/code_samples/my_pandas.py`
+# `https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/code_samples/my_pandas.py`
 # 
 # **&#9989; Do This:** Once you have the file downloaded and in the same location as this notebook **open the file and read through it carefully**. As you read the file **add comments to the lines marked with `#` to explain what you understand the code to be doing**. 
 # 
@@ -230,7 +228,7 @@ pd.set_option('display.max_columns', 500)
 # ```
 # Where "PACKAGENAME" is the name of the script but without the ".py" part. So for `my_pandas.py`, the PACKAGENAME would be `my_pandas`. Then the FUNCTION is the name of the function from the script that you want to import, e.g. `my_pandas_idx`.
 # 
-# **We'll using this functionality in future assignments, so make sure you feel comfortable with this idea.**
+# **We'll using this functionality in the future, so make sure you feel comfortable with this idea.**
 # 
 # **&#9989; Do This:** Import the `my_pandas` function and the `my_pandas_idx` function (you can do this on one line, check to see if anyone one in your group knows how). Then, **use these two functions to first read in the data and then extract just the second column from the data**.
 # 
