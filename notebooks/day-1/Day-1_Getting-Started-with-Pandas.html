@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 1 Pre-Class Assignment: Pandas &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    <title>Getting Started with Pandas &#8212; 2021 MSU REU Machine Learning Short Course</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,7 +54,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Day 1 In-Class Assignment: Pandas and exploring data" href="day-1_In-Class_pandas.html" />
+    <link rel="next" title="Exploring data with Pandas" href="Day-1_Exploring-data-with-Pandas.html" />
     <link rel="prev" title="Detailed Schedule" href="../../schedule.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -112,17 +112,17 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Day 1 Pre-Class Assignment: Pandas
+   Getting Started with Pandas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="day-1_In-Class_pandas.html">
-   Day 1 In-Class Assignment: Pandas and exploring data
+  <a class="reference internal" href="Day-1_Exploring-data-with-Pandas.html">
+   Exploring data with Pandas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../day-2/day-2_pandas_and_plotting.html">
-   Day 2 Pre-class Assignment: Intro to Machine Learning
+  <a class="reference internal" href="../../day1_wrap_up.html">
+   Wrap Up
   </a>
  </li>
 </ul>
@@ -132,6 +132,11 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/day-2_pandas_and_plotting.html">
+   Day 2 Pre-class Assignment: Intro to Machine Learning
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../day-3/day-3_classification.html">
    Day 3 In-Class Assignment: Machine Learning
@@ -187,7 +192,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/day-1/day-1_Pre-Class_pandas.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -212,21 +217,21 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-1/day-1_Pre-Class_pandas.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-1/day-1_Pre-Class_pandas.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-1/day-1_Pre-Class_pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -247,25 +252,20 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals-for-today-s-pre-class-assignment">
-   Goals for today’s pre-class assignment
+  <a class="reference internal nav-link" href="#notebook-instructions">
+   Notebook instructions
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#assignment-instructions">
-     Assignment instructions
+    <a class="reference internal nav-link" href="#imports-for-this-notebook">
+     Imports for this Notebook
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#imports-for-the-day">
-   Imports for the Day
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reviewing-the-basics-of-pandas">
-   1. Reviewing the basics of  Pandas
+  <a class="reference internal nav-link" href="#the-basics-of-pandas">
+   1. The basics of Pandas
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -286,8 +286,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reviewing-the-pandas-dataframe">
-   2 Reviewing the Pandas Dataframe
+  <a class="reference internal nav-link" href="#the-pandas-dataframe">
+   2. The Pandas Dataframe
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -319,22 +319,18 @@
         
               <div>
                 
-  <div class="section" id="day-1-pre-class-assignment-pandas">
-<h1>Day 1 Pre-Class Assignment: Pandas<a class="headerlink" href="#day-1-pre-class-assignment-pandas" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="goals-for-today-s-pre-class-assignment">
-<h2>Goals for today’s pre-class assignment<a class="headerlink" href="#goals-for-today-s-pre-class-assignment" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="getting-started-with-pandas">
+<h1>Getting Started with Pandas<a class="headerlink" href="#getting-started-with-pandas" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook we will be:</p>
 <ol class="simple">
 <li><p>Reviewing the basics of Pandas</p></li>
 <li><p>Reviewing Pandas Dataframes</p></li>
 </ol>
-<div class="section" id="assignment-instructions">
-<h3>Assignment instructions<a class="headerlink" href="#assignment-instructions" title="Permalink to this headline">¶</a></h3>
-<p>Watch any videos below, do any of the associated readings, and complete the assigned programming problems.  Please get started early, and come to office hours if you have any questions! You should also use Slack to help each other thought any issues you run into!</p>
+<div class="section" id="notebook-instructions">
+<h2>Notebook instructions<a class="headerlink" href="#notebook-instructions" title="Permalink to this headline">¶</a></h2>
 <p>Recall that to make notebook cells that have Python code in them do something, hold down the ‘shift’ key and then press the ‘enter’ key (you’ll have to do this to get the YouTube videos to run).  To edit a cell (to add answers, for example) you double-click on the cell, add your text, and then enter it by holding down ‘shift’ and pressing ‘enter’</p>
-</div>
-</div>
-<div class="section" id="imports-for-the-day">
-<h2>Imports for the Day<a class="headerlink" href="#imports-for-the-day" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="imports-for-this-notebook">
+<h3>Imports for this Notebook<a class="headerlink" href="#imports-for-this-notebook" title="Permalink to this headline">¶</a></h3>
 <p>One of the downsides of notebooks is knowing when things got imported and what modules were important. Trying to get into the habit of including all of the important imports at the top of the notebook is a good way to ensure that you don’t run into issues later on in the notebook. When you restart the notebook, you can run that first cell to get the imports right.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -348,16 +344,16 @@
 </div>
 </div>
 </div>
+</div>
 <hr class="docutils" />
-<div class="section" id="reviewing-the-basics-of-pandas">
-<h2>1. Reviewing the basics of  Pandas<a class="headerlink" href="#reviewing-the-basics-of-pandas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-basics-of-pandas">
+<h2>1. The basics of Pandas<a class="headerlink" href="#the-basics-of-pandas" title="Permalink to this headline">¶</a></h2>
 <p>Pandas is a fundamental tool for doing Data Science work in Python. While we can do this work in straight Python, Pandas makes much of that work easier. We cannot do justice to all of Pandas, as it is a big package, but here we’ll remind ourselves of some of the basics. As you do more data science work, you’ll pick more and more of Pandas as you go along.</p>
-<p>What follows should mostly be review. Feel free to reach out and find tutorial pages that might help with reminding you of how Pandas works. Make sure to bookmark any pages or tutorials you find that are particularly useful!</p>
 <div class="section" id="pandas-series">
 <h3>1.1 Pandas Series<a class="headerlink" href="#pandas-series" title="Permalink to this headline">¶</a></h3>
 <p>The basic Pandas data structure is called a <em>Series</em>. It is a sequence, not unlike a numpy array, but with an associated set of labels for each value called the <em>index</em>. If you don’t provide the index labels, Pandas will use the regular 0-based index as the label. Again: if you don’t provide index labels, it will use the numeric index as the index label. That will be important later.</p>
 <p>You can make a Series using either a python <em>dict</em>, with keys as the indices, or by separately providing the values and indices. You can also updated the index labels or reset the labels to the default. Note however that the <code class="docutils literal notranslate"><span class="pre">reset_index</span></code> method does <em>not</em> change the Series but returns, not a Series but a DataFrame, where the original index is preserved as a new column.</p>
-<p>✅ <strong>Review the following example and make sure you understand everything that is happening</strong>.</p>
+<p>✅ <strong>Review the following example and make sure you understand everything that is happening. Discuss with your group mates.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># assumes you have imported Pandas as pd in the cell at the top of this page</span>
@@ -371,10 +367,10 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type:&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">series_noindex</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">series_noindex</span><span class="p">)</span>
 
-<span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;nine&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;ten&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;eleven&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;twelve&#39;</span><span class="p">:</span><span class="mi">12</span> <span class="p">}</span>
-<span class="n">series_dict</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
+<span class="n">my_dictionary</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;nine&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;ten&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;eleven&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;twelve&#39;</span><span class="p">:</span><span class="mi">12</span> <span class="p">}</span>
+<span class="n">series_dictionary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">my_dictionary</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Series from a dictionary&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">series_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">series_dictionary</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -446,14 +442,14 @@ dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">series_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">series_dictionary</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
 
-<span class="n">series_dict</span><span class="p">[</span><span class="s2">&quot;eleven&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">111</span>
-<span class="n">series_dict</span><span class="o">.</span><span class="n">twelve</span> <span class="o">=</span> <span class="mi">122</span>
+<span class="n">series_dictionary</span><span class="p">[</span><span class="s2">&quot;eleven&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">111</span>
+<span class="n">series_dictionary</span><span class="o">.</span><span class="n">twelve</span> <span class="o">=</span> <span class="mi">122</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">series_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">series_dictionary</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -478,8 +474,8 @@ dtype: int64
 </div>
 <div class="section" id="numpy-like-operations">
 <h3>1.3 Numpy like operations<a class="headerlink" href="#numpy-like-operations" title="Permalink to this headline">¶</a></h3>
-<p>Finally, as a reminder, you can do many of the things you learned to do when indexing NumPy arrays with a Pandas Series object as well.</p>
-<p>✅ <strong>Review the following examples to remind yourself how you can use NumPy-style operations to access Series data in Pandas.</strong></p>
+<p>Finally, you can do many of the things you can do with NumPy arrays, such as indexing NumPy arrays, with a Pandas Series object as well.</p>
+<p>✅ <strong>Review the following examples to convince yourself how you can use NumPy-style operations to access Series data in Pandas. Discuss with your group mates.</strong></p>
 <p>Look at how you can work with ranges of the series elements. The labels are ordered and so the following works:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -499,7 +495,7 @@ dtype: int64
 <p>You can also apply <strong>Boolean masks to a Series</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">series_dict</span><span class="p">[</span><span class="n">series_dict</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">series_dictionary</span><span class="p">[</span><span class="n">series_dictionary</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -514,8 +510,8 @@ dtype: int64
 <p>And you can <strong>perform operations</strong> which return a new series (but don’t modify the existing one):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">series_dict</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">series_dict</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">series_dictionary</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">series_dictionary</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -534,13 +530,13 @@ dtype: int64
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="reviewing-the-pandas-dataframe">
-<h2>2 Reviewing the Pandas Dataframe<a class="headerlink" href="#reviewing-the-pandas-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-pandas-dataframe">
+<h2>2. The Pandas Dataframe<a class="headerlink" href="#the-pandas-dataframe" title="Permalink to this headline">¶</a></h2>
 <p>A Pandas DataFrame is a 2 dimensional data structure. The easiest way to think of a DataFrame is as a group of Series objects where each Series represents a column in the 2D structure. As with Series you can make them a number of ways but the standard way is to use a dictionary where the keys are the column <em>headers</em> and the values are a list of values under that header.</p>
 <div align="left"><img src="https://i.ibb.co/C13ybjZ/df.png" alt="df" border="0" width=400></div>
 <p>It is always important to know the <strong>types</strong> in each column as that can affect the kinds of operations you can perform on a column. Listing the <code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> provides such a list. A type of <code class="docutils literal notranslate"><span class="pre">object</span></code> is likely (though not necessarily) a string.</p>
 <p>An index for the rows is provided by default using 0-based array indexing. The use of <code class="docutils literal notranslate"><span class="pre">[]</span></code> label indexing returns a <code class="docutils literal notranslate"><span class="pre">Series</span></code> which is a column with that heading name. The index of the entire DataFrame is used for the returned Series.</p>
-<p>✅ <strong>Run and review the following code:</strong></p>
+<p>✅ <strong>Run and review the following code: Discuss the results with your group mates.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patient_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:[</span><span class="s2">&quot;james&quot;</span><span class="p">,</span><span class="s2">&quot;jim&quot;</span><span class="p">,</span><span class="s2">&quot;joan&quot;</span><span class="p">,</span><span class="s2">&quot;jill&quot;</span><span class="p">],</span>
@@ -599,7 +595,7 @@ Name: age, dtype: int64
 <li><p><code class="docutils literal notranslate"><span class="pre">.iloc</span></code> uses the 0-based index regardless of whether a label exists. It too returns a Series</p></li>
 </ul>
 <p>Indicies and headers are preserved in the Series indexed from a DataFrame</p>
-<p>✅ <strong>Take a look at the following and make sure you can follow how the dataframe is being manipulated.</strong></p>
+<p>✅ <strong>Take a look at the following and make sure you can follow how the dataframe is being manipulated. Discuss with your group mates.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patient_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -662,7 +658,7 @@ age
 <li><p>Make a DataFrame to store student grades. The column headers should be:</p>
 <ul>
 <li><p>Name</p></li>
-<li><p>PID</p></li>
+<li><p>ID</p></li>
 <li><p>Total Percent (out of 100)</p></li>
 <li><p>Final Grade Point (on the 0.0 - 4.0 scale)</p></li>
 </ul>
@@ -671,7 +667,7 @@ age
 <p>Make up some names and values to fill your Dataframe. Include <strong>at least 8 students</strong>.</p>
 <p>Then:</p>
 <ul class="simple">
-<li><p>Set the index to be the Pid</p></li>
+<li><p>Set the index to be the ID</p></li>
 <li><p>Print every student in the dataframe who got a 3.0 or greater</p></li>
 </ul>
 <div class="cell docutils container">
@@ -718,7 +714,7 @@ age
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../../schedule.html" title="previous page">Detailed Schedule</a>
-    <a class='right-next' id="next-link" href="day-1_In-Class_pandas.html" title="next page">Day 1 In-Class Assignment: Pandas and exploring data</a>
+    <a class='right-next' id="next-link" href="Day-1_Exploring-data-with-Pandas.html" title="next page">Exploring data with Pandas</a>
 
         </div>
         
