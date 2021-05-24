@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Polynomial Regression &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">2021 MSU REU Machine Learning Short Course</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   2021 MSU REU Short Course on Machine Learning
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../schedule.html">
+   Detailed Schedule
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">
+   Getting Started with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">
+   Exploring data with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../day1_wrap_up.html">
+   Wrap Up
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Modeling Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/Day-2_Polynomial_Regression.html">
+   Polynomial Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/Day-2_Multiple_Regression.html">
+   Multidimensional Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-4/day-4_Pre-Class_regression.html">
+   Day-4 Pre-Class Assignment: Polynomial Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-4/day-4_In-Class_regression.html">
+   Day 4 In-Class Assignment: Multidimensional Regression
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Acknowledgements
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contributions.html">
+   Contributions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/Admin/Day-2_Polynomial_Regression_INSTRUCTOR.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/Admin/Day-2_Polynomial_Regression_INSTRUCTOR.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/Admin/Day-2_Polynomial_Regression_INSTRUCTOR.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/Admin/Day-2_Polynomial_Regression_INSTRUCTOR.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goals">
+   Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#our-imports">
+   Our Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   1. Polynomial Regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-make-some-data">
+     1.1 Let’s make some Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-the-data">
+     1.2 Plot the data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-the-polynomial-features">
+   2 Making the Polynomial Features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-test-splitting">
+     2.1 Train-test splitting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-using-the-polynomials">
+     2.2 Fitting using the Polynomials
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-your-data-and-your-model">
+   3. Plot your data and your model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#are-we-justified-in-using-this-model">
+     3.1 Are we justified in using this model?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="polynomial-regression">
+<h1>Polynomial Regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this headline">¶</a></h1>
+<img src="https://i.pinimg.com/originals/52/2c/20/522c209c019fe9592857bcb569184478.jpg"><div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>After completing this notebook, you will be able to:</p>
+<ol class="simple">
+<li><p>Generate data for a polynomial regression</p></li>
+<li><p>Construct a set of polnomial regression models usings <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></p></li>
+<li><p>Explain why we want to split data for modeling/evaluation</p></li>
+<li><p>Evaluate the quality of fit for a set of models using adjusted <span class="math notranslate nohighlight">\(R^2\)</span> and by comparing true and predicted values</p></li>
+<li><p>Explain why that model is the best fit for this data</p></li>
+</ol>
+</div>
+<div class="section" id="our-imports">
+<h2>Our Imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="nn">rand</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span> <span class="c1">## Used for automatically splitting data</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>    <span class="c1">## One of many kinds of regression models</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id1">
+<h2>1. Polynomial Regression<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>It’s possible that a straight line is not going to be good enough to model the data we are working with. We can augment our <span class="math notranslate nohighlight">\( Ax + B\)</span> with extra features. By adding features we are still doing linear regression, but we the features themselves can consist of, well anything.</p>
+<p>However, to be focused, we will use polynomials. We can add values like <span class="math notranslate nohighlight">\(x^2\)</span> or <span class="math notranslate nohighlight">\(x^5\)</span> to the potential set of features that can be used to better map against our data.</p>
+<p><font size=8 color="#009600">✎</font> Do This -  The question is, how many such features should we add? What are the advantages and disadvantages of adding more and more features? Think about it and answer in the cell below</p>
+<p><font size=8 color="#009600">➾</font> Answer here</p>
+<div class="section" id="let-s-make-some-data">
+<h3>1.1 Let’s make some Data<a class="headerlink" href="#let-s-make-some-data" title="Permalink to this headline">¶</a></h3>
+<p>It’s always good when we are starting out to generate our own data. Data we generate gives us the advantage of <strong>knowing</strong> what the answer should be.</p>
+<p><font size=8 color="#009600">✎</font> Do This -  Let’s do the following:</p>
+<ul class="simple">
+<li><p>build a numpy array <code class="docutils literal notranslate"><span class="pre">x_ary</span></code>of values from -4 to 4 by 0.02</p></li>
+<li><p>generate a corresponding <code class="docutils literal notranslate"><span class="pre">y_ary</span></code>, using the values from <code class="docutils literal notranslate"><span class="pre">x_ary</span></code>, based on the formula <span class="math notranslate nohighlight">\(x^4 + 2x^3 -15x^2 -12x + 36\)</span></p></li>
+<li><p>create <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code>, by adding random (Gaussian) noise to <code class="docutils literal notranslate"><span class="pre">y_ary</span></code> in the range of -15 to 15. Later on we might make the range bigger (say -25 to 25) or smaller (say -5 to 5) for comparison. You will want to use <code class="docutils literal notranslate"><span class="pre">np.random.normal(avg,</span> <span class="pre">std_dev,</span> <span class="pre">N)</span></code> to do so.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">x_ary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">0.02</span><span class="p">)</span>
+<span class="n">y_ary</span> <span class="o">=</span> <span class="n">x_ary</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x_ary</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">15</span><span class="o">*</span><span class="n">x_ary</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">12</span><span class="o">*</span><span class="n">x_ary</span> <span class="o">+</span> <span class="mi">36</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">random_noise</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_ary</span><span class="p">))</span>
+    
+<span class="n">y_noisy</span> <span class="o">=</span> <span class="n">y_ary</span> <span class="o">+</span> <span class="n">random_noise</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-the-data">
+<h3>1.2 Plot the data<a class="headerlink" href="#plot-the-data" title="Permalink to this headline">¶</a></h3>
+<p>We should really look at our data before we try to model it.</p>
+<p><font size=8 color="#009600">✎</font> Do This -  plot <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs both <code class="docutils literal notranslate"><span class="pre">y_ary</span></code> and <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code>. Do it overlapping with colors, or side by side, whatever you think would look good. <em>Make sure to label your axes!</em> Consider adding a legend by using: <code class="docutils literal notranslate"><span class="pre">plt.legend(['Plot</span> <span class="pre">1',</span> <span class="pre">'Plot</span> <span class="pre">2'])</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_ary</span><span class="p">,</span> <span class="n">y_ary</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_ary</span><span class="p">,</span><span class="n">y_noisy</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Ground Truth&#39;</span><span class="p">,</span> <span class="s1">&#39;With Noise&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_11_1.png" src="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_11_1.png" />
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="making-the-polynomial-features">
+<h2>2 Making the Polynomial Features<a class="headerlink" href="#making-the-polynomial-features" title="Permalink to this headline">¶</a></h2>
+<p>Ultimately it would be nice to do our work using a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame so that we have the opportunity to label our columns. There’s the added benefit that <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> just works with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames.</p>
+<p><font size=8 color="#009600">✎</font> Do This - Make a DataFrame consisting of the following columns: a constant value for the intercept, the values in <code class="docutils literal notranslate"><span class="pre">x_ary</span></code>, and additional powers of <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> up to 10.</p>
+<p>You can do this one of two ways:</p>
+<ol class="simple">
+<li><p>make the DataFrame out of <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> and add features to the DataFrame</p></li>
+<li><p>add columns to the <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> array and then finish off by adding to a DataFrame</p></li>
+</ol>
+<p>In the end, you have a DataFrame no matter the approach.</p>
+<p>As a reminder, the columns of the DataFrame should be:</p>
+<ul class="simple">
+<li><p>Label the first column “const” and just place the value 1 in it</p></li>
+<li><p>make the <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> data column 1, labeled “data”</p></li>
+<li><p>the next 9 columns should be based on <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> and have as values: <span class="math notranslate nohighlight">\(x^2\)</span>, <span class="math notranslate nohighlight">\(x^3\)</span>, <span class="math notranslate nohighlight">\(x^4 \ldots\)</span> <span class="math notranslate nohighlight">\(x^{10}\)</span>. Give them good (but short) label names</p></li>
+</ul>
+<p>Print the head of your DataFrame when you’re done.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">const</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_ary</span><span class="p">))</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">const</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;const&#39;</span><span class="p">])</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_ary</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    
+    <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    
+    <span class="n">df</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_ary</span><span class="o">**</span><span class="n">i</span>
+    
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>const</th>
+      <th>data</th>
+      <th>x2</th>
+      <th>x3</th>
+      <th>x4</th>
+      <th>x5</th>
+      <th>x6</th>
+      <th>x7</th>
+      <th>x8</th>
+      <th>x9</th>
+      <th>x10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>-4.00</td>
+      <td>16.0000</td>
+      <td>-64.000000</td>
+      <td>256.000000</td>
+      <td>-1024.000000</td>
+      <td>4096.000000</td>
+      <td>-16384.000000</td>
+      <td>65536.000000</td>
+      <td>-262144.000000</td>
+      <td>1.048576e+06</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>-3.98</td>
+      <td>15.8404</td>
+      <td>-63.044792</td>
+      <td>250.918272</td>
+      <td>-998.654723</td>
+      <td>3974.645798</td>
+      <td>-15819.090277</td>
+      <td>62959.979304</td>
+      <td>-250580.717629</td>
+      <td>9.973113e+05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>-3.96</td>
+      <td>15.6816</td>
+      <td>-62.099136</td>
+      <td>245.912579</td>
+      <td>-973.813811</td>
+      <td>3856.302692</td>
+      <td>-15270.958660</td>
+      <td>60472.996294</td>
+      <td>-239473.065324</td>
+      <td>9.483133e+05</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>-3.94</td>
+      <td>15.5236</td>
+      <td>-61.162984</td>
+      <td>240.982157</td>
+      <td>-949.469698</td>
+      <td>3740.910612</td>
+      <td>-14739.187810</td>
+      <td>58072.399973</td>
+      <td>-228805.255894</td>
+      <td>9.014927e+05</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>-3.92</td>
+      <td>15.3664</td>
+      <td>-60.236288</td>
+      <td>236.126249</td>
+      <td>-925.614896</td>
+      <td>3628.410392</td>
+      <td>-14223.368737</td>
+      <td>55755.605448</td>
+      <td>-218561.973356</td>
+      <td>8.567629e+05</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="train-test-splitting">
+<h3>2.1 Train-test splitting<a class="headerlink" href="#train-test-splitting" title="Permalink to this headline">¶</a></h3>
+<p>One of the critical aspects of machine learning is worrying about overfitting or underfitting your data. This is essential to machine learning as we can never avoid the Bias-Variance tradeoff (<a class="reference external" href="https://www.youtube.com/watch?v=EuBBz3bI-aA">Great Conceptual Video on this</a>).</p>
+<ul class="simple">
+<li><p><strong>Overfitting</strong> - when your model captures too many aspects of what it learns from so that it fits the data it learned from really well. Results: A really good fit for learned data, but not a great fit for new data from the same phenomenon.</p></li>
+<li><p><strong>Underfitting</strong> - when your model captures too few aspects of what it learns from so that it fits data it learned from poorly. Results: A poor model fit for learned data, and probably also a poor fit for new data.</p></li>
+</ul>
+<p>One of the ways we deal with this tradeoff and problems with fit is to split the original data into a <code class="docutils literal notranslate"><span class="pre">training</span></code> and <code class="docutils literal notranslate"><span class="pre">test</span></code> set. Effectively, we build the model using the <code class="docutils literal notranslate"><span class="pre">training</span></code> data. And we evaluate the quality of the fit using the <code class="docutils literal notranslate"><span class="pre">test</span></code> data. Note that this is a totally different paradigm from statistical explanatory models that use the whole data set. There’s a great discussion of this two paradigms by Galit Shmueli (<a class="reference external" href="https://www.stat.berkeley.edu/~aldous/157/Papers/shmueli.pdf">To Explain or To Predict?</a>).</p>
+<p>In any event, we introduce <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code>, which is built into the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> toolkit, to split our data and conduct our analysis.</p>
+<p>For this case, we can simple use the call: <code class="docutils literal notranslate"><span class="pre">X_train,</span> <span class="pre">X_test,</span> <span class="pre">y_train,</span> <span class="pre">y_test</span> <span class="pre">=</span> <span class="pre">train_test_split(df,</span> <span class="pre">y_noisy,</span> <span class="pre">test_size=0.2)</span></code> where <code class="docutils literal notranslate"><span class="pre">df</span></code> is the name of your data frame. Then each returned variable represents the training and testing set inputs and outputs respectively.</p>
+<p><font size=8 color="#009600">✎</font> Do This - Split your data with 20% going to test data and 80% to training (this is a common split ratio in ML). Print the length of the resulting arrays to confirm the split occured as you planned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y_noisy</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>320
+80
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fitting-using-the-polynomials">
+<h3>2.2 Fitting using the Polynomials<a class="headerlink" href="#fitting-using-the-polynomials" title="Permalink to this headline">¶</a></h3>
+<p>We’ll talk about measures of “goodness” of fit in more detail on day 4, but one good measure for a multi-feature fit is the <strong>Adjusted R-squared</strong> value. In general, the <strong>R-squared</strong> describes the variance in the model that it can account for. If the R-squared is 1.0, then all the variance is accounted for an you have a perfect fit. If the value is 0 and you have no fit. However, for multiple features R-squared tends to over-estimate. The Adjusted R-squared tries to deal with this and provide a value that is better suited to multiple features.</p>
+<p>We’ll leave it to you how you want to do this, but what we’d like you to try is to fit different combinations of features against <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code> and report the Adjusted R-squared value. For example, what is the Adj-r-squared for:</p>
+<ol class="simple">
+<li><p>just the const column</p></li>
+<li><p>the const and data column (which should be a line)</p></li>
+<li><p>the const, data and <span class="math notranslate nohighlight">\(x^2\)</span> column</p></li>
+<li><p>the const, data, <span class="math notranslate nohighlight">\(x^2\)</span> and <span class="math notranslate nohighlight">\(x^3\)</span> column</p></li>
+<li><p><span class="math notranslate nohighlight">\(\ldots\)</span></p></li>
+</ol>
+<p>So on and so forth. You can do them individually or on a loop and collect the results.</p>
+<p>A piece of code that can help with regression results for scikit-learn is below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.metrics</span> <span class="k">as</span> <span class="nn">metrics</span>
+
+<span class="k">def</span> <span class="nf">regression_results</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+
+    <span class="c1"># Regression metrics</span>
+    <span class="n">explained_variance</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">explained_variance_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">mean_absolute_error</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> 
+    <span class="n">mse</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> 
+    <span class="n">median_absolute_error</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">median_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">r2</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;explained_variance: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">explained_variance</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r2: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAE: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MSE: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mse</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>If you want to use this function, you need to include it in a cell and execute it. Then you can call it later using: <code class="docutils literal notranslate"><span class="pre">regression_results(y_true,</span> <span class="pre">y_pred)</span></code>.</p>
+<p>All of these metrics are available for regression models with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, which is really useful as you can swap out models without changing how you do your evaluation!</p>
+<p><font size=8 color="#009600">✎</font> Do This - Create a variety of models that fit to the noisy data using increasingly more features recall you are fitting with the training set (<code class="docutils literal notranslate"><span class="pre">X_train</span></code> and <code class="docutils literal notranslate"><span class="pre">y_train</span></code>). Then use the model to predict the what the output should be (<code class="docutils literal notranslate"><span class="pre">y_pred</span></code>). Then compare the predicted value to the real value using <code class="docutils literal notranslate"><span class="pre">.r2_score</span></code>.  Look at that value for the combination of features you selected and say which one is the “best”. For this work, we would consider the “best” would be the highest value of <code class="docutils literal notranslate"><span class="pre">.r2_score</span></code>.</p>
+<p>To help here’s some code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">linear</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>           <span class="c1">## Create the linear model</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;const&#39;</span><span class="p">,</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span><span class="s1">&#39;x3&#39;</span><span class="p">]</span>     <span class="c1">## Select the columns for the model</span>
+<span class="n">linear</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">cols</span><span class="p">],</span><span class="n">y_train</span><span class="p">)</span>     <span class="c1">## Fit the model</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">linear</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span> <span class="c1">## Test the model</span>
+<span class="n">regression_results</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>    <span class="c1">## compare the results</span>
+</pre></div>
+</div>
+<p>This process is similar for every <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> regression model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="kn">import</span> <span class="nn">sklearn.metrics</span> <span class="k">as</span> <span class="nn">metrics</span>
+
+<span class="k">def</span> <span class="nf">regression_results</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+
+    <span class="c1"># Regression metrics</span>
+    <span class="n">explained_variance</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">explained_variance_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">mean_absolute_error</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> 
+    <span class="n">mse</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> 
+    <span class="n">median_absolute_error</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">median_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">r2</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;explained_variance: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">explained_variance</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r2: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAE: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MSE: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mse</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y_noisy</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">linear</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;const&#39;</span><span class="p">,</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span><span class="s1">&#39;x3&#39;</span><span class="p">]</span>
+
+<span class="n">linear</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">cols</span><span class="p">],</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">linear</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+
+<span class="n">regression_results</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>explained_variance:  0.5781
+r2:  0.5777
+MAE:  22.0792
+MSE:  720.667
+RMSE:  26.8452
+</pre></div>
+</div>
+</div>
+</div>
+<p><font size=8 color="#009600">✎</font> Do This - Which combination of features best “fit” your data? What was the Adjusted R-squared? Why might that combination produce the best fit?</p>
+<p><font size=8 color="#009600">✎</font> Answer here</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="plot-your-data-and-your-model">
+<h2>3. Plot your data and your model<a class="headerlink" href="#plot-your-data-and-your-model" title="Permalink to this headline">¶</a></h2>
+<p><font size=8 color="#009600">✎</font> Do This -  Plot <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code> and <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs the best fitted values based on the adjusted rsquared value. Do it in the same graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_ary</span><span class="p">,</span> <span class="n">y_noisy</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Truth&#39;</span><span class="p">,</span><span class="s1">&#39;Fit&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcffc1df250&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_25_1.png" src="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_25_1.png" />
+</div>
+</div>
+<div class="section" id="are-we-justified-in-using-this-model">
+<h3>3.1 Are we justified in using this model?<a class="headerlink" href="#are-we-justified-in-using-this-model" title="Permalink to this headline">¶</a></h3>
+<p>We can check how well we are justified in using this model, by comparing the actual and predicted values as well as making a residual plot.</p>
+<ul class="simple">
+<li><p>The first plot is plotting the predicted values against the real values. In a perfect model, they would form a line with a slope of 1.</p></li>
+<li><p>The second plot has a bit more information about the fit. Effectively, to be justfied in using a linear model, our residuals better be randomly disitrbuted. That’s a qualifier for using linear regression. So here you must plot the <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">real</span> <span class="pre">-</span> <span class="pre">predicted</span></code> against x values. Here’s a <a class="reference external" href="https://stattrek.com/regression/residual-analysis.aspx">short discussion on how that works</a>.</p></li>
+</ul>
+<p><font size=8 color="#009600">✎</font> Do This - Make the two plots mentioned above. Make sure to plot the residuals as a function of the independent variable (<code class="docutils literal notranslate"><span class="pre">data</span></code> or <code class="docutils literal notranslate"><span class="pre">x</span></code>, whatever you called it).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;True Values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted Values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">130</span><span class="p">],[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">130</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">-</span><span class="n">y_pred</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residuals&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Residuals&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_28_1.png" src="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_28_1.png" />
+<img alt="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_28_2.png" src="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_28_2.png" />
+</div>
+</div>
+<p><font size=8 color="#009600">✎</font> Answer here - Do we appear justified in using this model? Why or why not?</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/Admin"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, and Jane Kim<br/>
+        
+            &copy; Copyright 2021, Michigan State University.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
