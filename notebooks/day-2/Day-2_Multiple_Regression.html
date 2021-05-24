@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 4 In-Class Assignment: Multidimensional Regression &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    <title>Multidimensional Linear Regression &#8212; 2021 MSU REU Machine Learning Short Course</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,8 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Contributions" href="../../contributions.html" />
-    <link rel="prev" title="Day-4 Pre-Class Assignment: Polynomial Regression" href="day-4_Pre-Class_regression.html" />
+    <link rel="next" title="Day-4 Pre-Class Assignment: Polynomial Regression" href="../day-4/day-4_Pre-Class_regression.html" />
+    <link rel="prev" title="Polynomial Regression" href="Day-2_Polynomial_Regression.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -135,22 +135,22 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../day-2/Day-2_Polynomial_Regression.html">
+  <a class="reference internal" href="Day-2_Polynomial_Regression.html">
    Polynomial Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-2/Day-2_Multiple_Regression.html">
-   Multidimensional Linear Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="day-4_Pre-Class_regression.html">
-   Day-4 Pre-Class Assignment: Polynomial Regression
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
+   Multidimensional Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-4/day-4_Pre-Class_regression.html">
+   Day-4 Pre-Class Assignment: Polynomial Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-4/day-4_In-Class_regression.html">
    Day 4 In-Class Assignment: Multidimensional Regression
   </a>
  </li>
@@ -206,7 +206,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/day-4/day-4_In-Class_regression.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-2/Day-2_Multiple_Regression.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -231,21 +231,21 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-4/day-4_In-Class_regression.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-2/Day-2_Multiple_Regression.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-4/day-4_In-Class_regression.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-2/Day-2_Multiple_Regression.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-4/day-4_In-Class_regression.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-2/Day-2_Multiple_Regression.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -320,16 +320,16 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-your-fit">
+     2.2 Visualizing your fit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#a-reduced-model-using-only-the-significant-features">
-     2.2 A “reduced” model using only the “significant” features
+     2.3 A “reduced” model using only the “significant” features
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualization-how-well-does-our-model-fit-our-data">
-   3. Visualization - How well does our model fit our data?
-  </a>
  </li>
 </ul>
 
@@ -343,25 +343,35 @@
         
               <div>
                 
-  <div class="section" id="day-4-in-class-assignment-multidimensional-regression">
-<h1>Day 4 In-Class Assignment: Multidimensional Regression<a class="headerlink" href="#day-4-in-class-assignment-multidimensional-regression" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="multidimensional-linear-regression">
+<h1>Multidimensional Linear Regression<a class="headerlink" href="#multidimensional-linear-regression" title="Permalink to this headline">¶</a></h1>
 <img src="https://assets.amuniversal.com/7f343ac0870a01332a13005056a9545d" width=400px><hr class="docutils" />
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>read in yet another data format</p></li>
-<li><p>work with bad data</p></li>
-<li><p>multiple regression with</p></li>
-</ul>
+<p>After completing this notebook, you will be able to:</p>
+<ol class="simple">
+<li><p>Read in a fixed width data set and assign column names</p></li>
+<li><p>Clean missing data from a data set</p></li>
+<li><p>Construct a set of linear regression model usings <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></p></li>
+<li><p>Evaluate the quality of fit for a set of models using adjusted <span class="math notranslate nohighlight">\(R^2\)</span> and by comparing true and predicted values</p></li>
+<li><p>Explain why that model is the best fit for this data</p></li>
+</ol>
 </div>
 <div class="section" id="our-imports">
 <h2>0. Our imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">import</span> <span class="nn">sklearn.metrics</span> <span class="k">as</span> <span class="nn">metrics</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -374,8 +384,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">poverty.dat</span></code> which is the data file itself</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">poverty.txt</span></code> which describes the data columns as <strong>fixed width column</strong> data. That is, this file describes the columns of the data for each category. For example, the data in columns 1-6 of <code class="docutils literal notranslate"><span class="pre">poverty.dat</span></code> contain the “live birth rates per 1,000 population”.</p></li>
 </ul>
-<p>Conveniently there is a fixed width column pandas data reader. Look it up and read in the data.</p>
-<p>Again, no column headers on this so look at the <code class="docutils literal notranslate"><span class="pre">poverty.txt</span></code> file and give them short but useful names.</p>
+<p>Conveniently there is a fixed width column pandas data reader called <code class="docutils literal notranslate"><span class="pre">read_fwf</span></code> (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_fwf.html">Documentation</a>). You will need to specific column names also. No column headers appear in this data file, so look at the <code class="docutils literal notranslate"><span class="pre">poverty.txt</span></code> file and give them short but useful names.</p>
 <p><font size=8 color="#009600">✎</font> Do This - Read in the data into a DataFrame and print the <code class="docutils literal notranslate"><span class="pre">head()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -417,7 +426,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Uncomment to run</span>
 
-<span class="c1"># poverty_df[&quot;GNP&quot;].fillna(0)</span>
+<span class="c1">#poverty_df[&quot;GNP&quot;].fillna(0)</span>
 </pre></div>
 </div>
 </div>
@@ -426,8 +435,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Uncomment to run</span>
-<span class="c1"># poverty_df[&quot;GNP&quot;].fillna(poverty_df[&quot;GNP&quot;].mean() )</span>
-<span class="c1"># poverty_df.fillna({&quot;GNP&quot;: poverty_df[&quot;GNP&quot;].mean() })</span>
+<span class="c1">#poverty_df[&quot;GNP&quot;].fillna(poverty_df[&quot;GNP&quot;].mean() )</span>
+<span class="c1">#poverty_df.fillna({&quot;GNP&quot;: poverty_df[&quot;GNP&quot;].mean() })</span>
 </pre></div>
 </div>
 </div>
@@ -460,8 +469,8 @@
 <p><font size=8 color="#009600">✎</font> Answer here</p>
 <div class="section" id="infant-mortality-model">
 <h3>2.1 Infant Mortality model<a class="headerlink" href="#infant-mortality-model" title="Permalink to this headline">¶</a></h3>
-<p>Using the U.N.E.S.C.O. data, we can make a model of “Infant Mortality” as the dependent variable against all the other available features. As a hint, an easy way to do this is the make the <code class="docutils literal notranslate"><span class="pre">sm.OLS</span></code> model with  “Infant Mortality” as the first argument (the dependent variable) and then the entire DataFrame where “Infant Mortality is dropped as the second argument. <strong>You should also drop the “Country” column as unique strings don’t play well in basic linear models.</strong></p>
-<p><font size=8 color="#009600">✎</font> Do This - Make an OLS model that predicts “Infant Mortality” using the other variables (dropping the “Country” column) and print the <code class="docutils literal notranslate"><span class="pre">.summary</span></code> of that process.</p>
+<p>Using the U.N.E.S.C.O. data, we can make a model of “Infant Mortality” as the dependent variable against all the other available features. As a hint, an easy way to do this is the make the model with  “Infant Mortality” as the prediction (the dependent variable) and then the entire DataFrame where “Infant Mortality is dropped as the data (the independent variables). <strong>You should also drop the “Country” column as unique strings don’t play well in basic linear models.</strong></p>
+<p><font size=8 color="#009600">✎</font> Do This - Make an linear model (did you split your data?) that predicts “Infant Mortality” using the other variables (dropping the “Country” column) and print the <code class="docutils literal notranslate"><span class="pre">.r2_score</span></code> of that process.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
@@ -469,15 +478,23 @@
 </div>
 </div>
 </div>
-<p>There are several interesting things about this <code class="docutils literal notranslate"><span class="pre">.summary</span></code>. Let’s start with things you have seen before. Look for the adjusted <span class="math notranslate nohighlight">\(R^2\)</span> statistic. What does this adjusted <span class="math notranslate nohighlight">\(R^2\)</span> tell you about how well your model fits your data?</p>
-<p><font size=8 color="#009600">✎</font> Answer here</p>
-<p>Now, let’s look at something new, the “P” values associated with the features used in the model. <a class="reference external" href="https://en.wikipedia.org/wiki/P-value">P values</a> are used widely in statisical testing to judge if a result is statistically significant. Those P values that are 0 (or typically less 0.05) indicate a feature that is “significant” in its ability to predict the dependent variable. Those closer, but not equal to, 0 are less significant. It depends on what you did with your “bad values”, but list below the top three features and the overall Adjusted R-squared using all the features.</p>
-<p><font size=8 color="#009600">✎</font> Answer here</p>
+</div>
+<div class="section" id="visualizing-your-fit">
+<h3>2.2 Visualizing your fit<a class="headerlink" href="#visualizing-your-fit" title="Permalink to this headline">¶</a></h3>
+<p>We can check how well we are justified in using this model, by comparing the actual and predicted values. Plot the predicted values against the real values. In a perfect model, they would form a line with a slope of 1.</p>
+<p><font size=8 color="#009600">✎</font> Do This - Make the plots mentioned above. How well does your model fit your data? What can you conclude from this graph?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="a-reduced-model-using-only-the-significant-features">
-<h3>2.2 A “reduced” model using only the “significant” features<a class="headerlink" href="#a-reduced-model-using-only-the-significant-features" title="Permalink to this headline">¶</a></h3>
-<p>Modeling data is as much a craft as it is a science. We often seek the simplest models that explain or data well because they are typically more interpretable, easier to explain, and provide the information on the main influences of the system we are studying. There are reasons we might want a more complex model to capture the details and the nuance of the system. But for the U.N.E.S.C.O. data that we have, we are likely able to capture most of the system using a smaller number of features. <em>These ideas are related to the pre-class modeling you did with increasingly higher powers of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</em></p>
-<p><font size=8 color="#009600">✎</font> Do This - Redo the model with only the top three features you found above vs “Infant Mortality”. Print the summary.</p>
+<h3>2.3 A “reduced” model using only the “significant” features<a class="headerlink" href="#a-reduced-model-using-only-the-significant-features" title="Permalink to this headline">¶</a></h3>
+<p>Modeling data is as much a craft as it is a science. We often seek the simplest models that explain or data well because they are typically more interpretable, easier to explain, and provide the information on the main influences of the system we are studying. There are reasons we might want a more complex model to capture the details and the nuance of the system. But for the U.N.E.S.C.O. data that we have, we are likely able to capture most of the system using a smaller number of features.</p>
+<p><font size=8 color="#009600">✎</font> Do This - use <code class="docutils literal notranslate"><span class="pre">pandas</span></code> built=in correlation function (<code class="docutils literal notranslate"><span class="pre">.corr()</span></code>) to find the top 3 variables that correlate strongly with “Infant Mortality”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
@@ -485,23 +502,25 @@
 </div>
 </div>
 </div>
-<p>Review this model and the one you constructed earlier in the notebook. Reporthow the Adjusted R-squared value changed from using only the top three vs using all the available features. How well does this reduced model appear to fit your data?</p>
-<p><font size=8 color="#009600">✎</font> Answer here</p>
-</div>
-</div>
-<div class="section" id="visualization-how-well-does-our-model-fit-our-data">
-<h2>3. Visualization - How well does our model fit our data?<a class="headerlink" href="#visualization-how-well-does-our-model-fit-our-data" title="Permalink to this headline">¶</a></h2>
-<p>We have been checking how our models fit our data using both plots of the fitted values and the residuals. These plots are generated from the information stored in <a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLSResults.html">various attributes of the OLS results object</a>. We will continue to use the top two plots from <code class="docutils literal notranslate"><span class="pre">.graphics.plot_regress_exog</span></code> to investigate our fits. But you could also construct the plots directly using the attributes of the OLD results object. Note that you will need one plot for each feature in the model as each figure is only produced for a given choice of feature.</p>
-<p><font size=8 color="#009600">✎</font> Do This - Create three <code class="docutils literal notranslate"><span class="pre">.graphics.plot_regress_exog</span></code> figures, one for each of the features in your model. Pay special attention to the top two plots: the fitted values figure and the residual plot.</p>
+<p><font size=8 color="#009600">✎</font> Do This - Redo the model with only the top three features you found above vs “Infant Mortality”. Print the <code class="docutils literal notranslate"><span class="pre">.r2_score</span></code>, how does it compare to the full model?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Based on these figures, how well does it appear your reduced model fit your data? Do you have any concerns about the distribution of the residuals?</p>
+<p><font size=8 color="#009600">✎</font> Do This -  Make the same comparison plot mentioned above. How well does your model fit your data? What can you conclude from this graph? Can you compare it to the previous fit?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Review this model and the one you constructed earlier in the notebook. Report how the Adjusted R-squared value changed from using only the top three vs using all the available features. How well does this reduced model appear to fit your data?</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
+</div>
 </div>
 </div>
 
@@ -518,7 +537,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./notebooks/day-4"
+            path: "./notebooks/day-2"
         },
         predefinedOutput: true
     }
@@ -530,8 +549,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="day-4_Pre-Class_regression.html" title="previous page">Day-4 Pre-Class Assignment: Polynomial Regression</a>
-    <a class='right-next' id="next-link" href="../../contributions.html" title="next page">Contributions</a>
+    <a class='left-prev' id="prev-link" href="Day-2_Polynomial_Regression.html" title="previous page">Polynomial Regression</a>
+    <a class='right-next' id="next-link" href="../day-4/day-4_Pre-Class_regression.html" title="next page">Day-4 Pre-Class Assignment: Polynomial Regression</a>
 
         </div>
         
