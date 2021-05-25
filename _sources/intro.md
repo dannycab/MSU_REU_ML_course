@@ -6,6 +6,11 @@ This short course will focus on the essential aspects of machine learning that a
 
 [Danny Caballero](https://dannycab.github.io), [Morten Hjorth-Jensen](http://mhjgit.github.io/info/doc/web/), [Julie Butler](https://www.linkedin.com/in/julie-butler-hartley-4b2741103), and [Jane Kim](https://www.linkedin.com/in/jane-m-kim)
 
+## Connecting to the class
+
+* We will meet on Thursdays from 2-4pm on Zoom ([Connect now](https://msu.zoom.us/j/93771741855)).
+* [Contact Danny](mailto:caball14@msu.edu) for the password to join.
+
 ## Learning Outcomes
 
 By the end of this six week short course, you should be able to:
