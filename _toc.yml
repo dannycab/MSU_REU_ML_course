@@ -7,8 +7,9 @@
 - part: Working with Data
   chapters:
   - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb
+  - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb
   - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb
-  - file: day1_wrap_up.md
+  - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas-SOL.ipynb
 
 
 - part: Modeling Data

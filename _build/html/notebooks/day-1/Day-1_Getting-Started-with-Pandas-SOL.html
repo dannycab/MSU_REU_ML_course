@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Getting Started with Pandas &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    <title>Solution - Getting Started with Pandas &#8212; 2021 MSU REU Machine Learning Short Course</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,8 +54,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Solution - Getting Started with Pandas" href="Day-1_Getting-Started-with-Pandas-SOL.html" />
-    <link rel="prev" title="Detailed Schedule" href="../../schedule.html" />
+    <link rel="next" title="Exploring data with Pandas" href="Day-1_Exploring-data-with-Pandas.html" />
+    <link rel="prev" title="Getting Started with Pandas" href="Day-1_Getting-Started-with-Pandas.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -110,13 +110,13 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Day-1_Getting-Started-with-Pandas.html">
    Getting Started with Pandas
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Day-1_Getting-Started-with-Pandas-SOL.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Solution - Getting Started with Pandas
   </a>
  </li>
@@ -209,7 +209,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -234,21 +234,21 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -336,8 +336,8 @@
         
               <div>
                 
-  <div class="section" id="getting-started-with-pandas">
-<h1>Getting Started with Pandas<a class="headerlink" href="#getting-started-with-pandas" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="solution-getting-started-with-pandas">
+<h1>Solution - Getting Started with Pandas<a class="headerlink" href="#solution-getting-started-with-pandas" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook we will be:</p>
 <ol class="simple">
 <li><p>Reviewing the basics of Pandas</p></li>
@@ -690,9 +690,67 @@ age
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put your code here</span>
+
+<span class="n">student_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:[</span><span class="s2">&quot;josie&quot;</span><span class="p">,</span><span class="s2">&quot;melody&quot;</span><span class="p">,</span><span class="s2">&quot;valerie&quot;</span><span class="p">,</span><span class="s2">&quot;wyatt&quot;</span><span class="p">],</span>
+                 <span class="s2">&quot;id&quot;</span><span class="p">:[</span><span class="mi">901</span><span class="p">,</span> <span class="mi">902</span><span class="p">,</span> <span class="mi">903</span><span class="p">,</span> <span class="mi">904</span><span class="p">],</span>
+                 <span class="s2">&quot;total percent&quot;</span><span class="p">:[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">65</span><span class="p">],</span>
+                 <span class="s2">&quot;final grade&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]}</span>
+<span class="n">student_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">student_dict</span><span class="p">)</span>
+
+<span class="n">student_df</span><span class="p">[</span><span class="n">student_df</span><span class="p">[</span><span class="s1">&#39;final grade&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">3.0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>id</th>
+      <th>total percent</th>
+      <th>final grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>josie</td>
+      <td>901</td>
+      <td>85</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>melody</td>
+      <td>902</td>
+      <td>90</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>valerie</td>
+      <td>903</td>
+      <td>95</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
@@ -730,8 +788,8 @@ age
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../../schedule.html" title="previous page">Detailed Schedule</a>
-    <a class='right-next' id="next-link" href="Day-1_Getting-Started-with-Pandas-SOL.html" title="next page">Solution - Getting Started with Pandas</a>
+    <a class='left-prev' id="prev-link" href="Day-1_Getting-Started-with-Pandas.html" title="previous page">Getting Started with Pandas</a>
+    <a class='right-next' id="next-link" href="Day-1_Exploring-data-with-Pandas.html" title="next page">Exploring data with Pandas</a>
 
         </div>
         

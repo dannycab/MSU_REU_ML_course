@@ -30,6 +30,17 @@
 * Use `scikit-learn` to build a regression model
 * Evaluate the fit of the model
 
+### Resources
+
+* [Linear Regression reminder video](https://www.youtube.com/watch?v=nk2CQITm_eo)
+* [Getting started with `scikit-learn` regression](https://www.educative.io/blog/scikit-learn-tutorial-linear-regression) _(You probably don't need to install anything with `pip`.)_
+* [More about `scikit-learn`](https://scikit-learn.org/stable/getting_started.html)
+
+### Materials
+
+* [Day 2 notebook - Polynomial Regression](./notebooks/day-2/Day-2_Polynomial_Regression.ipynb)
+* [Day 2 notebook - Multiple Regression](./notebooks/day-2/Day-2_Multiple_Regression.ipynb)
+
 ## Day 3 - Building a Classification Model
 
 ### Today, we will:
