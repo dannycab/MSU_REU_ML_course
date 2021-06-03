@@ -40,6 +40,10 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # - `poverty.dat` which is the data file itself
 # - `poverty.txt` which describes the data columns as **fixed width column** data. That is, this file describes the columns of the data for each category. For example, the data in columns 1-6 of `poverty.dat` contain the "live birth rates per 1,000 population".
 # 
+# [https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-2/poverty.dat](https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-2/poverty.dat)
+# 
+# [https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-2/poverty.txt](https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-2/poverty.txt)
+# 
 # Conveniently there is a fixed width column pandas data reader called `read_fwf` ([Documentation](https://pandas.pydata.org/docs/reference/api/pandas.read_fwf.html)). You will need to specific column names also. No column headers appear in this data file, so look at the `poverty.txt` file and give them short but useful names.
 # 
 # <font size=8 color="#009600">&#9998;</font> Do This - Read in the data into a DataFrame and print the `head()`.

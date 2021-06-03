@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Polynomial Regression &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    <title>Solution - Polynomial Regression &#8212; 2021 MSU REU Machine Learning Short Course</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,6 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Multidimensional Linear Regression" href="Day-2_Multiple_Regression.html" />
+    <link rel="prev" title="Polynomial Regression" href="Day-2_Polynomial_Regression.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -136,19 +138,19 @@
   Modeling Data
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../day-2/Day-2_Polynomial_Regression.html">
+  <a class="reference internal" href="Day-2_Polynomial_Regression.html">
    Polynomial Regression
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-2/Day-2_Polynomial_Regression-SOL.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Solution - Polynomial Regression
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../day-2/Day-2_Multiple_Regression.html">
+  <a class="reference internal" href="Day-2_Multiple_Regression.html">
    Multidimensional Linear Regression
   </a>
  </li>
@@ -214,7 +216,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/Admin/Day-2_Polynomial_Regression_INSTRUCTOR.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -239,21 +241,21 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/Admin/Day-2_Polynomial_Regression_INSTRUCTOR.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/Admin/Day-2_Polynomial_Regression_INSTRUCTOR.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/Admin/Day-2_Polynomial_Regression_INSTRUCTOR.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -284,7 +286,7 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#polynomial-regression">
    1. Polynomial Regression
   </a>
   <ul class="nav section-nav flex-column">
@@ -341,8 +343,8 @@
         
               <div>
                 
-  <div class="section" id="polynomial-regression">
-<h1>Polynomial Regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="solution-polynomial-regression">
+<h1>Solution - Polynomial Regression<a class="headerlink" href="#solution-polynomial-regression" title="Permalink to this headline">¶</a></h1>
 <img src="https://i.pinimg.com/originals/52/2c/20/522c209c019fe9592857bcb569184478.jpg"><div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
 <p>After completing this notebook, you will be able to:</p>
@@ -375,8 +377,8 @@
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="id1">
-<h2>1. Polynomial Regression<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="polynomial-regression">
+<h2>1. Polynomial Regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this headline">¶</a></h2>
 <p>It’s possible that a straight line is not going to be good enough to model the data we are working with. We can augment our <span class="math notranslate nohighlight">\( Ax + B\)</span> with extra features. By adding features we are still doing linear regression, but we the features themselves can consist of, well anything.</p>
 <p>However, to be focused, we will use polynomials. We can add values like <span class="math notranslate nohighlight">\(x^2\)</span> or <span class="math notranslate nohighlight">\(x^5\)</span> to the potential set of features that can be used to better map against our data.</p>
 <p><font size=8 color="#009600">✎</font> Do This -  The question is, how many such features should we add? What are the advantages and disadvantages of adding more and more features? Think about it and answer in the cell below</p>
@@ -442,7 +444,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_11_1.png" src="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_11_1.png" />
+<img alt="../../_images/Day-2_Polynomial_Regression-SOL_11_1.png" src="../../_images/Day-2_Polynomial_Regression-SOL_11_1.png" />
 </div>
 </div>
 </div>
@@ -722,11 +724,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>explained_variance:  0.5637
-r2:  0.5593
-MAE:  21.7452
-MSE:  768.1947
-RMSE:  27.7163
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>explained_variance:  0.6301
+r2:  0.6269
+MAE:  19.4022
+MSE:  587.5274
+RMSE:  24.239
 </pre></div>
 </div>
 </div>
@@ -759,10 +761,10 @@ RMSE:  27.7163
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd183f2c5b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9ed03ed2b0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_25_1.png" src="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_25_1.png" />
+<img alt="../../_images/Day-2_Polynomial_Regression-SOL_25_1.png" src="../../_images/Day-2_Polynomial_Regression-SOL_25_1.png" />
 </div>
 </div>
 <div class="section" id="are-we-justified-in-using-this-model">
@@ -803,8 +805,8 @@ RMSE:  27.7163
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Residuals&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_28_1.png" src="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_28_1.png" />
-<img alt="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_28_2.png" src="../../_images/Day-2_Polynomial_Regression_INSTRUCTOR_28_2.png" />
+<img alt="../../_images/Day-2_Polynomial_Regression-SOL_28_1.png" src="../../_images/Day-2_Polynomial_Regression-SOL_28_1.png" />
+<img alt="../../_images/Day-2_Polynomial_Regression-SOL_28_2.png" src="../../_images/Day-2_Polynomial_Regression-SOL_28_2.png" />
 </div>
 </div>
 <p><font size=8 color="#009600">✎</font> Answer here - Do we appear justified in using this model? Why or why not?</p>
@@ -825,7 +827,7 @@ RMSE:  27.7163
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./notebooks/Admin"
+            path: "./notebooks/day-2"
         },
         predefinedOutput: true
     }
@@ -837,6 +839,8 @@ RMSE:  27.7163
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="Day-2_Polynomial_Regression.html" title="previous page">Polynomial Regression</a>
+    <a class='right-next' id="next-link" href="Day-2_Multiple_Regression.html" title="next page">Multidimensional Linear Regression</a>
 
         </div>
         
