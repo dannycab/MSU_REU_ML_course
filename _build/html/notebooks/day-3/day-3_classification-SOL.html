@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solution - Classification Model &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Contributions" href="../../contributions.html" />
+    <link rel="prev" title="Classification Model" href="day-3_classification.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">2021 MSU REU Machine Learning Short Course</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   2021 MSU REU Short Course on Machine Learning
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../schedule.html">
+   Detailed Schedule
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">
+   Getting Started with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">
+   Solution - Getting Started with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">
+   Exploring data with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">
+   Solution - Exploring data with Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Modeling Data
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/Day-2_Polynomial_Regression.html">
+   Polynomial Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/Day-2_Polynomial_Regression-SOL.html">
+   Solution - Polynomial Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/Day-2_Multiple_Regression.html">
+   Multidimensional Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/Day-2_Multiple_Regression-SOL.html">
+   Solution - Multidimensional Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="day-3_Getting_Started_with_Classification_Models.html">
+   Getting Started with Classification Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="day-3_classification.html">
+   Classification Model
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Solution - Classification Model
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Acknowledgements
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contributions.html">
+   Contributions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-3/day-3_classification-SOL.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-3/day-3_classification-SOL.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-3/day-3_classification-SOL.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-3/day-3_classification-SOL.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agenda-for-today-s-class">
+   Agenda for today’s class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports-for-the-day">
+   0. Imports for the day
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#review-of-getting-started-notebook">
+   1. Review of Getting Started Notebook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-vs-testing">
+   2. Training vs Testing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-with-data">
+     2.1 Working with data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#splitting-the-dataset-for-model-into-training-and-testing-sets">
+     2.2 : Splitting the dataset for model into training and testing sets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistic-regression">
+   3 Logistic Regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-d-it-go">
+     3.1 How’d it go?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="solution-classification-model">
+<h1>Solution - Classification Model<a class="headerlink" href="#solution-classification-model" title="Permalink to this headline">¶</a></h1>
+<img src="https://www.pngkey.com/png/full/574-5745035_machine-learning-workflow-machine-learning-data-pipeline.png" width=700px>
+<div class="section" id="agenda-for-today-s-class">
+<h2>Agenda for today’s class<a class="headerlink" href="#agenda-for-today-s-class" title="Permalink to this headline">¶</a></h2>
+</p>
+<ol class="simple">
+<li><p>Review pre-class assignment</p></li>
+<li><p>Train vs Test</p></li>
+<li><p>Example classifier using breast cancer dataset</p></li>
+<li><p>logistic regression classifier</p></li>
+</ol>
+</div>
+<div class="section" id="imports-for-the-day">
+<h2>0. Imports for the day<a class="headerlink" href="#imports-for-the-day" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="review-of-getting-started-notebook">
+<h2>1. Review of Getting Started Notebook<a class="headerlink" href="#review-of-getting-started-notebook" title="Permalink to this headline">¶</a></h2>
+<p>Pull up the <span class="xref myst">solution notebook</span></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="training-vs-testing">
+<h2>2. Training vs Testing<a class="headerlink" href="#training-vs-testing" title="Permalink to this headline">¶</a></h2>
+<p>As you learned in the pre-class, classification is an ML process that maps features of an input data set to class labels. Classification is a <strong>supervised</strong> learning approach where example data is used to train the data. We typically divide the data used to train and evaluate the classifier (the result model) into three sets</p>
+<ul class="simple">
+<li><p>training set</p></li>
+<li><p>testing set</p></li>
+<li><p>validation set</p></li>
+</ul>
+<p>✅ <strong>Do This:</strong> As a group, discuss what these three sets represent. It might help to review these terms on the web. The answers down below:</p>
+<p><font size=8 color="#009600">✎</font> Training set is:</p>
+<p><font size=8 color="#009600">✎</font> Testing set is:</p>
+<p><font size=8 color="#009600">✎</font> Validation set is:</p>
+<p><strong>Defining the features and building the model</strong></p>
+<p>If you review the image at the top of the notebook, you might notice that one of the first steps in machine learning is to go from “raw data” into a set of “features” and “labels”, which we discussed a bit about when we worked with the perceptron model. Extracting features from our data can sometimes be one of the trickier parts of the process and also one of the most important ones. We have to think carefully about exactly what the “right” features are for training our machine learning algorithm and, when possible, it is advantageous to find ways to reduce the total number of features we are trying to model. Once we define our features, we can build our model.</p>
+<p>✅ <strong>Do This:</strong> Now, also as a group, discuss and be prepared to share with the class how you would define a feature vector from an image and how you would build a face recognition model using machine learning.  Can you find any libraries that you think would be will suited for this? Which of these libraries might you actually use?</p>
+<p><font size=8 color="#009600">✎</font> Do This - Erase the contents of this cell and put a basic outline of what your group discussed.</p>
+<div class="section" id="working-with-data">
+<h3>2.1 Working with data<a class="headerlink" href="#working-with-data" title="Permalink to this headline">¶</a></h3>
+<p>There is a common data set used to work with classification called the breast cancer data set. It is actually available in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> but what fun is working withe cleaned up data. Let’s look at the original. In the directory where this notebook is stored is “breast-cancer-wisconsin.data” and “breast-cancer-wisconsin.names”. The data are in “.data” and the “.names” describes that data.</p>
+<p>Read in the data, label the columns based on the .names file. Look at the dtypes, anything unusual? Why?</p>
+<p><font size=8 color="#009600">✎</font> What’s unusual about dtypes? Why?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can you write code to identify what the problem is? That is, can you provide a DataFrame of the offending rows that are causing the problem? There are lots of ways to do this and, frankly, it is probably a bit hard so don’t get hung up too long on this. Give it a try though:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>OK, we have an imputation problem. Write code to solve it and say what you did.</p>
+<p>By the way, there is an argument <code class="docutils literal notranslate"><span class="pre">na_values</span></code> that you can provide to <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> that will mark a list of characters as if they were <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> using <code class="docutils literal notranslate"><span class="pre">na_values</span></code>, which is pretty darn convenient. Using that will help when importing the data for classification.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="splitting-the-dataset-for-model-into-training-and-testing-sets">
+<h3>2.2 : Splitting the dataset for model into training and testing sets<a class="headerlink" href="#splitting-the-dataset-for-model-into-training-and-testing-sets" title="Permalink to this headline">¶</a></h3>
+<p>Let’s split the data in a training set and final testing set. We want to randomly select 75% of the data for training and 25% of the data for testing.</p>
+<p>You should turn the <code class="docutils literal notranslate"><span class="pre">class_labels</span></code> into 0 (now 2, for benign) and 1 (now 4, for malignant) as the classifier we are using (Logisitic Regression) predicts valuse between 0 and 1.</p>
+<p>✅ Do This - You will need to come up with a way to split the data into separate training and testing sets (we will leave the validation set out for now).  Make sure you keep the feature vectors and classes together.</p>
+<p><strong>BIG HINT</strong>: This is a very common step in machine learning, andthere exists a function to do this for you in the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> library called <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code>. From the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">documentation</a>, you find that takes the features and class labels as input and returns a 4 outputs:</p>
+<ul class="simple">
+<li><p>2 feature sets (one for training and one for testing)</p></li>
+<li><p>2 class labels sets (the corresponding one for training and for testing)</p></li>
+</ul>
+<p>Use <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> to split your data into a training set and a testing set that correspond to 75% and 25% of your data respectively. Check the length of the resulting output to make sure the splits follow what you expected.</p>
+<p><strong>Question</strong>: Why do we need to separate our samples into a training and testing set. Why can’t we just use all the data for both? Wouldn’t that make it work better?</p>
+<p><font size=8 color="#009600">✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text)</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="logistic-regression">
+<h2>3 Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p>In the pre-class, you watched a video explaining some of the aspects of the logistic regression. The full details on logistic regression require deeper study, but we can gain some insight from looking at the function we are trying to fit to our data. Plot out the curve to the following equation, called the <strong>logistic function</strong>*</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \frac{e^{x}} {1+e^{x} }  \equiv \frac{1}{1+e^{-x} } \]</div>
+<p>Plot that from say -6 to 6.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is interesting about that curve is that all values of x are mapped into the range for y of 0.0-1.0. Assuming you have a binary classifier, that is one that only has two class labels, that is the mapping you want: all combination of features map into the two class labels 0, or 1. Moreover, the graph looks a lot like a <a class="reference external" href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">cumulative probability distribution</a>. The probability that a set of features is of class 1 is 1 to the right and 0 to the left. As you watched in the pre-class video, this is the basis for logistic regression.</p>
+<p>It’s a regression because the “x” in our logisitic function is actually going to be a regression equation, such that</p>
+<div class="math notranslate nohighlight">
+\[ fn= b_{0} + b_{1}x_{1} + b_{2}x_{2} + \ldots  \]</div>
+<p>for as many terms as we like and the new logistic function</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \frac{e^{fn(x))}} {1+e^{fn(x)} }  \equiv \frac{1}{1+e^{-fn(x)} } \]</div>
+<p>Logisitic classification tries to find the parameters <span class="math notranslate nohighlight">\(b_{x}\)</span> that gives maximal performance on training, and hopefully testing. Let’s let <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> do that.</p>
+<p>We are going to use all the training data from above and train a logistic regression. It is similar to what we did before with regular regression, to wit:</p>
+<p>Note, very importantly, the <code class="docutils literal notranslate"><span class="pre">sm.add_constant</span></code> on the train vectors. We talked about that when we did OLS in stat models. That column of constant is what the <span class="math notranslate nohighlight">\(b_{0}\)</span> or intercept will train against. We need that column to get an intercept.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Uncomment to run</span>
+<span class="c1"># logit_model = sm.Logit(train_labels, sm.add_constant(train_vectors))</span>
+<span class="c1"># result = logit_model.fit()</span>
+<span class="c1"># print(result.summary() )</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The “Pseudo R-squ” is the equivalent (mostly) of the R-squared value in Linear regression. Ranges from 0 (poor fit) to 1 (perfect fit). The P values under “P &gt; |z|” are measures of significance. The null hypothesis is that the restricted model (say a constant value for <code class="docutils literal notranslate"><span class="pre">fn</span></code>) performs better but a low p-value suggests that we can reject this hypothesis and prefer the full model over the null model. This is similar to the F-test for linear regression.</p>
+<p>Based on that, remove the low-performing columns, reform the train test sets and run it again, print the summary</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question:</strong> How do the fits of the full model and the reduced model compare? What evidence are you using to make compare these two fits?</p>
+<p><font size=8 color="#009600">✎</font> Answer here.</p>
+<div class="section" id="how-d-it-go">
+<h3>3.1 How’d it go?<a class="headerlink" href="#how-d-it-go" title="Permalink to this headline">¶</a></h3>
+<p>There are a number of ways that we can check the performance of our model; we learn new ways throughout the semester. The major difference in the standard statistics approach and supervised learning approaches is that we test our models using the data that we held out: “the test data.”</p>
+<p>That is, we will use our classifier model to make predictions from the test features and we can then compare those predictions to actual test labels. To test accuracy, we can use the output of the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method of the model to predict how well the classifier works on the test data (the data it was not trained on). Conveniently that is the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> method and, again, we use it on the result of the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code>.</p>
+<p><strong>Note:</strong> The output from <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> is not a 0/1 value as the test labels are, but rather a fraction between 0 and 1 indicating how likely each entry is to be one class or another. We can make the assumption that anything greater than 0.5 would be a 1 class and anything less than 0.5 would be a 0 class.</p>
+<p><font size=8 color="#009600">✎</font> So do the following:</p>
+<ul class="simple">
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> method (look it up) to create the predicted labels using the test input</p></li>
+<li><p>convert the output of the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> method to the 0/1 class values of the test labels</p></li>
+<li><p>print the resulting predicted class values of the test labels</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>One of the first metrics we will use is the <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>, which compares the predictions our model made for the test labels and the actual test labels. The <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> is one of many metrics we can use and is included in <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code>. Here’s the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html#sklearn.metrics.accuracy_score">documentation</a> on <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>.</p>
+<p><font size=8 color="#009600">✎</font> Do this:</p>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code> we imported at the top and run the <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> on the 0/1 predicted label and the test labels.</p></li>
+<li><p>Print your accuracy result</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question:</strong> How well did your model predict the test class labels? Given what you learned in the pre-class assignment about false positives and false negatives, what other questions should we ask about the accuracy of our model?</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/day-3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="day-3_classification.html" title="previous page">Classification Model</a>
+    <a class='right-next' id="next-link" href="../../contributions.html" title="next page">Contributions</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, and Jane Kim<br/>
+        
+            &copy; Copyright 2021, Michigan State University.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

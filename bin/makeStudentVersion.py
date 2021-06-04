@@ -47,7 +47,7 @@ import numpy as np
 import sys
 
 ASSIGNMENT = sys.argv[1]
-ind = ASSIGNMENT.index("INST")
+ind = ASSIGNMENT.index("SOL")
 ext = ASSIGNMENT.index(".ipynb")
 NEW_ASSIGNMENT = ASSIGNMENT[:ind] + "STUDENT" + ASSIGNMENT[ext:]
 

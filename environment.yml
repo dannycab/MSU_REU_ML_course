@@ -1,5 +1,6 @@
 name: ml-short-course
 channels:
+  - anaconda
   - conda-forge
   - defaults
 dependencies:
@@ -15,8 +16,8 @@ dependencies:
   - blas=1.0=mkl
   - bleach=3.3.0=pyhd3eb1b0_0
   - brotlipy=0.7.0=py39h9ed2024_1003
-  - ca-certificates=2021.5.25=hecd8cb5_1
-  - certifi=2020.12.5=py39hecd8cb5_0
+  - ca-certificates=2020.10.14=0
+  - certifi=2021.5.30=py39hecd8cb5_0
   - cffi=1.14.5=py39h2125817_0
   - chardet=4.0.0=py39hecd8cb5_1003
   - click=8.0.0=pyhd3eb1b0_0
