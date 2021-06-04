@@ -26,8 +26,8 @@ By the end of this six week short course, you should be able to:
 
 The course will be conducted over the next six weeks. We will meet virtually via Zoom from 2-4pm EDT. The course will make use of Jupyter notebooks, so you will need to make sure that you have installed the [Anaconda distribution of Python with Jupyter](https://www.anaconda.com/products/individual) or something equivalent. The course is broken down into 6 topics:
 
-1. May 27th - Introduction to Jupyter Notebooks, Working with Data (instructor: DC)
-2. June 3rd - Building a Regression Model (instructor: DC)
+1. May 27th - [Introduction to Jupyter Notebooks, Working with Data](./notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb) (instructor: DC)
+2. June 3rd - [Building a Regression Model](notebooks/day-2/Day-2_Multiple_Regression.ipynb) (instructor: DC)
 3. June 10th - Building a Classification Model (instructor: DC)
 4. June 17th - Using A Multiplicity of Models (instructor: DC)
 5. June 24th - Advanced topics 1 (instructor: JB)

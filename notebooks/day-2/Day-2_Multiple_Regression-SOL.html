@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Multidimensional Linear Regression &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    <title>Solution - Multidimensional Linear Regression &#8212; 2021 MSU REU Machine Learning Short Course</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,8 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Solution - Multidimensional Linear Regression" href="Day-2_Multiple_Regression-SOL.html" />
-    <link rel="prev" title="Solution - Polynomial Regression" href="Day-2_Polynomial_Regression-SOL.html" />
+    <link rel="next" title="Getting Started with Classification Models" href="../day-3/day-3_Getting_Started_with_Classification_Models.html" />
+    <link rel="prev" title="Multidimensional Linear Regression" href="Day-2_Multiple_Regression.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -149,13 +149,13 @@
    Solution - Polynomial Regression
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Day-2_Multiple_Regression.html">
    Multidimensional Linear Regression
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Day-2_Multiple_Regression-SOL.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Solution - Multidimensional Linear Regression
   </a>
  </li>
@@ -221,7 +221,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/day-2/Day-2_Multiple_Regression.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -246,21 +246,21 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-2/Day-2_Multiple_Regression.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-2/Day-2_Multiple_Regression.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-2/Day-2_Multiple_Regression.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -358,8 +358,8 @@
         
               <div>
                 
-  <div class="section" id="multidimensional-linear-regression">
-<h1>Multidimensional Linear Regression<a class="headerlink" href="#multidimensional-linear-regression" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="solution-multidimensional-linear-regression">
+<h1>Solution - Multidimensional Linear Regression<a class="headerlink" href="#solution-multidimensional-linear-regression" title="Permalink to this headline">¶</a></h1>
 <img src="https://assets.amuniversal.com/7f343ac0870a01332a13005056a9545d" width=400px><hr class="docutils" />
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
@@ -410,6 +410,112 @@
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">poverty_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-2/poverty.dat&#39;</span><span class="p">,</span> 
+                         <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;birth rate&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;death rate&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;infant mortality&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;male LE&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;female LE&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;GNP&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;country group&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;country&#39;</span><span class="p">])</span>
+<span class="n">poverty_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>birth rate</th>
+      <th>death rate</th>
+      <th>infant mortality</th>
+      <th>male LE</th>
+      <th>female LE</th>
+      <th>GNP</th>
+      <th>country group</th>
+      <th>country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>24.7</td>
+      <td>5.7</td>
+      <td>30.8</td>
+      <td>69.6</td>
+      <td>75.5</td>
+      <td>600</td>
+      <td>1</td>
+      <td>Albania</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12.5</td>
+      <td>11.9</td>
+      <td>14.4</td>
+      <td>68.3</td>
+      <td>74.7</td>
+      <td>2250</td>
+      <td>1</td>
+      <td>Bulgaria</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>13.4</td>
+      <td>11.7</td>
+      <td>11.3</td>
+      <td>71.8</td>
+      <td>77.7</td>
+      <td>2980</td>
+      <td>1</td>
+      <td>Czechoslovakia</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12.0</td>
+      <td>12.4</td>
+      <td>7.6</td>
+      <td>69.8</td>
+      <td>75.9</td>
+      <td>*</td>
+      <td>1</td>
+      <td>Former_E._Germany</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>11.6</td>
+      <td>13.4</td>
+      <td>14.8</td>
+      <td>65.4</td>
+      <td>73.8</td>
+      <td>2780</td>
+      <td>1</td>
+      <td>Hungary</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <div class="section" id="type-of-the-data">
 <h3>1.1 Type of the data<a class="headerlink" href="#type-of-the-data" title="Permalink to this headline">¶</a></h3>
 <p>Now look at the <code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> of your DataFrame and describe to me anything unusual. Can you explain why? Please write below. Don’t skimp and look ahead, think about it and answer! We’ll all wait <font size=6 color="#009600">⏲</font></p>
@@ -435,6 +541,31 @@
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">poverty_df</span><span class="p">[</span><span class="s1">&#39;GNP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">poverty_df</span><span class="p">[</span><span class="s1">&#39;GNP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">poverty_df</span><span class="p">[</span><span class="s1">&#39;GNP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+
+<span class="n">poverty_df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>birth rate          float64
+death rate          float64
+infant mortality    float64
+male LE             float64
+female LE           float64
+GNP                 float64
+country group         int64
+country              object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="changing-numpy-nan">
 <h4>Changing numpy.nan<a class="headerlink" href="#changing-numpy-nan" title="Permalink to this headline">¶</a></h4>
@@ -443,7 +574,23 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Uncomment to run</span>
 
-<span class="c1">#poverty_df[&quot;GNP&quot;].fillna(0)</span>
+<span class="n">poverty_df</span><span class="p">[</span><span class="s2">&quot;GNP&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      600.0
+1     2250.0
+2     2980.0
+3        0.0
+4     2780.0
+       ...  
+92     220.0
+93     110.0
+94     220.0
+95     420.0
+96     640.0
+Name: GNP, Length: 97, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -452,11 +599,166 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Uncomment to run</span>
-<span class="c1">#poverty_df[&quot;GNP&quot;].fillna(poverty_df[&quot;GNP&quot;].mean() )</span>
-<span class="c1">#poverty_df.fillna({&quot;GNP&quot;: poverty_df[&quot;GNP&quot;].mean() })</span>
+<span class="n">poverty_df</span><span class="p">[</span><span class="s2">&quot;GNP&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">poverty_df</span><span class="p">[</span><span class="s2">&quot;GNP&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">)</span>
+<span class="n">poverty_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span><span class="s2">&quot;GNP&quot;</span><span class="p">:</span> <span class="n">poverty_df</span><span class="p">[</span><span class="s2">&quot;GNP&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">})</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>birth rate</th>
+      <th>death rate</th>
+      <th>infant mortality</th>
+      <th>male LE</th>
+      <th>female LE</th>
+      <th>GNP</th>
+      <th>country group</th>
+      <th>country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>24.7</td>
+      <td>5.7</td>
+      <td>30.8</td>
+      <td>69.6</td>
+      <td>75.5</td>
+      <td>600.000000</td>
+      <td>1</td>
+      <td>Albania</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12.5</td>
+      <td>11.9</td>
+      <td>14.4</td>
+      <td>68.3</td>
+      <td>74.7</td>
+      <td>2250.000000</td>
+      <td>1</td>
+      <td>Bulgaria</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>13.4</td>
+      <td>11.7</td>
+      <td>11.3</td>
+      <td>71.8</td>
+      <td>77.7</td>
+      <td>2980.000000</td>
+      <td>1</td>
+      <td>Czechoslovakia</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12.0</td>
+      <td>12.4</td>
+      <td>7.6</td>
+      <td>69.8</td>
+      <td>75.9</td>
+      <td>5741.252747</td>
+      <td>1</td>
+      <td>Former_E._Germany</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>11.6</td>
+      <td>13.4</td>
+      <td>14.8</td>
+      <td>65.4</td>
+      <td>73.8</td>
+      <td>2780.000000</td>
+      <td>1</td>
+      <td>Hungary</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>52.2</td>
+      <td>15.6</td>
+      <td>103.0</td>
+      <td>49.9</td>
+      <td>52.7</td>
+      <td>220.000000</td>
+      <td>6</td>
+      <td>Uganda</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>50.5</td>
+      <td>14.0</td>
+      <td>106.0</td>
+      <td>51.3</td>
+      <td>54.7</td>
+      <td>110.000000</td>
+      <td>6</td>
+      <td>Tanzania</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>45.6</td>
+      <td>14.2</td>
+      <td>83.0</td>
+      <td>50.3</td>
+      <td>53.7</td>
+      <td>220.000000</td>
+      <td>6</td>
+      <td>Zaire</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>51.1</td>
+      <td>13.7</td>
+      <td>80.0</td>
+      <td>50.4</td>
+      <td>52.5</td>
+      <td>420.000000</td>
+      <td>6</td>
+      <td>Zambia</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>41.7</td>
+      <td>10.3</td>
+      <td>66.0</td>
+      <td>56.5</td>
+      <td>60.1</td>
+      <td>640.000000</td>
+      <td>6</td>
+      <td>Zimbabwe</td>
+    </tr>
+  </tbody>
+</table>
+<p>97 rows × 8 columns</p>
+</div></div></div>
 </div>
 <p>The first version changes any <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> in the <code class="docutils literal notranslate"><span class="pre">GNP</span></code> column to be the mean of the column. The second takes a dictionary where the the key of the dictionary is the column to change and the value is what to replace the <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> with. Note you could replace with other values like: median, min, max, or some other fixed value.</p>
 <p>Remember that all of these examples return either a new Series (when working with just a column) or a DataFrame (if working with the entire element). Nothing is changed in the original unless you assign the result or use <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> in the call.</p>
@@ -464,9 +766,14 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Uncomment to run</span>
-<span class="c1"># len(poverty_df)</span>
-<span class="c1"># poverty_df_dropped = poverty_df.dropna()</span>
-<span class="c1"># print(len(poverty_df), len(poverty_df_dropped))</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">poverty_df</span><span class="p">)</span>
+<span class="n">poverty_df_dropped</span> <span class="o">=</span> <span class="n">poverty_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">poverty_df</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">poverty_df_dropped</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97 91
 </pre></div>
 </div>
 </div>
@@ -495,6 +802,32 @@
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">poverty_df_dropped</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;infant mortality&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">poverty_df_dropped</span><span class="p">[</span><span class="s1">&#39;infant mortality&#39;</span><span class="p">]</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">linear</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="n">linear</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">linear</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">r2</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r2: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>r2:  0.9401
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="visualizing-your-fit">
 <h3>2.2 Visualizing your fit<a class="headerlink" href="#visualizing-your-fit" title="Permalink to this headline">¶</a></h3>
@@ -505,6 +838,32 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;True Values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted Values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">200</span><span class="p">],[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">200</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># res = y_test-y_pred</span>
+
+<span class="c1"># plt.figure(figsize=(5,5))</span>
+<span class="c1"># plt.scatter(X_test[&#39;male LE&#39;], res)</span>
+<span class="c1"># plt.xlabel(&#39;x&#39;)</span>
+<span class="c1"># plt.ylabel(&#39;Residuals&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd5485b2af0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/Day-2_Multiple_Regression-SOL_27_1.png" src="../../_images/Day-2_Multiple_Regression-SOL_27_1.png" />
 </div>
 </div>
 </div>
@@ -519,10 +878,147 @@
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">poverty_df_dropped</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>birth rate</th>
+      <th>death rate</th>
+      <th>infant mortality</th>
+      <th>male LE</th>
+      <th>female LE</th>
+      <th>GNP</th>
+      <th>country group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>birth rate</th>
+      <td>1.000000</td>
+      <td>0.505626</td>
+      <td>0.856537</td>
+      <td>-0.866200</td>
+      <td>-0.894440</td>
+      <td>-0.629059</td>
+      <td>0.710212</td>
+    </tr>
+    <tr>
+      <th>death rate</th>
+      <td>0.505626</td>
+      <td>1.000000</td>
+      <td>0.677741</td>
+      <td>-0.754032</td>
+      <td>-0.714751</td>
+      <td>-0.302754</td>
+      <td>0.344168</td>
+    </tr>
+    <tr>
+      <th>infant mortality</th>
+      <td>0.856537</td>
+      <td>0.677741</td>
+      <td>1.000000</td>
+      <td>-0.935238</td>
+      <td>-0.954225</td>
+      <td>-0.601647</td>
+      <td>0.631913</td>
+    </tr>
+    <tr>
+      <th>male LE</th>
+      <td>-0.866200</td>
+      <td>-0.754032</td>
+      <td>-0.935238</td>
+      <td>1.000000</td>
+      <td>0.981957</td>
+      <td>0.642963</td>
+      <td>-0.642059</td>
+    </tr>
+    <tr>
+      <th>female LE</th>
+      <td>-0.894440</td>
+      <td>-0.714751</td>
+      <td>-0.954225</td>
+      <td>0.981957</td>
+      <td>1.000000</td>
+      <td>0.650040</td>
+      <td>-0.699097</td>
+    </tr>
+    <tr>
+      <th>GNP</th>
+      <td>-0.629059</td>
+      <td>-0.302754</td>
+      <td>-0.601647</td>
+      <td>0.642963</td>
+      <td>0.650040</td>
+      <td>1.000000</td>
+      <td>-0.283399</td>
+    </tr>
+    <tr>
+      <th>country group</th>
+      <td>0.710212</td>
+      <td>0.344168</td>
+      <td>0.631913</td>
+      <td>-0.642059</td>
+      <td>-0.699097</td>
+      <td>-0.283399</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <p><font size=8 color="#009600">✎</font> Do This - Redo the model with only the top three features you found above vs “Infant Mortality”. Print the <code class="docutils literal notranslate"><span class="pre">.r2_score</span></code>, how does it compare to the full model?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">X1</span> <span class="o">=</span> <span class="n">poverty_df_dropped</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;infant mortality&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;country group&#39;</span><span class="p">,</span> <span class="s1">&#39;GNP&#39;</span><span class="p">,</span> <span class="s1">&#39;death rate&#39;</span><span class="p">])</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">poverty_df_dropped</span><span class="p">[</span><span class="s1">&#39;infant mortality&#39;</span><span class="p">]</span>
+
+<span class="n">X_train1</span><span class="p">,</span> <span class="n">X_test1</span><span class="p">,</span> <span class="n">y_train1</span><span class="p">,</span> <span class="n">y_test1</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">linear</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="n">linear</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train1</span><span class="p">,</span><span class="n">y_train1</span><span class="p">)</span>
+
+<span class="n">y_pred1</span> <span class="o">=</span> <span class="n">linear</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test1</span><span class="p">)</span>
+
+<span class="n">r2</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test1</span><span class="p">,</span> <span class="n">y_pred1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r2: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>r2:  0.9181
 </pre></div>
 </div>
 </div>
@@ -533,6 +1029,35 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;True Values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted Values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Full Model&#39;</span><span class="p">,</span> <span class="s1">&#39;Reduced Model&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">200</span><span class="p">],[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">200</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># res = y_test-y_pred</span>
+
+<span class="c1"># plt.figure(figsize=(5,5))</span>
+<span class="c1"># plt.scatter(X_test[&#39;male LE&#39;], res)</span>
+<span class="c1"># plt.xlabel(&#39;x&#39;)</span>
+<span class="c1"># plt.ylabel(&#39;Residuals&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd55bd30df0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/Day-2_Multiple_Regression-SOL_36_1.png" src="../../_images/Day-2_Multiple_Regression-SOL_36_1.png" />
 </div>
 </div>
 <p>Review this model and the one you constructed earlier in the notebook. Report how the Adjusted R-squared value changed from using only the top three vs using all the available features. How well does this reduced model appear to fit your data?</p>
@@ -566,8 +1091,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Day-2_Polynomial_Regression-SOL.html" title="previous page">Solution - Polynomial Regression</a>
-    <a class='right-next' id="next-link" href="Day-2_Multiple_Regression-SOL.html" title="next page">Solution - Multidimensional Linear Regression</a>
+    <a class='left-prev' id="prev-link" href="Day-2_Multiple_Regression.html" title="previous page">Multidimensional Linear Regression</a>
+    <a class='right-next' id="next-link" href="../day-3/day-3_Getting_Started_with_Classification_Models.html" title="next page">Getting Started with Classification Models</a>
 
         </div>
         

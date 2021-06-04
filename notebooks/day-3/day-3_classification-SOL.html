@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Classification Model &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    <title>Solution - Classification Model &#8212; 2021 MSU REU Machine Learning Short Course</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,8 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Solution - Classification Model" href="day-3_classification-SOL.html" />
-    <link rel="prev" title="Getting Started with Classification Models" href="day-3_Getting_Started_with_Classification_Models.html" />
+    <link rel="next" title="Contributions" href="../../contributions.html" />
+    <link rel="prev" title="Classification Model" href="day-3_classification.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -164,13 +164,13 @@
    Getting Started with Classification Models
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="day-3_classification.html">
    Classification Model
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="day-3_classification-SOL.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Solution - Classification Model
   </a>
  </li>
@@ -226,7 +226,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/day-3/day-3_classification.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-3/day-3_classification-SOL.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -251,21 +251,21 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-3/day-3_classification.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-3/day-3_classification-SOL.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-3/day-3_classification.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-3/day-3_classification-SOL.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-3/day-3_classification.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-3/day-3_classification-SOL.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -296,8 +296,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#review-of-pre-class-assignment">
-   1. Review of Pre-Class assignment
+  <a class="reference internal nav-link" href="#review-of-getting-started-notebook">
+   1. Review of Getting Started Notebook
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -341,8 +341,8 @@
         
               <div>
                 
-  <div class="section" id="classification-model">
-<h1>Classification Model<a class="headerlink" href="#classification-model" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="solution-classification-model">
+<h1>Solution - Classification Model<a class="headerlink" href="#solution-classification-model" title="Permalink to this headline">¶</a></h1>
 <img src="https://www.pngkey.com/png/full/574-5745035_machine-learning-workflow-machine-learning-data-pipeline.png" width=700px>
 <div class="section" id="agenda-for-today-s-class">
 <h2>Agenda for today’s class<a class="headerlink" href="#agenda-for-today-s-class" title="Permalink to this headline">¶</a></h2>
@@ -370,9 +370,9 @@
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="review-of-pre-class-assignment">
-<h2>1. Review of Pre-Class assignment<a class="headerlink" href="#review-of-pre-class-assignment" title="Permalink to this headline">¶</a></h2>
-<p>We’ll discussion any questions that came up as a class.</p>
+<div class="section" id="review-of-getting-started-notebook">
+<h2>1. Review of Getting Started Notebook<a class="headerlink" href="#review-of-getting-started-notebook" title="Permalink to this headline">¶</a></h2>
+<p>Pull up the <span class="xref myst">solution notebook</span></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="training-vs-testing">
@@ -543,8 +543,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="day-3_Getting_Started_with_Classification_Models.html" title="previous page">Getting Started with Classification Models</a>
-    <a class='right-next' id="next-link" href="day-3_classification-SOL.html" title="next page">Solution - Classification Model</a>
+    <a class='left-prev' id="prev-link" href="day-3_classification.html" title="previous page">Classification Model</a>
+    <a class='right-next' id="next-link" href="../../contributions.html" title="next page">Contributions</a>
 
         </div>
         
