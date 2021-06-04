@@ -28,7 +28,7 @@ The course will be conducted over the next six weeks. We will meet virtually via
 
 1. May 27th - [Introduction to Jupyter Notebooks, Working with Data](./notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb) (instructor: DC)
 2. June 3rd - [Building a Regression Model](notebooks/day-2/Day-2_Multiple_Regression.ipynb) (instructor: DC)
-3. June 10th - Building a Classification Model (instructor: DC)
+3. June 10th - [Building a Classification Model](notebooks/day-3/Day-3_KNN_classification.ipynb) (instructor: DC)
 4. June 17th - Using A Multiplicity of Models (instructor: DC)
 5. June 24th - Advanced topics 1 (instructor: JB)
 6. July 1st - Advanced topics 2 (instructor: JK)
