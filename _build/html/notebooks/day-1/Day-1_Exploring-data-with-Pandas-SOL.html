@@ -163,6 +163,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models-SOL.html">
+   Solution - Getting Started with Classification Models
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../day-3/day-3_KNN_classification.html">
    Classification using K Nearest Neighbors
   </a>
@@ -914,11 +919,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ff3b8a1ba60&gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">9</span><span class="n">cfb6ccd1438</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">## Seaborn (NOTE THIS SOLVES THE NEXT PROBLEM AUTOMATICALLY)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
 </pre></div>
 </div>
 <img alt="../../_images/Day-1_Exploring-data-with-Pandas-SOL_25_1.png" src="../../_images/Day-1_Exploring-data-with-Pandas-SOL_25_1.png" />
-<img alt="../../_images/Day-1_Exploring-data-with-Pandas-SOL_25_2.png" src="../../_images/Day-1_Exploring-data-with-Pandas-SOL_25_2.png" />
 </div>
 </div>
 <p>✅ <strong>Question 4</strong>: Does this visualization help you to determine the features that might be useful for classification? Why or why not?</p>
