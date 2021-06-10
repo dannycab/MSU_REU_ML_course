@@ -21,7 +21,7 @@
   - file: notebooks/day-3/day-3_Getting_Started_with_Classification_Models.ipynb
   - file: notebooks/day-3/day-3_Getting_Started_with_Classification_Models-SOL.ipynb
   - file: notebooks/day-3/day-3_KNN_classification.ipynb
-  # - file: notebooks/day-3/day-3_KNN_classification-SOL.ipynb
+  - file: notebooks/day-3/day-3_KNN_classification-SOL.ipynb
 
 - part: Acknowledgements
   chapters:

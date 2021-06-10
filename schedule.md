@@ -51,6 +51,11 @@
 * Use `scikit-learn` to build a classification model
 * Evaluate the fit of the model
 
+### Materials
+
+* [Day 3 notebook - Getting Started](./notebooks/day-3/day-3_Getting_Started_with_Classification_Models.ipynb)
+* [Day 3 notebook - KNN](./notebooks/day-3/day-3_KNN_classification.ipynb)
+
 ## Day 4 - Using A Multiplicity of Models
 
 ### Today, we will:
