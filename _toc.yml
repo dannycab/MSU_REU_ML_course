@@ -23,6 +23,10 @@
   - file: notebooks/day-3/day-3_KNN_classification.ipynb
   - file: notebooks/day-3/day-3_KNN_classification-SOL.ipynb
 
+- part: Evaluating Models
+  chapters:
+  - file: notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb
+
 - part: Acknowledgements
   chapters:
   - file: contributions.md
