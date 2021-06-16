@@ -1,0 +1,1639 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Multiplicity of Models &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Contributions" href="../../contributions.html" />
+    <link rel="prev" title="What is Tuning and Validation?" href="Day_4-What_is_Tuning_and_Validation.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">2021 MSU REU Machine Learning Short Course</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   2021 MSU REU Short Course on Machine Learning
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../schedule.html">
+   Detailed Schedule
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">
+   Getting Started with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">
+   Solution - Getting Started with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">
+   Exploring data with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">
+   Solution - Exploring data with Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Modeling Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/Day-2_Polynomial_Regression.html">
+   Polynomial Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/Day-2_Polynomial_Regression-SOL.html">
+   Solution - Polynomial Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/Day-2_Multiple_Regression.html">
+   Multidimensional Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-2/Day-2_Multiple_Regression-SOL.html">
+   Solution - Multidimensional Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models.html">
+   Getting Started with Classification Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models-SOL.html">
+   Solution - Getting Started with Classification Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-3/day-3_KNN_classification.html">
+   Classification using K Nearest Neighbors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day-3/day-3_KNN_classification-SOL.html">
+   Solution - Classification using K Nearest Neighbors
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Evaluating Models
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Day_4-What_is_Tuning_and_Validation.html">
+   What is Tuning and Validation?
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   A Multiplicity of Models
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Acknowledgements
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contributions.html">
+   Contributions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#today-s-initial-imports">
+   0. Today’s Initial Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-validating-a-logistic-regression-model">
+   1. Example: Validating a Logistic Regression Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-classification-data">
+     1.1 Making classification data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-feature-spaces">
+     1.2 Plotting Feature Spaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-logistic-regression-model">
+     1.3 A Logistic Regression Model
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-metric-zoo">
+       1.3.1 The Metric Zoo
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auc-and-the-roc-curve">
+     1.4 AUC and the ROC Curve
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-specific-tools-logistic-regression">
+     1.5 Model Specific Tools - Logistic Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monte-carlo-validation">
+     1.5 Monte Carlo Validation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parameter-tuning">
+   2. Parameter Tuning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results-of-a-grid-search">
+     2.1 Results of a Grid Search
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-about-other-classifiers">
+     2.2 What about other classifiers?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#knn">
+       2.2.1 KNN
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linearsvc">
+       2.2.2 LinearSVC
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#random-forest">
+       2.2.3 Random Forest
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-about-other-kinds-of-data">
+   3. What about other kinds of data?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-it">
+     3.1 Plot it!
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-to-try-other-models">
+     3.2 Time to try other models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-make-the-data-a-bit-messier">
+     3.3 Let’s make the data a bit messier.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#try-to-find-the-best-model-for-this-data">
+     3.4 Try to find the best model for this data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="a-multiplicity-of-models">
+<h1>A Multiplicity of Models<a class="headerlink" href="#a-multiplicity-of-models" title="Permalink to this headline">¶</a></h1>
+<p>We haven’t really talked too much about specific models or algorithms, that is something you can study on your own, but a warning – that liteature is extensive, so I’d suggest starting with YouTube videos.</p>
+<p>In general you might approach a given classification or regression problem with a number of different possible models to determine which is the most useful for your purposes (e.g., most accurate, least biased, etc.). A few potential models (<em>not exhaustive</em>) are listed below based on the type of problem they can solve:</p>
+<ul class="simple">
+<li><p><strong>Classification</strong>: Logistic Regression, K Nearest Neighbors, Support Vector Machines, Random Forest, Neural Networks</p></li>
+<li><p><strong>Regression</strong>: Linear Regression, Polynomial Regression, Stochastic Gradient Descent, Support Vector Machines, Random Forest, Neural Networks</p></li>
+</ul>
+<p>In this notebook, you will work with synthesized data to understand the workflow for using and comparing classifiers. Along the way, we will introduce new models, but only link to videos that explain what they do.</p>
+<hr class="docutils" />
+<div class="section" id="today-s-initial-imports">
+<h2>0. Today’s Initial Imports<a class="headerlink" href="#today-s-initial-imports" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span><span class="p">,</span> <span class="n">make_circles</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">ShuffleSplit</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-validating-a-logistic-regression-model">
+<h2>1. Example: Validating a Logistic Regression Model<a class="headerlink" href="#example-validating-a-logistic-regression-model" title="Permalink to this headline">¶</a></h2>
+<p>We will start with a Logistic Regression Model and synthesized data.</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=yIYKR4sgzI8">[Logistic Regression Explained]</a> <em>(No need to watch in class.)</em></p>
+<p>By reviewing and working with this example, you should be able to identify and explain the different ways in which we are validating the Logisitc Regression model.</p>
+<div class="section" id="making-classification-data">
+<h3>1.1 Making classification data<a class="headerlink" href="#making-classification-data" title="Permalink to this headline">¶</a></h3>
+<p>We start by making the data using the <code class="docutils literal notranslate"><span class="pre">make_classification()</span></code> method. I will pick 1000 samples with 20 features; only 4 of them will be informative about the 2 classes. What <code class="docutils literal notranslate"><span class="pre">make_classification()</span></code> returns are the data (the features for the model) and the class labels (the 1 or 0). For simplicity and familiarity, I convert them both to <code class="docutils literal notranslate"><span class="pre">pandas</span></code> data frames as this is typically what you would do with data you read in.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Parameters for making data</span>
+<span class="n">N_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">N_features</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">N_informative</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">N_classes</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1">## Make up some data for classification</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="n">N_samples</span><span class="p">,</span>
+                           <span class="n">n_features</span> <span class="o">=</span> <span class="n">N_features</span><span class="p">,</span>
+                           <span class="n">n_informative</span> <span class="o">=</span> <span class="n">N_informative</span><span class="p">,</span>
+                           <span class="n">n_classes</span> <span class="o">=</span> <span class="n">N_classes</span><span class="p">)</span>
+
+<span class="c1">## Store the data in a data frame</span>
+<span class="n">feature_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N_features</span><span class="p">):</span>
+    <span class="n">feature_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;feature_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">feature</span><span class="p">))</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">feature_list</span><span class="p">)</span>
+<span class="n">classes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can check the <code class="docutils literal notranslate"><span class="pre">.head()</span></code> of both data frames to make sure we know what we imported.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>feature_0</th>
+      <th>feature_1</th>
+      <th>feature_2</th>
+      <th>feature_3</th>
+      <th>feature_4</th>
+      <th>feature_5</th>
+      <th>feature_6</th>
+      <th>feature_7</th>
+      <th>feature_8</th>
+      <th>feature_9</th>
+      <th>feature_10</th>
+      <th>feature_11</th>
+      <th>feature_12</th>
+      <th>feature_13</th>
+      <th>feature_14</th>
+      <th>feature_15</th>
+      <th>feature_16</th>
+      <th>feature_17</th>
+      <th>feature_18</th>
+      <th>feature_19</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.683131</td>
+      <td>0.471704</td>
+      <td>-0.371534</td>
+      <td>0.809310</td>
+      <td>2.409141</td>
+      <td>-0.549948</td>
+      <td>-0.224843</td>
+      <td>0.986060</td>
+      <td>1.290203</td>
+      <td>-0.104186</td>
+      <td>0.157825</td>
+      <td>0.615737</td>
+      <td>1.018611</td>
+      <td>-1.060297</td>
+      <td>-0.406210</td>
+      <td>-1.968252</td>
+      <td>-0.560488</td>
+      <td>-0.547855</td>
+      <td>-3.895735</td>
+      <td>0.153945</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.916451</td>
+      <td>-0.059255</td>
+      <td>-0.662279</td>
+      <td>-0.655194</td>
+      <td>1.551965</td>
+      <td>-0.376955</td>
+      <td>0.044605</td>
+      <td>0.436482</td>
+      <td>0.812675</td>
+      <td>0.065701</td>
+      <td>-0.564312</td>
+      <td>-0.765321</td>
+      <td>0.684801</td>
+      <td>-0.190891</td>
+      <td>-3.575486</td>
+      <td>1.677651</td>
+      <td>2.668877</td>
+      <td>-0.429366</td>
+      <td>-0.122821</td>
+      <td>0.772922</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.068449</td>
+      <td>0.960777</td>
+      <td>0.248377</td>
+      <td>0.432367</td>
+      <td>0.305098</td>
+      <td>1.285241</td>
+      <td>0.322649</td>
+      <td>-0.659433</td>
+      <td>-0.317674</td>
+      <td>0.790084</td>
+      <td>-0.082083</td>
+      <td>0.137518</td>
+      <td>-2.508344</td>
+      <td>-0.337728</td>
+      <td>0.483451</td>
+      <td>-0.880928</td>
+      <td>-0.537295</td>
+      <td>0.352094</td>
+      <td>-1.560484</td>
+      <td>-1.751050</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.090043</td>
+      <td>0.608248</td>
+      <td>0.944792</td>
+      <td>-0.213062</td>
+      <td>-2.147670</td>
+      <td>-1.190439</td>
+      <td>0.777824</td>
+      <td>-0.910358</td>
+      <td>-0.305485</td>
+      <td>0.950083</td>
+      <td>-2.241734</td>
+      <td>-1.294890</td>
+      <td>-0.305652</td>
+      <td>-1.241765</td>
+      <td>-0.456517</td>
+      <td>-1.271422</td>
+      <td>0.059528</td>
+      <td>-0.098176</td>
+      <td>-1.840230</td>
+      <td>1.139842</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.406027</td>
+      <td>1.675492</td>
+      <td>1.678914</td>
+      <td>1.932184</td>
+      <td>-0.077406</td>
+      <td>-1.106779</td>
+      <td>0.528628</td>
+      <td>0.280053</td>
+      <td>0.444629</td>
+      <td>-1.243572</td>
+      <td>-0.604007</td>
+      <td>-0.480801</td>
+      <td>-0.368557</td>
+      <td>-2.742066</td>
+      <td>0.124384</td>
+      <td>-2.997864</td>
+      <td>0.126643</td>
+      <td>0.077416</td>
+      <td>-1.424205</td>
+      <td>1.421550</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="plotting-feature-spaces">
+<h3>1.2 Plotting Feature Spaces<a class="headerlink" href="#plotting-feature-spaces" title="Permalink to this headline">¶</a></h3>
+<p>We’ve found that looking at the classes in some feature subspace has been helpful in seeing if there are subspaces where the classes are more separated. We do this so frequently, it is worth having a little piece of code to do that. I’ve written one below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">PlotFeatureSpace</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    
+    <span class="sd">&#39;&#39;&#39;From a Data Series, PlotFeatureSpace creates a </span>
+<span class="sd">    scatter plot of two features and colors the dots </span>
+<span class="sd">    using the classes. The figure labels are the names </span>
+<span class="sd">    of each passed column of the Data Series.&#39;&#39;&#39;</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">name</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">x2</span><span class="o">.</span><span class="n">name</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><font size=+3>✎</font> <strong>Do this:</strong> Using PlotFeatureSpace(), try to find at least two possible features that might be important to the model. That is, can you find two features that seperate the classes well? I’ve given an example call below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Parameters for PlotFutureSpace</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;feature_1&quot;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;feature_2&quot;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+
+<span class="n">PlotFeatureSpace</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">features</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Day_4-Multiplicity_of_Models_11_0.png" src="../../_images/Day_4-Multiplicity_of_Models_11_0.png" />
+</div>
+</div>
+<p><font size=+3>✎</font> <strong>Do this:</strong> Which two features did you find? Keep note here!</p>
+<p><em>If you rerun the data creation process, the same two features might no longer be useful.</em></p>
+<p><font size=+3>✎</font> <strong>Do this:</strong> Erase this and write here.</p>
+</div>
+<div class="section" id="a-logistic-regression-model">
+<h3>1.3 A Logistic Regression Model<a class="headerlink" href="#a-logistic-regression-model" title="Permalink to this headline">¶</a></h3>
+<p>As we did with KNN, we will train and test a classification model. This time it will be a <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logitstic Regression</a> model. We will first use the confusion matrix to determine how things are going. I’ve written to code below to split the data, create the model, fit it, and predict the classes of the test data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Split the data</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">)</span>
+
+<span class="c1">## Create an instance of the model (LR with no regularization)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+<span class="c1">## Fit the model to the training data</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+
+<span class="c1">## Use that model to predict test outcomes</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+<span class="c1">## Compare the real outcomes to the predicted outcomes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 78  46]
+ [ 22 104]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-metric-zoo">
+<h4>1.3.1 The Metric Zoo<a class="headerlink" href="#the-metric-zoo" title="Permalink to this headline">¶</a></h4>
+<p>There are many different ways to use the confusion matrix to determine different qualities of your classifier. Accuracy, the number of true positives and negatives comapred to all predictions is just one of these metrics. There’s a lot of them! <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">[Wikipedia article on evaluation metrics]</a></p>
+<p>Two of the more important ones are the accuracy (as we’ve used before) and the <a class="reference external" href="https://en.wikipedia.org/wiki/F-score">f1-score</a> (closer to 1 is better). The <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> toolkit has all these built-in, but one tool that is at the ready is <code class="docutils literal notranslate"><span class="pre">classification_report()</span></code>, which gives the accuracy, the f-1 score, as well as the <a class="reference external" href="https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values">precision</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">recall</a> – two other common metrics for evaluation.</p>
+<p>Once we have predicted class labels, then we can use <code class="docutils literal notranslate"><span class="pre">classification_report</span></code>. Both the <code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code> and <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> can be used with any of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>’s classifiers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.78      0.63      0.70       124
+           1       0.69      0.83      0.75       126
+
+    accuracy                           0.73       250
+   macro avg       0.74      0.73      0.73       250
+weighted avg       0.74      0.73      0.73       250
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="auc-and-the-roc-curve">
+<h3>1.4 AUC and the ROC Curve<a class="headerlink" href="#auc-and-the-roc-curve" title="Permalink to this headline">¶</a></h3>
+<p>The Receiver Operator Characteristic (ROC) Curve and the associated Area Under the Curve (AUC) are additional tools that help us validate our model. Fortunately, <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> has <code class="docutils literal notranslate"><span class="pre">roc_curve</span></code>, that will return to quantities needed to plot this curve. The AUC can also be determined using the built in <code class="docutils literal notranslate"><span class="pre">roc_auc_score()</span></code> method.</p>
+<p>Below I wrote a little bit of code to plot the ROC curve and compute the AUC for this model.</p>
+<p>Again, both of the tools are available for any classifier model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ROC curve (AUC = </span><span class="si">%0.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;FPR&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;TPR&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb90c2dca90&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Day_4-Multiplicity_of_Models_19_1.png" src="../../_images/Day_4-Multiplicity_of_Models_19_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="model-specific-tools-logistic-regression">
+<h3>1.5 Model Specific Tools - Logistic Regression<a class="headerlink" href="#model-specific-tools-logistic-regression" title="Permalink to this headline">¶</a></h3>
+<p>A LR model uses a transformed linear model to fit the data. It predicts numerical weights for each feature in the data. Those numerical weights can be converted to odds ratio by exponentiating them:</p>
+<p><span class="math notranslate nohighlight">\(odds_i = \exp(\beta_i)\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(\beta_i\)</span> is the numerical weight for the <span class="math notranslate nohighlight">\(i\)</span>th feature determined by the model. In <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> speak, these would be “coefficients” of the model; <code class="docutils literal notranslate"><span class="pre">coef_</span></code> in code (and yes with the trailing underscore). The nice thing about LR is that these coefficients are typically interpretable. That is if the odds of a feature is close to one then that feature has virtually no effect on the model. On the other hand, if a feature is much larger than one, we find that might contribute a lot to the model.</p>
+<p>In this case, we’d expect that feature to be useful in separating the two class labels. <em>That is why you predicted two features earlier!</em></p>
+<p>Below I wrote a little code to find those odds ratios.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Extract model coefficeints</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model Coefficients:&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+
+<span class="c1">## Compute odds ratios from model coefficients</span>
+<span class="n">odds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Odds Ratios:&quot;</span><span class="p">,</span> <span class="n">odds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 0.14235948  0.0300147   0.19275369 -0.12516144  0.67090683 -0.04117242
+  -0.09789443  0.01805019 -0.04739987  0.08150929 -0.13760801  0.07457296
+  -0.00871742 -0.01150039 -0.08877648  0.01237377  0.152752    0.05082704
+  -0.78934785 -0.01006173]]
+Odds Ratios: [1.15299105 1.03046969 1.21258408 0.88235445 1.95601028 0.95966365
+ 0.90674463 1.01821408 0.95370596 1.08492329 0.87144022 1.07742395
+ 0.99132047 0.98856548 0.91505008 1.01245064 1.16503602 1.0521409
+ 0.45414087 0.98998872]
+</pre></div>
+</div>
+</div>
+</div>
+<p><font size=+3>✎</font> <strong>Do this:</strong> Make a bar plot of the odds ratios. Which ones appear to contribute to the model? Are any of them the two featurs you found earlier? You can use <code class="docutils literal notranslate"><span class="pre">Plot_Feature_Space()</span></code> to confirm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="monte-carlo-validation">
+<h3>1.5 Monte Carlo Validation<a class="headerlink" href="#monte-carlo-validation" title="Permalink to this headline">¶</a></h3>
+<p>One of the important things about machine learning is that it often relies on the randomness of the draw of training and testing sets. As a result, any  one time the model is run you are working with a particualr choice of data for training and testing. Thus, there’s a problem in reporting the results of a single model because it depends on the curiousities of what was drawn in the first place!</p>
+<p>One of the ways we validate the model we have used is to determine how representative our one run is compared to a large number of runs. Ideally, we’d like to know what the disitrbution of possible results could be. That allows us to put some error bounds on the estimated model parameters and to explain the confidence we have in our approach and results.</p>
+<p>There’s two main types of validation, although many others exist and there’s nuance inside of each:</p>
+<ul class="simple">
+<li><p><strong>Cross-Validation:</strong> The algorithm slices the data in N bins. Then it treats each bin in turn as a test set using the reamining N-1 bins as the training data. <em>This approach and modifications to it are part of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</em> <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html">Cross Validation Documentation</a></p></li>
+<li><p><strong>Monte Carlo Validation:</strong> This is relatively simple as you simply repslit the data and run the model again and collect the results. <strong>This is the approach we will use in this notebook.</strong></p></li>
+</ul>
+<p>Below, I wrote a short function that splits the data, creates the model, fits it, and returns the evaluation metrics including the model weights. The lines below runs it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RunLR</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">):</span>
+    
+    <span class="sd">&#39;&#39;&#39;RunLR runs a logisitic regression model with </span>
+<span class="sd">    default splitting. It returns evalaution metrics including</span>
+<span class="sd">    accuracy, auc, and the model coefficients.&#39;&#39;&#39;</span>
+    
+    <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">)</span>
+    <span class="n">LR</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="n">penalty</span><span class="p">)</span>
+    <span class="n">LR</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">LR</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> <span class="n">LR</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc</span><span class="p">,</span> <span class="n">auc</span><span class="p">,</span> <span class="n">model_coefs</span> <span class="o">=</span> <span class="n">RunLR</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: &quot;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AUC:&quot;</span><span class="p">,</span> <span class="n">auc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coefs:&quot;</span><span class="p">,</span> <span class="n">model_coefs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.728
+AUC: 0.7276625704045059
+Coefs: [[ 0.21925497 -0.00792019  0.14187879 -0.20522269  0.65200352 -0.05196884
+  -0.07607041  0.04966361 -0.11837415  0.091756   -0.06696783  0.0483123
+   0.02441107 -0.02201599 -0.00324738  0.0167208   0.17498122 -0.00898425
+  -0.82817706 -0.0208813 ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><font size=+3>✎</font> <strong>Do this:</strong> Write a loop that does Monte Carlo Validation with 100 trials using <code class="docutils literal notranslate"><span class="pre">RunLR()</span></code>. Make sure to store the accuracy and auc each time the loop runs - you will want to know how these are distributed.</p>
+<p><em>You can also try to store the model coefficients, but that isn’t necessary to understand what we are trying to do. And it might lead to shape mismatch issues that aren’t worth debugging right now</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><font size=+3>✎</font> <strong>Do this:</strong> Now that you have the distribution of accuracy scores and auc, let’s compute the mean, standard deviation, and plot them as historgrams. Do you notice anything about the shape of the histograms?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="parameter-tuning">
+<h2>2. Parameter Tuning<a class="headerlink" href="#parameter-tuning" title="Permalink to this headline">¶</a></h2>
+<p>Great! Now that we have seen how we can explore our confidence in the model we created, we can now determine if indeed we have the best logisitc regression model we could have. There’s a number of parameters that the logisitic regression method can take when you create an instance. Each of them control different aspects of how the model fits.</p>
+<p>For our purposes, we will just explore if it was ok to use no penalization. Penalization is how a logistic regression model might control for variables that don’t matter too much. Penalization tends to shrink model coefficients towards zero if they are small, so it’s clear what contributes and what doesn’t.</p>
+<p>To do a little paramter testing we will use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code>. The method basically wraps any class to a classifier (or regressor) and then lets you tell it, please try all these potential versions. For example, we have four choices of penalization <code class="docutils literal notranslate"><span class="pre">l1</span></code>, <code class="docutils literal notranslate"><span class="pre">l2</span></code>, <code class="docutils literal notranslate"><span class="pre">elasticnet</span></code> (which is <code class="docutils literal notranslate"><span class="pre">l1</span></code> and <code class="docutils literal notranslate"><span class="pre">l2</span></code> at the same time), and <code class="docutils literal notranslate"><span class="pre">none</span></code> (which we have used all along). So we can test all four models simulatneously to see which is the best.</p>
+<p>I wrote a little code that does that. Notice that <code class="docutils literal notranslate"><span class="pre">parameters</span></code> is basically a set where <code class="docutils literal notranslate"><span class="pre">penalty</span></code> is the variable for the model and the list that follows indicates that type of penalty to try. Once you run <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> the models start being built. Notice combinations of parameters that can’t work together will throw warnings (this is normal, but you should chck other warnings!).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="s1">&#39;elasticnet&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">]},</span>
+<span class="p">]</span>
+
+<span class="n">LR_tuned</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">LR_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_search.py:918: UserWarning: One or more of the test scores are non-finite: [  nan 0.746   nan 0.748]
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(estimator=LogisticRegression(),
+             param_grid=[{&#39;penalty&#39;: [&#39;l1&#39;, &#39;l2&#39;, &#39;elasticnet&#39;, &#39;none&#39;]}])
+</pre></div>
+</div>
+</div>
+</div>
+<p>At the end of all this, we get call back with the parameter grid we created. Notice that if we had another parameter to set, <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> will try to run all parameter combinations. So that each new parameter is multiplicative leading to many models quite fast. So be careful here!</p>
+<p>For example, consider we had three paramters, one that had two settings, one with three, and one with five. If you call a grid search with these paramters, you will be asking <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> to create an run 2x3x5 models (30 models). If you have another parameter you want to try that has another 4 settings, you are up to 120 models!</p>
+<div class="section" id="results-of-a-grid-search">
+<h3>2.1 Results of a Grid Search<a class="headerlink" href="#results-of-a-grid-search" title="Permalink to this headline">¶</a></h3>
+<p>In any event, after running this, we can find the <code class="docutils literal notranslate"><span class="pre">best_estimator_</span></code> and the <code class="docutils literal notranslate"><span class="pre">best_score_</span></code>. The <code class="docutils literal notranslate"><span class="pre">best_estimator</span></code> is the call you should use for the best model tested. If any settings are the default, they will not appear in the parentheses. The <code class="docutils literal notranslate"><span class="pre">best_score_</span></code> is the accuracy of that model. Of course, you can get more details (like above) if you choose that best model and run it through Monte Carlo validation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression(penalty=&#39;none&#39;)
+0.748
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-about-other-classifiers">
+<h3>2.2 What about other classifiers?<a class="headerlink" href="#what-about-other-classifiers" title="Permalink to this headline">¶</a></h3>
+<p>There are many other classifers we can try on the same problem to see how well they do. There’s many out there and there’s lots of nuance to understand about each if you are going to use them. We will use K Nearest Neighbors, Supprt Vector Machines, and a Random Forest Classifier. To learn more about each, I’d suggest these videos:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=HVXime0nQeI">KNN</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=efR1C6CvhmE">SVM</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=J4Wdy0Wc_xQ">Random Forest</a></p></li>
+</ul>
+<p>Let’s import the necessary libraries and test things with KNN. Then you can write code for the Support Vector Machine, and the Random Forest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span><span class="p">,</span> <span class="n">LinearSVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="knn">
+<h4>2.2.1 KNN<a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h4>
+<p>As we did previously we can vary the number of neighbors from the default of 5 (always good to know the defaults of the models you are calling). But this time we will use <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>. I’ve written the code to do this below. You can adapt it for other models in the next sections as you like.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Sweep through 2 to 20 neighbors</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">21</span><span class="p">)}</span>
+<span class="p">]</span>
+
+<span class="c1">## Create the Grid Search and fit it</span>
+<span class="n">KNN_tuned</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">KNN_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+
+<span class="c1">## Determine the best estimator</span>
+<span class="n">BestKNN</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">BestKNN</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=18)
+0.792
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now use the best model to do Monte Carlo Validation and plot the distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RunKNN</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">):</span>
+    
+    <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">)</span>
+    <span class="n">KNN</span> <span class="o">=</span> <span class="n">BestKNN</span>
+    <span class="n">KNN</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">KNN</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="n">RunKNN</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.804, 0.8003663003663003)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">auc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">acc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+<span class="n">auc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">RunKNN</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+    <span class="n">acc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">acc_array</span><span class="p">,</span><span class="n">acc</span><span class="p">)</span>
+    <span class="n">auc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc_array</span><span class="p">,</span><span class="n">auc</span><span class="p">)</span>
+    
+    
+<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+
+<span class="n">mean_auc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+<span class="n">std_auc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean Accuracy:&quot;</span><span class="p">,</span> <span class="n">mean_acc</span><span class="p">,</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span> <span class="n">std_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ACC&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean AUC:&quot;</span><span class="p">,</span> <span class="n">mean_auc</span><span class="p">,</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span> <span class="n">std_auc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;AUC&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.7832666666666668 +/- 0.023379668280129405
+Mean AUC: 0.7837526941081776 +/- 0.02294770944861485
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;AUC&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/Day_4-Multiplicity_of_Models_41_2.png" src="../../_images/Day_4-Multiplicity_of_Models_41_2.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models_41_3.png" src="../../_images/Day_4-Multiplicity_of_Models_41_3.png" />
+</div>
+</div>
+</div>
+<div class="section" id="linearsvc">
+<h4>2.2.2 LinearSVC<a class="headerlink" href="#linearsvc" title="Permalink to this headline">¶</a></h4>
+<p><font size=+3>✎</font> <strong>Do this:</strong> For the <code class="docutils literal notranslate"><span class="pre">LinearSVC()</span></code> model, repeat the work above to determine the distribution of accuracies and aucs for the model. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to vary the <code class="docutils literal notranslate"><span class="pre">C</span></code> parameter and find the best model. <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html">Linear SVC Documentation</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="random-forest">
+<h4>2.2.3 Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h4>
+<p><font size=+3>✎</font> <strong>Do this:</strong> For the <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier()</span></code> model, repeat the work above to determine the distribution of accuracies and aucs for the model. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to vary the <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> parameter and find the best model. <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest Documentation</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="what-about-other-kinds-of-data">
+<h2>3. What about other kinds of data?<a class="headerlink" href="#what-about-other-kinds-of-data" title="Permalink to this headline">¶</a></h2>
+<p>Many times it is important to know the strucutre of your data, hence plotting feature spaces. Sometimes the models you are using might be incompatible with the structure of your data. Some models try to draw lines to separate, some draw curves, some are more emergent. Let’s test this out with a ciruclar data set where we can clearly see the separation. Below, we create some data and store the values in data frames.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="n">loc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">])</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loc</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x1</th>
+      <th>x2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.554923</td>
+      <td>-0.576247</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.670022</td>
+      <td>-0.437115</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.596753</td>
+      <td>-0.532809</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.787651</td>
+      <td>-0.140018</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.376563</td>
+      <td>-0.705833</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="plot-it">
+<h3>3.1 Plot it!<a class="headerlink" href="#plot-it" title="Permalink to this headline">¶</a></h3>
+<p>Let’s plot this data to see why we might not expect the same results as we had found for the previous case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">label</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;x2&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/Day_4-Multiplicity_of_Models_51_1.png" src="../../_images/Day_4-Multiplicity_of_Models_51_1.png" />
+</div>
+</div>
+<p>It is really easy to see in the figure above that we have two clearly separated classes. Let’s fire up the Logisitic Regression model and see what it can find.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="s1">&#39;elasticnet&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">]},</span>
+<span class="p">]</span>
+
+<span class="n">LR_tuned</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">LR_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">label</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="n">LRBest</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">LRBest</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
+0.44399999999999995
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
+Traceback (most recent call last):
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 593, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1306, in fit
+    solver = _check_solver(self.solver, self.penalty, self.dual)
+  File &quot;/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 443, in _check_solver
+    raise ValueError(&quot;Solver %s supports only &#39;l2&#39; or &#39;none&#39; penalties, &quot;
+ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
+
+  warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_search.py:918: UserWarning: One or more of the test scores are non-finite: [  nan 0.444   nan 0.444]
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="time-to-try-other-models">
+<h3>3.2 Time to try other models<a class="headerlink" href="#time-to-try-other-models" title="Permalink to this headline">¶</a></h3>
+<p>It appears the the logistic regression does pretty poorly. That is because logistic regression is not good with nonlinear problems. It is a linear model, so it’s hard for it to deal with things like circles!</p>
+<p><font size=+3>✎</font> <strong>Do this:</strong> Test the SVC, KNN, and RF models on these data. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to find the best model for each. How do the accuracies compare? Which might you use to work more on this problem? <em>No need to plot disitrbutions for this, you can do that later if you like.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="let-s-make-the-data-a-bit-messier">
+<h3>3.3 Let’s make the data a bit messier.<a class="headerlink" href="#let-s-make-the-data-a-bit-messier" title="Permalink to this headline">¶</a></h3>
+<p>You probably found that one model worked perfectly. We can add a little noice to make things more interesting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">noise</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">loc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">])</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">label</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb928305d60&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Day_4-Multiplicity_of_Models_57_1.png" src="../../_images/Day_4-Multiplicity_of_Models_57_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="try-to-find-the-best-model-for-this-data">
+<h3>3.4 Try to find the best model for this data<a class="headerlink" href="#try-to-find-the-best-model-for-this-data" title="Permalink to this headline">¶</a></h3>
+<p><font size=+3>✎</font> <strong>Do this:</strong> Test the LR, SVC, KNN, and RF models on these data. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to find the best model for each. How do the accuracies compare? Which might you use to work more on this problem? <em>No need to plot disitrbutions for this, you can do that later if you like.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ml-short-course"
+        },
+        kernelOptions: {
+            kernelName: "ml-short-course",
+            path: "./notebooks/day-4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ml-short-course'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Day_4-What_is_Tuning_and_Validation.html" title="previous page">What is Tuning and Validation?</a>
+    <a class='right-next' id="next-link" href="../../contributions.html" title="next page">Contributions</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, and Jane Kim<br/>
+        
+            &copy; Copyright 2021, Michigan State University.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
