@@ -2,7 +2,8 @@
 
 ## Notebooks
 
-* Day 1-4's notebooks were originally authored by [CMSE](https://cmse.msu.edu) faculty including Devin Silvia, Dirk Colbry, and Brian O'Shea. Danny Caballero rewrote aspects of them for this class.
+* Day 1-3's notebooks were originally authored by [CMSE](https://cmse.msu.edu) faculty including Devin Silvia, Dirk Colbry, and Brian O'Shea. Danny Caballero rewrote aspects of them for this class.
+* Day 4's notebooks were written by Danny Caballero.
 * Day 5 and 6's notebooks were developed by Julie Butler and Jane Kim, respectively.
 
 ## Resources
