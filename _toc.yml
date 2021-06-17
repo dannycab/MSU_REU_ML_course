@@ -29,7 +29,7 @@
   - file: notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb
   - file: notebooks/day-3/day-3_Getting_Started_with_Classification_Models-SOL.ipynb
   - file: notebooks/day-3/day-3_KNN_classification-SOL.ipynb
-  # - file: notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb
+  - file: notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb
 
 - part: Acknowledgements
   chapters:
