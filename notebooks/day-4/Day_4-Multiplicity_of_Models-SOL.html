@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Multiplicity of Models &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    <title>Solution - A Multiplicity of Models &#8212; 2021 MSU REU Machine Learning Short Course</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,8 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Solution - Getting Started with Pandas" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html" />
-    <link rel="prev" title="What is Tuning and Validation?" href="Day_4-What_is_Tuning_and_Validation.html" />
+    <link rel="next" title="Contributions" href="../../contributions.html" />
+    <link rel="prev" title="Solution - Classification using K Nearest Neighbors" href="../day-3/day-3_KNN_classification-SOL.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -155,14 +155,14 @@
   Evaluating Models
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Day_4-What_is_Tuning_and_Validation.html">
    What is Tuning and Validation?
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Day_4-Multiplicity_of_Models.html">
    A Multiplicity of Models
   </a>
  </li>
@@ -172,7 +172,7 @@
   Solutions
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">
    Solution - Getting Started with Pandas
@@ -203,8 +203,8 @@
    Solution - Classification using K Nearest Neighbors
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Day_4-Multiplicity_of_Models-SOL.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Solution - A Multiplicity of Models
   </a>
  </li>
@@ -260,7 +260,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -285,21 +285,21 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -441,8 +441,8 @@
         
               <div>
                 
-  <div class="section" id="a-multiplicity-of-models">
-<h1>A Multiplicity of Models<a class="headerlink" href="#a-multiplicity-of-models" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="solution-a-multiplicity-of-models">
+<h1>Solution - A Multiplicity of Models<a class="headerlink" href="#solution-a-multiplicity-of-models" title="Permalink to this headline">¶</a></h1>
 <p>We haven’t really talked too much about specific models or algorithms, that is something you can study on your own, but a warning – that liteature is extensive, so I’d suggest starting with YouTube videos.</p>
 <p>In general you might approach a given classification or regression problem with a number of different possible models to determine which is the most useful for your purposes (e.g., most accurate, least biased, etc.). A few potential models (<em>not exhaustive</em>) are listed below based on the type of problem they can solve:</p>
 <ul class="simple">
@@ -557,118 +557,118 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.121386</td>
-      <td>-1.012604</td>
-      <td>-0.075258</td>
-      <td>0.199372</td>
-      <td>-0.190978</td>
-      <td>-0.971368</td>
-      <td>-0.495713</td>
-      <td>1.150175</td>
-      <td>-1.033823</td>
-      <td>-0.098382</td>
-      <td>2.879308</td>
-      <td>0.381941</td>
-      <td>-2.229627</td>
-      <td>0.062326</td>
-      <td>2.826116</td>
-      <td>2.624505</td>
-      <td>0.654998</td>
-      <td>0.031581</td>
-      <td>2.600867</td>
-      <td>1.824353</td>
+      <td>0.673803</td>
+      <td>-1.437522</td>
+      <td>0.264883</td>
+      <td>-1.747875</td>
+      <td>-0.034582</td>
+      <td>-1.885894</td>
+      <td>0.109450</td>
+      <td>-0.091130</td>
+      <td>0.264339</td>
+      <td>-0.667650</td>
+      <td>1.049864</td>
+      <td>0.334582</td>
+      <td>-0.497591</td>
+      <td>-0.524918</td>
+      <td>-0.241587</td>
+      <td>-0.426212</td>
+      <td>0.445380</td>
+      <td>-0.361435</td>
+      <td>2.098771</td>
+      <td>-0.610514</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.682952</td>
-      <td>0.585554</td>
-      <td>-0.273655</td>
-      <td>-0.176524</td>
-      <td>0.436161</td>
-      <td>1.170085</td>
-      <td>-0.012274</td>
-      <td>1.293212</td>
-      <td>0.533805</td>
-      <td>-0.671569</td>
-      <td>0.789920</td>
-      <td>0.982573</td>
-      <td>0.530304</td>
-      <td>-0.965939</td>
-      <td>-1.528730</td>
-      <td>-1.522823</td>
-      <td>1.046418</td>
-      <td>-1.452430</td>
-      <td>-0.330473</td>
-      <td>-1.083777</td>
+      <td>-0.703207</td>
+      <td>0.260987</td>
+      <td>1.380027</td>
+      <td>0.472158</td>
+      <td>-1.177304</td>
+      <td>0.438336</td>
+      <td>-0.134299</td>
+      <td>2.098705</td>
+      <td>-0.693393</td>
+      <td>0.524717</td>
+      <td>2.541502</td>
+      <td>-0.238405</td>
+      <td>3.311487</td>
+      <td>-0.049964</td>
+      <td>1.204351</td>
+      <td>-0.682791</td>
+      <td>-4.865205</td>
+      <td>-1.436276</td>
+      <td>0.089341</td>
+      <td>-1.275660</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.386258</td>
-      <td>0.612666</td>
-      <td>-0.755672</td>
-      <td>0.449207</td>
-      <td>1.708749</td>
-      <td>0.810570</td>
-      <td>-1.375696</td>
-      <td>-2.040580</td>
-      <td>-0.708230</td>
-      <td>1.615772</td>
-      <td>-0.806893</td>
-      <td>-0.972255</td>
-      <td>0.307991</td>
-      <td>-2.130468</td>
-      <td>-0.313367</td>
-      <td>0.004000</td>
-      <td>-0.442117</td>
-      <td>1.280991</td>
-      <td>1.672467</td>
-      <td>1.375031</td>
+      <td>0.722432</td>
+      <td>0.409935</td>
+      <td>-0.600974</td>
+      <td>1.079913</td>
+      <td>1.102508</td>
+      <td>0.818218</td>
+      <td>-1.645086</td>
+      <td>1.123413</td>
+      <td>-1.764483</td>
+      <td>1.318064</td>
+      <td>-0.413141</td>
+      <td>-1.289223</td>
+      <td>-1.208149</td>
+      <td>-0.798617</td>
+      <td>0.487373</td>
+      <td>-0.389843</td>
+      <td>1.414884</td>
+      <td>2.811035</td>
+      <td>-0.462868</td>
+      <td>1.915695</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.296608</td>
-      <td>1.953867</td>
-      <td>1.026679</td>
-      <td>-0.309112</td>
-      <td>-0.891268</td>
-      <td>1.010587</td>
-      <td>-1.096396</td>
-      <td>2.254593</td>
-      <td>1.800123</td>
-      <td>0.256249</td>
-      <td>0.699026</td>
-      <td>0.775423</td>
-      <td>0.226179</td>
-      <td>0.362929</td>
-      <td>-0.978508</td>
-      <td>-0.189596</td>
-      <td>-0.292470</td>
-      <td>-0.289389</td>
-      <td>1.760122</td>
-      <td>0.229832</td>
+      <td>0.301097</td>
+      <td>-1.270392</td>
+      <td>0.983120</td>
+      <td>-0.251154</td>
+      <td>1.093434</td>
+      <td>1.640766</td>
+      <td>1.981063</td>
+      <td>0.936035</td>
+      <td>0.575916</td>
+      <td>-0.375307</td>
+      <td>1.983801</td>
+      <td>0.082114</td>
+      <td>1.823181</td>
+      <td>0.625884</td>
+      <td>-0.117395</td>
+      <td>0.943175</td>
+      <td>-3.832097</td>
+      <td>-1.246442</td>
+      <td>-1.898624</td>
+      <td>-1.067428</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.299612</td>
-      <td>-3.499056</td>
-      <td>-0.687828</td>
-      <td>0.997938</td>
-      <td>0.518028</td>
-      <td>-0.824665</td>
-      <td>0.325883</td>
-      <td>-1.761435</td>
-      <td>-0.977338</td>
-      <td>0.372439</td>
-      <td>-0.075346</td>
-      <td>0.666245</td>
-      <td>1.862117</td>
-      <td>0.611742</td>
-      <td>1.108199</td>
-      <td>-0.824673</td>
-      <td>-1.720296</td>
-      <td>-2.031922</td>
-      <td>-0.699521</td>
-      <td>0.754544</td>
+      <td>-1.292332</td>
+      <td>-0.334742</td>
+      <td>1.313896</td>
+      <td>-1.671079</td>
+      <td>0.274817</td>
+      <td>-2.837860</td>
+      <td>-0.071052</td>
+      <td>-0.846449</td>
+      <td>-0.270355</td>
+      <td>-0.818832</td>
+      <td>0.079794</td>
+      <td>-1.062224</td>
+      <td>-2.709618</td>
+      <td>-1.133928</td>
+      <td>-0.731857</td>
+      <td>1.262274</td>
+      <td>3.368843</td>
+      <td>-0.878195</td>
+      <td>2.669818</td>
+      <td>-0.345478</td>
     </tr>
   </tbody>
 </table>
@@ -705,15 +705,15 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
@@ -762,7 +762,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/Day_4-Multiplicity_of_Models_11_0.png" src="../../_images/Day_4-Multiplicity_of_Models_11_0.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_11_0.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_11_0.png" />
 </div>
 </div>
 <p><font size=+3>✎</font> <strong>Do this:</strong> Which two features did you find? Keep note here!</p>
@@ -792,8 +792,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[110  15]
- [ 18 107]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[122   3]
+ [  5 120]]
 </pre></div>
 </div>
 </div>
@@ -812,12 +812,12 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.86      0.88      0.87       125
-           1       0.88      0.86      0.87       125
+           0       0.96      0.98      0.97       125
+           1       0.98      0.96      0.97       125
 
-    accuracy                           0.87       250
-   macro avg       0.87      0.87      0.87       250
-weighted avg       0.87      0.87      0.87       250
+    accuracy                           0.97       250
+   macro avg       0.97      0.97      0.97       250
+weighted avg       0.97      0.97      0.97       250
 </pre></div>
 </div>
 </div>
@@ -846,10 +846,10 @@ weighted avg       0.87      0.87      0.87       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7f08052ac0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa9900c5a00&gt;
 </pre></div>
 </div>
-<img alt="../../_images/Day_4-Multiplicity_of_Models_19_1.png" src="../../_images/Day_4-Multiplicity_of_Models_19_1.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_19_1.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_19_1.png" />
 </div>
 </div>
 </div>
@@ -872,14 +872,14 @@ weighted avg       0.87      0.87      0.87       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 0.2283998   1.08155402  0.18344802  0.23375742  0.19058005  0.02407551
-  -0.10716194  0.10982789  0.69257461 -0.09989858  1.00368293  0.15315624
-   0.03276013  0.18303375  0.6443247  -0.03969424  0.1199457   0.58322484
-  -0.06234915  0.20295521]]
-Odds Ratios: [1.25658761 2.9492592  1.20135251 1.263338   1.20995123 1.02436767
- 0.89838018 1.11608596 1.99885519 0.90492919 2.72831152 1.16550706
- 1.03330265 1.20085494 1.90470035 0.96108325 1.12743563 1.79180741
- 0.93955479 1.22501759]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[-0.1018705  -0.17935488 -0.05357097  0.0429941  -0.11222219  1.61362833
+   0.20111273 -0.09125495 -0.01149984 -0.02611549 -0.48417695 -0.01236655
+  -0.41599548  0.23508035  0.09597015 -0.07862539  0.29995157 -0.0833363
+  -1.5209944   1.42911627]]
+Odds Ratios: [0.9031465  0.83580924 0.94783867 1.04393173 0.89384563 5.02099606
+ 1.2227626  0.91278497 0.98856603 0.97422257 0.61620415 0.9877096
+ 0.65968325 1.26501041 1.1007262  0.92438615 1.34979344 0.92004169
+ 0.21849451 4.17500797]
 </pre></div>
 </div>
 </div>
@@ -890,6 +890,27 @@ Odds Ratios: [1.25658761 2.9492592  1.20135251 1.263338   1.20995123 1.02436767
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ####</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="n">odds</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> 
+           <span class="n">labels</span><span class="o">=</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+           <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">PlotFeatureSpace</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="s2">&quot;feature_2&quot;</span><span class="p">],</span> <span class="n">features</span><span class="p">[</span><span class="s2">&quot;feature_11&quot;</span><span class="p">],</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_24_0.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_24_0.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_24_1.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_24_1.png" />
 </div>
 </div>
 </div>
@@ -931,13 +952,12 @@ Odds Ratios: [1.25658761 2.9492592  1.20135251 1.263338   1.20995123 1.02436767
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.864
-AUC: 0.8640552995391706
-Coefs: [[ 2.27612006e-01  1.11726785e+00  1.09931180e-01  1.36138421e-01
-   3.11269059e-02  1.05934669e-03 -4.49581128e-02  1.10293347e-01
-   7.07193676e-01 -9.91998883e-02  1.03036989e+00  1.63856726e-01
-   4.73134529e-03  2.09508781e-01  6.28831645e-01 -7.71049369e-02
-   1.58684101e-01  5.81494974e-01 -4.64952536e-02  1.48196409e-01]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.96
+AUC: 0.9599769467213115
+Coefs: [[-0.3809953  -0.01306876  0.01457455  0.00365918 -0.11798288  1.8136
+   0.23486611 -0.049291    0.01513442 -0.06778306 -0.43586659 -0.14553448
+  -0.6094263   0.24692589  0.15377172  0.08913653  0.36533954 -0.06246339
+  -1.76926378  1.55332581]]
 </pre></div>
 </div>
 </div>
@@ -951,12 +971,84 @@ Coefs: [[ 2.27612006e-01  1.11726785e+00  1.09931180e-01  1.36138421e-01
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">auc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">acc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+<span class="n">auc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+<span class="n">coef_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">auc</span><span class="p">,</span> <span class="n">coefs</span> <span class="o">=</span> <span class="n">RunLR</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+    <span class="n">acc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">acc_array</span><span class="p">,</span><span class="n">acc</span><span class="p">)</span>
+    <span class="n">auc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc_array</span><span class="p">,</span><span class="n">auc</span><span class="p">)</span>
+    <span class="n">coef_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">coef_array</span><span class="p">,</span> <span class="n">coefs</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><font size=+3>✎</font> <strong>Do this:</strong> Now that you have the distribution of accuracy scores and auc, let’s compute the mean, standard deviation, and plot them as historgrams. Do you notice anything about the shape of the histograms?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+
+<span class="n">mean_auc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+<span class="n">std_auc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+
+<span class="n">coef_array</span>
+<span class="n">mean_coef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">coef_array</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">std_coef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">coef_array</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean Accuracy:&quot;</span><span class="p">,</span> <span class="n">mean_acc</span><span class="p">,</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span> <span class="n">std_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ACC&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean AUC:&quot;</span><span class="p">,</span> <span class="n">mean_auc</span><span class="p">,</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span> <span class="n">std_auc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;AUC&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">mean_coef</span><span class="p">),</span> <span class="n">yerr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">std_coef</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">std_coef</span><span class="p">)),</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> 
+           <span class="n">labels</span><span class="o">=</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+           <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature Number&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Odds Ratio&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.95408 +/- 0.013463788471303296
+Mean AUC: 0.9541278964456807 +/- 0.013491863893077782
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Odds Ratio&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_33_2.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_33_2.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_33_3.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_33_3.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_33_4.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_33_4.png" />
 </div>
 </div>
 </div>
@@ -1091,7 +1183,7 @@ Traceback (most recent call last):
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
 
   warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
-/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_search.py:918: UserWarning: One or more of the test scores are non-finite: [  nan 0.857   nan 0.858]
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_search.py:918: UserWarning: One or more of the test scores are non-finite: [  nan 0.953   nan 0.953]
   warnings.warn(
 </pre></div>
 </div>
@@ -1114,8 +1206,8 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression(penalty=&#39;none&#39;)
-0.858
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
+0.953
 </pre></div>
 </div>
 </div>
@@ -1163,8 +1255,8 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=12)
-0.9040000000000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=18)
+0.9560000000000001
 </pre></div>
 </div>
 </div>
@@ -1186,7 +1278,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.892, 0.8935897435897436)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.92, 0.9178461142563047)
 </pre></div>
 </div>
 </div>
@@ -1227,15 +1319,15 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.8987200000000002 +/- 0.01869228717947594
-Mean AUC: 0.8987453611496851 +/- 0.018246137123583965
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9533066666666665 +/- 0.011247486632824039
+Mean AUC: 0.9535083134080082 +/- 0.011282050112808431
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;AUC&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/Day_4-Multiplicity_of_Models_41_2.png" src="../../_images/Day_4-Multiplicity_of_Models_41_2.png" />
-<img alt="../../_images/Day_4-Multiplicity_of_Models_41_3.png" src="../../_images/Day_4-Multiplicity_of_Models_41_3.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_44_2.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_44_2.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_44_3.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_44_3.png" />
 </div>
 </div>
 </div>
@@ -1249,6 +1341,103 @@ Mean AUC: 0.8987453611496851 +/- 0.018246137123583965
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="n">SVM_tuned</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">SVM_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+
+<span class="n">BestSVM</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">BestSVM</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearSVC(C=0.001, max_iter=50000)
+0.9570000000000001
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="k">def</span> <span class="nf">RunLinSVC</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">):</span>
+    
+    <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">)</span>
+    <span class="n">SVM</span> <span class="o">=</span> <span class="n">BestSVM</span>
+    <span class="n">SVM</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">SVM</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="n">RunLinSVC</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.972, 0.9721418931945248)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">auc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">acc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+<span class="n">auc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">RunLinSVC</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+    <span class="n">acc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">acc_array</span><span class="p">,</span><span class="n">acc</span><span class="p">)</span>
+    <span class="n">auc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc_array</span><span class="p">,</span><span class="n">auc</span><span class="p">)</span>
+    
+    
+<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+
+<span class="n">mean_auc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+<span class="n">std_auc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean Accuracy:&quot;</span><span class="p">,</span> <span class="n">mean_acc</span><span class="p">,</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span> <span class="n">std_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ACC&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean AUC:&quot;</span><span class="p">,</span> <span class="n">mean_auc</span><span class="p">,</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span> <span class="n">std_auc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;AUC&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9555600000000001 +/- 0.0119540676480156
+Mean AUC: 0.9557208266340562 +/- 0.011919650914209608
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;AUC&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_49_2.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_49_2.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_49_3.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_49_3.png" />
+</div>
+</div>
 </div>
 <div class="section" id="random-forest">
 <h4>2.2.3 Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h4>
@@ -1256,6 +1445,196 @@ Mean AUC: 0.8987453611496851 +/- 0.018246137123583965
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ####</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s1">&#39;criterion&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="s1">&#39;log2&#39;</span><span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="n">RF_tuned</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">RF_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+
+<span class="n">BestRF</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">BestRF</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier(n_estimators=200)
+0.96
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ####</span>
+<span class="k">def</span> <span class="nf">RunRF</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">):</span>
+    
+    <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">)</span>
+    <span class="n">RF</span> <span class="o">=</span> <span class="n">BestRF</span>
+    <span class="n">RF</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">RF</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="n">RunRF</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.952, 0.951625386996904)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ####</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">auc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">acc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+<span class="n">auc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">RunRF</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+    <span class="n">acc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">acc_array</span><span class="p">,</span><span class="n">acc</span><span class="p">)</span>
+    <span class="n">auc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc_array</span><span class="p">,</span><span class="n">auc</span><span class="p">)</span>
+    
+    
+<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+<span class="n">std_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+
+<span class="n">mean_auc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+<span class="n">std_auc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">acc_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean Accuracy:&quot;</span><span class="p">,</span> <span class="n">mean_acc</span><span class="p">,</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span> <span class="n">std_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ACC&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">auc_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean AUC:&quot;</span><span class="p">,</span> <span class="n">mean_auc</span><span class="p">,</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span> <span class="n">std_auc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;AUC&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">32</span><span class="o">-</span><span class="mi">36993</span><span class="n">ebb1aba</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="ne">---&gt; </span><span class="mi">10</span>     <span class="n">acc</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">RunRF</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">acc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">acc_array</span><span class="p">,</span><span class="n">acc</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">auc_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc_array</span><span class="p">,</span><span class="n">auc</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-31-06de012cb42f&gt;</span> in <span class="ni">RunRF</span><span class="nt">(features, classes)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">classes</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">RF</span> <span class="o">=</span> <span class="n">BestRF</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">RF</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">y_pred</span> <span class="o">=</span> <span class="n">RF</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span>                 <span class="n">random_state</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">MAX_INT</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimators_</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">376</span> 
+<span class="ne">--&gt; </span><span class="mi">377</span>             <span class="n">trees</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_make_estimator</span><span class="p">(</span><span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span>                                           <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">379</span>                      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_more_estimators</span><span class="p">)]</span>
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span>                 <span class="n">random_state</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">MAX_INT</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimators_</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">376</span> 
+<span class="ne">--&gt; </span><span class="mi">377</span>             <span class="n">trees</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_make_estimator</span><span class="p">(</span><span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span>                                           <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">379</span>                      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_more_estimators</span><span class="p">)]</span>
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/ensemble/_base.py</span> in <span class="ni">_make_estimator</span><span class="nt">(self, append, random_state)</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>         <span class="n">sub</span><span class="o">-</span><span class="n">estimators</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">150</span><span class="sd">         estimator = clone(self.base_estimator_)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span><span class="sd">         estimator.set_params(**{p: getattr(self, p)</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span><span class="sd">                                 for p in self.estimator_params})</span>
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/utils/validation.py</span> in <span class="ni">inner_f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="sd">             extra_args = len(args) - len(all_args)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="sd">             if extra_args &lt;= 0:</span>
+<span class="ne">---&gt; </span><span class="mi">63</span><span class="sd">                 return f(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span><span class="sd">             # extra_args &gt; 0</span>
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/base.py</span> in <span class="ni">clone</span><span class="nt">(estimator, safe)</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="sd">         new_object_params[name] = clone(param, safe=False)</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="sd">     new_object = klass(**new_object_params)</span>
+<span class="ne">---&gt; </span><span class="mi">78</span><span class="sd">     params_set = new_object.get_params(deep=False)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="sd">     # quick sanity check of the parameters of the clone</span>
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/base.py</span> in <span class="ni">get_params</span><span class="nt">(self, deep)</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="n">out</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">194</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_param_names</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span>             <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>             <span class="k">if</span> <span class="n">deep</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;get_params&#39;</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/base.py</span> in <span class="ni">_get_param_names</span><span class="nt">(cls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">161</span>         <span class="c1"># introspect the constructor arguments to find the model parameters</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span>         <span class="c1"># to represent</span>
+<span class="ne">--&gt; </span><span class="mi">163</span>         <span class="n">init_signature</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">164</span>         <span class="c1"># Consider the constructor parameters excluding &#39;self&#39;</span>
+<span class="nn">    165         parameters = [p for p</span> in <span class="ni">init_signature.parameters.values</span><span class="nt">()</span>
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/inspect.py</span> in <span class="ni">signature</span><span class="nt">(obj, follow_wrapped)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3128</span> <span class="k">def</span> <span class="nf">signature</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">follow_wrapped</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3129</span>     <span class="sd">&quot;&quot;&quot;Get a signature object for the passed callable.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3130</span>     <span class="k">return</span> <span class="n">Signature</span><span class="o">.</span><span class="n">from_callable</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">follow_wrapped</span><span class="o">=</span><span class="n">follow_wrapped</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3131</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3132</span> 
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/inspect.py</span> in <span class="ni">from_callable</span><span class="nt">(cls, obj, follow_wrapped)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2877</span>     <span class="k">def</span> <span class="nf">from_callable</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">follow_wrapped</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2878</span>         <span class="sd">&quot;&quot;&quot;Constructs Signature for the given callable object.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">2879</span>         <span class="k">return</span> <span class="n">_signature_from_callable</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">sigcls</span><span class="o">=</span><span class="bp">cls</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2880</span>                                         <span class="n">follow_wrapper_chains</span><span class="o">=</span><span class="n">follow_wrapped</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2881</span> 
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/inspect.py</span> in <span class="ni">_signature_from_callable</span><span class="nt">(obj, follow_wrapper_chains, skip_bound_arg, sigcls)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2328</span>         <span class="c1"># If it&#39;s a pure Python function, or an object that is duck type</span>
+<span class="g g-Whitespace">   </span><span class="mi">2329</span>         <span class="c1"># of a Python function (Cython functions, for instance), then:</span>
+<span class="ne">-&gt; </span><span class="mi">2330</span>         <span class="k">return</span> <span class="n">_signature_from_function</span><span class="p">(</span><span class="n">sigcls</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2331</span>                                         <span class="n">skip_bound_arg</span><span class="o">=</span><span class="n">skip_bound_arg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2332</span> 
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/inspect.py</span> in <span class="ni">_signature_from_function</span><span class="nt">(cls, func, skip_bound_arg)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2221</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2222</span>         <span class="n">annotation</span> <span class="o">=</span> <span class="n">annotations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">_empty</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2223</span>         <span class="n">parameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="n">annotation</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2224</span>                                     <span class="n">kind</span><span class="o">=</span><span class="n">_KEYWORD_ONLY</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2225</span>                                     <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">))</span>
+
+<span class="nn">~/opt/anaconda3/envs/ml-short-course/lib/python3.9/inspect.py</span> in <span class="ni">__init__</span><span class="nt">(self, name, kind, default, annotation)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2529</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;name is a required attribute for Parameter&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2530</span> 
+<span class="ne">-&gt; </span><span class="mi">2531</span>         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2532</span>             <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;name must be a str, not a </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2533</span>             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1309,28 +1688,28 @@ Mean AUC: 0.8987453611496851 +/- 0.018246137123583965
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.899405</td>
-      <td>-0.437116</td>
+      <td>-0.968583</td>
+      <td>-0.248690</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.189199</td>
-      <td>0.777305</td>
+      <td>0.658826</td>
+      <td>-0.453815</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.050232</td>
-      <td>0.798421</td>
+      <td>0.208673</td>
+      <td>0.772305</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.929776</td>
-      <td>0.368125</td>
+      <td>-0.535827</td>
+      <td>-0.844328</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.583175</td>
-      <td>-0.547638</td>
+      <td>-0.992115</td>
+      <td>0.125333</td>
     </tr>
   </tbody>
 </table>
@@ -1383,7 +1762,7 @@ Mean AUC: 0.8987453611496851 +/- 0.018246137123583965
     </tr>
     <tr>
       <th>4</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -1405,7 +1784,7 @@ Mean AUC: 0.8987453611496851 +/- 0.018246137123583965
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;x2&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/Day_4-Multiplicity_of_Models_51_1.png" src="../../_images/Day_4-Multiplicity_of_Models_51_1.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_60_1.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_60_1.png" />
 </div>
 </div>
 <p>It is really easy to see in the figure above that we have two clearly separated classes. Let’s fire up the Logisitic Regression model and see what it can find.</p>
@@ -1427,7 +1806,7 @@ Mean AUC: 0.8987453611496851 +/- 0.018246137123583965
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
-0.45199999999999996
+0.43000000000000005
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:610: FitFailedWarning: Estimator fit failed. The score on this train-test partition for these parameters will be set to nan. Details: 
@@ -1540,7 +1919,7 @@ Traceback (most recent call last):
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
 
   warnings.warn(&quot;Estimator fit failed. The score on this train-test&quot;
-/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_search.py:918: UserWarning: One or more of the test scores are non-finite: [  nan 0.452   nan 0.452]
+/Users/caballero/opt/anaconda3/envs/ml-short-course/lib/python3.9/site-packages/sklearn/model_selection/_search.py:918: UserWarning: One or more of the test scores are non-finite: [ nan 0.43  nan 0.43]
   warnings.warn(
 </pre></div>
 </div>
@@ -1554,6 +1933,82 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="n">SVM_tuned</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">SVM_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">label</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="n">BestSVM</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">BestSVM</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearSVC(C=0.001, max_iter=50000)
+0.43000000000000005
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s1">&#39;criterion&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="s1">&#39;log2&#39;</span><span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="n">RF_tuned</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">RF_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">label</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="n">BestRF</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">BestRF</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier()
+0.99
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">21</span><span class="p">)}</span>
+<span class="p">]</span>
+
+<span class="n">KNN_tuned</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">KNN_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">label</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="n">BestKNN</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">BestKNN</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=2)
+1.0
 </pre></div>
 </div>
 </div>
@@ -1574,10 +2029,10 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f7f08146ee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f9d18a5c790&gt;
 </pre></div>
 </div>
-<img alt="../../_images/Day_4-Multiplicity_of_Models_57_1.png" src="../../_images/Day_4-Multiplicity_of_Models_57_1.png" />
+<img alt="../../_images/Day_4-Multiplicity_of_Models-SOL_69_1.png" src="../../_images/Day_4-Multiplicity_of_Models-SOL_69_1.png" />
 </div>
 </div>
 </div>
@@ -1587,6 +2042,82 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">21</span><span class="p">)}</span>
+<span class="p">]</span>
+
+<span class="n">KNN_tuned</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">KNN_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">label</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="n">BestKNN</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">BestKNN</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=7)
+0.9720000000000001
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s1">&#39;criterion&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="s1">&#39;log2&#39;</span><span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="n">RF_tuned</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">RF_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">label</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="n">BestRF</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">BestRF</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier(criterion=&#39;entropy&#39;)
+0.942
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="n">RBF_tuned</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">RBF_tuned</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">label</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="n">BestRBF</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">BestRBF</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC(C=1)
+0.9799999999999999
 </pre></div>
 </div>
 </div>
@@ -1620,8 +2151,8 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Day_4-What_is_Tuning_and_Validation.html" title="previous page">What is Tuning and Validation?</a>
-    <a class='right-next' id="next-link" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html" title="next page">Solution - Getting Started with Pandas</a>
+    <a class='left-prev' id="prev-link" href="../day-3/day-3_KNN_classification-SOL.html" title="previous page">Solution - Classification using K Nearest Neighbors</a>
+    <a class='right-next' id="next-link" href="../../contributions.html" title="next page">Contributions</a>
 
         </div>
         
