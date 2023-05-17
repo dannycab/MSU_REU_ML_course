@@ -131,7 +131,7 @@ YouTubeVideo("Ivc8c9ijWIQ",width=640,height=360)
 # 
 # Let's start by making a scatter plot of a sample of data with 3 features including 1 that is redundant with only 1 cluster per class (i.e., 1 grouping per labeled class). Because we have 3 features, we should look at scatter plots of each pair of features. Note that we use `c=class_labels` to send `class_labels` to the color attribute, which colorizes different classes.
 
-# In[6]:
+# In[7]:
 
 
 ### your code here
@@ -170,7 +170,7 @@ YouTubeVideo("Ivc8c9ijWIQ",width=640,height=360)
 # 
 # We will learn a variety of classifiers in this class. We will start with one of the most widely used ones: Logistic Regression. The video below provides a conceptual explanation of the technique.
 
-# In[8]:
+# In[6]:
 
 
 from IPython.display import YouTubeVideo

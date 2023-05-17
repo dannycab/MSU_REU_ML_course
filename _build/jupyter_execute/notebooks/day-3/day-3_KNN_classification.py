@@ -95,7 +95,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # ### 2.2 : Splitting the dataset for model into training and testing sets
 # Let's split the data in a training set and final testing set. We want to randomly select 75% of the data for training and 25% of the data for testing.
 # 
-# You should turn the `class_labels` into 0 (now 2, for benign) and 1 (now 4, for malignant) as the classifier we are using (Logisitic Regression) predicts valuse between 0 and 1.
+# You should turn the `class_labels` into 0 (now 2, for benign) and 1 (now 4, for malignant) as the classifier we are using (Logisitic Regression) predicts values between 0 and 1.
 
 # &#9989; Do This - You will need to come up with a way to split the data into separate training and testing sets (we will leave the validation set out for now).  Make sure you keep the feature vectors and classes together.  
 # 
@@ -194,7 +194,7 @@ YouTubeVideo("HVXime0nQeI",width=640,height=360)
 # ---
 # ## 4. Tuning hyperparameters
 # 
-# Most ML models have some number of parameters that can be tuned to try to build better models. Later, we will see hwo to explore those parameters automatically, but now, we will just do things manually. For KNN, this is ok because there's only one commnly tuned parameter: `n_neighbors`, which the number of neighboring points the algorithm takes into account when it looks for similar classes.
+# Most ML models have some number of parameters that can be tuned to try to build better models. Later, we will see how to explore those parameters automatically, but now, we will just do things manually. For KNN, this is ok because there's only one commnly tuned parameter: `n_neighbors`, which the number of neighboring points the algorithm takes into account when it looks for similar classes.
 # 
 # Look at the [documentation for KNN](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) and determine the default number of neighbors. 
 # 

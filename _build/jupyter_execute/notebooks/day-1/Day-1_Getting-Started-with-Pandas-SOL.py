@@ -36,7 +36,7 @@ import numpy as np
 # 
 # The basic Pandas data structure is called a *Series*. It is a sequence, not unlike a numpy array, but with an associated set of labels for each value called the *index*. If you don't provide the index labels, Pandas will use the regular 0-based index as the label. Again: if you don't provide index labels, it will use the numeric index as the index label. That will be important later.
 # 
-# You can make a Series using either a python *dict*, with keys as the indices, or by separately providing the values and indices. You can also updated the index labels or reset the labels to the default. Note however that the `reset_index` method does *not* change the Series but returns, not a Series but a DataFrame, where the original index is preserved as a new column.
+# You can make a Series using either a python *dict*, with keys as the indices, or by separately providing the values and indices. You can also update the index labels or reset the labels to the default. Note however that the `reset_index` method does *not* change the Series but returns, not a Series but a DataFrame, where the original index is preserved as a new column.
 # 
 # &#9989; **Review the following example and make sure you understand everything that is happening. Discuss with your group mates.**
 
@@ -227,10 +227,10 @@ print(new_df)
 
 # Put your code here
 
-student_dict = {"name":["josie","melody","valerie","wyatt"],
-                 "id":[901, 902, 903, 904],
-                 "total percent":[85, 90, 95, 65],
-                 "final grade": [3.5, 4, 4, 2.5]}
+student_dict = {"name":["josie","melody","valerie","wyatt","steve","rose","elena","elanor"],
+                 "id":[901, 902, 903, 904, 905, 906, 907, 908],
+                 "total percent":[85, 90, 95, 65, 81, 70, 93, 88],
+                 "final grade": [3.5, 4, 4, 2.5, 3.5, 3.0, 4.0, 3.5]}
 student_df=pd.DataFrame(student_dict)
 
 student_df[student_df['final grade']>=3.0]

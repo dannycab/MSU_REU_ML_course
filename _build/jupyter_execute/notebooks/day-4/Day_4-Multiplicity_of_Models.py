@@ -3,7 +3,7 @@
 
 # # A Multiplicity of Models
 # 
-# We haven't really talked too much about specific models or algorithms, that is something you can study on your own, but a warning -- that liteature is extensive, so I'd suggest starting with YouTube videos. 
+# We haven't really talked too much about specific models or algorithms, that is something you can study on your own, but be warned -- that liteature is extensive, so I'd suggest starting with YouTube videos. 
 # 
 # In general you might approach a given classification or regression problem with a number of different possible models to determine which is the most useful for your purposes (e.g., most accurate, least biased, etc.). A few potential models (*not exhaustive*) are listed below based on the type of problem they can solve:
 # 
@@ -44,7 +44,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # 
 # We start by making the data using the `make_classification()` method. I will pick 1000 samples with 20 features; only 4 of them will be informative about the 2 classes. What `make_classification()` returns are the data (the features for the model) and the class labels (the 1 or 0). For simplicity and familiarity, I convert them both to `pandas` data frames as this is typically what you would do with data you read in.
 
-# In[2]:
+# In[78]:
 
 
 ## Parameters for making data
@@ -52,12 +52,14 @@ N_samples = 1000
 N_features = 20
 N_informative = 4
 N_classes = 2
+Random_state = 8
 
 ## Make up some data for classification
 X, y = make_classification(n_samples = N_samples,
                            n_features = N_features,
                            n_informative = N_informative,
-                           n_classes = N_classes)
+                           n_classes = N_classes,
+                           random_state = Random_state)
 
 ## Store the data in a data frame
 feature_list = []
@@ -71,13 +73,13 @@ classes = pd.DataFrame(y, columns=['label'])
 
 # We can check the `.head()` of both data frames to make sure we know what we imported.
 
-# In[3]:
+# In[79]:
 
 
 features.head()
 
 
-# In[4]:
+# In[80]:
 
 
 classes.head()
@@ -87,7 +89,7 @@ classes.head()
 # 
 # We've found that looking at the classes in some feature subspace has been helpful in seeing if there are subspaces where the classes are more separated. We do this so frequently, it is worth having a little piece of code to do that. I've written one below.
 
-# In[5]:
+# In[81]:
 
 
 def PlotFeatureSpace(x1,x2,c):
@@ -105,7 +107,7 @@ def PlotFeatureSpace(x1,x2,c):
 
 # <font size=+3>&#9998;</font> **Do this:** Using PlotFeatureSpace(), try to find at least two possible features that might be important to the model. That is, can you find two features that seperate the classes well? I've given an example call below.
 
-# In[6]:
+# In[82]:
 
 
 ## Parameters for PlotFutureSpace
@@ -119,7 +121,7 @@ PlotFeatureSpace(features[x], features[y], c)
 
 # <font size=+3>&#9998;</font> **Do this:** Which two features did you find? Keep note here! 
 # 
-# *If you rerun the data creation process, the same two features might no longer be useful.*
+# *If you rerun the data creation process with a different random state, the same two features might no longer be useful.*
 
 # <font size=+3>&#9998;</font> **Do this:** Erase this and write here.
 
@@ -127,7 +129,7 @@ PlotFeatureSpace(features[x], features[y], c)
 # 
 # As we did with KNN, we will train and test a classification model. This time it will be a [Logitstic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) model. We will first use the confusion matrix to determine how things are going. I've written to code below to split the data, create the model, fit it, and predict the classes of the test data.
 
-# In[7]:
+# In[83]:
 
 
 ## Split the data
@@ -154,7 +156,7 @@ print(confusion_matrix(y_test, y_pred))
 # 
 # Once we have predicted class labels, then we can use `classification_report`. Both the `confusion_matrix` and `classification_report` can be used with any of `sklearn`'s classifiers.
 
-# In[8]:
+# In[84]:
 
 
 print(classification_report(y_test, y_pred))
@@ -168,7 +170,7 @@ print(classification_report(y_test, y_pred))
 # 
 # Again, both of the tools are available for any classifier model.
 
-# In[9]:
+# In[85]:
 
 
 fpr, tpr, thresholds = roc_curve(y_test, y_pred)
@@ -182,6 +184,7 @@ plt.axis([0, 1, 0, 1])
 plt.xlabel('FPR')
 plt.ylabel('TPR')
 plt.legend(loc="lower right")
+plt.show()
 
 
 # ### 1.5 Model Specific Tools - Logistic Regression
@@ -190,13 +193,13 @@ plt.legend(loc="lower right")
 # 
 # $odds_i = \exp(\beta_i)$
 # 
-# where $\beta_i$ is the numerical weight for the $i$th feature determined by the model. In `sklearn` speak, these would be "coefficients" of the model; `coef_` in code (and yes with the trailing underscore). The nice thing about LR is that these coefficients are typically interpretable. That is if the odds of a feature is close to one then that feature has virtually no effect on the model. On the other hand, if a feature is much larger than one, we find that might contribute a lot to the model.
+# where $\beta_i$ is the numerical weight for the $i$ th feature determined by the model. In `sklearn` speak, these would be "coefficients" of the model; `coef_` in code (and yes with the trailing underscore). The nice thing about LR is that these coefficients are typically interpretable. That is if the odds of a feature is close to one then that feature has virtually no effect on the model. On the other hand, if a feature is much larger than one, we find that might contribute a lot to the model.
 # 
 # In this case, we'd expect that feature to be useful in separating the two class labels. *That is why you predicted two features earlier!*
 # 
 # Below I wrote a little code to find those odds ratios. 
 
-# In[10]:
+# In[86]:
 
 
 ## Extract model coefficeints
@@ -209,7 +212,7 @@ print("Odds Ratios:", odds)
 
 # <font size=+3>&#9998;</font> **Do this:** Make a bar plot of the odds ratios. Which ones appear to contribute to the model? Are any of them the two featurs you found earlier? You can use `Plot_Feature_Space()` to confirm.
 
-# In[11]:
+# In[87]:
 
 
 ## your code here
@@ -228,7 +231,7 @@ print("Odds Ratios:", odds)
 # 
 # Below, I wrote a short function that splits the data, creates the model, fits it, and returns the evaluation metrics including the model weights. The lines below runs it.
 
-# In[12]:
+# In[88]:
 
 
 def RunLR(features, classes, penalty='none'):
@@ -245,7 +248,7 @@ def RunLR(features, classes, penalty='none'):
     return accuracy_score(y_test, y_pred), roc_auc_score(y_test, y_pred), LR.coef_
 
 
-# In[13]:
+# In[89]:
 
 
 acc, auc, model_coefs = RunLR(features, classes['label'])
@@ -258,7 +261,7 @@ print("Coefs:", model_coefs)
 # 
 # *You can also try to store the model coefficients, but that isn't necessary to understand what we are trying to do. And it might lead to shape mismatch issues that aren't worth debugging right now*
 
-# In[14]:
+# In[90]:
 
 
 ## Your code here
@@ -266,7 +269,7 @@ print("Coefs:", model_coefs)
 
 # <font size=+3>&#9998;</font> **Do this:** Now that you have the distribution of accuracy scores and auc, let's compute the mean, standard deviation, and plot them as historgrams. Do you notice anything about the shape of the histograms?
 
-# In[15]:
+# In[91]:
 
 
 ## your code here
@@ -281,14 +284,12 @@ print("Coefs:", model_coefs)
 # 
 # To do a little paramter testing we will use `GridSearchCV()`. The method basically wraps any class to a classifier (or regressor) and then lets you tell it, please try all these potential versions. For example, we have four choices of penalization `l1`, `l2`, `elasticnet` (which is `l1` and `l2` at the same time), and `none` (which we have used all along). So we can test all four models simulatneously to see which is the best.
 # 
-# I wrote a little code that does that. Notice that `parameters` is basically a set where `penalty` is the variable for the model and the list that follows indicates that type of penalty to try. Once you run `.fit()` the models start being built. Notice combinations of parameters that can't work together will throw warnings (this is normal, but you should chck other warnings!).
+# I wrote a little code that does that. Notice that `parameters` is basically a set where `penalty` is the variable for the model and the list that follows indicates that type of penalty to try. Once you run `.fit()` the models start being built. Notice combinations of parameters that can't work together will throw warnings (this is normal, but you should check other warnings!).
 
-# In[16]:
+# In[92]:
 
 
-parameters = [
-    {'penalty': ['l1', 'l2', 'elasticnet', 'none']},
-]
+parameters = {'penalty': ['l1', 'l2', 'elasticnet', 'none']}
 
 LR_tuned = LogisticRegression()
 clf = GridSearchCV(LR_tuned, parameters)
@@ -303,7 +304,7 @@ clf.fit(features, classes['label'])
 # 
 # In any event, after running this, we can find the `best_estimator_` and the `best_score_`. The `best_estimator` is the call you should use for the best model tested. If any settings are the default, they will not appear in the parentheses. The `best_score_` is the accuracy of that model. Of course, you can get more details (like above) if you choose that best model and run it through Monte Carlo validation.
 
-# In[17]:
+# In[93]:
 
 
 print(clf.best_estimator_)
@@ -320,7 +321,7 @@ print(clf.best_score_)
 # 
 # Let's import the necessary libraries and test things with KNN. Then you can write code for the Support Vector Machine, and the Random Forest.
 
-# In[18]:
+# In[94]:
 
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -332,7 +333,7 @@ from sklearn.ensemble import RandomForestClassifier
 # 
 # As we did previously we can vary the number of neighbors from the default of 5 (always good to know the defaults of the models you are calling). But this time we will use `GridSearchCV`. I've written the code to do this below. You can adapt it for other models in the next sections as you like.
 
-# In[19]:
+# In[95]:
 
 
 ## Sweep through 2 to 20 neighbors
@@ -354,7 +355,7 @@ print(clf.best_score_)
 
 # We can now use the best model to do Monte Carlo Validation and plot the distributions.
 
-# In[20]:
+# In[96]:
 
 
 def RunKNN(features, classes):
@@ -369,7 +370,7 @@ def RunKNN(features, classes):
 RunKNN(features, classes['label'])
 
 
-# In[21]:
+# In[97]:
 
 
 N = 300
@@ -402,13 +403,14 @@ plt.hist(auc_array)
 print("Mean AUC:", mean_auc, "+/-", std_auc)
 plt.ylabel('Counts')
 plt.xlabel('AUC')
+plt.show()
 
 
 # #### 2.2.2 LinearSVC
 # 
 # <font size=+3>&#9998;</font> **Do this:** For the `LinearSVC()` model, repeat the work above to determine the distribution of accuracies and aucs for the model. Use `GridSearchCV()` to vary the `C` parameter and find the best model. [Linear SVC Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html)
 
-# In[22]:
+# In[98]:
 
 
 ### your code here
@@ -418,7 +420,7 @@ plt.xlabel('AUC')
 # 
 # <font size=+3>&#9998;</font> **Do this:** For the `RandomForestClassifier()` model, repeat the work above to determine the distribution of accuracies and aucs for the model. Use `GridSearchCV()` to vary the `n_estimators` parameter and find the best model. [Random Forest Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
 
-# In[23]:
+# In[99]:
 
 
 ## your code here
@@ -429,7 +431,7 @@ plt.xlabel('AUC')
 # 
 # Many times it is important to know the strucutre of your data, hence plotting feature spaces. Sometimes the models you are using might be incompatible with the structure of your data. Some models try to draw lines to separate, some draw curves, some are more emergent. Let's test this out with a ciruclar data set where we can clearly see the separation. Below, we create some data and store the values in data frames.
 
-# In[24]:
+# In[100]:
 
 
 X, y = make_circles(n_samples = 500)
@@ -438,13 +440,13 @@ loc = pd.DataFrame(X, columns=['x1','x2'])
 label = pd.DataFrame(y, columns=['y'])
 
 
-# In[25]:
+# In[101]:
 
 
 loc.head()
 
 
-# In[26]:
+# In[102]:
 
 
 label.head()
@@ -454,18 +456,19 @@ label.head()
 # 
 # Let's plot this data to see why we might not expect the same results as we had found for the previous case.
 
-# In[27]:
+# In[103]:
 
 
 plt.figure(figsize=(5,5))
 plt.scatter(loc['x1'], loc['x2'], c=label['y'])
 plt.xlabel('x1')
 plt.ylabel('x2')
+plt.show()
 
 
 # It is really easy to see in the figure above that we have two clearly separated classes. Let's fire up the Logisitic Regression model and see what it can find.
 
-# In[28]:
+# In[104]:
 
 
 parameters = [
@@ -487,7 +490,7 @@ print(clf.best_score_)
 # 
 # <font size=+3>&#9998;</font> **Do this:** Test the SVC, KNN, and RF models on these data. Use `GridSearchCV()` to find the best model for each. How do the accuracies compare? Which might you use to work more on this problem? *No need to plot disitrbutions for this, you can do that later if you like.*
 
-# In[29]:
+# In[105]:
 
 
 ### your code here
@@ -497,7 +500,7 @@ print(clf.best_score_)
 # 
 # You probably found that one model worked perfectly. We can add a little noice to make things more interesting.
 
-# In[30]:
+# In[106]:
 
 
 X, y = make_circles(n_samples = 500, noise = 0.05)
@@ -506,13 +509,14 @@ loc = pd.DataFrame(X, columns=['x1','x2'])
 label = pd.DataFrame(y, columns=['y'])
 
 plt.scatter(loc['x1'], loc['x2'], c=label['y'])
+plt.show()
 
 
 # ### 3.4 Try to find the best model for this data
 # 
 # <font size=+3>&#9998;</font> **Do this:** Test the LR, SVC, KNN, and RF models on these data. Use `GridSearchCV()` to find the best model for each. How do the accuracies compare? Which might you use to work more on this problem? *No need to plot disitrbutions for this, you can do that later if you like.*
 
-# In[31]:
+# In[107]:
 
 
 ## your code here

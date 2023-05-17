@@ -36,7 +36,7 @@ import numpy as np
 # 
 # The basic Pandas data structure is called a *Series*. It is a sequence, not unlike a numpy array, but with an associated set of labels for each value called the *index*. If you don't provide the index labels, Pandas will use the regular 0-based index as the label. Again: if you don't provide index labels, it will use the numeric index as the index label. That will be important later.
 # 
-# You can make a Series using either a python *dict*, with keys as the indices, or by separately providing the values and indices. You can also updated the index labels or reset the labels to the default. Note however that the `reset_index` method does *not* change the Series but returns, not a Series but a DataFrame, where the original index is preserved as a new column.
+# You can make a Series using either a python *dict*, with keys as the indices, or by separately providing the values and indices. You can also update the index labels or reset the labels to the default. Note however that the `reset_index` method does *not* change the Series but returns, not a Series but a DataFrame, where the original index is preserved as a new column.
 # 
 # &#9989; **Review the following example and make sure you understand everything that is happening. Discuss with your group mates.**
 

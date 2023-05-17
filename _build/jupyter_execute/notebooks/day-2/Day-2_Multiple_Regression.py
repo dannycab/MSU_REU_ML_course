@@ -127,7 +127,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 
 # ## 2. Multiple Regression
 # 
-# In the past, we have limited ourselves to either a single feature or, in the pre-class, doing polynomial regression with other features we created. However, we can just as easily use all, or some combination of all, the features available to make a OLS model. The question is, is it a good idea to just use all the possible features available to make a model?
+# In the past, we have limited ourselves to either a single feature or, in the pre-class, doing polynomial regression with other features we created. However, we can just as easily use all, or some combination of all, the features available to make an ordinary least squares (OLS) model. The question is, is it a good idea to just use all the possible features available to make a model?
 # 
 # Please discuss that idea with your group and record your answer below.
 

@@ -63,7 +63,7 @@ from pandas.plotting import scatter_matrix
 # 
 # ### 2.1 Getting used to looking for useful information on the internet
 # 
-# Another authentic part of working as a computational professional is getting comfortable with searching for help on the internet when you get stuck or run into something that is unfamiliar to you. The Python data analysis/computional modeling world can be complicated and is ever-evolving. There is also a large number of publicly available toolsets with varying levels of complexity and nuance. Through practice and experience, we become better computational folks by learning how to search for better, more efficient, clearer ways to do things. 
+# Another authentic part of working as a computational professional is getting comfortable with searching for help on the internet when you get stuck or run into something that is unfamiliar to you. The Python data analysis/computional modeling world can be complicated and is ever-evolving. There is also a large number of publicly available toolsets with varying levels of complexity and nuance. Through practice and experience, we become better computational folks by learning how to search for better, more efficient, and clearer ways to do things. 
 # 
 # #### The Iris data
 # 
@@ -138,7 +138,7 @@ pd.set_option('display.max_columns', 500)
 
 # ### 3.1 Making a scatter matrix
 # 
-# Rather than just looking at the raw values or exploring basic statistical values for our data, it would be better if we were to visualize the differences. Since the number of features is small, we can use a plotting feature of Pandas called `scatter_matrix()`. Did you noticed that we imported `scatter_matrix` at the start of this notebook?
+# Rather than just looking at the raw values or exploring basic statistical values for our data, it would be better if we were to visualize the differences. Since the number of features is small, we can use a plotting feature of Pandas called `scatter_matrix()`. Did you notice that we imported `scatter_matrix` at the start of this notebook?
 # 
 # **&#9989; Do This:** Try calling the `scatter_matrix` function on your dataframe. Use a `marker` that you prefer. Look up the documentation for `scatter_matrix` on the Pandas website for more information! You may need to make the figure bigger to get a good look at it.
 # 
@@ -228,7 +228,7 @@ pd.set_option('display.max_columns', 500)
 # ```
 # Where "PACKAGENAME" is the name of the script but without the ".py" part. So for `my_pandas.py`, the PACKAGENAME would be `my_pandas`. Then the FUNCTION is the name of the function from the script that you want to import, e.g. `my_pandas_idx`.
 # 
-# **We'll using this functionality in the future, so make sure you feel comfortable with this idea.**
+# **We'll use this functionality in the future, so make sure you feel comfortable with this idea.**
 # 
 # **&#9989; Do This:** Import the `my_pandas` function and the `my_pandas_idx` function (you can do this on one line, check to see if anyone one in your group knows how). Then, **use these two functions to first read in the data and then extract just the second column from the data**.
 # 

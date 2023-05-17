@@ -25,7 +25,7 @@ from sklearn.datasets import make_classification
 # 
 # **Watch the videos and answer the questions.**
 
-# In[2]:
+# In[3]:
 
 
 from IPython.display import YouTubeVideo
@@ -40,7 +40,7 @@ YouTubeVideo("HcqpanDadyQ",width=640,height=360)
 
 # <font size=8 color="#009600">&#9998;</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text)
 
-# In[3]:
+# In[4]:
 
 
 from IPython.display import YouTubeVideo
@@ -77,7 +77,7 @@ YouTubeVideo("nKW8Ndu7Mjw",width=640,height=360)
 
 # <img src="https://miro.medium.com/max/1200/1*FUZS9K4JPqzfXDcC83BQTw.png">
 
-# In[4]:
+# In[5]:
 
 
 from IPython.display import YouTubeVideo
@@ -98,7 +98,7 @@ YouTubeVideo("TJveOYsK6MY",width=640,height=360)
 # 
 # Classification is a **supervised** learning task. One of the principal concerns we have for a classifier is how often it makes mistakes (i.e., false positives and false negatives relative to its true predictions)
 
-# In[5]:
+# In[6]:
 
 
 from IPython.display import YouTubeVideo
@@ -131,13 +131,13 @@ YouTubeVideo("Ivc8c9ijWIQ",width=640,height=360)
 # 
 # Let's start by making a scatter plot of a sample of data with 3 features including 1 that is redundant with only 1 cluster per class (i.e., 1 grouping per labeled class). Because we have 3 features, we should look at scatter plots of each pair of features. Note that we use `c=class_labels` to send `class_labels` to the color attribute, which colorizes different classes.
 
-# In[6]:
+# In[7]:
 
 
 ### your code here
 
 
-# In[7]:
+# In[12]:
 
 
 ### ANSWER ###
@@ -158,6 +158,7 @@ plt.subplot(313)
 plt.scatter(features[:, 0], features[:, 2], marker = 'o', c = class_labels, ec = 'k')
 plt.xlabel('feature 0')
 plt.ylabel('feature 2')
+plt.show()
 
 
 # Given your plots (you might run the code a few times), what does a "redundant feature" appear to be?
@@ -179,13 +180,13 @@ plt.ylabel('feature 2')
 # 
 # Make a scatter plot of these data. For the data with 4 features, you might want to look at different pairs of features before answering the question below.
 
-# In[8]:
+# In[9]:
 
 
 # your code here
 
 
-# In[9]:
+# In[10]:
 
 
 ### ANSWER ###
@@ -203,7 +204,7 @@ features4, class_labels4 = make_classification(n_features = 4, n_informative = 2
 # 
 # We will learn a variety of classifiers in this class. We will start with one of the most widely used ones: Logistic Regression. The video below provides a conceptual explanation of the technique.
 
-# In[10]:
+# In[11]:
 
 
 from IPython.display import YouTubeVideo

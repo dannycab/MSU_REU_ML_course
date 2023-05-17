@@ -4,10 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Getting Started with Pandas &#8212; 2021 MSU REU Machine Learning Short Course</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Getting Started with Pandas &#8212; 2023 MSU REU Machine Learning Short Course</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -17,99 +20,117 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Exploring data with Pandas" href="Day-1_Exploring-data-with-Pandas.html" />
     <link rel="prev" title="Detailed Schedule" href="../../schedule.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">2021 MSU REU Machine Learning Short Course</h1>
-  
-</a>
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">2023 MSU REU Machine Learning Short Course</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   2021 MSU REU Short Course on Machine Learning
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    2023 MSU REU Short Course on Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Schedule
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../schedule.html">
    Detailed Schedule
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Working with Data
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Getting Started with Pandas
@@ -121,12 +142,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Modeling Data
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../day-2/Day-2_Polynomial_Regression.html">
    Polynomial Regression
@@ -148,12 +169,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Evaluating Models
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">
    What is Tuning and Validation?
@@ -165,12 +186,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Solutions
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Day-1_Getting-Started-with-Pandas-SOL.html">
    Solution - Getting Started with Pandas
@@ -207,12 +228,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Acknowledgements
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../contributions.html">
    Contributions
@@ -220,12 +241,18 @@
  </li>
 </ul>
 
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -233,90 +260,182 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https://github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
     </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#notebook-instructions">
    Notebook instructions
@@ -375,28 +494,101 @@
  </li>
 </ul>
 
-        </nav>
-        
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Getting Started with Pandas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebook-instructions">
+   Notebook instructions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports-for-this-notebook">
+     Imports for this Notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-basics-of-pandas">
+   1. The basics of Pandas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-series">
+     1.1 Pandas Series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulating-series">
+     1.2 Manipulating Series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-like-operations">
+     1.3 Numpy like operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-pandas-dataframe">
+   2. The Pandas Dataframe
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-frame-indexing">
+     2.1 Data Frame indexing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#try-it-yourself">
+     2.2 Try it yourself
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#follow-up-questions">
+   Follow-up Questions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="getting-started-with-pandas">
-<h1>Getting Started with Pandas<a class="headerlink" href="#getting-started-with-pandas" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-pandas">
+<h1>Getting Started with Pandas<a class="headerlink" href="#getting-started-with-pandas" title="Permalink to this headline">#</a></h1>
 <p>In this notebook we will be:</p>
 <ol class="simple">
 <li><p>Reviewing the basics of Pandas</p></li>
 <li><p>Reviewing Pandas Dataframes</p></li>
 </ol>
-<div class="section" id="notebook-instructions">
-<h2>Notebook instructions<a class="headerlink" href="#notebook-instructions" title="Permalink to this headline">¶</a></h2>
+<section id="notebook-instructions">
+<h2>Notebook instructions<a class="headerlink" href="#notebook-instructions" title="Permalink to this headline">#</a></h2>
 <p>Recall that to make notebook cells that have Python code in them do something, hold down the ‘shift’ key and then press the ‘enter’ key (you’ll have to do this to get the YouTube videos to run).  To edit a cell (to add answers, for example) you double-click on the cell, add your text, and then enter it by holding down ‘shift’ and pressing ‘enter’</p>
-<div class="section" id="imports-for-this-notebook">
-<h3>Imports for this Notebook<a class="headerlink" href="#imports-for-this-notebook" title="Permalink to this headline">¶</a></h3>
+<section id="imports-for-this-notebook">
+<h3>Imports for this Notebook<a class="headerlink" href="#imports-for-this-notebook" title="Permalink to this headline">#</a></h3>
 <p>One of the downsides of notebooks is knowing when things got imported and what modules were important. Trying to get into the habit of including all of the important imports at the top of the notebook is a good way to ensure that you don’t run into issues later on in the notebook. When you restart the notebook, you can run that first cell to get the imports right.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -409,16 +601,16 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="the-basics-of-pandas">
-<h2>1. The basics of Pandas<a class="headerlink" href="#the-basics-of-pandas" title="Permalink to this headline">¶</a></h2>
+<section id="the-basics-of-pandas">
+<h2>1. The basics of Pandas<a class="headerlink" href="#the-basics-of-pandas" title="Permalink to this headline">#</a></h2>
 <p>Pandas is a fundamental tool for doing Data Science work in Python. While we can do this work in straight Python, Pandas makes much of that work easier. We cannot do justice to all of Pandas, as it is a big package, but here we’ll remind ourselves of some of the basics. As you do more data science work, you’ll pick more and more of Pandas as you go along.</p>
-<div class="section" id="pandas-series">
-<h3>1.1 Pandas Series<a class="headerlink" href="#pandas-series" title="Permalink to this headline">¶</a></h3>
+<section id="pandas-series">
+<h3>1.1 Pandas Series<a class="headerlink" href="#pandas-series" title="Permalink to this headline">#</a></h3>
 <p>The basic Pandas data structure is called a <em>Series</em>. It is a sequence, not unlike a numpy array, but with an associated set of labels for each value called the <em>index</em>. If you don’t provide the index labels, Pandas will use the regular 0-based index as the label. Again: if you don’t provide index labels, it will use the numeric index as the index label. That will be important later.</p>
-<p>You can make a Series using either a python <em>dict</em>, with keys as the indices, or by separately providing the values and indices. You can also updated the index labels or reset the labels to the default. Note however that the <code class="docutils literal notranslate"><span class="pre">reset_index</span></code> method does <em>not</em> change the Series but returns, not a Series but a DataFrame, where the original index is preserved as a new column.</p>
+<p>You can make a Series using either a python <em>dict</em>, with keys as the indices, or by separately providing the values and indices. You can also update the index labels or reset the labels to the default. Note however that the <code class="docutils literal notranslate"><span class="pre">reset_index</span></code> method does <em>not</em> change the Series but returns, not a Series but a DataFrame, where the original index is preserved as a new column.</p>
 <p>✅ <strong>Review the following example and make sure you understand everything that is happening. Discuss with your group mates.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -467,9 +659,9 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="manipulating-series">
-<h3>1.2 Manipulating Series<a class="headerlink" href="#manipulating-series" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="manipulating-series">
+<h3>1.2 Manipulating Series<a class="headerlink" href="#manipulating-series" title="Permalink to this headline">#</a></h3>
 <p>Once you have a Pandas Series object, You can access the values in a number of ways:</p>
 <ul class="simple">
 <li><p>using the label in [ ], much as you would in a dictionary</p></li>
@@ -537,9 +729,9 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="numpy-like-operations">
-<h3>1.3 Numpy like operations<a class="headerlink" href="#numpy-like-operations" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="numpy-like-operations">
+<h3>1.3 Numpy like operations<a class="headerlink" href="#numpy-like-operations" title="Permalink to this headline">#</a></h3>
 <p>Finally, you can do many of the things you can do with NumPy arrays, such as indexing NumPy arrays, with a Pandas Series object as well.</p>
 <p>✅ <strong>Review the following examples to convince yourself how you can use NumPy-style operations to access Series data in Pandas. Discuss with your group mates.</strong></p>
 <p>Look at how you can work with ranges of the series elements. The labels are ordered and so the following works:</p>
@@ -593,11 +785,11 @@ dtype: int64
 </div>
 </div>
 <p>There are <strong>many operations</strong> you can perform on a Pandas Series object (over 200 last we checked!). You’ll pick up more as you continue to become a Pandas expert.</p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="the-pandas-dataframe">
-<h2>2. The Pandas Dataframe<a class="headerlink" href="#the-pandas-dataframe" title="Permalink to this headline">¶</a></h2>
+<section id="the-pandas-dataframe">
+<h2>2. The Pandas Dataframe<a class="headerlink" href="#the-pandas-dataframe" title="Permalink to this headline">#</a></h2>
 <p>A Pandas DataFrame is a 2 dimensional data structure. The easiest way to think of a DataFrame is as a group of Series objects where each Series represents a column in the 2D structure. As with Series you can make them a number of ways but the standard way is to use a dictionary where the keys are the column <em>headers</em> and the values are a list of values under that header.</p>
 <div align="left"><img src="https://i.ibb.co/C13ybjZ/df.png" alt="df" border="0" width=400></div>
 <p>It is always important to know the <strong>types</strong> in each column as that can affect the kinds of operations you can perform on a column. Listing the <code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> provides such a list. A type of <code class="docutils literal notranslate"><span class="pre">object</span></code> is likely (though not necessarily) a string.</p>
@@ -650,8 +842,8 @@ Name: age, dtype: int64
 </div>
 </div>
 </div>
-<div class="section" id="data-frame-indexing">
-<h3>2.1 Data Frame indexing<a class="headerlink" href="#data-frame-indexing" title="Permalink to this headline">¶</a></h3>
+<section id="data-frame-indexing">
+<h3>2.1 Data Frame indexing<a class="headerlink" href="#data-frame-indexing" title="Permalink to this headline">#</a></h3>
 <p>As we noted above, the index for a DataFrame by default is a 0-based array index. However, we can choose to use a different column as an index for the DataFrame. The <code class="docutils literal notranslate"><span class="pre">.set_index()</span></code> method allows us to set the index.</p>
 <p>An <strong>irritating</strong> issue is whether the Series being worked on changes. Typically it does not but most methods provide a <code class="docutils literal notranslate"><span class="pre">inplace</span> <span class="pre">=</span> <span class="pre">True</span></code> setting to apply the changes to the existing element. Otherwise you must assign the result to preserve it.</p>
 <p>If you do not do so, the column being used as an index is no longer available using standard indexing. If you provide <code class="docutils literal notranslate"><span class="pre">drop</span> <span class="pre">=</span> <span class="pre">False</span></code> in set_index, the column is preserved in the DataFrame as well as in the index. If you <code class="docutils literal notranslate"><span class="pre">.reset_index()</span></code> returns to 0-based indexing</p>
@@ -716,9 +908,9 @@ age
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="try-it-yourself">
-<h3>2.2 Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="try-it-yourself">
+<h3>2.2 Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permalink to this headline">#</a></h3>
 <p>✅ <strong>Try doing the following</strong>:</p>
 <ul class="simple">
 <li><p>Make a DataFrame to store student grades. The column headers should be:</p>
@@ -743,16 +935,16 @@ age
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="follow-up-questions">
-<h2>Follow-up Questions<a class="headerlink" href="#follow-up-questions" title="Permalink to this headline">¶</a></h2>
+<section id="follow-up-questions">
+<h2>Follow-up Questions<a class="headerlink" href="#follow-up-questions" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Is there anything involving using Pandas that you’re curious about or are there any specific issues you’ve run into in the past with Pandas that you couldn’t find a solution for?</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -763,49 +955,61 @@ age
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "teaching"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "teaching",
             path: "./notebooks/day-1"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'teaching'</script>
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="../../schedule.html" title="previous page">Detailed Schedule</a>
-    <a class='right-next' id="next-link" href="Day-1_Exploring-data-with-Pandas.html" title="next page">Exploring data with Pandas</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../schedule.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Detailed Schedule</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="Day-1_Exploring-data-with-Pandas.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exploring data with Pandas</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, and Jane Kim<br/>
-        
-            &copy; Copyright 2021, Michigan State University.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine<br/>
+  
+      &copy; Copyright 2021-2023, Michigan State University.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-    
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
-
-    
   </body>
 </html>

@@ -155,7 +155,7 @@ print(len(poverty_df), len(poverty_df_dropped))
 
 # ## 2. Multiple Regression
 # 
-# In the past, we have limited ourselves to either a single feature or, in the pre-class, doing polynomial regression with other features we created. However, we can just as easily use all, or some combination of all, the features available to make a OLS model. The question is, is it a good idea to just use all the possible features available to make a model?
+# In the past, we have limited ourselves to either a single feature or, in the pre-class, doing polynomial regression with other features we created. However, we can just as easily use all, or some combination of all, the features available to make an ordinary least squares (OLS) model. The question is, is it a good idea to just use all the possible features available to make a model?
 # 
 # Please discuss that idea with your group and record your answer below.
 
@@ -206,7 +206,7 @@ print('r2: ', round(r2,4))
 ### your code here
 
 
-# In[12]:
+# In[19]:
 
 
 ### ANSWER ###
@@ -216,6 +216,7 @@ plt.scatter(y_test,y_pred)
 plt.xlabel('True Values')
 plt.ylabel('Predicted Values')
 plt.plot([-50,200],[-50,200], color='k', lw=3)
+plt.show()
 
 # res = y_test-y_pred
 
@@ -281,7 +282,7 @@ print('r2: ', round(r2,4))
 ### your code here
 
 
-# In[18]:
+# In[20]:
 
 
 ### ANSWER ###
@@ -294,6 +295,7 @@ plt.ylabel('Predicted Values')
 plt.legend(['Full Model', 'Reduced Model'])
 
 plt.plot([-50,200],[-50,200], color='k', lw=3)
+plt.show()
 
 # res = y_test-y_pred
 

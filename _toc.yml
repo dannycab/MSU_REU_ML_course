@@ -1,27 +1,24 @@
-- file: intro.md
-
-- part: Schedule
+format: jb-book
+root: intro.md
+parts:
+- caption: Schedule
   chapters:
   - file: schedule.md
-
-- part: Working with Data
+- caption: Working with Data
   chapters:
   - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb
   - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb
-
-- part: Modeling Data
+- caption: Modeling Data
   chapters:
   - file: notebooks/day-2/Day-2_Polynomial_Regression.ipynb
   - file: notebooks/day-2/Day-2_Multiple_Regression.ipynb
   - file: notebooks/day-3/day-3_Getting_Started_with_Classification_Models.ipynb
   - file: notebooks/day-3/day-3_KNN_classification.ipynb
-
-- part: Evaluating Models
+- caption: Evaluating Models
   chapters:
   - file: notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb
   - file: notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb
-
-- part: Solutions
+- caption: Solutions
   chapters:
   - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb
   - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas-SOL.ipynb
@@ -30,7 +27,6 @@
   - file: notebooks/day-3/day-3_Getting_Started_with_Classification_Models-SOL.ipynb
   - file: notebooks/day-3/day-3_KNN_classification-SOL.ipynb
   - file: notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb
-
-- part: Acknowledgements
+- caption: Acknowledgements
   chapters:
   - file: contributions.md

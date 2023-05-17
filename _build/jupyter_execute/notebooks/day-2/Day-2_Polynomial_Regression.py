@@ -35,20 +35,22 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # ---
 # ## 1. Polynomial Regression
 # 
+# To understand and model the underlying relationships between variables in data, we can create **regression models** to "fit" the data. The simplest regression model (that you've probably seen before) is linear regression with a first order polynomial, where the relationship between two variables is fit with a straight line: $Ax + B$. 
+# 
 # It's possible that a straight line is not going to be good enough to model the data we are working with. We can augment our $ Ax + B$ with extra features. By adding features we are still doing linear regression, but we the features themselves can consist of, well anything.
 # 
 # However, to be focused, we will use polynomials. We can add values like $x^2$ or $x^5$ to the potential set of features that can be used to better map against our data. 
 # 
-# <font size=8 color="#009600">&#9998;</font> Do This -  The question is, how many such features should we add? What are the advantages and disadvantages of adding more and more features? Think about it and answer in the cell below
+# <font size=8 color="#009600">&#9998;</font> Do This -  The question is, how many such features should we add? What are the advantages and disadvantages of adding more and more features? Think about it and answer in the cell below.
 
-# <font size=8 color="#009600">&#10174;</font> Answer here
+# <font size=8 color="#009600">&#9998;</font> Answer here
 
 # ### 1.1 Let's make some Data
 # 
 # It's always good when we are starting out to generate our own data. Data we generate gives us the advantage of **knowing** what the answer should be. 
 # 
 # <font size=8 color="#009600">&#9998;</font> Do This -  Let's do the following:
-# * build a numpy array `x_ary`of values from -4 to 4 by 0.02
+# * build a numpy array `x_ary` of values from -4 to 4 with a step size of 0.02
 # * generate a corresponding `y_ary`, using the values from `x_ary`, based on the formula $x^4 + 2x^3 -15x^2 -12x + 36$
 # * create `y_noisy`, by adding random (Gaussian) noise to `y_ary` in the range of -15 to 15. Later on we might make the range bigger (say -25 to 25) or smaller (say -5 to 5) for comparison. You will want to use `np.random.normal(avg, std_dev, N)` to do so.
 

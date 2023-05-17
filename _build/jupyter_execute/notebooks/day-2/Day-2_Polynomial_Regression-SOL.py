@@ -35,30 +35,32 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # ---
 # ## 1. Polynomial Regression
 # 
+# To understand and model the underlying relationships between variables in data, we can create **regression models** to "fit" the data. The simplest regression model (that you've probably seen before) is linear regression with a first order polynomial, where the relationship between two variables is fit with a straight line: $Ax + B$. 
+# 
 # It's possible that a straight line is not going to be good enough to model the data we are working with. We can augment our $ Ax + B$ with extra features. By adding features we are still doing linear regression, but we the features themselves can consist of, well anything.
 # 
 # However, to be focused, we will use polynomials. We can add values like $x^2$ or $x^5$ to the potential set of features that can be used to better map against our data. 
 # 
-# <font size=8 color="#009600">&#9998;</font> Do This -  The question is, how many such features should we add? What are the advantages and disadvantages of adding more and more features? Think about it and answer in the cell below
+# <font size=8 color="#009600">&#9998;</font> Do This -  The question is, how many such features should we add? What are the advantages and disadvantages of adding more and more features? Think about it and answer in the cell below.
 
-# <font size=8 color="#009600">&#10174;</font> Answer here
+# <font size=8 color="#009600">&#9998;</font> Answer here
 
 # ### 1.1 Let's make some Data
 # 
 # It's always good when we are starting out to generate our own data. Data we generate gives us the advantage of **knowing** what the answer should be. 
 # 
 # <font size=8 color="#009600">&#9998;</font> Do This -  Let's do the following:
-# * build a numpy array `x_ary`of values from -4 to 4 by 0.02
+# * build a numpy array `x_ary` of values from -4 to 4 with a step size of 0.02
 # * generate a corresponding `y_ary`, using the values from `x_ary`, based on the formula $x^4 + 2x^3 -15x^2 -12x + 36$
 # * create `y_noisy`, by adding random (Gaussian) noise to `y_ary` in the range of -15 to 15. Later on we might make the range bigger (say -25 to 25) or smaller (say -5 to 5) for comparison. You will want to use `np.random.normal(avg, std_dev, N)` to do so.
 
-# In[2]:
+# In[3]:
 
 
 # your code here
 
 
-# In[3]:
+# In[4]:
 
 
 ### ANSWER ###
@@ -80,13 +82,13 @@ y_noisy = y_ary + random_noise
 # 
 # <font size=8 color="#009600">&#9998;</font> Do This -  plot `x_ary` vs both `y_ary` and `y_noisy`. Do it overlapping with colors, or side by side, whatever you think would look good. _Make sure to label your axes!_ Consider adding a legend by using: `plt.legend(['Plot 1', 'Plot 2'])`.
 
-# In[4]:
+# In[5]:
 
 
 # your code here
 
 
-# In[5]:
+# In[6]:
 
 
 ### ANSWER ###
@@ -118,13 +120,13 @@ plt.ylabel('y')
 # 
 # Print the head of your DataFrame when you're done.
 
-# In[6]:
+# In[7]:
 
 
 # your code
 
 
-# In[7]:
+# In[8]:
 
 
 ### ANSWER ###
@@ -159,13 +161,13 @@ df.head()
 # 
 # <font size=8 color="#009600">&#9998;</font> Do This - Split your data with 20% going to test data and 80% to training (this is a common split ratio in ML). Print the length of the resulting arrays to confirm the split occured as you planned.
 
-# In[8]:
+# In[9]:
 
 
 ## your code here
 
 
-# In[9]:
+# In[10]:
 
 
 ### ANSWER ###
@@ -229,39 +231,56 @@ print(len(X_test))
 # 
 # This process is similar for every `scikit-learn` regression model.
 
-# In[10]:
+# In[11]:
 
 
 # your code here
 
 
-# In[11]:
+# In[12]:
 
 
 ### ANSWER ###
 
 import sklearn.metrics as metrics
 
+X_train, X_test, y_train, y_test = train_test_split(df, y_noisy, test_size=0.2, random_state=42)
+
+linear = LinearRegression()
+
+for i in range(1,len(X_train.columns)+1):
+    cols = X_train.columns[:i]
+
+    linear.fit(X_train[cols],y_train)
+
+    y_pred = linear.predict(X_test[cols])
+
+    r2=metrics.r2_score(y_test, y_pred)
+
+    print("x" + str(i-1), "r2 =", round(r2,4))
+
+
+# In[18]:
+
+
+### ANSWER ###
+
 def regression_results(y_true, y_pred):
 
     # Regression metrics
     explained_variance=metrics.explained_variance_score(y_true, y_pred)
-    mean_absolute_error=metrics.mean_absolute_error(y_true, y_pred) 
-    mse=metrics.mean_squared_error(y_true, y_pred) 
+    mean_absolute_error=metrics.mean_absolute_error(y_true, y_pred)
+    mse=metrics.mean_squared_error(y_true, y_pred)
     median_absolute_error=metrics.median_absolute_error(y_true, y_pred)
     r2=metrics.r2_score(y_true, y_pred)
 
-    print('explained_variance: ', round(explained_variance,4))    
+    print('explained_variance: ', round(explained_variance,4)) 
     print('r2: ', round(r2,4))
     print('MAE: ', round(mean_absolute_error,4))
     print('MSE: ', round(mse,4))
     print('RMSE: ', round(np.sqrt(mse),4))
 
-X_train, X_test, y_train, y_test = train_test_split(df, y_noisy, test_size=0.2, random_state=42)
-
-linear = LinearRegression()
-
-cols = ['const','data','x2','x3']
+cols = ['const','data','x2','x3','x4']
 
 linear.fit(X_train[cols],y_train)
 
@@ -279,13 +298,13 @@ regression_results(y_test, y_pred)
 # 
 # <font size=8 color="#009600">&#9998;</font> Do This -  Plot `x_ary` vs `y_noisy` and `x_ary` vs the best fitted values based on the adjusted rsquared value. Do it in the same graph. 
 
-# In[12]:
+# In[19]:
 
 
 # your code here
 
 
-# In[13]:
+# In[20]:
 
 
 ### ANSWER ###
@@ -306,13 +325,13 @@ plt.legend(['Truth','Fit'])
 # 
 # <font size=8 color="#009600">&#9998;</font> Do This - Make the two plots mentioned above. Make sure to plot the residuals as a function of the independent variable (`data` or `x`, whatever you called it).
 
-# In[14]:
+# In[21]:
 
 
 ## your code here
 
 
-# In[15]:
+# In[22]:
 
 
 ### ANSWER ###

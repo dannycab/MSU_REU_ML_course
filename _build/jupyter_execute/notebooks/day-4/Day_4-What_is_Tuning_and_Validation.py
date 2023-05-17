@@ -31,7 +31,7 @@
 # 4. Fit model
 # 5. Evaluate model with confusion matrix
 # 
-# The message we want to convey is that parts 3, 4, and 5 often are part of a cyclkic process to adjust and change your model slightly to get a better prediction. *In fact, part 2 can come back also if you have to clean, encode, or impute your data differently.*
+# The message we want to convey is that parts 3, 4, and 5 often are part of a cyclic process to adjust and change your model slightly to get a better prediction. *In fact, part 2 can come back also if you have to clean, encode, or impute your data differently.*
 # 
 # Because all the work we are doing relies on understanding the Confusion Matrix we will start there.
 
@@ -39,7 +39,7 @@
 # 
 # Watch the video below.
 
-# In[1]:
+# In[2]:
 
 
 from IPython.display import YouTubeVideo
@@ -50,7 +50,7 @@ YouTubeVideo("Kdsp6soqA7o",width=640,height=360)
 # 
 # We can extract additional information about the quality of our model by varying the prediction threshold. That is, we allow the model to change the probability cutoff between predicting a positive (1) and negative (0) case. These resulting Receiver Operator Curve (ROC) can offer additional evidence as to the quality of your model beyond accuracy. In the video below, ROCs are described.
 
-# In[2]:
+# In[8]:
 
 
 from IPython.display import YouTubeVideo
@@ -67,15 +67,9 @@ YouTubeVideo("4jRBRDbJemM",width=640,height=360)
 # 
 # Watch the video below.
 
-# In[3]:
+# In[12]:
 
 
 from IPython.display import YouTubeVideo
 YouTubeVideo("fSytzGwwBVw",width=640,height=360)
-
-
-# In[ ]:
-
-
-
 
