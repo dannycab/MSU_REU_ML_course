@@ -20,7 +20,7 @@ parts:
   - file: notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb
 - caption: Dimension Reduction
   chapters:
-  - file: notebooks/day-5/Day_5-What_is_PCA.ipynb
+  - file: notebooks/day-5/day_5-What_is_PCA.ipynb
   - file: notebooks/day-5/Day_5-Using_PCA.ipynb
 - caption: Resources
   chapters:
