@@ -6,7 +6,7 @@ This short course will focus on the essential aspects of machine learning that a
 
 ## Connecting to the class
 
-* We will meet on Thursdays from 10am-12pm in BPS 1300
+* We will meet on Thursdays from 10am-12pm in BPS 1248
 
 ## Learning Outcomes
 
@@ -21,7 +21,7 @@ By the end of this six week short course, you should be able to:
 
 ## Organization of the Course
 
-The course will be conducted over the next three-ish weeks. We will meet in 1300BPS from 10am-12pm EDT. The course will make use of Jupyter notebooks, so you will need to make sure that you have installed the [Anaconda distribution of Python with Jupyter](https://www.anaconda.com/products/individual) or something equivalent. The course is broken down into 6 topics:
+The course will be conducted over the next three-ish weeks. We will meet in 1248 BPS from 10am-12pm EDT. The course will make use of Jupyter notebooks, so you will need to make sure that you have installed the [Anaconda distribution of Python with Jupyter](https://www.anaconda.com/products/individual) or something equivalent. The course is broken down into 6 topics:
 
 1. May 25th - [Introduction to Jupyter Notebooks, Working with Data](./notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb)
 2. May 30th - [Building a Regression Model](./notebooks/day-2/Day-2_Multiple_Regression.ipynb) 

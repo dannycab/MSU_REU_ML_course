@@ -1,35 +1,44 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solution - Multidimensional Linear Regression &#8212; 2023 MSU REU Machine Learning Short Course</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -37,12 +46,12 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +61,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-2/Day-2_Multiple_Regression-SOL';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Solution - Getting Started with Classification Models" href="../day-3/day-3_Getting_Started_with_Classification_Models-SOL.html" />
     <link rel="prev" title="Solution - Polynomial Regression" href="Day-2_Polynomial_Regression-SOL.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">2023 MSU REU Machine Learning Short Course</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,505 +156,306 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Schedule
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../schedule.html">
-   Detailed Schedule
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Detailed Schedule</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Working with Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">
-   Getting Started with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">
-   Exploring data with Pandas
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">Getting Started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">Exploring data with Pandas</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Modeling Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Day-2_Polynomial_Regression.html">
-   Polynomial Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Day-2_Multiple_Regression.html">
-   Multidimensional Linear Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models.html">
-   Getting Started with Classification Models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-3/day-3_KNN_classification.html">
-   Classification using K Nearest Neighbors
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Day-2_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Day-2_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Evaluating Models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">
-   What is Tuning and Validation?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">
-   A Multiplicity of Models
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">What is Tuning and Validation?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">A Multiplicity of Models</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Solutions
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">
-   Solution - Getting Started with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">
-   Solution - Exploring data with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Day-2_Polynomial_Regression-SOL.html">
-   Solution - Polynomial Regression
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Solution - Multidimensional Linear Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models-SOL.html">
-   Solution - Getting Started with Classification Models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-3/day-3_KNN_classification-SOL.html">
-   Solution - Classification using K Nearest Neighbors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">
-   Solution - A Multiplicity of Models
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Day-2_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Solution - Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Acknowledgements
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../contributions.html">
-   Contributions
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributions.html">Contributions</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-      <li>
-        <a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb&branch=main"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on JupyterHub"
+      
+      
+      
+      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_jupyterhub.svg">
   </span>
-<span class="headerbtn__text-container">JupyterHub</span>
+<span class="btn__text-container">JupyterHub</span>
 </a>
-
-      </li>
+</li>
       
-      <li>
-        <a href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/day-2/Day-2_Multiple_Regression-SOL.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals">
-   Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#our-imports">
-   0. Our imports
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-example-data">
-   1. Working with example data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#type-of-the-data">
-     1.1 Type of the data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#handling-missing-data-imputation">
-     1.2 Handling missing data - Imputation
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-numpy-nan">
-       Using numpy.nan
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#changing-numpy-nan">
-       Changing numpy.nan
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#what-do-you-think">
-       What do you think
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multiple-regression">
-   2. Multiple Regression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#infant-mortality-model">
-     2.1 Infant Mortality model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualizing-your-fit">
-     2.2 Visualizing your fit
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-reduced-model-using-only-the-significant-features">
-     2.3 A “reduced” model using only the “significant” features
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Solution - Multidimensional Linear Regression</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals">
-   Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#our-imports">
-   0. Our imports
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-example-data">
-   1. Working with example data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#type-of-the-data">
-     1.1 Type of the data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#handling-missing-data-imputation">
-     1.2 Handling missing data - Imputation
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-numpy-nan">
-       Using numpy.nan
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#changing-numpy-nan">
-       Changing numpy.nan
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#what-do-you-think">
-       What do you think
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multiple-regression">
-   2. Multiple Regression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#infant-mortality-model">
-     2.1 Infant Mortality model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualizing-your-fit">
-     2.2 Visualizing your fit
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-reduced-model-using-only-the-significant-features">
-     2.3 A “reduced” model using only the “significant” features
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Solution - Multidimensional Linear Regression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-imports">0. Our imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-example-data">1. Working with example data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-of-the-data">1.1 Type of the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-data-imputation">1.2 Handling missing data - Imputation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numpy-nan">Using numpy.nan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-numpy-nan">Changing numpy.nan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-you-think">What do you think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-regression">2. Multiple Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infant-mortality-model">2.1 Infant Mortality model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-your-fit">2.2 Visualizing your fit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-reduced-model-using-only-the-significant-features">2.3 A “reduced” model using only the “significant” features</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <section class="tex2jax_ignore mathjax_ignore" id="solution-multidimensional-linear-regression">
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="solution-multidimensional-linear-regression">
 <h1>Solution - Multidimensional Linear Regression<a class="headerlink" href="#solution-multidimensional-linear-regression" title="Permalink to this headline">#</a></h1>
 <img src="https://assets.amuniversal.com/7f343ac0870a01332a13005056a9545d" width=400px><hr class="docutils" />
-<section id="goals">
+<div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">#</a></h2>
 <p>After completing this notebook, you will be able to:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Read in a fixed width data set and assign column names</p></li>
 <li><p>Clean missing data from a data set</p></li>
 <li><p>Construct a set of linear regression model usings <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></p></li>
 <li><p>Evaluate the quality of fit for a set of models using adjusted <span class="math notranslate nohighlight">\(R^2\)</span> and by comparing true and predicted values</p></li>
 <li><p>Explain why that model is the best fit for this data</p></li>
 </ol>
-</section>
-<section id="our-imports">
+</div>
+<div class="section" id="our-imports">
 <h2>0. Our imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -631,23 +473,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">sklearn.metrics</span> <span class="k">as</span> <span class="nn">metrics</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
-</pre></div>
 </div>
 </div>
-</div>
-</section>
-<section id="working-with-example-data">
+<div class="section" id="working-with-example-data">
 <h2>1. Working with example data<a class="headerlink" href="#working-with-example-data" title="Permalink to this headline">#</a></h2>
 <p>We are going to work with some data generated by U.N.E.S.C.O. (United Nations Education, Scientific, and Cultural Organization) and data they collected relating to poverty and inequality in the world. There are two files you need to do the work:</p>
 <ul class="simple">
@@ -771,20 +599,20 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-<section id="type-of-the-data">
+<div class="section" id="type-of-the-data">
 <h3>1.1 Type of the data<a class="headerlink" href="#type-of-the-data" title="Permalink to this headline">#</a></h3>
 <p>Now look at the <code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> of your DataFrame and describe to me anything unusual. Can you explain why? Please write below. Don’t skimp and look ahead, think about it and answer! We’ll all wait <font size=6 color="#009600">⏲</font></p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-</section>
-<section id="handling-missing-data-imputation">
+</div>
+<div class="section" id="handling-missing-data-imputation">
 <h3>1.2 Handling missing data - Imputation<a class="headerlink" href="#handling-missing-data-imputation" title="Permalink to this headline">#</a></h3>
 <p>Let’s face it, sometimes data is bad. Values are not recorded, or are mis-recorded, or are so far out of expectation that you expect there is something wrong. On the other hand, just <strong>changing</strong> the data seems like cheating. We have to work with what we have, and if we have to make changes it would be good to do that programmatically so that it is recorded for others to see.</p>
 <p>The process of <a href="https://en.wikipedia.org/wiki/Imputation_(statistics)"> imputation </a> is the statistical replacement of missing/bad data with substitute values. We have that problem here. In the <strong>GNP</strong> column some of the values are set to ” * ” indicating missing data. When pandas read in the column the only type that makes sense for both characters and numbers is a string. Therefore it set the type to <code class="docutils literal notranslate"><span class="pre">object</span></code> instead of the expected <code class="docutils literal notranslate"><span class="pre">int64</span></code> or <code class="docutils literal notranslate"><span class="pre">float64</span></code>.</p>
-<section id="using-numpy-nan">
+<div class="section" id="using-numpy-nan">
 <h4>Using numpy.nan<a class="headerlink" href="#using-numpy-nan" title="Permalink to this headline">#</a></h4>
 <p>For better or worse, pandas assumes that “bad values” are marked in the data as numpy <strong>NaN</strong>. NaN is short for “Not a Number”. If they are so marked we have access to some of the imputation methods, replacing NaN with various values (mean, median, specific value, etc.).</p>
 <p>There are two ways to do this:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>you can do a <code class="docutils literal notranslate"><span class="pre">.replace</span></code> on the column using a dictionary of {value to replace : new value, …} pairs. Remember to save the result. This leaves you with changing the column type using <code class="docutils literal notranslate"><span class="pre">.astype</span></code> but you will have convert to a float, perhaps <code class="docutils literal notranslate"><span class="pre">&quot;float64&quot;</span></code> would be good. You cannot convert a <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> to an integer but you can to a float.</p></li>
 <li><p>you can convert the everything that can be converted to a number using <code class="docutils literal notranslate"><span class="pre">.to_numeric</span></code>. Conveniently if it can’t do the conversion on a particular value it is set to a <code class="docutils literal notranslate"><span class="pre">np.nan</span></code></p></li>
 </ol>
@@ -821,8 +649,8 @@ dtype: object
 </div>
 </div>
 </div>
-</section>
-<section id="changing-numpy-nan">
+</div>
+<div class="section" id="changing-numpy-nan">
 <h4>Changing numpy.nan<a class="headerlink" href="#changing-numpy-nan" title="Permalink to this headline">#</a></h4>
 <p>Now that “bad values” are marked as <code class="docutils literal notranslate"><span class="pre">numpy.nan</span></code>, we can use the DataFrame method <code class="docutils literal notranslate"><span class="pre">fillna</span></code> to change those values. For example:</p>
 <div class="cell docutils container">
@@ -1033,20 +861,20 @@ Name: GNP, Length: 97, dtype: float64
 </div>
 </div>
 </div>
-</section>
-<section id="what-do-you-think">
+</div>
+<div class="section" id="what-do-you-think">
 <h4>What do you think<a class="headerlink" href="#what-do-you-think" title="Permalink to this headline">#</a></h4>
 <p>In the cell below, discuss with your group what you think is the best thing to do with the “bad values” in the DataFrame given the discussion above. Write your result below.</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-</section>
-</section>
-</section>
-<section id="multiple-regression">
+</div>
+</div>
+</div>
+<div class="section" id="multiple-regression">
 <h2>2. Multiple Regression<a class="headerlink" href="#multiple-regression" title="Permalink to this headline">#</a></h2>
 <p>In the past, we have limited ourselves to either a single feature or, in the pre-class, doing polynomial regression with other features we created. However, we can just as easily use all, or some combination of all, the features available to make an ordinary least squares (OLS) model. The question is, is it a good idea to just use all the possible features available to make a model?</p>
 <p>Please discuss that idea with your group and record your answer below.</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-<section id="infant-mortality-model">
+<div class="section" id="infant-mortality-model">
 <h3>2.1 Infant Mortality model<a class="headerlink" href="#infant-mortality-model" title="Permalink to this headline">#</a></h3>
 <p>Using the U.N.E.S.C.O. data, we can make a model of “Infant Mortality” as the dependent variable against all the other available features. As a hint, an easy way to do this is the make the model with  “Infant Mortality” as the prediction (the dependent variable) and then the entire DataFrame where “Infant Mortality is dropped as the data (the independent variables). <strong>You should also drop the “Country” column as unique strings don’t play well in basic linear models.</strong></p>
 <p><font size=8 color="#009600">✎</font> Do This - Make an linear model (did you split your data?) that predicts “Infant Mortality” using the other variables (dropping the “Country” column) and print the <code class="docutils literal notranslate"><span class="pre">.r2_score</span></code> of that process.</p>
@@ -1083,8 +911,8 @@ Name: GNP, Length: 97, dtype: float64
 </div>
 </div>
 </div>
-</section>
-<section id="visualizing-your-fit">
+</div>
+<div class="section" id="visualizing-your-fit">
 <h3>2.2 Visualizing your fit<a class="headerlink" href="#visualizing-your-fit" title="Permalink to this headline">#</a></h3>
 <p>We can check how well we are justified in using this model, by comparing the actual and predicted values. Plot the predicted values against the real values. In a perfect model, they would form a line with a slope of 1.</p>
 <p><font size=8 color="#009600">✎</font> Do This - Make the plots mentioned above. How well does your model fit your data? What can you conclude from this graph?</p>
@@ -1116,11 +944,11 @@ Name: GNP, Length: 97, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/Day-2_Multiple_Regression-SOL_27_0.png" src="../../_images/Day-2_Multiple_Regression-SOL_27_0.png" />
+<img alt="../../_images/7ff604f3856e80e0d00c587a09228788ad853169098576d83a26b04a5422979a.png" src="../../_images/7ff604f3856e80e0d00c587a09228788ad853169098576d83a26b04a5422979a.png" />
 </div>
 </div>
-</section>
-<section id="a-reduced-model-using-only-the-significant-features">
+</div>
+<div class="section" id="a-reduced-model-using-only-the-significant-features">
 <h3>2.3 A “reduced” model using only the “significant” features<a class="headerlink" href="#a-reduced-model-using-only-the-significant-features" title="Permalink to this headline">#</a></h3>
 <p>Modeling data is as much a craft as it is a science. We often seek the simplest models that explain or data well because they are typically more interpretable, easier to explain, and provide the information on the main influences of the system we are studying. There are reasons we might want a more complex model to capture the details and the nuance of the system. But for the U.N.E.S.C.O. data that we have, we are likely able to capture most of the system using a smaller number of features.</p>
 <p><font size=8 color="#009600">✎</font> Do This - use <code class="docutils literal notranslate"><span class="pre">pandas</span></code> built=in correlation function (<code class="docutils literal notranslate"><span class="pre">.corr()</span></code>) to find the top 3 variables that correlate strongly with “Infant Mortality”</p>
@@ -1140,107 +968,45 @@ Name: GNP, Length: 97, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">### ANSWER ###</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">poverty_df_dropped</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/pandas/core/frame.py:10059,</span> in <span class="ni">DataFrame.corr</span><span class="nt">(self, method, min_periods, numeric_only)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10057</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+<span class="g g-Whitespace">  </span><span class="mi">10058</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">cols</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="ne">&gt; </span><span class="mi">10059</span> <span class="n">mat</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10061</span> <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;pearson&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">  </span><span class="mi">10062</span>     <span class="n">correl</span> <span class="o">=</span> <span class="n">libalgos</span><span class="o">.</span><span class="n">nancorr</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">minp</span><span class="o">=</span><span class="n">min_periods</span><span class="p">)</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>birth rate</th>
-      <th>death rate</th>
-      <th>infant mortality</th>
-      <th>male LE</th>
-      <th>female LE</th>
-      <th>GNP</th>
-      <th>country group</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>birth rate</th>
-      <td>1.000000</td>
-      <td>0.505626</td>
-      <td>0.856537</td>
-      <td>-0.866200</td>
-      <td>-0.894440</td>
-      <td>-0.629059</td>
-      <td>0.710212</td>
-    </tr>
-    <tr>
-      <th>death rate</th>
-      <td>0.505626</td>
-      <td>1.000000</td>
-      <td>0.677741</td>
-      <td>-0.754032</td>
-      <td>-0.714751</td>
-      <td>-0.302754</td>
-      <td>0.344168</td>
-    </tr>
-    <tr>
-      <th>infant mortality</th>
-      <td>0.856537</td>
-      <td>0.677741</td>
-      <td>1.000000</td>
-      <td>-0.935238</td>
-      <td>-0.954225</td>
-      <td>-0.601647</td>
-      <td>0.631913</td>
-    </tr>
-    <tr>
-      <th>male LE</th>
-      <td>-0.866200</td>
-      <td>-0.754032</td>
-      <td>-0.935238</td>
-      <td>1.000000</td>
-      <td>0.981957</td>
-      <td>0.642963</td>
-      <td>-0.642059</td>
-    </tr>
-    <tr>
-      <th>female LE</th>
-      <td>-0.894440</td>
-      <td>-0.714751</td>
-      <td>-0.954225</td>
-      <td>0.981957</td>
-      <td>1.000000</td>
-      <td>0.650040</td>
-      <td>-0.699097</td>
-    </tr>
-    <tr>
-      <th>GNP</th>
-      <td>-0.629059</td>
-      <td>-0.302754</td>
-      <td>-0.601647</td>
-      <td>0.642963</td>
-      <td>0.650040</td>
-      <td>1.000000</td>
-      <td>-0.283399</td>
-    </tr>
-    <tr>
-      <th>country group</th>
-      <td>0.710212</td>
-      <td>0.344168</td>
-      <td>0.631913</td>
-      <td>-0.642059</td>
-      <td>-0.699097</td>
-      <td>-0.283399</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/pandas/core/frame.py:1838,</span> in <span class="ni">DataFrame.to_numpy</span><span class="nt">(self, dtype, copy, na_value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1836</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1837</span>     <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1838</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">as_array</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">na_value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1839</span> <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">dtype</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1840</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/pandas/core/internals/managers.py:1732,</span> in <span class="ni">BlockManager.as_array</span><span class="nt">(self, dtype, copy, na_value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1730</span>         <span class="n">arr</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1731</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1732</span>     <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interleave</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">na_value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1733</span>     <span class="c1"># The underlying data was copied within _interleave, so no need</span>
+<span class="g g-Whitespace">   </span><span class="mi">1734</span>     <span class="c1"># to further copy if copy=True or setting na_value</span>
+<span class="g g-Whitespace">   </span><span class="mi">1736</span> <span class="k">if</span> <span class="n">na_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">lib</span><span class="o">.</span><span class="n">no_default</span><span class="p">:</span>
+
+<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/pandas/core/internals/managers.py:1794,</span> in <span class="ni">BlockManager._interleave</span><span class="nt">(self, dtype, na_value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1792</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1793</span>         <span class="n">arr</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1794</span>     <span class="n">result</span><span class="p">[</span><span class="n">rl</span><span class="o">.</span><span class="n">indexer</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
+<span class="g g-Whitespace">   </span><span class="mi">1795</span>     <span class="n">itemmask</span><span class="p">[</span><span class="n">rl</span><span class="o">.</span><span class="n">indexer</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">   </span><span class="mi">1797</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">itemmask</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;Albania&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p><font size=8 color="#009600">✎</font> Do This - Redo the model with only the top three features you found above vs “Infant Mortality”. Print the <code class="docutils literal notranslate"><span class="pre">.r2_score</span></code>, how does it compare to the full model?</p>
 <div class="cell docutils container">
@@ -1308,14 +1074,14 @@ Name: GNP, Length: 97, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/Day-2_Multiple_Regression-SOL_36_0.png" src="../../_images/Day-2_Multiple_Regression-SOL_36_0.png" />
+<img alt="../../_images/bf2135fe8f03f77f59739805a2f72c28284dfc1321a7aa4367775b02a44b3165.png" src="../../_images/bf2135fe8f03f77f59739805a2f72c28284dfc1321a7aa4367775b02a44b3165.png" />
 </div>
 </div>
 <p>Review this model and the one you constructed earlier in the notebook. Report how the Adjusted R-squared value changed from using only the top three vs using all the available features. How well does this reduced model appear to fit your data?</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1329,7 +1095,7 @@ Name: GNP, Length: 97, dtype: float64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks/day-2"
         },
         predefinedOutput: true
@@ -1337,50 +1103,122 @@ Name: GNP, Length: 97, dtype: float64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Day-2_Polynomial_Regression-SOL.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Solution - Polynomial Regression</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Day-2_Polynomial_Regression-SOL.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Solution - Polynomial Regression</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../day-3/day-3_Getting_Started_with_Classification_Models-SOL.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../day-3/day-3_Getting_Started_with_Classification_Models-SOL.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Solution - Getting Started with Classification Models</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine<br/>
-  
-      &copy; Copyright 2021-2023, Michigan State University.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-imports">0. Our imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-example-data">1. Working with example data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-of-the-data">1.1 Type of the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-data-imputation">1.2 Handling missing data - Imputation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numpy-nan">Using numpy.nan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-numpy-nan">Changing numpy.nan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-you-think">What do you think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-regression">2. Multiple Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infant-mortality-model">2.1 Infant Mortality model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-your-fit">2.2 Visualizing your fit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-reduced-model-using-only-the-significant-features">2.3 A “reduced” model using only the “significant” features</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021-2023, Michigan State University.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

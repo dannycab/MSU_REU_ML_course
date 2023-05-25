@@ -1,35 +1,44 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solution - Polynomial Regression &#8212; 2023 MSU REU Machine Learning Short Course</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -37,12 +46,12 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +61,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-2/Day-2_Polynomial_Regression-SOL';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Solution - Multidimensional Linear Regression" href="Day-2_Multiple_Regression-SOL.html" />
     <link rel="prev" title="Solution - Exploring data with Pandas" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">2023 MSU REU Machine Learning Short Course</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,484 +156,303 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Schedule
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../schedule.html">
-   Detailed Schedule
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Detailed Schedule</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Working with Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">
-   Getting Started with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">
-   Exploring data with Pandas
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">Getting Started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">Exploring data with Pandas</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Modeling Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Day-2_Polynomial_Regression.html">
-   Polynomial Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Day-2_Multiple_Regression.html">
-   Multidimensional Linear Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models.html">
-   Getting Started with Classification Models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-3/day-3_KNN_classification.html">
-   Classification using K Nearest Neighbors
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Day-2_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Day-2_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Evaluating Models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">
-   What is Tuning and Validation?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">
-   A Multiplicity of Models
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">What is Tuning and Validation?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">A Multiplicity of Models</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Solutions
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">
-   Solution - Getting Started with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">
-   Solution - Exploring data with Pandas
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Solution - Polynomial Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Day-2_Multiple_Regression-SOL.html">
-   Solution - Multidimensional Linear Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models-SOL.html">
-   Solution - Getting Started with Classification Models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-3/day-3_KNN_classification-SOL.html">
-   Solution - Classification using K Nearest Neighbors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">
-   Solution - A Multiplicity of Models
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Day-2_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Acknowledgements
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../contributions.html">
-   Contributions
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributions.html">Contributions</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/dannycab/MSU_REU_ML_course/main?urlpath=lab/tree/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-      <li>
-        <a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/MSU_REU_ML_course/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb&branch=main"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on JupyterHub"
+      
+      
+      
+      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_jupyterhub.svg">
   </span>
-<span class="headerbtn__text-container">JupyterHub</span>
+<span class="btn__text-container">JupyterHub</span>
 </a>
-
-      </li>
+</li>
       
-      <li>
-        <a href="https://colab.research.google.com/github/dannycab/MSU_REU_ML_course/blob/main/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/day-2/Day-2_Polynomial_Regression-SOL.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals">
-   Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#our-imports">
-   Our Imports
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#polynomial-regression">
-   1. Polynomial Regression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#let-s-make-some-data">
-     1.1 Let’s make some Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-the-data">
-     1.2 Plot the data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#making-the-polynomial-features">
-   2 Making the Polynomial Features
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#train-test-splitting">
-     2.1 Train-test splitting
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fitting-using-the-polynomials">
-     2.2 Fitting using the Polynomials
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-your-data-and-your-model">
-   3. Plot your data and your model
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#are-we-justified-in-using-this-model">
-     3.1 Are we justified in using this model?
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Solution - Polynomial Regression</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#goals">
-   Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#our-imports">
-   Our Imports
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#polynomial-regression">
-   1. Polynomial Regression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#let-s-make-some-data">
-     1.1 Let’s make some Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-the-data">
-     1.2 Plot the data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#making-the-polynomial-features">
-   2 Making the Polynomial Features
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#train-test-splitting">
-     2.1 Train-test splitting
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fitting-using-the-polynomials">
-     2.2 Fitting using the Polynomials
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-your-data-and-your-model">
-   3. Plot your data and your model
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#are-we-justified-in-using-this-model">
-     3.1 Are we justified in using this model?
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Solution - Polynomial Regression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-imports">Our Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-regression">1. Polynomial Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-make-some-data">1.1 Let’s make some Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data">1.2 Plot the data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-polynomial-features">2 Making the Polynomial Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-splitting">2.1 Train-test splitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-using-the-polynomials">2.2 Fitting using the Polynomials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-your-data-and-your-model">3. Plot your data and your model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-we-justified-in-using-this-model">3.1 Are we justified in using this model?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <section class="tex2jax_ignore mathjax_ignore" id="solution-polynomial-regression">
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="solution-polynomial-regression">
 <h1>Solution - Polynomial Regression<a class="headerlink" href="#solution-polynomial-regression" title="Permalink to this headline">#</a></h1>
-<img src="https://i.pinimg.com/originals/52/2c/20/522c209c019fe9592857bcb569184478.jpg"><section id="goals">
+<img src="https://i.pinimg.com/originals/52/2c/20/522c209c019fe9592857bcb569184478.jpg"><div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">#</a></h2>
 <p>After completing this notebook, you will be able to:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Generate data for a polynomial regression</p></li>
 <li><p>Construct a set of polnomial regression models usings <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></p></li>
 <li><p>Explain why we want to split data for modeling/evaluation</p></li>
 <li><p>Evaluate the quality of fit for a set of models using adjusted <span class="math notranslate nohighlight">\(R^2\)</span> and by comparing true and predicted values</p></li>
 <li><p>Explain why that model is the best fit for this data</p></li>
 </ol>
-</section>
-<section id="our-imports">
+</div>
+<div class="section" id="our-imports">
 <h2>Our Imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -610,31 +470,17 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 8&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span> <span class="c1">## Used for automatically splitting data</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>    <span class="c1">## One of many kinds of regression models</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
-</pre></div>
 </div>
 </div>
-</div>
-</section>
 <hr class="docutils" />
-<section id="polynomial-regression">
+<div class="section" id="polynomial-regression">
 <h2>1. Polynomial Regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this headline">#</a></h2>
 <p>To understand and model the underlying relationships between variables in data, we can create <strong>regression models</strong> to “fit” the data. The simplest regression model (that you’ve probably seen before) is linear regression with a first order polynomial, where the relationship between two variables is fit with a straight line: <span class="math notranslate nohighlight">\(Ax + B\)</span>.</p>
 <p>It’s possible that a straight line is not going to be good enough to model the data we are working with. We can augment our <span class="math notranslate nohighlight">\( Ax + B\)</span> with extra features. By adding features we are still doing linear regression, but we the features themselves can consist of, well anything.</p>
 <p>However, to be focused, we will use polynomials. We can add values like <span class="math notranslate nohighlight">\(x^2\)</span> or <span class="math notranslate nohighlight">\(x^5\)</span> to the potential set of features that can be used to better map against our data.</p>
 <p><font size=8 color="#009600">✎</font> Do This -  The question is, how many such features should we add? What are the advantages and disadvantages of adding more and more features? Think about it and answer in the cell below.</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-<section id="let-s-make-some-data">
+<div class="section" id="let-s-make-some-data">
 <h3>1.1 Let’s make some Data<a class="headerlink" href="#let-s-make-some-data" title="Permalink to this headline">#</a></h3>
 <p>It’s always good when we are starting out to generate our own data. Data we generate gives us the advantage of <strong>knowing</strong> what the answer should be.</p>
 <p><font size=8 color="#009600">✎</font> Do This -  Let’s do the following:</p>
@@ -667,8 +513,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="plot-the-data">
+</div>
+<div class="section" id="plot-the-data">
 <h3>1.2 Plot the data<a class="headerlink" href="#plot-the-data" title="Permalink to this headline">#</a></h3>
 <p>We should really look at our data before we try to model it.</p>
 <p><font size=8 color="#009600">✎</font> Do This -  plot <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs both <code class="docutils literal notranslate"><span class="pre">y_ary</span></code> and <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code>. Do it overlapping with colors, or side by side, whatever you think would look good. <em>Make sure to label your axes!</em> Consider adding a legend by using: <code class="docutils literal notranslate"><span class="pre">plt.legend(['Plot</span> <span class="pre">1',</span> <span class="pre">'Plot</span> <span class="pre">2'])</span></code>.</p>
@@ -695,18 +541,18 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/Day-2_Polynomial_Regression-SOL_11_1.png" src="../../_images/Day-2_Polynomial_Regression-SOL_11_1.png" />
+<img alt="../../_images/bfeb5e43d13a2311eefbc4251a6407f076cf281943d3f8a82fb007ebd3e43a82.png" src="../../_images/bfeb5e43d13a2311eefbc4251a6407f076cf281943d3f8a82fb007ebd3e43a82.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="making-the-polynomial-features">
+<div class="section" id="making-the-polynomial-features">
 <h2>2 Making the Polynomial Features<a class="headerlink" href="#making-the-polynomial-features" title="Permalink to this headline">#</a></h2>
 <p>Ultimately it would be nice to do our work using a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame so that we have the opportunity to label our columns. There’s the added benefit that <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> just works with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames.</p>
 <p><font size=8 color="#009600">✎</font> Do This - Make a DataFrame consisting of the following columns: a constant value for the intercept, the values in <code class="docutils literal notranslate"><span class="pre">x_ary</span></code>, and additional powers of <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> up to 10.</p>
 <p>You can do this one of two ways:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>make the DataFrame out of <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> and add features to the DataFrame</p></li>
 <li><p>add columns to the <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> array and then finish off by adding to a DataFrame</p></li>
 </ol>
@@ -852,7 +698,7 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-<section id="train-test-splitting">
+<div class="section" id="train-test-splitting">
 <h3>2.1 Train-test splitting<a class="headerlink" href="#train-test-splitting" title="Permalink to this headline">#</a></h3>
 <p>One of the critical aspects of machine learning is worrying about overfitting or underfitting your data. This is essential to machine learning as we can never avoid the Bias-Variance tradeoff (<a class="reference external" href="https://www.youtube.com/watch?v=EuBBz3bI-aA">Great Conceptual Video on this</a>).</p>
 <ul class="simple">
@@ -887,12 +733,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="fitting-using-the-polynomials">
+</div>
+<div class="section" id="fitting-using-the-polynomials">
 <h3>2.2 Fitting using the Polynomials<a class="headerlink" href="#fitting-using-the-polynomials" title="Permalink to this headline">#</a></h3>
 <p>We’ll talk about measures of “goodness” of fit in more detail on day 4, but one good measure for a multi-feature fit is the <strong>Adjusted R-squared</strong> value. In general, the <strong>R-squared</strong> describes the variance in the model that it can account for. If the R-squared is 1.0, then all the variance is accounted for an you have a perfect fit. If the value is 0 and you have no fit. However, for multiple features R-squared tends to over-estimate. The Adjusted R-squared tries to deal with this and provide a value that is better suited to multiple features.</p>
 <p>We’ll leave it to you how you want to do this, but what we’d like you to try is to fit different combinations of features against <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code> and report the Adjusted R-squared value. For example, what is the Adj-r-squared for:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>just the const column</p></li>
 <li><p>the const and data column (which should be a line)</p></li>
 <li><p>the const, data and <span class="math notranslate nohighlight">\(x^2\)</span> column</p></li>
@@ -963,17 +809,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0 r2 = -0.0029
-x1 r2 = 0.383
-x2 r2 = 0.3585
-x3 r2 = 0.6245
-x4 r2 = 0.8687
-x5 r2 = 0.8681
-x6 r2 = 0.867
-x7 r2 = 0.8677
-x8 r2 = 0.8668
-x9 r2 = 0.8684
-x10 r2 = 0.8689
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0 r2 = -0.0056
+x1 r2 = 0.3393
+x2 r2 = 0.2355
+x3 r2 = 0.5309
+x4 r2 = 0.8664
+x5 r2 = 0.8662
+x6 r2 = 0.8643
+x7 r2 = 0.8643
+x8 r2 = 0.8637
+x9 r2 = 0.8631
+x10 r2 = 0.8643
 </pre></div>
 </div>
 </div>
@@ -1008,21 +854,21 @@ x10 r2 = 0.8689
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>explained_variance:  0.8694
-r2:  0.8687
-MAE:  12.0222
-MSE:  219.0911
-RMSE:  14.8017
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>explained_variance:  0.8684
+r2:  0.8664
+MAE:  12.0253
+MSE:  223.676
+RMSE:  14.9558
 </pre></div>
 </div>
 </div>
 </div>
 <p><font size=8 color="#009600">✎</font> Do This - Which combination of features best “fit” your data? What was the Adjusted R-squared? Why might that combination produce the best fit?</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="plot-your-data-and-your-model">
+<div class="section" id="plot-your-data-and-your-model">
 <h2>3. Plot your data and your model<a class="headerlink" href="#plot-your-data-and-your-model" title="Permalink to this headline">#</a></h2>
 <p><font size=8 color="#009600">✎</font> Do This -  Plot <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code> and <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs the best fitted values based on the adjusted rsquared value. Do it in the same graph.</p>
 <div class="cell docutils container">
@@ -1045,13 +891,13 @@ RMSE:  14.8017
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17dbc332f10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17f0e10d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/Day-2_Polynomial_Regression-SOL_26_1.png" src="../../_images/Day-2_Polynomial_Regression-SOL_26_1.png" />
+<img alt="../../_images/d07fe70cbc1f4818a0969e515ac16ff067bab6b06e8c3e00dc488e8e24a6e0d0.png" src="../../_images/d07fe70cbc1f4818a0969e515ac16ff067bab6b06e8c3e00dc488e8e24a6e0d0.png" />
 </div>
 </div>
-<section id="are-we-justified-in-using-this-model">
+<div class="section" id="are-we-justified-in-using-this-model">
 <h3>3.1 Are we justified in using this model?<a class="headerlink" href="#are-we-justified-in-using-this-model" title="Permalink to this headline">#</a></h3>
 <p>We can check how well we are justified in using this model, by comparing the actual and predicted values as well as making a residual plot.</p>
 <ul class="simple">
@@ -1089,14 +935,14 @@ RMSE:  14.8017
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Residuals&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/Day-2_Polynomial_Regression-SOL_29_1.png" src="../../_images/Day-2_Polynomial_Regression-SOL_29_1.png" />
-<img alt="../../_images/Day-2_Polynomial_Regression-SOL_29_2.png" src="../../_images/Day-2_Polynomial_Regression-SOL_29_2.png" />
+<img alt="../../_images/3884584e5dc2b9a238b8f0ced4da9bb59938c55adbd3ea7de6035341b7231026.png" src="../../_images/3884584e5dc2b9a238b8f0ced4da9bb59938c55adbd3ea7de6035341b7231026.png" />
+<img alt="../../_images/ee32693af361a00255686ebeb6c533baac8579703112b60c9dfa839630bd3bf2.png" src="../../_images/ee32693af361a00255686ebeb6c533baac8579703112b60c9dfa839630bd3bf2.png" />
 </div>
 </div>
 <p><font size=8 color="#009600">✎</font> Answer here - Do we appear justified in using this model? Why or why not?</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1110,7 +956,7 @@ RMSE:  14.8017
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks/day-2"
         },
         predefinedOutput: true
@@ -1118,50 +964,120 @@ RMSE:  14.8017
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Solution - Exploring data with Pandas</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Solution - Exploring data with Pandas</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="Day-2_Multiple_Regression-SOL.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="Day-2_Multiple_Regression-SOL.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Solution - Multidimensional Linear Regression</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine<br/>
-  
-      &copy; Copyright 2021-2023, Michigan State University.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-imports">Our Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-regression">1. Polynomial Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-make-some-data">1.1 Let’s make some Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data">1.2 Plot the data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-polynomial-features">2 Making the Polynomial Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-splitting">2.1 Train-test splitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-using-the-polynomials">2.2 Fitting using the Polynomials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-your-data-and-your-model">3. Plot your data and your model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#are-we-justified-in-using-this-model">3.1 Are we justified in using this model?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021-2023, Michigan State University.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
