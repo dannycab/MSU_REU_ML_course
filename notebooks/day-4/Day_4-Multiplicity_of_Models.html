@@ -795,8 +795,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[115   3]
- [  2 130]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[111   2]
+ [  1 136]]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -819,12 +819,12 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.98      0.97      0.98       118
-           1       0.98      0.98      0.98       132
+           0       0.99      0.98      0.99       113
+           1       0.99      0.99      0.99       137
 
-    accuracy                           0.98       250
-   macro avg       0.98      0.98      0.98       250
-weighted avg       0.98      0.98      0.98       250
+    accuracy                           0.99       250
+   macro avg       0.99      0.99      0.99       250
+weighted avg       0.99      0.99      0.99       250
 </pre></div>
 </div>
 </div>
@@ -854,7 +854,7 @@ weighted avg       0.98      0.98      0.98       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6aefe230c40016e1a4a478f7ec4c1e901d162077b4d3edb528320b3e8f8a23e9.png" src="../../_images/6aefe230c40016e1a4a478f7ec4c1e901d162077b4d3edb528320b3e8f8a23e9.png" />
+<img alt="../../_images/e089ea2f572fba7fe4078b073f06fe8210fbc88fcec717c265da1038e1f5e5a2.png" src="../../_images/e089ea2f572fba7fe4078b073f06fe8210fbc88fcec717c265da1038e1f5e5a2.png" />
 </div>
 </div>
 </div>
@@ -877,15 +877,14 @@ weighted avg       0.98      0.98      0.98       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 1.38292782 -0.84183359  4.7103474   2.78772406 -0.19691845 -0.46649758
-  -0.6878823  -0.21998064 -0.68225723  0.12699536 -0.0050403  -0.11437956
-   0.21712098  0.51755066 -0.23599023 -0.15469627 -0.16622735  0.16728117
-  -3.28127114 -0.26948903]]
-Odds Ratios: [3.98655649e+00 4.30919669e-01 1.11090746e+02 1.62440073e+01
- 8.21257605e-01 6.27195126e-01 5.02639380e-01 8.02534338e-01
- 5.05474730e-01 1.13541175e+00 9.94972382e-01 8.91919354e-01
- 1.24249441e+00 1.67791284e+00 7.89788391e-01 8.56675332e-01
- 8.46853676e-01 1.18208659e+00 3.75804563e-02 7.63769656e-01]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 0.90526592 -0.2853228   4.21341114  1.99573562 -0.23139635  0.11460464
+  -0.58467347 -0.75753777 -0.39785365  0.11500351  0.14582083 -0.0270301
+   0.39063079  0.41977187  0.00506507 -0.10236621 -0.17693889 -0.05099405
+  -2.65428161 -0.06172361]]
+Odds Ratios: [ 2.47258934  0.75177154 67.5866944   7.35761343  0.79342493  1.12142998
+  0.5572878   0.46881935  0.67176033  1.12187738  1.15698887  0.97333195
+  1.47791275  1.52161439  1.00507792  0.90269891  0.83783099  0.95028433
+  0.07034936  0.9401427 ]
 </pre></div>
 </div>
 </div>
@@ -937,12 +936,13 @@ Odds Ratios: [3.98655649e+00 4.30919669e-01 1.11090746e+02 1.62440073e+01
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.976
-AUC: 0.9774436090225564
-Coefs: [[ 0.70230158 -0.11376222  3.67976901  1.72901795  0.14569815  0.27399401
-  -0.15627373 -0.36451207 -0.37706733 -0.06280208  0.37823257 -0.04985203
-   0.33836523 -0.02083647  0.12066807 -0.23759614 -0.22078766  0.00601025
-  -2.47852651  0.3573438 ]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.988
+AUC: 0.9876006441223832
+Coefs: [[ 1.18190751e+00 -4.27425068e-01  4.58175444e+00  2.34101269e+00
+   1.60921442e-01 -2.19785690e-02 -3.19259991e-01 -3.02852688e-01
+  -7.96442691e-01  1.14286305e-01  1.55612054e-01  7.70223930e-02
+  -8.69123541e-02  4.64219734e-01 -1.39348782e-01  4.09617798e-01
+  -5.58912881e-01 -1.98091825e-03 -3.32354550e+00 -1.33038239e-01]]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -1120,7 +1120,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.992, 0.9913043478260869)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.952, 0.9538135865033036)
 </pre></div>
 </div>
 </div>
@@ -1162,12 +1162,12 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9662266666666665 +/- 0.01086164301056194
-Mean AUC: 0.9663319924555386 +/- 0.010724630969734075
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9656933333333332 +/- 0.011207703699787143
+Mean AUC: 0.9658294718589783 +/- 0.0109623821922974
 </pre></div>
 </div>
-<img alt="../../_images/2bcbe390638e99f453963db9043ef243d13daa1e0169e60774128924f863736f.png" src="../../_images/2bcbe390638e99f453963db9043ef243d13daa1e0169e60774128924f863736f.png" />
-<img alt="../../_images/3e07d031b0fcc68ffbc02fc4041bc974c75d204d73ddbcfdd505d526fe5b00fc.png" src="../../_images/3e07d031b0fcc68ffbc02fc4041bc974c75d204d73ddbcfdd505d526fe5b00fc.png" />
+<img alt="../../_images/5d2e4714cfac975ea71f816d4f9f1d53d457064cc8ef7ce533ed810cbe65ecfa.png" src="../../_images/5d2e4714cfac975ea71f816d4f9f1d53d457064cc8ef7ce533ed810cbe65ecfa.png" />
+<img alt="../../_images/49976e4d87d9568b552ebfaca5b3668f47063d9507ba29529c8e8939ee1a5b36.png" src="../../_images/49976e4d87d9568b552ebfaca5b3668f47063d9507ba29529c8e8939ee1a5b36.png" />
 </div>
 </div>
 </div>
@@ -1241,28 +1241,28 @@ Mean AUC: 0.9663319924555386 +/- 0.010724630969734075
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.762443</td>
-      <td>-0.647056</td>
+      <td>-0.162637</td>
+      <td>0.986686</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.228015</td>
-      <td>0.766817</td>
+      <td>0.736185</td>
+      <td>0.313099</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.693653</td>
-      <td>0.720309</td>
+      <td>-0.525269</td>
+      <td>0.603401</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.757679</td>
-      <td>0.256755</td>
+      <td>0.691139</td>
+      <td>0.402899</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.728085</td>
-      <td>-0.331500</td>
+      <td>0.757679</td>
+      <td>0.256755</td>
     </tr>
   </tbody>
 </table>
@@ -1307,7 +1307,7 @@ Mean AUC: 0.9663319924555386 +/- 0.010724630969734075
     </tr>
     <tr>
       <th>2</th>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1335,7 +1335,7 @@ Mean AUC: 0.9663319924555386 +/- 0.010724630969734075
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9d9e015d32a7b890e5034a8864316b06242e3fb328583e62e5a6ec7dd2f2432a.png" src="../../_images/9d9e015d32a7b890e5034a8864316b06242e3fb328583e62e5a6ec7dd2f2432a.png" />
+<img alt="../../_images/c0f4e8a09b146ca1988c8430645c6d6089721e4b43a950a880a8a5debc503bc2.png" src="../../_images/c0f4e8a09b146ca1988c8430645c6d6089721e4b43a950a880a8a5debc503bc2.png" />
 </div>
 </div>
 <p>It is really easy to see in the figure above that we have two clearly separated classes. Let’s fire up the Logisitic Regression model and see what it can find.</p>
@@ -1357,7 +1357,7 @@ Mean AUC: 0.9663319924555386 +/- 0.010724630969734075
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
-0.45199999999999996
+0.458
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -1399,7 +1399,7 @@ Traceback (most recent call last):
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
 
   warnings.warn(some_fits_failed_message, FitFailedWarning)
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.452   nan 0.452]
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.458   nan 0.458]
   warnings.warn(
 </pre></div>
 </div>
@@ -1434,7 +1434,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/286d402bd5ebebff5edf8f978e46db95f294457da83445b77777432f94cadbef.png" src="../../_images/286d402bd5ebebff5edf8f978e46db95f294457da83445b77777432f94cadbef.png" />
+<img alt="../../_images/6501b6421d0e46eaa1494defd28c13ab8f34dff198e7621dbc13affc7c44e348.png" src="../../_images/6501b6421d0e46eaa1494defd28c13ab8f34dff198e7621dbc13affc7c44e348.png" />
 </div>
 </div>
 </div>
