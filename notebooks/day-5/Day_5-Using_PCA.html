@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Python Basics Review" href="../resources/python_review.html" />
-    <link rel="prev" title="A Multiplicity of Models" href="../day-4/Day_4-Multiplicity_of_Models.html" />
+    <link rel="prev" title="What is Principal Component Analysis?" href="day_5-What_is_PCA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -167,10 +167,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-2/Day-2_Polynomial_Regression.html">Polynomial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/Day-2_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
 <ul class="nav bd-sidenav">
@@ -179,11 +179,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -482,8 +488,8 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">cancer.csv</span></code> contains the cell measurements</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">target.csv</span></code> has if each cell is malignant (1) or benign (0).</p></li>
 </ul>
-<p>cancer.csv link here</p>
-<p>target.csv link here</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-5/cancer.csv</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-5/target.csv</span></code></p>
 <p><font size=8 color="#009600">✎</font> Do This - Read in these files as separate DataFrames with <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>and print ther <code class="docutils literal notranslate"><span class="pre">head()</span></code>s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -686,12 +692,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../day-4/Day_4-Multiplicity_of_Models.html"
+       href="day_5-What_is_PCA.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">A Multiplicity of Models</p>
+        <p class="prev-next-title">What is Principal Component Analysis?</p>
       </div>
     </a>
     <a class="right-next"

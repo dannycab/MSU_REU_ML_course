@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>What is Tuning and Validation? &#8212; 2023 MSU REU Machine Learning Short Course</title>
+    <title>What is Principal Component Analysis? &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
   
@@ -59,11 +59,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-4/Day_4-What_is_Tuning_and_Validation';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-5/day_5-What_is_PCA';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="A Multiplicity of Models" href="Day_4-Multiplicity_of_Models.html" />
-    <link rel="prev" title="Multidimensional Linear Regression" href="../day-3/Day-3_Multiple_Regression.html" />
+    <link rel="next" title="Using PCA" href="Day_5-Using_PCA.html" />
+    <link rel="prev" title="A Multiplicity of Models" href="../day-4/Day_4-Multiplicity_of_Models.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -171,14 +171,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">What is Tuning and Validation?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Day_4-Multiplicity_of_Models.html">A Multiplicity of Models</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">What is Tuning and Validation?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">A Multiplicity of Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">What is Principal Component Analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Day_5-Using_PCA.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -246,7 +246,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/notebooks/day-5/day_5-What_is_PCA.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -264,7 +264,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb&branch=main" target="_blank"
+      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/notebooks/day-5/day_5-What_is_PCA.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -282,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/notebooks/day-5/day_5-What_is_PCA.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +313,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb" target="_blank"
+      <li><a href="../../_sources/notebooks/day-5/day_5-What_is_PCA.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -395,7 +395,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>What is Tuning and Validation?</h1>
+    <h1>What is Principal Component Analysis?</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -405,14 +405,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-have-done-so-far">1. What have done so far?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-and-validation">2. Tuning and Validation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-with-a-classifier">3. Example with a Classifier</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-confusion-matrix">3.1 The Confusion Matrix</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roc">3.2 ROC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leveraging-randomness">3.3 Leveraging randomness</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-scaling">Data Scaling</a></li>
 </ul>
             </nav>
         </div>
@@ -424,45 +417,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="what-is-tuning-and-validation">
-<h1>What is Tuning and Validation?<a class="headerlink" href="#what-is-tuning-and-validation" title="Permalink to this headline">#</a></h1>
-<div class="section" id="what-have-done-so-far">
-<h2>1. What have done so far?<a class="headerlink" href="#what-have-done-so-far" title="Permalink to this headline">#</a></h2>
-<p>Thus far we have talked about two kinds of supervised machine learning problems: regression and classification. Fairly broad definitions of these two are below:</p>
-<ul class="simple">
-<li><p><strong>Regression</strong>: Using a set of input data to predict an outcome on some continuous scale.</p></li>
-<li><p><strong>Classification</strong>: Using a set of input data to predict the class associated with data.</p></li>
-</ul>
-<p>We have used <code class="docutils literal notranslate"><span class="pre">sci-kit</span> <span class="pre">learn</span></code> to begin to investigate how we can model data to solve one or the other problems. We have not talked in detail as to how these models work. That is important to understand if you are going to use particular models, but beyond the scope of this short course.</p>
-</div>
-<div class="section" id="tuning-and-validation">
-<h2>2. Tuning and Validation<a class="headerlink" href="#tuning-and-validation" title="Permalink to this headline">#</a></h2>
-<p>Instead, we will talk about the last pieces of supervised machine learning that are needed to understand your model: tuning and validation. Broad definitions are given below:</p>
-<ul class="simple">
-<li><p><strong>Tuning</strong>: The process of finding the right model and hyperparamters to build an accurate model.</p></li>
-<li><p><strong>Validation</strong>: The process by which you build confidence in your model.</p></li>
-</ul>
-<p>We will make use of <code class="docutils literal notranslate"><span class="pre">sci-kit</span> <span class="pre">learn</span></code>’s built in tools for tuning and validation. We will introduce those tools in class and we will focus on classifiers. For now, there are several useful videos to conceptually understand what we are trying to do.</p>
-</div>
-<div class="section" id="example-with-a-classifier">
-<h2>3. Example with a Classifier<a class="headerlink" href="#example-with-a-classifier" title="Permalink to this headline">#</a></h2>
-<p>We will focus on classifiers because the process of tuning and validating them is a bit easier to understand at first. As we have seen we start our work with a classifier as follows:</p>
-<ol class="arabic simple">
-<li><p>Read in the data</p></li>
-<li><p>Clean/Transform data</p></li>
-<li><p>Select model and parameters</p></li>
-<li><p>Fit model</p></li>
-<li><p>Evaluate model with confusion matrix</p></li>
-</ol>
-<p>The message we want to convey is that parts 3, 4, and 5 often are part of a cyclic process to adjust and change your model slightly to get a better prediction. <em>In fact, part 2 can come back also if you have to clean, encode, or impute your data differently.</em></p>
-<p>Because all the work we are doing relies on understanding the Confusion Matrix we will start there.</p>
-<div class="section" id="the-confusion-matrix">
-<h3>3.1 The Confusion Matrix<a class="headerlink" href="#the-confusion-matrix" title="Permalink to this headline">#</a></h3>
-<p>Watch the video below.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="what-is-principal-component-analysis">
+<h1>What is Principal Component Analysis?<a class="headerlink" href="#what-is-principal-component-analysis" title="Permalink to this headline">#</a></h1>
+<p>In data science, we often run into datasets with a very large number of features. This is often called the <strong>curse of dimensionality</strong> and can cause a lot of issues, especially overfitting and undervaluing important features. Many features can be redundant or carry little to no information of value. Not to mention massive datasets can cause models to run a lot slower.</p>
+<p>To lift this curse, we rely on tools from the area of machine learning called <strong>dimension reduction</strong>. Dimensionality reduction seeks to move (or project) data into lower dimensional space while still retaining the important information.</p>
+<p>Broadly, dimension reduction techniques are classified as <strong>linear</strong> or <strong>nonlinear</strong>.  Today we will focus on a linear technique called Principal Component Analysis (PCA). PCA is the most common algorithm for dimension reduction and is used all over in data science, statistics, and machine learning.</p>
+<p>For an introduction to PCA, watch <strong>only the first ten minutes</strong> of the following video to get an idea of how PCA works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;Kdsp6soqA7o&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;TJdH6rPA-TI&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -471,60 +435,191 @@ document.write(`
         <iframe
             width="640"
             height="360"
-            src="https://www.youtube.com/embed/Kdsp6soqA7o"
+            src="https://www.youtube.com/embed/TJdH6rPA-TI"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
         </div></div>
 </div>
+<p>If you’re interested in the specifics of the PCA algortithm <a class="reference external" href="https://towardsdatascience.com/the-mathematics-behind-principal-component-analysis-fff2d7f4b643">this article</a> does a good job of explaining how the algorithm works, and <a class="reference external" href="https://medium.com/data-science-365/an-in-depth-guide-to-pca-with-numpy-1fb128535b3e">this one</a> gives a good explanation on how you might go about implementing the algorithm by hand (we won’t do that in this course).</p>
+<div class="section" id="data-scaling">
+<h2>Data Scaling<a class="headerlink" href="#data-scaling" title="Permalink to this headline">#</a></h2>
+<p>PCA is very sensitive to the relative scaling of features in data. That is, if features are scaled differently, the ones with larger values will be treated as much more significant than ones with smaller values, even if that isn’t actually the case. To get around this issue we standardize the scale of our data.</p>
+<p>Convieniently, scikit-learn has a class <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing.StandardScaler</span></code> (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">documentation</a>) that that can handle this scaling for us. Using it is similar to using other classes in sklearn, here’s a code snippet to help:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">scaled_data</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+</pre></div>
 </div>
-<div class="section" id="roc">
-<h3>3.2 ROC<a class="headerlink" href="#roc" title="Permalink to this headline">#</a></h3>
-<p>We can extract additional information about the quality of our model by varying the prediction threshold. That is, we allow the model to change the probability cutoff between predicting a positive (1) and negative (0) case. These resulting Receiver Operator Curve (ROC) can offer additional evidence as to the quality of your model beyond accuracy. In the video below, ROCs are described.</p>
+<p>Let’s try this with the iris setosa data. First we need to read in the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;4jRBRDbJemM&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-1/iris.data&#39;</span><span class="p">,</span>
+                     <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sepal length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal width&#39;</span><span class="p">,</span> <span class="s1">&#39;species&#39;</span><span class="p">],</span>
+                     <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<span class="n">iris_df_dropped</span> <span class="o">=</span> <span class="n">iris_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;species&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># new dataframe without species</span>
+<span class="n">iris_df_dropped</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="640"
-            height="360"
-            src="https://www.youtube.com/embed/4jRBRDbJemM"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
-        </div></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length</th>
+      <th>sepal width</th>
+      <th>petal length</th>
+      <th>petal width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-<div class="section" id="leveraging-randomness">
-<h3>3.3 Leveraging randomness<a class="headerlink" href="#leveraging-randomness" title="Permalink to this headline">#</a></h3>
-<p>As you might recall, we performed a data splitting when we started our modeling. That split was randomly done. So the Accuracy, ROC, and AUC were all deteermined for a single test set. What if we ran the model again? With a new random split? Would the results be similar our different? By how much?</p>
-<p>You can see that there’s a problem with running a single model and making a claim aboout it. Because our data was randomly split, our model produces results based on that split. If that split is representative of all possible splits then maybe it is ok to trust it. But if not it is better to build a bunch of models based on a bunch of random splits. Then you will get a disrtibution of results. That can give you some confidence in the predictions the model makes with a statistical uncertainty.</p>
-<p>The video below talks about cross validation as one form of this. We will introduce this form and the <a class="reference external" href="https://towardsdatascience.com/cross-validation-k-fold-vs-monte-carlo-e54df2fc179b">Monte Carlo</a> form.</p>
-<p>Watch the video below.</p>
+<p>Now we can actually do the scaling:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;fSytzGwwBVw&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_df_dropped</span><span class="p">)</span>
+
+<span class="n">scaled_data</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">iris_df_dropped</span><span class="p">)</span>
+
+<span class="n">scaled_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scaled_data</span><span class="p">,</span> <span class="c1"># need to give columns again since transform method returns a 2d numpy array</span>
+                               <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sepal length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal width&#39;</span><span class="p">])</span> 
+
+<span class="n">scaled_data_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="640"
-            height="360"
-            src="https://www.youtube.com/embed/fSytzGwwBVw"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
-        </div></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length</th>
+      <th>sepal width</th>
+      <th>petal length</th>
+      <th>petal width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.900681</td>
+      <td>1.032057</td>
+      <td>-1.341272</td>
+      <td>-1.312977</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.143017</td>
+      <td>-0.124958</td>
+      <td>-1.341272</td>
+      <td>-1.312977</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.385353</td>
+      <td>0.337848</td>
+      <td>-1.398138</td>
+      <td>-1.312977</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.506521</td>
+      <td>0.106445</td>
+      <td>-1.284407</td>
+      <td>-1.312977</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.021849</td>
+      <td>1.263460</td>
+      <td>-1.341272</td>
+      <td>-1.312977</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
+<p>Look at how the range of possible values for each data has changed.</p>
 </div>
 </div>
 
@@ -537,16 +632,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "ml-short-course"
+            mode: "python"
         },
         kernelOptions: {
-            name: "ml-short-course",
-            path: "./notebooks/day-4"
+            name: "python3",
+            path: "./notebooks/day-5"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ml-short-course'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -560,20 +655,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../day-3/Day-3_Multiple_Regression.html"
+       href="../day-4/Day_4-Multiplicity_of_Models.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Multidimensional Linear Regression</p>
+        <p class="prev-next-title">A Multiplicity of Models</p>
       </div>
     </a>
     <a class="right-next"
-       href="Day_4-Multiplicity_of_Models.html"
+       href="Day_5-Using_PCA.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">A Multiplicity of Models</p>
+        <p class="prev-next-title">Using PCA</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -595,14 +690,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-have-done-so-far">1. What have done so far?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-and-validation">2. Tuning and Validation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-with-a-classifier">3. Example with a Classifier</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-confusion-matrix">3.1 The Confusion Matrix</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roc">3.2 ROC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leveraging-randomness">3.3 Leveraging randomness</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-scaling">Data Scaling</a></li>
 </ul>
   </nav></div>
 
