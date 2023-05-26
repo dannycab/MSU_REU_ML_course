@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-4/Day_4-Multiplicity_of_Models';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Using PCA" href="../day-5/Day_5-Using_PCA.html" />
+    <link rel="next" title="What is Principal Component Analysis?" href="../day-5/day_5-What_is_PCA.html" />
     <link rel="prev" title="What is Tuning and Validation?" href="Day_4-What_is_Tuning_and_Validation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -167,10 +167,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-2/Day-2_Polynomial_Regression.html">Polynomial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/Day-2_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/day-3_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
 <ul class="current nav bd-sidenav">
@@ -179,11 +179,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -795,8 +801,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[111   2]
- [  1 136]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[123   1]
+ [  1 125]]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -819,8 +825,8 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.99      0.98      0.99       113
-           1       0.99      0.99      0.99       137
+           0       0.99      0.99      0.99       124
+           1       0.99      0.99      0.99       126
 
     accuracy                           0.99       250
    macro avg       0.99      0.99      0.99       250
@@ -854,7 +860,7 @@ weighted avg       0.99      0.99      0.99       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e089ea2f572fba7fe4078b073f06fe8210fbc88fcec717c265da1038e1f5e5a2.png" src="../../_images/e089ea2f572fba7fe4078b073f06fe8210fbc88fcec717c265da1038e1f5e5a2.png" />
+<img alt="../../_images/6b7eb72dfaf46caf240a782521ad8f541f8cb6604b44ab4ff3a89b54d6540a30.png" src="../../_images/6b7eb72dfaf46caf240a782521ad8f541f8cb6604b44ab4ff3a89b54d6540a30.png" />
 </div>
 </div>
 </div>
@@ -877,14 +883,14 @@ weighted avg       0.99      0.99      0.99       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 0.90526592 -0.2853228   4.21341114  1.99573562 -0.23139635  0.11460464
-  -0.58467347 -0.75753777 -0.39785365  0.11500351  0.14582083 -0.0270301
-   0.39063079  0.41977187  0.00506507 -0.10236621 -0.17693889 -0.05099405
-  -2.65428161 -0.06172361]]
-Odds Ratios: [ 2.47258934  0.75177154 67.5866944   7.35761343  0.79342493  1.12142998
-  0.5572878   0.46881935  0.67176033  1.12187738  1.15698887  0.97333195
-  1.47791275  1.52161439  1.00507792  0.90269891  0.83783099  0.95028433
-  0.07034936  0.9401427 ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 0.92679665 -0.11554857  4.05637828  1.99915982  0.10169644  0.0635565
+  -0.43592989 -0.38049012 -0.28399361  0.00802469  0.13446739 -0.06049281
+   0.05355314  0.37639422 -0.12364175 -0.09579515 -0.38318623 -0.0108357
+  -2.70181626  0.22333319]]
+Odds Ratios: [ 2.52640324  0.8908773  57.76472436  7.38285055  1.10704737  1.06561969
+  0.64666306  0.68352632  0.75277145  1.00805698  1.14392735  0.94130054
+  1.05501305  1.45702141  0.88369637  0.90865013  0.68168594  0.9892228
+  0.06708356  1.25023707]
 </pre></div>
 </div>
 </div>
@@ -936,13 +942,12 @@ Odds Ratios: [ 2.47258934  0.75177154 67.5866944   7.35761343  0.79342493  1.121
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.988
-AUC: 0.9876006441223832
-Coefs: [[ 1.18190751e+00 -4.27425068e-01  4.58175444e+00  2.34101269e+00
-   1.60921442e-01 -2.19785690e-02 -3.19259991e-01 -3.02852688e-01
-  -7.96442691e-01  1.14286305e-01  1.55612054e-01  7.70223930e-02
-  -8.69123541e-02  4.64219734e-01 -1.39348782e-01  4.09617798e-01
-  -5.58912881e-01 -1.98091825e-03 -3.32354550e+00 -1.33038239e-01]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.984
+AUC: 0.984448300237774
+Coefs: [[ 1.07660283 -0.23553185  4.68454413  2.14464622  0.23733007 -0.02460653
+  -0.11921018 -0.40359383 -0.58578006 -0.30825655  0.12190868  0.07519536
+   0.02596615  0.42504224 -0.24883702 -0.41822554 -0.56813189 -0.16961444
+  -2.67814122  0.32977864]]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -1120,7 +1125,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.952, 0.9538135865033036)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.98, 0.9801869278535305)
 </pre></div>
 </div>
 </div>
@@ -1162,12 +1167,12 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9656933333333332 +/- 0.011207703699787143
-Mean AUC: 0.9658294718589783 +/- 0.0109623821922974
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9654533333333333 +/- 0.010845328743544647
+Mean AUC: 0.9655962224918743 +/- 0.010424877973054652
 </pre></div>
 </div>
-<img alt="../../_images/5d2e4714cfac975ea71f816d4f9f1d53d457064cc8ef7ce533ed810cbe65ecfa.png" src="../../_images/5d2e4714cfac975ea71f816d4f9f1d53d457064cc8ef7ce533ed810cbe65ecfa.png" />
-<img alt="../../_images/49976e4d87d9568b552ebfaca5b3668f47063d9507ba29529c8e8939ee1a5b36.png" src="../../_images/49976e4d87d9568b552ebfaca5b3668f47063d9507ba29529c8e8939ee1a5b36.png" />
+<img alt="../../_images/8d8261529dc24a0e8cede9d554e5efd42540302f566bd2946486180749163da0.png" src="../../_images/8d8261529dc24a0e8cede9d554e5efd42540302f566bd2946486180749163da0.png" />
+<img alt="../../_images/76a37db85d8319c23e742bad21b252a520e73aa6dcd105bf5a497b8362ec2e9b.png" src="../../_images/76a37db85d8319c23e742bad21b252a520e73aa6dcd105bf5a497b8362ec2e9b.png" />
 </div>
 </div>
 </div>
@@ -1241,28 +1246,28 @@ Mean AUC: 0.9658294718589783 +/- 0.0109623821922974
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.162637</td>
-      <td>0.986686</td>
+      <td>0.470704</td>
+      <td>0.882291</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.736185</td>
-      <td>0.313099</td>
+      <td>-0.090285</td>
+      <td>0.794889</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.525269</td>
-      <td>0.603401</td>
+      <td>0.693653</td>
+      <td>-0.720309</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.691139</td>
-      <td>0.402899</td>
+      <td>-0.647214</td>
+      <td>0.470228</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.757679</td>
-      <td>0.256755</td>
+      <td>-0.425779</td>
+      <td>0.904827</td>
     </tr>
   </tbody>
 </table>
@@ -1307,7 +1312,7 @@ Mean AUC: 0.9658294718589783 +/- 0.0109623821922974
     </tr>
     <tr>
       <th>2</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1315,7 +1320,7 @@ Mean AUC: 0.9658294718589783 +/- 0.0109623821922974
     </tr>
     <tr>
       <th>4</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -1335,7 +1340,7 @@ Mean AUC: 0.9658294718589783 +/- 0.0109623821922974
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c0f4e8a09b146ca1988c8430645c6d6089721e4b43a950a880a8a5debc503bc2.png" src="../../_images/c0f4e8a09b146ca1988c8430645c6d6089721e4b43a950a880a8a5debc503bc2.png" />
+<img alt="../../_images/bd471ce03a84d9fb7f2765e53c0baef8ce871066e3435848b1c4cfd5711bd0fc.png" src="../../_images/bd471ce03a84d9fb7f2765e53c0baef8ce871066e3435848b1c4cfd5711bd0fc.png" />
 </div>
 </div>
 <p>It is really easy to see in the figure above that we have two clearly separated classes. Let’s fire up the Logisitic Regression model and see what it can find.</p>
@@ -1357,7 +1362,7 @@ Mean AUC: 0.9658294718589783 +/- 0.0109623821922974
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
-0.458
+0.45999999999999996
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -1399,7 +1404,7 @@ Traceback (most recent call last):
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
 
   warnings.warn(some_fits_failed_message, FitFailedWarning)
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.458   nan 0.458]
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [ nan 0.46  nan 0.46]
   warnings.warn(
 </pre></div>
 </div>
@@ -1434,7 +1439,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6501b6421d0e46eaa1494defd28c13ab8f34dff198e7621dbc13affc7c44e348.png" src="../../_images/6501b6421d0e46eaa1494defd28c13ab8f34dff198e7621dbc13affc7c44e348.png" />
+<img alt="../../_images/6d651eb43973e8ecf58c073618d8a591d91fba88db41260ccdc231cba0e743b8.png" src="../../_images/6d651eb43973e8ecf58c073618d8a591d91fba88db41260ccdc231cba0e743b8.png" />
 </div>
 </div>
 </div>
@@ -1493,11 +1498,11 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
       </div>
     </a>
     <a class="right-next"
-       href="../day-5/Day_5-Using_PCA.html"
+       href="../day-5/day_5-What_is_PCA.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Using PCA</p>
+        <p class="prev-next-title">What is Principal Component Analysis?</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
