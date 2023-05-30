@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>What is Principal Component Analysis? &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -157,6 +158,22 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Detailed Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/01_logit.html">Machine Learning</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/02_knn.html">The Confusion Matrix</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Data</span></p>
 <ul class="nav bd-sidenav">
@@ -417,7 +434,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="what-is-principal-component-analysis">
+  <section class="tex2jax_ignore mathjax_ignore" id="what-is-principal-component-analysis">
 <h1>What is Principal Component Analysis?<a class="headerlink" href="#what-is-principal-component-analysis" title="Permalink to this headline">#</a></h1>
 <p>In data science, we often run into datasets with a very large number of features. This is often called the <strong>curse of dimensionality</strong> and can cause a lot of issues, especially overfitting and undervaluing important features. Many features can be redundant or carry little to no information of value. Not to mention massive datasets can cause models to run a lot slower.</p>
 <p>To lift this curse, we rely on tools from the area of machine learning called <strong>dimension reduction</strong>. Dimensionality reduction seeks to move (or project) data into lower dimensional space while still retaining the important information.</p>
@@ -443,7 +460,7 @@ document.write(`
         </div></div>
 </div>
 <p>If you’re interested in the specifics of the PCA algortithm <a class="reference external" href="https://towardsdatascience.com/the-mathematics-behind-principal-component-analysis-fff2d7f4b643">this article</a> does a good job of explaining how the algorithm works, and <a class="reference external" href="https://medium.com/data-science-365/an-in-depth-guide-to-pca-with-numpy-1fb128535b3e">this one</a> gives a good explanation on how you might go about implementing the algorithm by hand (we won’t do that in this course).</p>
-<div class="section" id="data-scaling">
+<section id="data-scaling">
 <h2>Data Scaling<a class="headerlink" href="#data-scaling" title="Permalink to this headline">#</a></h2>
 <p>PCA is very sensitive to the relative scaling of features in data. That is, if features are scaled differently, the ones with larger values will be treated as much more significant than ones with smaller values, even if that isn’t actually the case. To get around this issue we standardize the scale of our data.</p>
 <p>Convieniently, scikit-learn has a class <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing.StandardScaler</span></code> (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">documentation</a>) that that can handle this scaling for us. Using it is similar to using other classes in sklearn, here’s a code snippet to help:</p>
@@ -620,8 +637,8 @@ document.write(`
 </div></div></div>
 </div>
 <p>Look at how the range of possible values for each data has changed.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
