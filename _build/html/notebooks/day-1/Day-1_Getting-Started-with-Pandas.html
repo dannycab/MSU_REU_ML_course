@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Getting Started with Pandas &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -63,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Exploring data with Pandas" href="Day-1_Exploring-data-with-Pandas.html" />
-    <link rel="prev" title="Detailed Schedule" href="../../schedule.html" />
+    <link rel="prev" title="Support Vector Machines" href="../notes/04_svm_rbf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -157,6 +158,22 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Detailed Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/01_logit.html">Machine Learning</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/02_knn.html">The Confusion Matrix</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Data</span></p>
 <ul class="current nav bd-sidenav">
@@ -432,17 +449,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="getting-started-with-pandas">
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-pandas">
 <h1>Getting Started with Pandas<a class="headerlink" href="#getting-started-with-pandas" title="Permalink to this headline">#</a></h1>
 <p>In this notebook we will be:</p>
 <ol class="arabic simple">
 <li><p>Reviewing the basics of Pandas</p></li>
 <li><p>Reviewing Pandas Dataframes</p></li>
 </ol>
-<div class="section" id="notebook-instructions">
+<section id="notebook-instructions">
 <h2>Notebook instructions<a class="headerlink" href="#notebook-instructions" title="Permalink to this headline">#</a></h2>
 <p>Recall that to make notebook cells that have Python code in them do something, hold down the ‘shift’ key and then press the ‘enter’ key (you’ll have to do this to get the YouTube videos to run).  To edit a cell (to add answers, for example) you double-click on the cell, add your text, and then enter it by holding down ‘shift’ and pressing ‘enter’</p>
-<div class="section" id="imports-for-this-notebook">
+<section id="imports-for-this-notebook">
 <h3>Imports for this Notebook<a class="headerlink" href="#imports-for-this-notebook" title="Permalink to this headline">#</a></h3>
 <p>One of the downsides of notebooks is knowing when things got imported and what modules were important. Trying to get into the habit of including all of the important imports at the top of the notebook is a good way to ensure that you don’t run into issues later on in the notebook. When you restart the notebook, you can run that first cell to get the imports right.</p>
 <div class="cell docutils container">
@@ -456,13 +473,13 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="the-basics-of-pandas">
+<section id="the-basics-of-pandas">
 <h2>1. The basics of Pandas<a class="headerlink" href="#the-basics-of-pandas" title="Permalink to this headline">#</a></h2>
 <p>Pandas is a fundamental tool for doing Data Science work in Python. While we can do this work in straight Python, Pandas makes much of that work easier. We cannot do justice to all of Pandas, as it is a big package, but here we’ll remind ourselves of some of the basics. As you do more data science work, you’ll pick more and more of Pandas as you go along.</p>
-<div class="section" id="pandas-series">
+<section id="pandas-series">
 <h3>1.1 Pandas Series<a class="headerlink" href="#pandas-series" title="Permalink to this headline">#</a></h3>
 <p>The basic Pandas data structure is called a <em>Series</em>. It is a sequence, not unlike a numpy array, but with an associated set of labels for each value called the <em>index</em>. If you don’t provide the index labels, Pandas will use the regular 0-based index as the label. Again: if you don’t provide index labels, it will use the numeric index as the index label. That will be important later.</p>
 <p>You can make a Series using either a python <em>dict</em>, with keys as the indices, or by separately providing the values and indices. You can also update the index labels or reset the labels to the default. Note however that the <code class="docutils literal notranslate"><span class="pre">reset_index</span></code> method does <em>not</em> change the Series but returns, not a Series but a DataFrame, where the original index is preserved as a new column.</p>
@@ -514,8 +531,8 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="manipulating-series">
+</section>
+<section id="manipulating-series">
 <h3>1.2 Manipulating Series<a class="headerlink" href="#manipulating-series" title="Permalink to this headline">#</a></h3>
 <p>Once you have a Pandas Series object, You can access the values in a number of ways:</p>
 <ul class="simple">
@@ -584,8 +601,8 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="numpy-like-operations">
+</section>
+<section id="numpy-like-operations">
 <h3>1.3 Numpy like operations<a class="headerlink" href="#numpy-like-operations" title="Permalink to this headline">#</a></h3>
 <p>Finally, you can do many of the things you can do with NumPy arrays, such as indexing NumPy arrays, with a Pandas Series object as well.</p>
 <p>✅ <strong>Review the following examples to convince yourself how you can use NumPy-style operations to access Series data in Pandas. Discuss with your group mates.</strong></p>
@@ -640,10 +657,10 @@ dtype: int64
 </div>
 </div>
 <p>There are <strong>many operations</strong> you can perform on a Pandas Series object (over 200 last we checked!). You’ll pick up more as you continue to become a Pandas expert.</p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="the-pandas-dataframe">
+<section id="the-pandas-dataframe">
 <h2>2. The Pandas Dataframe<a class="headerlink" href="#the-pandas-dataframe" title="Permalink to this headline">#</a></h2>
 <p>A Pandas DataFrame is a 2 dimensional data structure. The easiest way to think of a DataFrame is as a group of Series objects where each Series represents a column in the 2D structure. As with Series you can make them a number of ways but the standard way is to use a dictionary where the keys are the column <em>headers</em> and the values are a list of values under that header.</p>
 <div align="left"><img src="https://i.ibb.co/C13ybjZ/df.png" alt="df" border="0" width=400></div>
@@ -697,7 +714,7 @@ Name: age, dtype: int64
 </div>
 </div>
 </div>
-<div class="section" id="data-frame-indexing">
+<section id="data-frame-indexing">
 <h3>2.1 Data Frame indexing<a class="headerlink" href="#data-frame-indexing" title="Permalink to this headline">#</a></h3>
 <p>As we noted above, the index for a DataFrame by default is a 0-based array index. However, we can choose to use a different column as an index for the DataFrame. The <code class="docutils literal notranslate"><span class="pre">.set_index()</span></code> method allows us to set the index.</p>
 <p>An <strong>irritating</strong> issue is whether the Series being worked on changes. Typically it does not but most methods provide a <code class="docutils literal notranslate"><span class="pre">inplace</span> <span class="pre">=</span> <span class="pre">True</span></code> setting to apply the changes to the existing element. Otherwise you must assign the result to preserve it.</p>
@@ -763,8 +780,8 @@ age
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="try-it-yourself">
+</section>
+<section id="try-it-yourself">
 <h3>2.2 Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permalink to this headline">#</a></h3>
 <p>✅ <strong>Try doing the following</strong>:</p>
 <ul class="simple">
@@ -790,16 +807,16 @@ age
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="follow-up-questions">
+<section id="follow-up-questions">
 <h2>Follow-up Questions<a class="headerlink" href="#follow-up-questions" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Is there anything involving using Pandas that you’re curious about or are there any specific issues you’ve run into in the past with Pandas that you couldn’t find a solution for?</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -833,12 +850,12 @@ age
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../schedule.html"
+       href="../notes/04_svm_rbf.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Detailed Schedule</p>
+        <p class="prev-next-title">Support Vector Machines</p>
       </div>
     </a>
     <a class="right-next"

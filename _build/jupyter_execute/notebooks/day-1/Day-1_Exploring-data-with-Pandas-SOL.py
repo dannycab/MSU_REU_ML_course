@@ -255,45 +255,40 @@ iris_df[(iris_df['petal length'] > 2) & (iris_df['petal width'] < 1.5)] ## We ca
 # <font size=+3>&#9998;</font> Do This - Erase the contents of this cell and replace it with your answer. How effective your Boolean mask separation of the 3 species? Any ideas for improvements?
 
 # ---
-# ## 4. What if we didn't have Pandas to read in this data?
+# ## 4. Physics Data Sets
 # 
-# While Pandas makes life pretty easy for reading in csv and other file formats, all of this functionality is built on top of the standard Python capability. Python can natively open and read files lines by line, but working with files in this context might not be something you're familiar with. For this part of the notebook, you're going to explore how you can use **just Python** without any special packages to read in the iris data.
+# We used the famous Iris data set to do this activity. That is because it is well known and clearly documented. Most data sets you will work with will not have the same level of documentation. Let's try to find some physics data sets that you can read in and plot.
 # 
-# ### 4.1 Code review: Loading the iris data with basic Python
+# Places to look for data: 
 # 
-# **&#9989; Do This:**  To get started, **you'll need to download the following file**:
-# 
-# `https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/code_samples/my_pandas.py`
-# 
-# **&#9989; Do This:** Once you have the file downloaded and in the same location as this notebook **open the file and read through it carefully**. As you read the file **add comments to the lines marked with `#` to explain what you understand the code to be doing**. 
-# 
-# There may be bits of Python code that you've not encounted before so make sure to **talk with your group** and **search for information on the internet** as you try to make sense of the code!
-# 
-# Jot down some of the things you learned or struggled you had in the cell below.
+# * [Kaggle](https://www.kaggle.com): Kaggle is a well-known platform for data science and machine learning. It offers a vast collection of datasets contributed by the community. You can search for datasets based on various categories, such as image data, text data, time series data, etc.
+# * [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php): The UCI Machine Learning Repository is a popular resource for machine learning datasets. It provides a diverse collection of datasets from various domains, including classification, regression, clustering, and more.
+# * [Google Dataset Search](https://datasetsearch.research.google.com): Google Dataset Search allows you to search for datasets across different domains. It aggregates datasets from various sources, including academic institutions, data repositories, and other websites.
+# * [Data.gov](https://www.data.gov): Data.gov is the U.S. government's open data portal. It provides access to a wide range of datasets covering various topics, such as health, climate, transportation, and more. It's a valuable resource for finding government-related datasets.
+# * [Microsoft Research Open Data](https://msropendata.com): Microsoft Research Open Data is a platform that provides access to diverse datasets collected or curated by Microsoft researchers. It includes datasets from domains like computer vision, natural language processing, and healthcare.
+# * [AWS Open Data Registry](https://registry.opendata.aws): AWS Open Data Registry is a collection of publicly available datasets provided by Amazon Web Services (AWS). It hosts a variety of datasets, including satellite imagery, genomics data, and more.
+# * [OpenML](https://www.openml.org): OpenML is an online platform that hosts a vast collection of datasets for machine learning research. It also provides tools and resources for collaborative machine learning experimentation.
 
-# <font size=+3>&#9998;</font> Do This - Erase the contents of this cell and make note of anything new you learned from reading through the code or highlight anything you don't feel like you understand.
+# ### 4.1 Reading data from the internet
+# 
+# You can pull data directly from the internet using the pandas different read functions. For example `read_html` can pull data from tables. For example, we can pull the [table of all the physical constants from Wikipedia](https://en.wikipedia.org/wiki/List_of_physical_constants) using just a couple lines of Python code.
 
-# ### 4.2 Using the code: importing the functions and reading in the data
-# 
-# Now that you have the hand-made functions for reading in the iris data, we're going to practice **importing functions from script and then using them in your notebook**.
-# 
-# The technique for doing this is the following:
-# 
-# ``` python
-# from [PACKAGENAME] import [FUNCTION]
-# ```
-# Where "PACKAGENAME" is the name of the script but without the ".py" part. So for `my_pandas.py`, the PACKAGENAME would be `my_pandas`. Then the FUNCTION is the name of the function from the script that you want to import, e.g. `my_pandas_idx`.
-# 
-# **We'll use this functionality in the future, so make sure you feel comfortable with this idea.**
-# 
-# **&#9989; Do This:** Import the `my_pandas` function and the `my_pandas_idx` function (you can do this on one line, check to see if anyone one in your group knows how). Then, **use these two functions to first read in the data and then extract just the second column from the data**.
-# 
-# Once you've done this, **print the first three rows of the iris data and all of the second column.**
-
-# In[10]:
+# In[1]:
 
 
-# Put your code here
+url = 'https://en.wikipedia.org/wiki/List_of_physical_constants'
+tables = pd.read_html(url)
+df = tables[0]
+
+df.head()
+
+
+# <font size=+3>&#9998;</font> Do This - Find a physics data set of interest and read it in with pandas (from the web). Make plots of the data contained in the file.
+
+# In[ ]:
+
+
+## your code here
 
 
 # ---

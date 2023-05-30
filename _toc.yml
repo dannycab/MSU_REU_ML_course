@@ -4,6 +4,13 @@ parts:
 - caption: Schedule
   chapters:
   - file: schedule.md
+- caption: Notes
+  chapters:
+  - file: notebooks/notes/01_logit.ipynb
+  - file: notebooks/notes/02_knn.ipynb
+  - file: notebooks/notes/03_svm.ipynb
+  - file: notebooks/notes/04_svm_rbf.ipynb
+  #- file: notebooks/notes/05_pca.ipynb
 - caption: Working with Data
   chapters:
   - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb
