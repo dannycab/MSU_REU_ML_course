@@ -668,54 +668,55 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">Input In [10],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://en.wikipedia.org/wiki/List_of_physical_constants&#39;</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">tables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/teaching/lib/python3.10/site-packages/pandas/util/_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">File ~/.conda/envs/teaching/lib/python3.11/site-packages/pandas/util/_decorators.py:331,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">_format_argument_list</span><span class="p">(</span><span class="n">allow_args</span><span class="p">)),</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">331</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/teaching/lib/python3.10/site-packages/pandas/io/html.py:1113,</span> in <span class="ni">read_html</span><span class="nt">(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1109</span> <span class="n">validate_header_arg</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1111</span> <span class="n">io</span> <span class="o">=</span> <span class="n">stringify_path</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1113</span> <span class="k">return</span> <span class="n">_parse</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1114</span>     <span class="n">flavor</span><span class="o">=</span><span class="n">flavor</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1115</span>     <span class="n">io</span><span class="o">=</span><span class="n">io</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1116</span>     <span class="n">match</span><span class="o">=</span><span class="n">match</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1117</span>     <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1118</span>     <span class="n">index_col</span><span class="o">=</span><span class="n">index_col</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1119</span>     <span class="n">skiprows</span><span class="o">=</span><span class="n">skiprows</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1120</span>     <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1121</span>     <span class="n">thousands</span><span class="o">=</span><span class="n">thousands</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1122</span>     <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1123</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1124</span>     <span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1125</span>     <span class="n">converters</span><span class="o">=</span><span class="n">converters</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1126</span>     <span class="n">na_values</span><span class="o">=</span><span class="n">na_values</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1127</span>     <span class="n">keep_default_na</span><span class="o">=</span><span class="n">keep_default_na</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1128</span>     <span class="n">displayed_only</span><span class="o">=</span><span class="n">displayed_only</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1129</span> <span class="p">)</span>
+<span class="nn">File ~/.conda/envs/teaching/lib/python3.11/site-packages/pandas/io/html.py:1205,</span> in <span class="ni">read_html</span><span class="nt">(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only, extract_links)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1201</span> <span class="n">validate_header_arg</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1203</span> <span class="n">io</span> <span class="o">=</span> <span class="n">stringify_path</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1205</span> <span class="k">return</span> <span class="n">_parse</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span>     <span class="n">flavor</span><span class="o">=</span><span class="n">flavor</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span>     <span class="n">io</span><span class="o">=</span><span class="n">io</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1208</span>     <span class="n">match</span><span class="o">=</span><span class="n">match</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span>     <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1210</span>     <span class="n">index_col</span><span class="o">=</span><span class="n">index_col</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1211</span>     <span class="n">skiprows</span><span class="o">=</span><span class="n">skiprows</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1212</span>     <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1213</span>     <span class="n">thousands</span><span class="o">=</span><span class="n">thousands</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1214</span>     <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1215</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1216</span>     <span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1217</span>     <span class="n">converters</span><span class="o">=</span><span class="n">converters</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1218</span>     <span class="n">na_values</span><span class="o">=</span><span class="n">na_values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1219</span>     <span class="n">keep_default_na</span><span class="o">=</span><span class="n">keep_default_na</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1220</span>     <span class="n">displayed_only</span><span class="o">=</span><span class="n">displayed_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1221</span>     <span class="n">extract_links</span><span class="o">=</span><span class="n">extract_links</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1222</span> <span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/teaching/lib/python3.10/site-packages/pandas/io/html.py:915,</span> in <span class="ni">_parse</span><span class="nt">(flavor, io, match, attrs, encoding, displayed_only, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">913</span> <span class="n">retained</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">914</span> <span class="k">for</span> <span class="n">flav</span> <span class="ow">in</span> <span class="n">flavor</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">915</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">_parser_dispatch</span><span class="p">(</span><span class="n">flav</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">916</span>     <span class="n">p</span> <span class="o">=</span> <span class="n">parser</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">compiled_match</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">displayed_only</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">918</span>     <span class="k">try</span><span class="p">:</span>
+<span class="nn">File ~/.conda/envs/teaching/lib/python3.11/site-packages/pandas/io/html.py:982,</span> in <span class="ni">_parse</span><span class="nt">(flavor, io, match, attrs, encoding, displayed_only, extract_links, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">980</span> <span class="n">retained</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">981</span> <span class="k">for</span> <span class="n">flav</span> <span class="ow">in</span> <span class="n">flavor</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">982</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">_parser_dispatch</span><span class="p">(</span><span class="n">flav</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">983</span>     <span class="n">p</span> <span class="o">=</span> <span class="n">parser</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">compiled_match</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">displayed_only</span><span class="p">,</span> <span class="n">extract_links</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">985</span>     <span class="k">try</span><span class="p">:</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/teaching/lib/python3.10/site-packages/pandas/io/html.py:872,</span> in <span class="ni">_parser_dispatch</span><span class="nt">(flavor)</span>
-<span class="g g-Whitespace">    </span><span class="mi">870</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">_HAS_LXML</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">872</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;lxml not found, please install it&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">873</span> <span class="k">return</span> <span class="n">_valid_parsers</span><span class="p">[</span><span class="n">flavor</span><span class="p">]</span>
+<span class="nn">File ~/.conda/envs/teaching/lib/python3.11/site-packages/pandas/io/html.py:939,</span> in <span class="ni">_parser_dispatch</span><span class="nt">(flavor)</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">938</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">_HAS_LXML</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">939</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;lxml not found, please install it&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">940</span> <span class="k">return</span> <span class="n">_valid_parsers</span><span class="p">[</span><span class="n">flavor</span><span class="p">]</span>
 
 <span class="ne">ImportError</span>: lxml not found, please install it
 </pre></div>

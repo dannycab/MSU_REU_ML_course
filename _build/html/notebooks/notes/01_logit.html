@@ -495,6 +495,69 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_26316/998577851.py:2: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
+  plt.style.use(&#39;seaborn-colorblind&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.25895345  0.43824643 -0.53923012]
+ [ 0.26877417 -0.52077497  0.54645705]
+ [ 0.45327374 -0.35995862  1.0255586 ]
+ ...
+ [ 0.15015311  0.36829737  0.43754532]
+ [ 0.18243631 -0.28289479  0.38508262]
+ [ 0.33551129  1.46416089  1.10632519]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">class_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 0 0 1 1 0 1 1 0 1 1 0 1 0 0 1 1 1 1 0 1 1 1 0 1 0 1 0 0 0 1 1 1 0 1 1 0
+ 1 0 1 0 0 0 1 0 0 0 1 1 0 1 0 0 0 1 1 1 0 1 1 0 1 1 1 0 0 1 0 1 1 0 0 0 1
+ 0 1 0 0 0 1 0 0 1 0 0 0 0 0 1 1 0 1 0 0 1 0 0 1 1 0 1 0 0 1 1 0 0 1 0 1 1
+ 0 1 0 0 0 1 1 1 0 1 1 1 1 0 0 0 0 1 1 0 1 0 1 1 1 0 1 0 0 0 0 0 0 0 1 1 0
+ 0 1 0 1 0 1 0 1 0 0 1 1 0 1 0 0 1 1 1 1 0 0 0 1 0 1 1 1 0 1 0 1 0 0 0 0 0
+ 1 0 1 1 0 1 1 1 1 1 1 1 0 0 1 0 0 1 0 1 1 1 0 1 1 0 1 1 1 1 1 1 0 0 1 1 0
+ 0 0 1 1 0 1 1 0 0 1 0 0 1 1 1 1 0 1 1 1 1 1 1 0 1 0 1 0 0 0 0 0 1 1 0 0 1
+ 0 1 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0
+ 0 0 0 0 0 0 0 1 1 1 1 0 0 1 1 1 0 1 1 1 1 1 1 1 0 0 1 0 1 0 0 0 1 1 0 1 1
+ 0 1 0 0 0 1 0 1 0 0 0 0 1 0 1 1 0 0 1 1 1 1 0 0 1 1 1 0 1 0 0 0 0 0 1 1 0
+ 0 0 0 0 1 0 0 0 0 0 0 1 0 0 1 1 1 1 0 0 1 0 0 1 0 0 0 0 1 0 0 1 0 1 1 0 0
+ 1 1 0 0 0 1 0 1 0 1 1 1 1 0 0 0 1 0 1 0 1 1 0 1 0 0 0 1 1 1 1 1 0 1 0 0 0
+ 0 1 0 1 0 1 0 1 0 0 0 1 0 1 1 1 0 1 0 0 1 0 0 0 1 1 1 1 0 1 1 0 0 0 1 1 1
+ 0 0 0 0 1 0 1 0 0 1 0 0 1 0 1 0 1 0 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 1 1 1 1 1 0 0 0 0 0 1 1 0 1 1 0 1 0 0 0 1 0 0 1 0 1 0 0 1 1 1 1 1
+ 1 0 1 1 1 0 1 0 0 0 0 0 0 1 1 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 0 1 0 1 0 0 0
+ 1 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 1 0 1 1 1 0 0 1 0 1 1 0
+ 1 0 0 0 0 1 0 1 0 1 1 0 1 1 1 1 1 1 0 1 1 0 0 0 0 1 1 1 1 1 0 1 0 0 0 0 1
+ 0 1 1 0 1 1 0 1 1 0 0 1 1 1 1 0 1 0 1 1 1 1 0 1 1 0 1 1 0 0 1 0 0 1 0 1 0
+ 0 0 1 1 0 1 0 1 1 0 1 1 0 1 1 0 1 1 1 0 0 0 0 1 0 0 1 1 1 0 0 0 0 1 1 1 0
+ 1 0 1 1 1 1 1 1 0 0 0 1 1 0 1 1 0 1 0 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1
+ 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 1 1 1 1 1 0 0 1 1 0 0 0 1 0 0 1 0
+ 1 0 1 0 1 1 0 0 1 1 0 0 1 0 1 0 1 0 1 0 0 0 1 0 1 0 0 1 0 0 0 1 1 1 0 0 0
+ 0 0 1 1 1 1 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0 1 0 1 1 1 1 1 0 0 1 0 1 1 0 1 0
+ 1 1 1 0 0 1 1 1 0 1 1 0 1 0 1 1 1 1 1 1 0 0 1 1 1 0 0 1 0 0 1 1 1 0 1 1 0
+ 1 1 0 1 0 1 1 0 0 1 0 1 1 0 1 0 1 0 1 1 1 0 1 1 1 1 1 0 0 1 1 0 0 1 0 0 1
+ 1 1 0 1 0 1 0 0 0 0 1 1 1 1 0 0 1 0 1 1 0 1 1 1 1 1 1 0 1 1 0 0 0 1 1 1 0
+ 1]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -515,14 +578,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/5_/9z7lhk0s2y95hvkzs6lzdvvc0000gn/T/ipykernel_33239/20557457.py:4: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
-  ax = Axes3D(fig, rect=[0, 0, .95, 1], elev=30, azim=135)
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;feature 2&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/b7b2b77c6b2aa52c4416d3737a4e1904d5756e621b376af82969e04c5b621375.png" src="../../_images/b7b2b77c6b2aa52c4416d3737a4e1904d5756e621b376af82969e04c5b621375.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 800x800 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -535,7 +596,7 @@ document.write(`
 <span class="n">ys</span> <span class="o">=</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">zs</span> <span class="o">=</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">class_labels</span><span class="p">,</span> <span class="n">ec</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">class_labels</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;feature 0&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;feature 1&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;feature 2&#39;</span><span class="p">)</span>
@@ -543,14 +604,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/5_/9z7lhk0s2y95hvkzs6lzdvvc0000gn/T/ipykernel_33239/3607022041.py:3: MatplotlibDeprecationWarning: Axes3D(fig) adding itself to the figure is deprecated since 3.4. Pass the keyword argument auto_add_to_figure=False and use fig.add_axes(ax) to suppress this warning. The default value of auto_add_to_figure will change to False in mpl3.5 and True values will no longer work in 3.6.  This is consistent with other Axes classes.
-  ax = Axes3D(fig, rect=[0, 0, .95, 1], elev=15, azim=90)
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;feature 2&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/4a2f7db40ebc99c3fc4b56d872fdad98bf1437d1bda3046f8c9da8740242ab97.png" src="../../_images/4a2f7db40ebc99c3fc4b56d872fdad98bf1437d1bda3046f8c9da8740242ab97.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 800x800 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -580,7 +639,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f45bec5955d294c39edd1778e1a36c2c9c2e9914996ec0f8df660afdc7638ed7.png" src="../../_images/f45bec5955d294c39edd1778e1a36c2c9c2e9914996ec0f8df660afdc7638ed7.png" />
+<img alt="../../_images/fca1b0a1fe551446611c51e3bb783b280e795d8307d84f12437f25608ef3f15d.png" src="../../_images/fca1b0a1fe551446611c51e3bb783b280e795d8307d84f12437f25608ef3f15d.png" />
 </div>
 </div>
 </section>
@@ -610,7 +669,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3253084134e7d55d01c0b5c9649e7d37fdae07e0d4c307851918113eb6133015.png" src="../../_images/3253084134e7d55d01c0b5c9649e7d37fdae07e0d4c307851918113eb6133015.png" />
+<img alt="../../_images/0e66fd970622911e9d8e5e35a5cd682edc090ac70e4462110a63bdea6c95811f.png" src="../../_images/0e66fd970622911e9d8e5e35a5cd682edc090ac70e4462110a63bdea6c95811f.png" />
 </div>
 </div>
 </section>
