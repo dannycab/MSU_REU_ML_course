@@ -1,0 +1,1309 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Solution - Classification using K Nearest Neighbors &#8212; 2023 MSU REU Machine Learning Short Course</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-2/day-2_KNN_classification-SOL';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Contributions" href="../../contributions.html" />
+    <link rel="prev" title="Solution - Getting Started with Classification Models" href="day-2_Getting_Started_with_Classification_Models-SOL.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    2023 MSU REU Short Course on Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schedule</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Detailed Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/01_logit.html">Machine Learning</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/02_knn.html">The Confusion Matrix</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Linearly Seperable Data</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">Getting Started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">Exploring data with Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">What is Tuning and Validation?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">A Multiplicity of Models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Solution - Classification using K Nearest Neighbors</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../contributions.html">Contributions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/notebooks/day-2/day-2_KNN_classification-SOL.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/notebooks/day-2/day-2_KNN_classification-SOL.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/notebooks/day-2/day-2_KNN_classification-SOL.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/day-2/day-2_KNN_classification-SOL.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Solution - Classification using K Nearest Neighbors</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda-for-today">Agenda for today</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports-for-the-day">0. Imports for the day</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-getting-started-notebook">1. Review of Getting Started Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-vs-testing">2. Training vs Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-data">2.1 Working with data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-the-dataset-for-model-into-training-and-testing-sets">2.2 : Splitting the dataset for model into training and testing sets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors">3 K Nearest Neighbors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-benefits-of-sklearn">3.1 The benefits of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-d-it-go">3.1 How’d it go?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-hyperparameters">4. Tuning hyperparameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-it">4.1 Automate it</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="solution-classification-using-k-nearest-neighbors">
+<h1>Solution - Classification using K Nearest Neighbors<a class="headerlink" href="#solution-classification-using-k-nearest-neighbors" title="Permalink to this headline">#</a></h1>
+<img src="https://www.pngkey.com/png/full/574-5745035_machine-learning-workflow-machine-learning-data-pipeline.png" width=700px>
+<section id="agenda-for-today">
+<h2>Agenda for today<a class="headerlink" href="#agenda-for-today" title="Permalink to this headline">#</a></h2>
+</p>
+<ol class="arabic simple">
+<li><p>Review Gettting Started Assignment</p></li>
+<li><p>Remind ourselves of Train vs Test</p></li>
+<li><p>Use KNN classifier on breast cancer dataset</p></li>
+<li><p>Evaluate the quality of the model</p></li>
+</ol>
+</section>
+<section id="imports-for-the-day">
+<h2>0. Imports for the day<a class="headerlink" href="#imports-for-the-day" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="review-of-getting-started-notebook">
+<h2>1. Review of Getting Started Notebook<a class="headerlink" href="#review-of-getting-started-notebook" title="Permalink to this headline">#</a></h2>
+<p>Pull up the <span class="xref myst">solution notebook</span></p>
+</section>
+<hr class="docutils" />
+<section id="training-vs-testing">
+<h2>2. Training vs Testing<a class="headerlink" href="#training-vs-testing" title="Permalink to this headline">#</a></h2>
+<p>As you learned in the pre-class, classification is an ML process that maps features of an input data set to class labels. Classification is a <strong>supervised</strong> learning approach where example data is used to train the data. We typically divide the data used to train and evaluate the classifier (the result model) into two sets (training and testing). <em>In some cases, folks split into three sets (training, testing, and validation).</em></p>
+<p>✅ <strong>Do This:</strong> As a group, discuss what these three sets represent. It might help to review these terms on the web. The answers down below:</p>
+<p><font size=8 color="#009600">✎</font> Training set is:</p>
+<p><font size=8 color="#009600">✎</font> Testing set is:</p>
+<p><strong>Defining the features and building the model</strong></p>
+<p>If you review the image at the top of the notebook, you might notice that one of the first steps in machine learning is to go from “raw data” into a set of “features” and “labels”. Extracting features from our data can sometimes be one of the trickier parts of the process and also one of the most important ones. We have to think carefully about exactly what the “right” features are for training our machine learning algorithm and, when possible, it is advantageous to find ways to reduce the total number of features we are trying to model. Once we define our features, we can build our model.</p>
+<section id="working-with-data">
+<h3>2.1 Working with data<a class="headerlink" href="#working-with-data" title="Permalink to this headline">#</a></h3>
+<p>There is a common data set used to work with classification called the breast cancer data set. It is actually available in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> but what fun is working withe cleaned up data. Let’s look at the original. We will use <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)">data from a Breast Cancer study</a> for this notebook. On this site, you will find  “breast-cancer-wisconsin.data” and “breast-cancer-wisconsin.names”. The data are in “.data” and the “.names” describes that data.</p>
+<p>We can also directly import them from the web:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data">https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data</a></p></li>
+<li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.names">https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.names</a></p></li>
+</ul>
+<p>Read in the data, label the columns based on the .names file. Look at the dtypes, anything unusual? Why?</p>
+<p><font size=8 color="#009600">✎</font> What’s unusual about dtypes? Why?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">bc_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data&#39;</span><span class="p">,</span>
+                     <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sample code number&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Clump Thickness&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Uniformity of Cell Size&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Uniformity of Cell Shape&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Marginal Adhesion&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Single Epithelial Cell Size&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Bare Nuclei&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Bland Chromatin&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Normal Nucleoli&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Mitoses&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Class&quot;</span><span class="p">])</span>
+<span class="c1">#bc_data.head()</span>
+<span class="n">bc_data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample code number              int64
+Clump Thickness                 int64
+Uniformity of Cell Size         int64
+Uniformity of Cell Shape        int64
+Marginal Adhesion               int64
+Single Epithelial Cell Size     int64
+Bare Nuclei                    object
+Bland Chromatin                 int64
+Normal Nucleoli                 int64
+Mitoses                         int64
+Class                           int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can you write code to identify what the problem is? That is, can you provide a DataFrame of the offending rows that are causing the problem? There are lots of ways to do this and, frankly, it is probably a bit hard so don’t get hung up too long on this. Give it a try though:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ####</span>
+
+<span class="n">bc_data</span><span class="p">[</span><span class="n">bc_data</span><span class="p">[</span><span class="s1">&#39;Bare Nuclei&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;?&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sample code number</th>
+      <th>Clump Thickness</th>
+      <th>Uniformity of Cell Size</th>
+      <th>Uniformity of Cell Shape</th>
+      <th>Marginal Adhesion</th>
+      <th>Single Epithelial Cell Size</th>
+      <th>Bare Nuclei</th>
+      <th>Bland Chromatin</th>
+      <th>Normal Nucleoli</th>
+      <th>Mitoses</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>23</th>
+      <td>1057013</td>
+      <td>8</td>
+      <td>4</td>
+      <td>5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>7</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>1096800</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>9</td>
+      <td>6</td>
+      <td>?</td>
+      <td>7</td>
+      <td>8</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>1183246</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>?</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>1184840</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>1193683</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>?</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>164</th>
+      <td>1197510</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>235</th>
+      <td>1241232</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>249</th>
+      <td>169356</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>275</th>
+      <td>432809</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>292</th>
+      <td>563649</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>6</td>
+      <td>10</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>294</th>
+      <td>606140</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>61634</td>
+      <td>5</td>
+      <td>4</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>315</th>
+      <td>704168</td>
+      <td>4</td>
+      <td>6</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>?</td>
+      <td>4</td>
+      <td>9</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>733639</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>411</th>
+      <td>1238464</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>?</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>617</th>
+      <td>1057067</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>?</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>OK, we have an imputation problem. Write code to solve it and say what you did.</p>
+<p>By the way, there is an argument <code class="docutils literal notranslate"><span class="pre">na_values</span></code> that you can provide to <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> that will mark a list of characters as if they were <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> using <code class="docutils literal notranslate"><span class="pre">na_values</span></code>, which is pretty darn convenient. Using that will help when importing the data for classification.</p>
+<p>Read the data in using <code class="docutils literal notranslate"><span class="pre">na_values='?'</span></code> to replace missing data with <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>. Check the <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ####</span>
+
+<span class="n">bc_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data&#39;</span><span class="p">,</span>
+                     <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sample code number&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Clump Thickness&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Uniformity of Cell Size&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Uniformity of Cell Shape&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Marginal Adhesion&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Single Epithelial Cell Size&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Bare Nuclei&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Bland Chromatin&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Normal Nucleoli&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Mitoses&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Class&quot;</span><span class="p">],</span>
+                     <span class="n">na_values</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span><span class="p">)</span>
+<span class="c1">#bc_data.head()</span>
+<span class="n">bc_data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample code number               int64
+Clump Thickness                  int64
+Uniformity of Cell Size          int64
+Uniformity of Cell Shape         int64
+Marginal Adhesion                int64
+Single Epithelial Cell Size      int64
+Bare Nuclei                    float64
+Bland Chromatin                  int64
+Normal Nucleoli                  int64
+Mitoses                          int64
+Class                            int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="splitting-the-dataset-for-model-into-training-and-testing-sets">
+<h3>2.2 : Splitting the dataset for model into training and testing sets<a class="headerlink" href="#splitting-the-dataset-for-model-into-training-and-testing-sets" title="Permalink to this headline">#</a></h3>
+<p>Let’s split the data in a training set and final testing set. We want to randomly select 75% of the data for training and 25% of the data for testing.</p>
+<p>You should turn the <code class="docutils literal notranslate"><span class="pre">class_labels</span></code> into 0 (now 2, for benign) and 1 (now 4, for malignant) as the classifier we are using (Logisitic Regression) predicts values between 0 and 1.</p>
+<p>✅ Do This - You will need to come up with a way to split the data into separate training and testing sets (we will leave the validation set out for now).  Make sure you keep the feature vectors and classes together.</p>
+<p><strong>BIG HINT</strong>: This is a very common step in machine learning, and there exists a function to do this for you in the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> library called <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code>. From the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">documentation</a>, you find that takes the features and class labels as input and returns a 4 outputs:</p>
+<ul class="simple">
+<li><p>2 feature sets (one for training and one for testing)</p></li>
+<li><p>2 class labels sets (the corresponding one for training and for testing)</p></li>
+</ul>
+<p>Use <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> to split your data into a training set and a testing set that correspond to 75% and 25% of your data respectively. Check the length of the resulting output to make sure the splits follow what you expected.</p>
+<p>One last thing: KNN doesn’t work with missing data. You will need to use <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> to get rid of them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="c1">## change 2 to 0 (benign) and 4 to 1 (malignant)</span>
+
+<span class="n">bc_data</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#bc_data.head()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of data set:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bc_data</span><span class="p">))</span>
+
+<span class="c1">## we need to drop NAs for now</span>
+<span class="n">bc_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length after drop:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bc_data</span><span class="p">))</span>
+
+<span class="c1">## split data</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">bc_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sample code number&#39;</span><span class="p">,</span><span class="s1">&#39;Class&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">bc_data</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span>
+
+<span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">ytest</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of train:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of test:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Xtest</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length of data set: 699
+Length after drop: 683
+Length of train: 512
+Length of test: 171
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question</strong>: Why do we need to separate our samples into a training and testing set. Why can’t we just use all the data for both? Wouldn’t that make it work better?</p>
+<p><font size=8 color="#009600">✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text)</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="k-nearest-neighbors">
+<h2>3 K Nearest Neighbors<a class="headerlink" href="#k-nearest-neighbors" title="Permalink to this headline">#</a></h2>
+<p>One of the more conceptually simply classifiers in K Nearest Neighbors or KNN. In KNN, we assume that in the N-dimensional space, which represents the N input features, that things in the same close are “close” to each other. That is the more similar their location in this virtual space, the more likely two points (or three or four…) are members of the same class.</p>
+<p>KNN has one basic “hyperparameter”, which is what we can use to tune the model. It is how many neighbors it should include as part of the analysis (2, 3, 4, etc.). We will explore this at the end of the notebook. For now, we will setup the model.</p>
+<p>More information on KNN from a conceptual persepctive is in the video below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;HVXime0nQeI&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="640"
+            height="360"
+            src="https://www.youtube.com/embed/HVXime0nQeI"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<section id="the-benefits-of-sklearn">
+<h3>3.1 The benefits of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code><a class="headerlink" href="#the-benefits-of-sklearn" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> workflow is similar across all implementations. We will always:</p>
+<ol class="arabic simple">
+<li><p>Create the model object (in this case <code class="docutils literal notranslate"><span class="pre">KNeighborsClassifier()</span></code>). <em>You can set hyperparameters at this step.</em></p></li>
+<li><p>Fit the model to the training data (this uses the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method).</p></li>
+<li><p>Use that model to predict from the test set (this uses the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> method).</p></li>
+</ol>
+<p>If you named your training and testing data: <code class="docutils literal notranslate"><span class="pre">Xtrain,</span> <span class="pre">Xtest,</span> <span class="pre">ytrain,</span> <span class="pre">ytest</span></code>, then this call is quite simple.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>  <span class="c1">## Create model object</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">ytrain</span><span class="p">)</span>        <span class="c1">## Fit model to training data</span>
+<span class="n">ypred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>    <span class="c1">## Predict the classes of the test data</span>
+</pre></div>
+</div>
+<p><font size=8 color="#009600">✎</font> Do this. Implement this knn model for your data. What is <code class="docutils literal notranslate"><span class="pre">ypred</span></code>? What does <code class="docutils literal notranslate"><span class="pre">ypred</span></code> look like?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">ytrain</span><span class="p">)</span>
+<span class="n">ypred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ypred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 0 0 1 0 1 0 0 0 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 1 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 1 0 0 0 0 0 0 1 1 1 1 0 0 1 0 0 0 0 1 0 0 1 1 0
+ 1 0 1 0 0 0 1 1 1 1 0 0 0 1 1 1 1 0 0 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 1
+ 0 0 1 0 1 0 1 1 0 1 0 0 1 1 1 0 1 0 1 1 0 0 0 0 0 0 0 0 1 1 0 1 1 1 0 1 1
+ 1 1 0 0 0 0 0 0 1 1 0 1 1 0 0 0 0 1 1 0 0 1 0]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-d-it-go">
+<h3>3.1 How’d it go?<a class="headerlink" href="#how-d-it-go" title="Permalink to this headline">#</a></h3>
+<p>There are a number of ways that we can check the performance of our model. The major difference in the standard statistics approach and supervised learning approaches is that we test our models using the data that we held out: “the test data.”</p>
+<p>That is, we will use our classifier model to make predictions from the test features and we can then compare those predictions to actual test labels. As you did above, we can use the output of the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method of the model to predict how well the classifier works on the test data (the data it was not trained on). Conveniently that is the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> method and, again, we use it on the result of the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code>.</p>
+<p>But how well did the model do? It turns out that we can’t simply make a plot of predicted versus actual like we did for regression. Instead, we use the “confusion matrix” and associated measures derived from it. The <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion Matrix</a> gives you the number of true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN). Through this we can determine the accuracy but the total number of TPs and TNs compared to all the data in the test set.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">metrics</span></code> library, there’s a method called <code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code> <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">Documentation</a>. We will start by using that.</p>
+<p><font size=8 color="#009600">✎</font> Using this method to print out the confusion matrix. What is the number of TPs, TNs, FPs, and FNs in your model? Can you calculate the accuracy (1 is perfect, 0 is terrible) of the model from these?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ### </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span><span class="n">ytest</span><span class="p">))</span>
+<span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tp</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span><span class="n">ytest</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+<span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">tn</span><span class="o">+</span><span class="n">tp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">tn</span><span class="o">+</span><span class="n">fp</span><span class="o">+</span><span class="n">fn</span><span class="o">+</span><span class="n">tp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[99  3]
+ [ 3 66]]
+Accuracy: 0.9649122807017544
+</pre></div>
+</div>
+</div>
+</div>
+<p>This accuracy metric is alrady built into <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, it’s called <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>, which compares the predictions our model made for the test labels and the actual test labels. The <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> is one of many metrics we can use and is included in <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code>. Here’s the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html#sklearn.metrics.accuracy_score">documentation</a> on <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>.</p>
+<p><font size=8 color="#009600">✎</font> Do this:</p>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code> we imported at the top and run the <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> on the 0/1 predicted label and the test labels.</p></li>
+<li><p>Print your accuracy result</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span><span class="n">ytest</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9649122807017544
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question:</strong> How well did your model predict the test class labels? Given what you learned in the pre-class assignment about false positives and false negatives, what other questions should we ask about the accuracy of our model?</p>
+<p><font size=8 color="#009600">✎</font> Answer here.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tuning-hyperparameters">
+<h2>4. Tuning hyperparameters<a class="headerlink" href="#tuning-hyperparameters" title="Permalink to this headline">#</a></h2>
+<p>Most ML models have some number of parameters that can be tuned to try to build better models. Later, we will see how to explore those parameters automatically, but now, we will just do things manually. For KNN, this is ok because there’s only one commnly tuned parameter: <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code>, which the number of neighboring points the algorithm takes into account when it looks for similar classes.</p>
+<p>Look at the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">documentation for KNN</a> and determine the default number of neighbors.</p>
+<p><font size=8 color="#009600">✎</font> Do this.</p>
+<ul class="simple">
+<li><p>Repeat your analysis above (you only need to create a new model, not resplit the data!).</p></li>
+<li><p>Choose a number of neighbors that is fewer than the default.</p></li>
+</ul>
+<p>How does your model perform compared to the default?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
+<span class="n">ypred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">ytest</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9649122807017544
+</pre></div>
+</div>
+</div>
+</div>
+<section id="automate-it">
+<h3>4.1 Automate it<a class="headerlink" href="#automate-it" title="Permalink to this headline">#</a></h3>
+<p>Now that you have checked a slightly different number of neighbors, let’s systematically see how our accuract changes with number of neighbors.</p>
+<p><font size=8 color="#009600">✎</font> Do this.</p>
+<ul class="simple">
+<li><p>Write a function that takes number of neighbors and returns accuracy of the model</p></li>
+<li><p>For 2 to 10 neighbors, compute the accuracy</p></li>
+<li><p>Plot the accuracy as a function of number of neighbors</p></li>
+</ul>
+<p>What happens to the accuracy? Is there a good choice of <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> to acheive the highest accuracy?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="k">def</span> <span class="nf">KNNCompute</span><span class="p">(</span><span class="n">xtrain</span><span class="p">,</span> <span class="n">xtest</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">ytest</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Take a data set (xtrain, xtest, ytrain, ytest) and </span>
+<span class="sd">    fit a KNN model with a given number of neighbors (n).</span>
+<span class="sd">    Return the accuracy of that model.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
+    <span class="n">ypred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">ytest</span><span class="p">))</span>
+
+<span class="n">acc_array</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">neighbors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">:</span>
+    <span class="n">acc_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">KNNCompute</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">ytest</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">neighbors</span><span class="p">,</span> <span class="n">acc_array</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Neighbors&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mf">.9</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/29986054cc811aae560bfd4a56634c05db6146fd1853ac986d4f15e630368587.png" src="../../_images/29986054cc811aae560bfd4a56634c05db6146fd1853ac986d4f15e630368587.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/day-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="day-2_Getting_Started_with_Classification_Models-SOL.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Solution - Getting Started with Classification Models</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../contributions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Contributions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda-for-today">Agenda for today</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports-for-the-day">0. Imports for the day</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-getting-started-notebook">1. Review of Getting Started Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-vs-testing">2. Training vs Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-data">2.1 Working with data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-the-dataset-for-model-into-training-and-testing-sets">2.2 : Splitting the dataset for model into training and testing sets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors">3 K Nearest Neighbors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-benefits-of-sklearn">3.1 The benefits of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-d-it-go">3.1 How’d it go?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-hyperparameters">4. Tuning hyperparameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-it">4.1 Automate it</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021-2023, Michigan State University.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
