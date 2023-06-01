@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Linearly Seperable Data &#8212; 2023 MSU REU Machine Learning Short Course</title>
+    <title>Methods and Model Validation &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
   
@@ -170,10 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Linearly Seperable Data</a></li>
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Methods and Model Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_svm.html">Support Vector Machines</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="04_svm_rbf.html">Support Vector Machines</a></li>
@@ -418,7 +415,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Linearly Seperable Data</h1>
+    <h1>Methods and Model Validation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -428,19 +425,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Linearly Seperable Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods">Building a fit and determining the accuracy of the seperation (traditional methods)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-approach">Machine Learning Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linearly-seperable-data">Linearly Seperable Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods">Building a fit and determining the accuracy of the seperation (traditional methods)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-approach">Machine Learning Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-try">Things to try</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-try">Things to try</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#not-linearly-seperable-data">Not linearly seperable data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-try-a-linear-classifier">Let’s try a linear classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-linearly-seperable-data">Not linearly seperable data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-try-a-linear-classifier">Let’s try a linear classifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Things to try</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Things to try</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -464,8 +460,10 @@ document.write(`
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="linearly-seperable-data">
-<h1>Linearly Seperable Data<a class="headerlink" href="#linearly-seperable-data" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="methods-and-model-validation">
+<h1>Methods and Model Validation<a class="headerlink" href="#methods-and-model-validation" title="Permalink to this headline">#</a></h1>
+<section id="linearly-seperable-data">
+<h2>Linearly Seperable Data<a class="headerlink" href="#linearly-seperable-data" title="Permalink to this headline">#</a></h2>
 <p>The shape of your data can tell you a lot about what methods might be useful to classify your data best. Linearly seperable data can be made with the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function. It can also generate data that cannot be seperated. The main control for this is <code class="docutils literal notranslate"><span class="pre">cluster_std</span></code>, which you should adjust.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -478,14 +476,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f5607dc2e90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f844cd22f90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/6230bbffe7f556357b5f99a18ba078db9dc11d08747caee3e587fcffae9b3fa3.png" src="../../_images/6230bbffe7f556357b5f99a18ba078db9dc11d08747caee3e587fcffae9b3fa3.png" />
 </div>
 </div>
 <section id="building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods">
-<h2>Building a fit and determining the accuracy of the seperation (traditional methods)<a class="headerlink" href="#building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods" title="Permalink to this headline">#</a></h2>
+<h3>Building a fit and determining the accuracy of the seperation (traditional methods)<a class="headerlink" href="#building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> library provides us with tools to do separate these data and to evaluate their fit. Notice below that we do not perform a <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code>. This is to demonstrate that you can fit all of your data if you like, that is the common statistical way of doing analysis. However, you can instead write that does the same but is evaluated with held out data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -546,7 +544,7 @@ Accuracy: 0.98
 </div>
 </section>
 <section id="machine-learning-approach">
-<h2>Machine Learning Approach<a class="headerlink" href="#machine-learning-approach" title="Permalink to this headline">#</a></h2>
+<h3>Machine Learning Approach<a class="headerlink" href="#machine-learning-approach" title="Permalink to this headline">#</a></h3>
 <p>Below we split our data to evaluate the performance of our model on data it has not seen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -624,9 +622,8 @@ Accuracy: 0.98
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="things-to-try">
-<h1>Things to try<a class="headerlink" href="#things-to-try" title="Permalink to this headline">#</a></h1>
+<section id="things-to-try">
+<h3>Things to try<a class="headerlink" href="#things-to-try" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Change the method from logisitic to something else (e.g., <code class="docutils literal notranslate"><span class="pre">KNN</span></code>). How does the classifier perform?</p></li>
 <li><p>Can you make a data set where logistic regression fails entirely? Does another method work better?</p></li>
@@ -634,8 +631,9 @@ Accuracy: 0.98
 <li><p>What about the other metrics (TPN, FPN, AUC)? Look these up.</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="not-linearly-seperable-data">
-<h1>Not linearly seperable data<a class="headerlink" href="#not-linearly-seperable-data" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="not-linearly-seperable-data">
+<h2>Not linearly seperable data<a class="headerlink" href="#not-linearly-seperable-data" title="Permalink to this headline">#</a></h2>
 <p>Below is some different data that is not easily separable linearly, but still seems like we can see some differences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -661,7 +659,7 @@ Accuracy: 0.98
 </div>
 </div>
 <section id="let-s-try-a-linear-classifier">
-<h2>Let’s try a linear classifier<a class="headerlink" href="#let-s-try-a-linear-classifier" title="Permalink to this headline">#</a></h2>
+<h3>Let’s try a linear classifier<a class="headerlink" href="#let-s-try-a-linear-classifier" title="Permalink to this headline">#</a></h3>
 <p>Let’s use logistic regression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -747,14 +745,15 @@ Accuracy: 0.98
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>Things to try<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<section id="id1">
+<h3>Things to try<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>How do these confusion matrices compare?</p></li>
 <li><p>Can you get another method to work any better?</p></li>
 <li><p>What about the other metrics (TPN, FPN, AUC)? Look these up.</p></li>
 </ul>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -824,19 +823,18 @@ Accuracy: 0.98
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Linearly Seperable Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods">Building a fit and determining the accuracy of the seperation (traditional methods)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-approach">Machine Learning Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linearly-seperable-data">Linearly Seperable Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods">Building a fit and determining the accuracy of the seperation (traditional methods)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-approach">Machine Learning Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-try">Things to try</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-try">Things to try</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#not-linearly-seperable-data">Not linearly seperable data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-try-a-linear-classifier">Let’s try a linear classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-linearly-seperable-data">Not linearly seperable data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-try-a-linear-classifier">Let’s try a linear classifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Things to try</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Things to try</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
