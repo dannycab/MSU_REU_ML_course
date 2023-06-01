@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Classification using K Nearest Neighbors &#8212; 2023 MSU REU Machine Learning Short Course</title>
+    <title>Solution - Classification using K Nearest Neighbors &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
   
@@ -60,11 +60,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-2/day-2_KNN_classification';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-2/day-2_KNN_classification-SOL';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Polynomial Regression" href="../day-3/Day-3_Polynomial_Regression.html" />
-    <link rel="prev" title="Getting Started with Classification Models" href="day-2_Getting_Started_with_Classification_Models.html" />
+    <link rel="next" title="Contributions" href="../../contributions.html" />
+    <link rel="prev" title="Solution - Getting Started with Classification Models" href="day-2_Getting_Started_with_Classification_Models-SOL.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -185,9 +185,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">Exploring data with Pandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
@@ -206,11 +206,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Solution - Classification using K Nearest Neighbors</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -269,7 +269,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/notebooks/day-2/day-2_KNN_classification.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/notebooks/day-2/day-2_KNN_classification-SOL.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -287,7 +287,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/notebooks/day-2/day-2_KNN_classification.ipynb&branch=main" target="_blank"
+      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/notebooks/day-2/day-2_KNN_classification-SOL.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +305,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/notebooks/day-2/day-2_KNN_classification.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/notebooks/day-2/day-2_KNN_classification-SOL.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,7 +336,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/notebooks/day-2/day-2_KNN_classification.ipynb" target="_blank"
+      <li><a href="../../_sources/notebooks/day-2/day-2_KNN_classification-SOL.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -418,7 +418,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Classification using K Nearest Neighbors</h1>
+    <h1>Solution - Classification using K Nearest Neighbors</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -456,8 +456,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="classification-using-k-nearest-neighbors">
-<h1>Classification using K Nearest Neighbors<a class="headerlink" href="#classification-using-k-nearest-neighbors" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="solution-classification-using-k-nearest-neighbors">
+<h1>Solution - Classification using K Nearest Neighbors<a class="headerlink" href="#solution-classification-using-k-nearest-neighbors" title="Permalink to this headline">#</a></h1>
 <img src="https://www.pngkey.com/png/full/574-5745035_machine-learning-workflow-machine-learning-data-pipeline.png" width=700px>
 <section id="agenda-for-today">
 <h2>Agenda for today<a class="headerlink" href="#agenda-for-today" title="Permalink to this headline">#</a></h2>
@@ -519,6 +519,44 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">bc_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data&#39;</span><span class="p">,</span>
+                     <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sample code number&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Clump Thickness&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Uniformity of Cell Size&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Uniformity of Cell Shape&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Marginal Adhesion&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Single Epithelial Cell Size&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Bare Nuclei&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Bland Chromatin&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Normal Nucleoli&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Mitoses&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Class&quot;</span><span class="p">])</span>
+<span class="c1">#bc_data.head()</span>
+<span class="n">bc_data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample code number              int64
+Clump Thickness                 int64
+Uniformity of Cell Size         int64
+Uniformity of Cell Shape        int64
+Marginal Adhesion               int64
+Single Epithelial Cell Size     int64
+Bare Nuclei                    object
+Bland Chromatin                 int64
+Normal Nucleoli                 int64
+Mitoses                         int64
+Class                           int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
 <p>Can you write code to identify what the problem is? That is, can you provide a DataFrame of the offending rows that are causing the problem? There are lots of ways to do this and, frankly, it is probably a bit hard so don’t get hung up too long on this. Give it a try though:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -527,12 +565,320 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ####</span>
+
+<span class="n">bc_data</span><span class="p">[</span><span class="n">bc_data</span><span class="p">[</span><span class="s1">&#39;Bare Nuclei&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;?&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sample code number</th>
+      <th>Clump Thickness</th>
+      <th>Uniformity of Cell Size</th>
+      <th>Uniformity of Cell Shape</th>
+      <th>Marginal Adhesion</th>
+      <th>Single Epithelial Cell Size</th>
+      <th>Bare Nuclei</th>
+      <th>Bland Chromatin</th>
+      <th>Normal Nucleoli</th>
+      <th>Mitoses</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>23</th>
+      <td>1057013</td>
+      <td>8</td>
+      <td>4</td>
+      <td>5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>7</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>1096800</td>
+      <td>6</td>
+      <td>6</td>
+      <td>6</td>
+      <td>9</td>
+      <td>6</td>
+      <td>?</td>
+      <td>7</td>
+      <td>8</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>1183246</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>?</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>1184840</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>1193683</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>?</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>164</th>
+      <td>1197510</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>235</th>
+      <td>1241232</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>249</th>
+      <td>169356</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>275</th>
+      <td>432809</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>292</th>
+      <td>563649</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>6</td>
+      <td>10</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>294</th>
+      <td>606140</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>61634</td>
+      <td>5</td>
+      <td>4</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>315</th>
+      <td>704168</td>
+      <td>4</td>
+      <td>6</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>?</td>
+      <td>4</td>
+      <td>9</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>733639</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>?</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>411</th>
+      <td>1238464</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>?</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>617</th>
+      <td>1057067</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>?</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <p>OK, we have an imputation problem. Write code to solve it and say what you did.</p>
 <p>By the way, there is an argument <code class="docutils literal notranslate"><span class="pre">na_values</span></code> that you can provide to <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> that will mark a list of characters as if they were <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> using <code class="docutils literal notranslate"><span class="pre">na_values</span></code>, which is pretty darn convenient. Using that will help when importing the data for classification.</p>
 <p>Read the data in using <code class="docutils literal notranslate"><span class="pre">na_values='?'</span></code> to replace missing data with <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>. Check the <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ####</span>
+
+<span class="n">bc_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data&#39;</span><span class="p">,</span>
+                     <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sample code number&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Clump Thickness&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Uniformity of Cell Size&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Uniformity of Cell Shape&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Marginal Adhesion&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Single Epithelial Cell Size&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Bare Nuclei&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Bland Chromatin&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Normal Nucleoli&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Mitoses&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Class&quot;</span><span class="p">],</span>
+                     <span class="n">na_values</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span><span class="p">)</span>
+<span class="c1">#bc_data.head()</span>
+<span class="n">bc_data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample code number               int64
+Clump Thickness                  int64
+Uniformity of Cell Size          int64
+Uniformity of Cell Shape         int64
+Marginal Adhesion                int64
+Single Epithelial Cell Size      int64
+Bare Nuclei                    float64
+Bland Chromatin                  int64
+Normal Nucleoli                  int64
+Mitoses                          int64
+Class                            int64
+dtype: object
 </pre></div>
 </div>
 </div>
@@ -554,6 +900,41 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="c1">## change 2 to 0 (benign) and 4 to 1 (malignant)</span>
+
+<span class="n">bc_data</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#bc_data.head()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of data set:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bc_data</span><span class="p">))</span>
+
+<span class="c1">## we need to drop NAs for now</span>
+<span class="n">bc_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length after drop:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bc_data</span><span class="p">))</span>
+
+<span class="c1">## split data</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">bc_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sample code number&#39;</span><span class="p">,</span><span class="s1">&#39;Class&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">bc_data</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span>
+
+<span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">ytest</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of train:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of test:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Xtest</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length of data set: 699
+Length after drop: 683
+Length of train: 512
+Length of test: 171
 </pre></div>
 </div>
 </div>
@@ -609,6 +990,27 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span><span class="n">ytrain</span><span class="p">)</span>
+<span class="n">ypred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ypred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 0 0 1 0 1 0 0 0 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 1 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 1 0 0 0 0 0 0 1 1 1 1 0 0 1 0 0 0 0 1 0 0 1 1 0
+ 1 0 1 0 0 0 1 1 1 1 0 0 0 1 1 1 1 0 0 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 1
+ 0 0 1 0 1 0 1 1 0 1 0 0 1 1 1 0 1 0 1 1 0 0 0 0 0 0 0 0 1 1 0 1 1 1 0 1 1
+ 1 1 0 0 0 0 0 0 1 1 0 1 1 0 0 0 0 1 1 0 0 1 0]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="how-d-it-go">
 <h3>3.1 How’d it go?<a class="headerlink" href="#how-d-it-go" title="Permalink to this headline">#</a></h3>
@@ -624,6 +1026,26 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ### </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span><span class="n">ytest</span><span class="p">))</span>
+<span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tp</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span><span class="n">ytest</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+<span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">tn</span><span class="o">+</span><span class="n">tp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">tn</span><span class="o">+</span><span class="n">fp</span><span class="o">+</span><span class="n">fn</span><span class="o">+</span><span class="n">tp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[99  3]
+ [ 3 66]]
+Accuracy: 0.9649122807017544
+</pre></div>
+</div>
+</div>
+</div>
 <p>This accuracy metric is alrady built into <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, it’s called <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>, which compares the predictions our model made for the test labels and the actual test labels. The <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> is one of many metrics we can use and is included in <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code>. Here’s the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html#sklearn.metrics.accuracy_score">documentation</a> on <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>.</p>
 <p><font size=8 color="#009600">✎</font> Do this:</p>
 <ul class="simple">
@@ -633,6 +1055,18 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span><span class="n">ytest</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9649122807017544
 </pre></div>
 </div>
 </div>
@@ -659,6 +1093,24 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
+<span class="n">ypred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">ytest</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9649122807017544
+</pre></div>
+</div>
+</div>
+</div>
 <section id="automate-it">
 <h3>4.1 Automate it<a class="headerlink" href="#automate-it" title="Permalink to this headline">#</a></h3>
 <p>Now that you have checked a slightly different number of neighbors, let’s systematically see how our accuract changes with number of neighbors.</p>
@@ -674,6 +1126,43 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ###</span>
+
+<span class="k">def</span> <span class="nf">KNNCompute</span><span class="p">(</span><span class="n">xtrain</span><span class="p">,</span> <span class="n">xtest</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">ytest</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Take a data set (xtrain, xtest, ytrain, ytest) and </span>
+<span class="sd">    fit a KNN model with a given number of neighbors (n).</span>
+<span class="sd">    Return the accuracy of that model.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
+    <span class="n">ypred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">ytest</span><span class="p">))</span>
+
+<span class="n">acc_array</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">neighbors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">:</span>
+    <span class="n">acc_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">KNNCompute</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">ytest</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">neighbors</span><span class="p">,</span> <span class="n">acc_array</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Neighbors&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mf">.9</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/29986054cc811aae560bfd4a56634c05db6146fd1853ac986d4f15e630368587.png" src="../../_images/29986054cc811aae560bfd4a56634c05db6146fd1853ac986d4f15e630368587.png" />
 </div>
 </div>
 </section>
@@ -712,20 +1201,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="day-2_Getting_Started_with_Classification_Models.html"
+       href="day-2_Getting_Started_with_Classification_Models-SOL.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Getting Started with Classification Models</p>
+        <p class="prev-next-title">Solution - Getting Started with Classification Models</p>
       </div>
     </a>
     <a class="right-next"
-       href="../day-3/Day-3_Polynomial_Regression.html"
+       href="../../contributions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Polynomial Regression</p>
+        <p class="prev-next-title">Contributions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
