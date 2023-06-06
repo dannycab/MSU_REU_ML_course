@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Polynomial Regression &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -65,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-3/Day-3_Polynomial_Regression';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Multidimensional Linear Regression" href="Day-3_Multiple_Regression.html" />
+    <link rel="next" title="The Importance of Visualization" href="../notes/importance_of_visualization.html" />
     <link rel="prev" title="Classification using K Nearest Neighbors" href="../day-2/day-2_KNN_classification.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -172,10 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Linearly Seperable Data</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines</a></li>
@@ -191,6 +187,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -457,9 +455,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="polynomial-regression">
+  <div class="tex2jax_ignore mathjax_ignore section" id="polynomial-regression">
 <h1>Polynomial Regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this headline">#</a></h1>
-<img src="https://i.pinimg.com/originals/52/2c/20/522c209c019fe9592857bcb569184478.jpg"><section id="goals">
+<img src="https://i.pinimg.com/originals/52/2c/20/522c209c019fe9592857bcb569184478.jpg"><div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">#</a></h2>
 <p>After completing this notebook, you will be able to:</p>
 <ol class="arabic simple">
@@ -469,8 +467,8 @@ document.write(`
 <li><p>Evaluate the quality of fit for a set of models using adjusted <span class="math notranslate nohighlight">\(R^2\)</span> and by comparing true and predicted values</p></li>
 <li><p>Explain why that model is the best fit for this data</p></li>
 </ol>
-</section>
-<section id="our-imports">
+</div>
+<div class="section" id="our-imports">
 <h2>Our Imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -489,16 +487,16 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
+</div>
 <hr class="docutils" />
-<section id="id1">
+<div class="section" id="id1">
 <h2>1. Polynomial Regression<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>To understand and model the underlying relationships between variables in data, we can create <strong>regression models</strong> to “fit” the data. The simplest regression model (that you’ve probably seen before) is linear regression with a first order polynomial, where the relationship between two variables is fit with a straight line: <span class="math notranslate nohighlight">\(Ax + B\)</span>.</p>
 <p>It’s possible that a straight line is not going to be good enough to model the data we are working with. We can augment our <span class="math notranslate nohighlight">\( Ax + B\)</span> with extra features. By adding features we are still doing linear regression, but we the features themselves can consist of, well anything.</p>
 <p>However, to be focused, we will use polynomials. We can add values like <span class="math notranslate nohighlight">\(x^2\)</span> or <span class="math notranslate nohighlight">\(x^5\)</span> to the potential set of features that can be used to better map against our data.</p>
 <p><font size=8 color="#009600">✎</font> Do This -  The question is, how many such features should we add? What are the advantages and disadvantages of adding more and more features? Think about it and answer in the cell below.</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-<section id="let-s-make-some-data">
+<div class="section" id="let-s-make-some-data">
 <h3>1.1 Let’s make some Data<a class="headerlink" href="#let-s-make-some-data" title="Permalink to this headline">#</a></h3>
 <p>It’s always good when we are starting out to generate our own data. Data we generate gives us the advantage of <strong>knowing</strong> what the answer should be.</p>
 <p><font size=8 color="#009600">✎</font> Do This -  Let’s do the following:</p>
@@ -514,8 +512,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="plot-the-data">
+</div>
+<div class="section" id="plot-the-data">
 <h3>1.2 Plot the data<a class="headerlink" href="#plot-the-data" title="Permalink to this headline">#</a></h3>
 <p>We should really look at our data before we try to model it.</p>
 <p><font size=8 color="#009600">✎</font> Do This -  plot <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs both <code class="docutils literal notranslate"><span class="pre">y_ary</span></code> and <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code>. Do it overlapping with colors, or side by side, whatever you think would look good. <em>Make sure to label your axes!</em> Consider adding a legend by using: <code class="docutils literal notranslate"><span class="pre">plt.legend(['Plot</span> <span class="pre">1',</span> <span class="pre">'Plot</span> <span class="pre">2'])</span></code>.</p>
@@ -526,10 +524,10 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="making-the-polynomial-features">
+<div class="section" id="making-the-polynomial-features">
 <h2>2 Making the Polynomial Features<a class="headerlink" href="#making-the-polynomial-features" title="Permalink to this headline">#</a></h2>
 <p>Ultimately it would be nice to do our work using a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame so that we have the opportunity to label our columns. There’s the added benefit that <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> just works with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames.</p>
 <p><font size=8 color="#009600">✎</font> Do This - Make a DataFrame consisting of the following columns: a constant value for the intercept, the values in <code class="docutils literal notranslate"><span class="pre">x_ary</span></code>, and additional powers of <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> up to 10.</p>
@@ -553,7 +551,7 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="train-test-splitting">
+<div class="section" id="train-test-splitting">
 <h3>2.1 Train-test splitting<a class="headerlink" href="#train-test-splitting" title="Permalink to this headline">#</a></h3>
 <p>One of the critical aspects of machine learning is worrying about overfitting or underfitting your data. This is essential to machine learning as we can never avoid the Bias-Variance tradeoff (<a class="reference external" href="https://www.youtube.com/watch?v=EuBBz3bI-aA">Great Conceptual Video on this</a>).</p>
 <ul class="simple">
@@ -571,8 +569,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="fitting-using-the-polynomials">
+</div>
+<div class="section" id="fitting-using-the-polynomials">
 <h3>2.2 Fitting using the Polynomials<a class="headerlink" href="#fitting-using-the-polynomials" title="Permalink to this headline">#</a></h3>
 <p>We’ll talk about measures of “goodness” of fit in more detail on day 4, but one good measure for a multi-feature fit is the <strong>Adjusted R-squared</strong> value. In general, the <strong>R-squared</strong> describes the variance in the model that it can account for. If the R-squared is 1.0, then all the variance is accounted for an you have a perfect fit. If the value is 0 and you have no fit. However, for multiple features R-squared tends to over-estimate. The Adjusted R-squared tries to deal with this and provide a value that is better suited to multiple features.</p>
 <p>We’ll leave it to you how you want to do this, but what we’d like you to try is to fit different combinations of features against <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code> and report the Adjusted R-squared value. For example, what is the Adj-r-squared for:</p>
@@ -625,10 +623,10 @@ document.write(`
 </div>
 <p><font size=8 color="#009600">✎</font> Do This - Which combination of features best “fit” your data? What was the Adjusted R-squared? Why might that combination produce the best fit?</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="plot-your-data-and-your-model">
+<div class="section" id="plot-your-data-and-your-model">
 <h2>3. Plot your data and your model<a class="headerlink" href="#plot-your-data-and-your-model" title="Permalink to this headline">#</a></h2>
 <p><font size=8 color="#009600">✎</font> Do This -  Plot <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code> and <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs the best fitted values based on the adjusted rsquared value. Do it in the same graph.</p>
 <div class="cell docutils container">
@@ -638,7 +636,7 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="are-we-justified-in-using-this-model">
+<div class="section" id="are-we-justified-in-using-this-model">
 <h3>3.1 Are we justified in using this model?<a class="headerlink" href="#are-we-justified-in-using-this-model" title="Permalink to this headline">#</a></h3>
 <p>We can check how well we are justified in using this model, by comparing the actual and predicted values as well as making a residual plot.</p>
 <ul class="simple">
@@ -654,9 +652,9 @@ document.write(`
 </div>
 </div>
 <p><font size=8 color="#009600">✎</font> Answer here - Do we appear justified in using this model? Why or why not?</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -699,11 +697,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="Day-3_Multiple_Regression.html"
+       href="../notes/importance_of_visualization.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Multidimensional Linear Regression</p>
+        <p class="prev-next-title">The Importance of Visualization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

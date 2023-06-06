@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Classification using K Nearest Neighbors &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -170,10 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Linearly Seperable Data</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines</a></li>
@@ -189,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Classification using K Nearest Neighbors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -456,10 +454,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="classification-using-k-nearest-neighbors">
+  <div class="tex2jax_ignore mathjax_ignore section" id="classification-using-k-nearest-neighbors">
 <h1>Classification using K Nearest Neighbors<a class="headerlink" href="#classification-using-k-nearest-neighbors" title="Permalink to this headline">#</a></h1>
 <img src="https://www.pngkey.com/png/full/574-5745035_machine-learning-workflow-machine-learning-data-pipeline.png" width=700px>
-<section id="agenda-for-today">
+<div class="section" id="agenda-for-today">
 <h2>Agenda for today<a class="headerlink" href="#agenda-for-today" title="Permalink to this headline">#</a></h2>
 </p>
 <ol class="arabic simple">
@@ -468,8 +466,8 @@ document.write(`
 <li><p>Use KNN classifier on breast cancer dataset</p></li>
 <li><p>Evaluate the quality of the model</p></li>
 </ol>
-</section>
-<section id="imports-for-the-day">
+</div>
+<div class="section" id="imports-for-the-day">
 <h2>0. Imports for the day<a class="headerlink" href="#imports-for-the-day" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -487,14 +485,14 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
+</div>
 <hr class="docutils" />
-<section id="review-of-getting-started-notebook">
+<div class="section" id="review-of-getting-started-notebook">
 <h2>1. Review of Getting Started Notebook<a class="headerlink" href="#review-of-getting-started-notebook" title="Permalink to this headline">#</a></h2>
 <p>Pull up the <span class="xref myst">solution notebook</span></p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="training-vs-testing">
+<div class="section" id="training-vs-testing">
 <h2>2. Training vs Testing<a class="headerlink" href="#training-vs-testing" title="Permalink to this headline">#</a></h2>
 <p>As you learned in the pre-class, classification is an ML process that maps features of an input data set to class labels. Classification is a <strong>supervised</strong> learning approach where example data is used to train the data. We typically divide the data used to train and evaluate the classifier (the result model) into two sets (training and testing). <em>In some cases, folks split into three sets (training, testing, and validation).</em></p>
 <p>✅ <strong>Do This:</strong> As a group, discuss what these three sets represent. It might help to review these terms on the web. The answers down below:</p>
@@ -502,7 +500,7 @@ document.write(`
 <p><font size=8 color="#009600">✎</font> Testing set is:</p>
 <p><strong>Defining the features and building the model</strong></p>
 <p>If you review the image at the top of the notebook, you might notice that one of the first steps in machine learning is to go from “raw data” into a set of “features” and “labels”. Extracting features from our data can sometimes be one of the trickier parts of the process and also one of the most important ones. We have to think carefully about exactly what the “right” features are for training our machine learning algorithm and, when possible, it is advantageous to find ways to reduce the total number of features we are trying to model. Once we define our features, we can build our model.</p>
-<section id="working-with-data">
+<div class="section" id="working-with-data">
 <h3>2.1 Working with data<a class="headerlink" href="#working-with-data" title="Permalink to this headline">#</a></h3>
 <p>There is a common data set used to work with classification called the breast cancer data set. It is actually available in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> but what fun is working withe cleaned up data. Let’s look at the original. We will use <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)">data from a Breast Cancer study</a> for this notebook. On this site, you will find  “breast-cancer-wisconsin.data” and “breast-cancer-wisconsin.names”. The data are in “.data” and the “.names” describes that data.</p>
 <p>We can also directly import them from the web:</p>
@@ -537,9 +535,9 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
+</div>
 <hr class="docutils" />
-<section id="splitting-the-dataset-for-model-into-training-and-testing-sets">
+<div class="section" id="splitting-the-dataset-for-model-into-training-and-testing-sets">
 <h3>2.2 : Splitting the dataset for model into training and testing sets<a class="headerlink" href="#splitting-the-dataset-for-model-into-training-and-testing-sets" title="Permalink to this headline">#</a></h3>
 <p>Let’s split the data in a training set and final testing set. We want to randomly select 75% of the data for training and 25% of the data for testing.</p>
 <p>You should turn the <code class="docutils literal notranslate"><span class="pre">class_labels</span></code> into 0 (now 2, for benign) and 1 (now 4, for malignant) as the classifier we are using (Logisitic Regression) predicts values between 0 and 1.</p>
@@ -560,10 +558,10 @@ document.write(`
 </div>
 <p><strong>Question</strong>: Why do we need to separate our samples into a training and testing set. Why can’t we just use all the data for both? Wouldn’t that make it work better?</p>
 <p><font size=8 color="#009600">✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text)</p>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="k-nearest-neighbors">
+<div class="section" id="k-nearest-neighbors">
 <h2>3 K Nearest Neighbors<a class="headerlink" href="#k-nearest-neighbors" title="Permalink to this headline">#</a></h2>
 <p>One of the more conceptually simply classifiers in K Nearest Neighbors or KNN. In KNN, we assume that in the N-dimensional space, which represents the N input features, that things in the same close are “close” to each other. That is the more similar their location in this virtual space, the more likely two points (or three or four…) are members of the same class.</p>
 <p>KNN has one basic “hyperparameter”, which is what we can use to tune the model. It is how many neighbors it should include as part of the analysis (2, 3, 4, etc.). We will explore this at the end of the notebook. For now, we will setup the model.</p>
@@ -587,7 +585,7 @@ document.write(`
         ></iframe>
         </div></div>
 </div>
-<section id="the-benefits-of-sklearn">
+<div class="section" id="the-benefits-of-sklearn">
 <h3>3.1 The benefits of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code><a class="headerlink" href="#the-benefits-of-sklearn" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> workflow is similar across all implementations. We will always:</p>
 <ol class="arabic simple">
@@ -609,8 +607,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="how-d-it-go">
+</div>
+<div class="section" id="how-d-it-go">
 <h3>3.1 How’d it go?<a class="headerlink" href="#how-d-it-go" title="Permalink to this headline">#</a></h3>
 <p>There are a number of ways that we can check the performance of our model. The major difference in the standard statistics approach and supervised learning approaches is that we test our models using the data that we held out: “the test data.”</p>
 <p>That is, we will use our classifier model to make predictions from the test features and we can then compare those predictions to actual test labels. As you did above, we can use the output of the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method of the model to predict how well the classifier works on the test data (the data it was not trained on). Conveniently that is the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> method and, again, we use it on the result of the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code>.</p>
@@ -639,10 +637,10 @@ document.write(`
 </div>
 <p><strong>Question:</strong> How well did your model predict the test class labels? Given what you learned in the pre-class assignment about false positives and false negatives, what other questions should we ask about the accuracy of our model?</p>
 <p><font size=8 color="#009600">✎</font> Answer here.</p>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="tuning-hyperparameters">
+<div class="section" id="tuning-hyperparameters">
 <h2>4. Tuning hyperparameters<a class="headerlink" href="#tuning-hyperparameters" title="Permalink to this headline">#</a></h2>
 <p>Most ML models have some number of parameters that can be tuned to try to build better models. Later, we will see how to explore those parameters automatically, but now, we will just do things manually. For KNN, this is ok because there’s only one commnly tuned parameter: <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code>, which the number of neighboring points the algorithm takes into account when it looks for similar classes.</p>
 <p>Look at the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">documentation for KNN</a> and determine the default number of neighbors.</p>
@@ -659,7 +657,7 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="automate-it">
+<div class="section" id="automate-it">
 <h3>4.1 Automate it<a class="headerlink" href="#automate-it" title="Permalink to this headline">#</a></h3>
 <p>Now that you have checked a slightly different number of neighbors, let’s systematically see how our accuract changes with number of neighbors.</p>
 <p><font size=8 color="#009600">✎</font> Do this.</p>
@@ -676,9 +674,9 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
