@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Regression using sci-kit learn &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -63,7 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/notes/regression_with_scikit';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Polynomial Regression" href="../day-3/Day-3_Polynomial_Regression.html" />
+    <link rel="next" title="Multidimensional Linear Regression" href="../day-3/Day-3_Multiple_Regression.html" />
     <link rel="prev" title="The Importance of Visualization" href="importance_of_visualization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -185,9 +184,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Regression using sci-kit learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -443,7 +442,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="regression-using-sci-kit-learn">
+  <div class="tex2jax_ignore mathjax_ignore section" id="regression-using-sci-kit-learn">
 <h1>Regression using sci-kit learn<a class="headerlink" href="#regression-using-sci-kit-learn" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -459,7 +458,7 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="make-some-fake-regression-data">
+<div class="section" id="make-some-fake-regression-data">
 <h2>Make some fake regression data<a class="headerlink" href="#make-some-fake-regression-data" title="Permalink to this headline">#</a></h2>
 <p>We make some data with 5 features, but 3 ones that will help us predict. We made one of the features redundant with another by replicating an existing feature and scaling it. We are going to follow our process here:</p>
 <ol class="arabic simple">
@@ -560,7 +559,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<section id="creating-subplots">
+<div class="section" id="creating-subplots">
 <h3>Creating subplots<a class="headerlink" href="#creating-subplots" title="Permalink to this headline">#</a></h3>
 <p>These are the “feature subspaces” we discussed. This plot also illustrates one reason for using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Its exploratory data analysis tools are really simple to invoke.</p>
 <div class="cell docutils container">
@@ -573,9 +572,9 @@ document.write(`
 <img alt="../../_images/a63afce030b504c97aa1d586c94e7d212f1aa728bbc2e7597abea562caefbeed.png" src="../../_images/a63afce030b504c97aa1d586c94e7d212f1aa728bbc2e7597abea562caefbeed.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="linear-regression">
+</div>
+</div>
+<div class="section" id="linear-regression">
 <h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h2>
 <p>We will instead use the machine learning paradigm for our linear regression. Below, we have split the data for you. Your job is to perform the linear regression – building the model on the test data, and validate against the true data.</p>
 <div class="cell docutils container">
@@ -586,8 +585,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -630,11 +629,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../day-3/Day-3_Polynomial_Regression.html"
+       href="../day-3/Day-3_Multiple_Regression.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Polynomial Regression</p>
+        <p class="prev-next-title">Multidimensional Linear Regression</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

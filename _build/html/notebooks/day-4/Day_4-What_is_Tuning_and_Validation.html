@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What is Tuning and Validation? &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -170,10 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Linearly Seperable Data</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines</a></li>
@@ -189,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -447,9 +445,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="what-is-tuning-and-validation">
+  <div class="tex2jax_ignore mathjax_ignore section" id="what-is-tuning-and-validation">
 <h1>What is Tuning and Validation?<a class="headerlink" href="#what-is-tuning-and-validation" title="Permalink to this headline">#</a></h1>
-<section id="what-have-done-so-far">
+<div class="section" id="what-have-done-so-far">
 <h2>1. What have done so far?<a class="headerlink" href="#what-have-done-so-far" title="Permalink to this headline">#</a></h2>
 <p>Thus far we have talked about two kinds of supervised machine learning problems: regression and classification. Fairly broad definitions of these two are below:</p>
 <ul class="simple">
@@ -457,8 +455,8 @@ document.write(`
 <li><p><strong>Classification</strong>: Using a set of input data to predict the class associated with data.</p></li>
 </ul>
 <p>We have used <code class="docutils literal notranslate"><span class="pre">sci-kit</span> <span class="pre">learn</span></code> to begin to investigate how we can model data to solve one or the other problems. We have not talked in detail as to how these models work. That is important to understand if you are going to use particular models, but beyond the scope of this short course.</p>
-</section>
-<section id="tuning-and-validation">
+</div>
+<div class="section" id="tuning-and-validation">
 <h2>2. Tuning and Validation<a class="headerlink" href="#tuning-and-validation" title="Permalink to this headline">#</a></h2>
 <p>Instead, we will talk about the last pieces of supervised machine learning that are needed to understand your model: tuning and validation. Broad definitions are given below:</p>
 <ul class="simple">
@@ -466,8 +464,8 @@ document.write(`
 <li><p><strong>Validation</strong>: The process by which you build confidence in your model.</p></li>
 </ul>
 <p>We will make use of <code class="docutils literal notranslate"><span class="pre">sci-kit</span> <span class="pre">learn</span></code>’s built in tools for tuning and validation. We will introduce those tools in class and we will focus on classifiers. For now, there are several useful videos to conceptually understand what we are trying to do.</p>
-</section>
-<section id="example-with-a-classifier">
+</div>
+<div class="section" id="example-with-a-classifier">
 <h2>3. Example with a Classifier<a class="headerlink" href="#example-with-a-classifier" title="Permalink to this headline">#</a></h2>
 <p>We will focus on classifiers because the process of tuning and validating them is a bit easier to understand at first. As we have seen we start our work with a classifier as follows:</p>
 <ol class="arabic simple">
@@ -479,7 +477,7 @@ document.write(`
 </ol>
 <p>The message we want to convey is that parts 3, 4, and 5 often are part of a cyclic process to adjust and change your model slightly to get a better prediction. <em>In fact, part 2 can come back also if you have to clean, encode, or impute your data differently.</em></p>
 <p>Because all the work we are doing relies on understanding the Confusion Matrix we will start there.</p>
-<section id="the-confusion-matrix">
+<div class="section" id="the-confusion-matrix">
 <h3>3.1 The Confusion Matrix<a class="headerlink" href="#the-confusion-matrix" title="Permalink to this headline">#</a></h3>
 <p>Watch the video below.</p>
 <div class="cell docutils container">
@@ -500,8 +498,8 @@ document.write(`
         ></iframe>
         </div></div>
 </div>
-</section>
-<section id="roc">
+</div>
+<div class="section" id="roc">
 <h3>3.2 ROC<a class="headerlink" href="#roc" title="Permalink to this headline">#</a></h3>
 <p>We can extract additional information about the quality of our model by varying the prediction threshold. That is, we allow the model to change the probability cutoff between predicting a positive (1) and negative (0) case. These resulting Receiver Operator Curve (ROC) can offer additional evidence as to the quality of your model beyond accuracy. In the video below, ROCs are described.</p>
 <div class="cell docutils container">
@@ -522,8 +520,8 @@ document.write(`
         ></iframe>
         </div></div>
 </div>
-</section>
-<section id="leveraging-randomness">
+</div>
+<div class="section" id="leveraging-randomness">
 <h3>3.3 Leveraging randomness<a class="headerlink" href="#leveraging-randomness" title="Permalink to this headline">#</a></h3>
 <p>As you might recall, we performed a data splitting when we started our modeling. That split was randomly done. So the Accuracy, ROC, and AUC were all deteermined for a single test set. What if we ran the model again? With a new random split? Would the results be similar our different? By how much?</p>
 <p>You can see that there’s a problem with running a single model and making a claim aboout it. Because our data was randomly split, our model produces results based on that split. If that split is representative of all possible splits then maybe it is ok to trust it. But if not it is better to build a bunch of models based on a bunch of random splits. Then you will get a disrtibution of results. That can give you some confidence in the predictions the model makes with a statistical uncertainty.</p>
@@ -547,9 +545,9 @@ document.write(`
         ></iframe>
         </div></div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

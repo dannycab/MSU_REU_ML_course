@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Support Vector Machines &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -64,7 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Support Vector Machines" href="04_svm_rbf.html" />
-    <link rel="prev" title="Linearly Seperable Data" href="methods_and_validation.html" />
+    <link rel="prev" title="Methods and Model Validation" href="methods_and_validation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -170,10 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Linearly Seperable Data</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Methods and Model Validation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Support Vector Machines</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="04_svm_rbf.html">Support Vector Machines</a></li>
@@ -189,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_with_scikit.html">Regression using sci-kit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -446,7 +444,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machines">
+  <div class="tex2jax_ignore mathjax_ignore section" id="support-vector-machines">
 <h1>Support Vector Machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>As a classifier, an SVM creates new dimensions from the original data, to be able to seperate the groups along the original features as well as any created dimensions.</p></li>
@@ -458,7 +456,7 @@ document.write(`
 </li>
 </ul>
 <p><strong>We use <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> because it gives us control over the data and it’s separation; we don’t have to clean or standardize it.</strong></p>
-<section id="let-s-make-some-blobs">
+<div class="section" id="let-s-make-some-blobs">
 <h2>Let’s make some blobs<a class="headerlink" href="#let-s-make-some-blobs" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -483,8 +481,8 @@ document.write(`
 <img alt="../../_images/b5f4a4da183369dab67400f4877a6f680a58328232e45b4387ee5cf8ddcd0e87.png" src="../../_images/b5f4a4da183369dab67400f4877a6f680a58328232e45b4387ee5cf8ddcd0e87.png" />
 </div>
 </div>
-</section>
-<section id="let-s-draw-a-separation-line">
+</div>
+<div class="section" id="let-s-draw-a-separation-line">
 <h2>Let’s draw a separation line<a class="headerlink" href="#let-s-draw-a-separation-line" title="Permalink to this headline">#</a></h2>
 <p>We are just guessing. SVM does this automatically.</p>
 <div class="cell docutils container">
@@ -502,17 +500,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7efbc67bfc90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x17b2fffd0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/d4291b592d6175b763f31f06099e4108a6a55b29a760f31843dbf60d4c9d055e.png" src="../../_images/d4291b592d6175b763f31f06099e4108a6a55b29a760f31843dbf60d4c9d055e.png" />
 </div>
 </div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="questions-comments-concerns">
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="questions-comments-concerns">
 <h1>Questions, Comments, Concerns?<a class="headerlink" href="#questions-comments-concerns" title="Permalink to this headline">#</a></h1>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -551,7 +549,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Linearly Seperable Data</p>
+        <p class="prev-next-title">Methods and Model Validation</p>
       </div>
     </a>
     <a class="right-next"

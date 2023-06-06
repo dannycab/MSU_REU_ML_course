@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Confusion Matrix &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -65,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/notes/02_knn';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Linearly Seperable Data" href="methods_and_validation.html" />
+    <link rel="next" title="Methods and Model Validation" href="methods_and_validation.html" />
     <link rel="prev" title="Machine Learning" href="01_logit.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -172,10 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Linearly Seperable Data</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Methods and Model Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_svm.html">Support Vector Machines</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="04_svm_rbf.html">Support Vector Machines</a></li>
@@ -191,6 +187,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression_with_scikit.html">Regression using sci-kit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -447,14 +445,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="the-confusion-matrix">
+  <div class="tex2jax_ignore mathjax_ignore section" id="the-confusion-matrix">
 <h1>The Confusion Matrix<a class="headerlink" href="#the-confusion-matrix" title="Permalink to this headline">#</a></h1>
 <img src="https://miro.medium.com/max/2102/1*fxiTNIgOyvAombPJx5KGeA.png" width=500px/>
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">confusion_matrix</span></code><br/>
 <code class="docutils literal notranslate"><span class="pre">tn,</span> <span class="pre">fp,</span> <span class="pre">fn,</span> <span class="pre">tp</span> <span class="pre">=</span> <span class="pre">confusion_matrix(y_true,</span> <span class="pre">y_predicted)</span></code></p>
 <p><strong>Note the rows and columns of the confusion matrix from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> do not match those show on most websites.</strong></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="other-metrics">
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="other-metrics">
 <h1>Other Metrics<a class="headerlink" href="#other-metrics" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Sensitivity (Recall): The ratio of True Positives to all Positive Cases <span class="math notranslate nohighlight">\(\dfrac{TP}{TP+FN}\)</span></p></li>
@@ -462,21 +460,21 @@ document.write(`
 <li><p>Precision: The ratio of True Positives to all Predicted Positives: <span class="math notranslate nohighlight">\(\dfrac{TP}{TP+FP}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(F_1\)</span> Score: A balanced measure (0 to 1) that includes sensitity and recall: <span class="math notranslate nohighlight">\(\dfrac{2 TP}{2TP + FP + FN}\)</span></p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="roc-curve-and-auc">
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="roc-curve-and-auc">
 <h1>ROC Curve and AUC<a class="headerlink" href="#roc-curve-and-auc" title="Permalink to this headline">#</a></h1>
 <img src="https://glassboxmedicine.files.wordpress.com/2019/02/roc-curve-v2.png?w=576" />
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn</span> <span class="pre">import</span> <span class="pre">metrics</span></code><br/>
 <code class="docutils literal notranslate"><span class="pre">fpr,</span> <span class="pre">tpr,</span> <span class="pre">thresholds</span> <span class="pre">=</span> <span class="pre">metrics.roc_curve(y_true,</span> <span class="pre">y_predict)</span></code><br/>
 <code class="docutils literal notranslate"><span class="pre">roc_auc</span> <span class="pre">=</span> <span class="pre">metrics.auc(fpr,</span> <span class="pre">tpr)</span></code><br/>
 <code class="docutils literal notranslate"><span class="pre">plt.plot(fpr,</span> <span class="pre">tpr)</span></code></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="knn-as-a-binary-classifier">
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="knn-as-a-binary-classifier">
 <h1>KNN as a Binary Classifier<a class="headerlink" href="#knn-as-a-binary-classifier" title="Permalink to this headline">#</a></h1>
-<img src="https://miro.medium.com/max/1142/0*OsxZZEhguUfFABsP.png" /></section>
-<section class="tex2jax_ignore mathjax_ignore" id="questions-comments-concerns">
+<img src="https://miro.medium.com/max/1142/0*OsxZZEhguUfFABsP.png" /></div>
+<div class="tex2jax_ignore mathjax_ignore section" id="questions-comments-concerns">
 <h1>Questions, Comments, Concerns?<a class="headerlink" href="#questions-comments-concerns" title="Permalink to this headline">#</a></h1>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -523,7 +521,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Linearly Seperable Data</p>
+        <p class="prev-next-title">Methods and Model Validation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -1,3 +1,5 @@
+complete:
+	jupyter-book build . --all
 book:
 	jupyter-book build .
 web:

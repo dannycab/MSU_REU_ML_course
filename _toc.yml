@@ -20,9 +20,9 @@ parts:
   chapters:
   - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models.ipynb
   - file: notebooks/day-2/day-2_KNN_classification.ipynb
+  - file: notebooks/day-3/Day-3_Polynomial_Regression.ipynb
   - file: notebooks/notes/importance_of_visualization.ipynb
   - file: notebooks/notes/regression_with_scikit.ipynb
-  - file: notebooks/day-3/Day-3_Polynomial_Regression.ipynb
   - file: notebooks/day-3/Day-3_Multiple_Regression.ipynb
 - caption: Evaluating Models
   chapters:
