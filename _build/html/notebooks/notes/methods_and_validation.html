@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Methods and Model Validation &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -188,6 +187,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -210,6 +211,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -462,9 +466,9 @@ document.write(`
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="methods-and-model-validation">
+<div class="tex2jax_ignore mathjax_ignore section" id="methods-and-model-validation">
 <h1>Methods and Model Validation<a class="headerlink" href="#methods-and-model-validation" title="Permalink to this headline">#</a></h1>
-<section id="linearly-seperable-data">
+<div class="section" id="linearly-seperable-data">
 <h2>Linearly Seperable Data<a class="headerlink" href="#linearly-seperable-data" title="Permalink to this headline">#</a></h2>
 <p>The shape of your data can tell you a lot about what methods might be useful to classify your data best. Linearly seperable data can be made with the <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> function. It can also generate data that cannot be seperated. The main control for this is <code class="docutils literal notranslate"><span class="pre">cluster_std</span></code>, which you should adjust.</p>
 <div class="cell docutils container">
@@ -478,13 +482,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f23de86e950&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1775b7eb0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/6230bbffe7f556357b5f99a18ba078db9dc11d08747caee3e587fcffae9b3fa3.png" src="../../_images/6230bbffe7f556357b5f99a18ba078db9dc11d08747caee3e587fcffae9b3fa3.png" />
 </div>
 </div>
-<section id="building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods">
+<div class="section" id="building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods">
 <h3>Building a fit and determining the accuracy of the seperation (traditional methods)<a class="headerlink" href="#building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> library provides us with tools to do separate these data and to evaluate their fit. Notice below that we do not perform a <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code>. This is to demonstrate that you can fit all of your data if you like, that is the common statistical way of doing analysis. However, you can instead write that does the same but is evaluated with held out data.</p>
 <div class="cell docutils container">
@@ -544,8 +548,8 @@ Accuracy: 0.98
 <img alt="../../_images/af3c17b3c798dda964ca7b9a6b64b559dff3ee1ebdcb04c2769336c5f637f95c.png" src="../../_images/af3c17b3c798dda964ca7b9a6b64b559dff3ee1ebdcb04c2769336c5f637f95c.png" />
 </div>
 </div>
-</section>
-<section id="machine-learning-approach">
+</div>
+<div class="section" id="machine-learning-approach">
 <h3>Machine Learning Approach<a class="headerlink" href="#machine-learning-approach" title="Permalink to this headline">#</a></h3>
 <p>Below we split our data to evaluate the performance of our model on data it has not seen.</p>
 <div class="cell docutils container">
@@ -623,8 +627,8 @@ Accuracy: 0.98
 <img alt="../../_images/a6f097f22cb39d883f30ae100604beb522b20c6e454fa1e5ed6a26f7023dedfb.png" src="../../_images/a6f097f22cb39d883f30ae100604beb522b20c6e454fa1e5ed6a26f7023dedfb.png" />
 </div>
 </div>
-</section>
-<section id="things-to-try">
+</div>
+<div class="section" id="things-to-try">
 <h3>Things to try<a class="headerlink" href="#things-to-try" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Change the method from logisitic to something else (e.g., <code class="docutils literal notranslate"><span class="pre">KNN</span></code>). How does the classifier perform?</p></li>
@@ -632,9 +636,9 @@ Accuracy: 0.98
 <li><p>The machine learning approach is stochastic (statistical in that it randomly chooses data), can you run this a few hundred times to get error bars on the predicted accurary?</p></li>
 <li><p>What about the other metrics (TPN, FPN, AUC)? Look these up.</p></li>
 </ul>
-</section>
-</section>
-<section id="not-linearly-seperable-data">
+</div>
+</div>
+<div class="section" id="not-linearly-seperable-data">
 <h2>Not linearly seperable data<a class="headerlink" href="#not-linearly-seperable-data" title="Permalink to this headline">#</a></h2>
 <p>Below is some different data that is not easily separable linearly, but still seems like we can see some differences.</p>
 <div class="cell docutils container">
@@ -660,7 +664,7 @@ Accuracy: 0.98
 <img alt="../../_images/8d5915d192a48ca8a06cc5d5d3de2bd461a1118519d0188b45f439df7f066021.png" src="../../_images/8d5915d192a48ca8a06cc5d5d3de2bd461a1118519d0188b45f439df7f066021.png" />
 </div>
 </div>
-<section id="let-s-try-a-linear-classifier">
+<div class="section" id="let-s-try-a-linear-classifier">
 <h3>Let’s try a linear classifier<a class="headerlink" href="#let-s-try-a-linear-classifier" title="Permalink to this headline">#</a></h3>
 <p>Let’s use logistic regression.</p>
 <div class="cell docutils container">
@@ -746,17 +750,17 @@ Accuracy: 0.98
 <img alt="../../_images/5666b39af8414003a04a54e2244562210d96171f12462186ef88dcfe08726a75.png" src="../../_images/5666b39af8414003a04a54e2244562210d96171f12462186ef88dcfe08726a75.png" />
 </div>
 </div>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h3>Things to try<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>How do these confusion matrices compare?</p></li>
 <li><p>Can you get another method to work any better?</p></li>
 <li><p>What about the other metrics (TPN, FPN, AUC)? Look these up.</p></li>
 </ul>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

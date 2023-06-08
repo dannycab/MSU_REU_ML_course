@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multidimensional Linear Regression &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -66,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="What is Tuning and Validation?" href="../day-4/Day_4-What_is_Tuning_and_Validation.html" />
-    <link rel="prev" title="Regression using sci-kit learn" href="../notes/regression_with_scikit.html" />
+    <link rel="prev" title="Reverse Feature Elimination" href="../notes/reverse-feature-elimination.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -190,6 +189,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -212,6 +213,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -458,10 +462,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="multidimensional-linear-regression">
+  <div class="tex2jax_ignore mathjax_ignore section" id="multidimensional-linear-regression">
 <h1>Multidimensional Linear Regression<a class="headerlink" href="#multidimensional-linear-regression" title="Permalink to this headline">#</a></h1>
 <img src="https://assets.amuniversal.com/7f343ac0870a01332a13005056a9545d" width=400px><hr class="docutils" />
-<section id="goals">
+<div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">#</a></h2>
 <p>After completing this notebook, you will be able to:</p>
 <ol class="arabic simple">
@@ -471,8 +475,8 @@ document.write(`
 <li><p>Evaluate the quality of fit for a set of models using adjusted <span class="math notranslate nohighlight">\(R^2\)</span> and by comparing true and predicted values</p></li>
 <li><p>Explain why that model is the best fit for this data</p></li>
 </ol>
-</section>
-<section id="our-imports">
+</div>
+<div class="section" id="our-imports">
 <h2>0. Our imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -491,8 +495,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="working-with-example-data">
+</div>
+<div class="section" id="working-with-example-data">
 <h2>1. Working with example data<a class="headerlink" href="#working-with-example-data" title="Permalink to this headline">#</a></h2>
 <p>We are going to work with some data generated by U.N.E.S.C.O. (United Nations Education, Scientific, and Cultural Organization) and data they collected relating to poverty and inequality in the world. There are two files you need to do the work:</p>
 <ul class="simple">
@@ -510,16 +514,16 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="type-of-the-data">
+<div class="section" id="type-of-the-data">
 <h3>1.1 Type of the data<a class="headerlink" href="#type-of-the-data" title="Permalink to this headline">#</a></h3>
 <p>Now look at the <code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> of your DataFrame and describe to me anything unusual. Can you explain why? Please write below. Don’t skimp and look ahead, think about it and answer! We’ll all wait <font size=6 color="#009600">⏲</font></p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-</section>
-<section id="handling-missing-data-imputation">
+</div>
+<div class="section" id="handling-missing-data-imputation">
 <h3>1.2 Handling missing data - Imputation<a class="headerlink" href="#handling-missing-data-imputation" title="Permalink to this headline">#</a></h3>
 <p>Let’s face it, sometimes data is bad. Values are not recorded, or are mis-recorded, or are so far out of expectation that you expect there is something wrong. On the other hand, just <strong>changing</strong> the data seems like cheating. We have to work with what we have, and if we have to make changes it would be good to do that programmatically so that it is recorded for others to see.</p>
 <p>The process of <a href="https://en.wikipedia.org/wiki/Imputation_(statistics)"> imputation </a> is the statistical replacement of missing/bad data with substitute values. We have that problem here. In the <strong>GNP</strong> column some of the values are set to ” * ” indicating missing data. When pandas read in the column the only type that makes sense for both characters and numbers is a string. Therefore it set the type to <code class="docutils literal notranslate"><span class="pre">object</span></code> instead of the expected <code class="docutils literal notranslate"><span class="pre">int64</span></code> or <code class="docutils literal notranslate"><span class="pre">float64</span></code>.</p>
-<section id="using-numpy-nan">
+<div class="section" id="using-numpy-nan">
 <h4>Using numpy.nan<a class="headerlink" href="#using-numpy-nan" title="Permalink to this headline">#</a></h4>
 <p>For better or worse, pandas assumes that “bad values” are marked in the data as numpy <strong>NaN</strong>. NaN is short for “Not a Number”. If they are so marked we have access to some of the imputation methods, replacing NaN with various values (mean, median, specific value, etc.).</p>
 <p>There are two ways to do this:</p>
@@ -535,8 +539,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="changing-numpy-nan">
+</div>
+<div class="section" id="changing-numpy-nan">
 <h4>Changing numpy.nan<a class="headerlink" href="#changing-numpy-nan" title="Permalink to this headline">#</a></h4>
 <p>Now that “bad values” are marked as <code class="docutils literal notranslate"><span class="pre">numpy.nan</span></code>, we can use the DataFrame method <code class="docutils literal notranslate"><span class="pre">fillna</span></code> to change those values. For example:</p>
 <div class="cell docutils container">
@@ -571,20 +575,20 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="what-do-you-think">
+</div>
+<div class="section" id="what-do-you-think">
 <h4>What do you think<a class="headerlink" href="#what-do-you-think" title="Permalink to this headline">#</a></h4>
 <p>In the cell below, discuss with your group what you think is the best thing to do with the “bad values” in the DataFrame given the discussion above. Write your result below.</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-</section>
-</section>
-</section>
-<section id="multiple-regression">
+</div>
+</div>
+</div>
+<div class="section" id="multiple-regression">
 <h2>2. Multiple Regression<a class="headerlink" href="#multiple-regression" title="Permalink to this headline">#</a></h2>
 <p>In the past, we have limited ourselves to either a single feature or, in the pre-class, doing polynomial regression with other features we created. However, we can just as easily use all, or some combination of all, the features available to make an ordinary least squares (OLS) model. The question is, is it a good idea to just use all the possible features available to make a model?</p>
 <p>Please discuss that idea with your group and record your answer below.</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-<section id="infant-mortality-model">
+<div class="section" id="infant-mortality-model">
 <h3>2.1 Infant Mortality model<a class="headerlink" href="#infant-mortality-model" title="Permalink to this headline">#</a></h3>
 <p>Using the U.N.E.S.C.O. data, we can make a model of “Infant Mortality” as the dependent variable against all the other available features. As a hint, an easy way to do this is the make the model with  “Infant Mortality” as the prediction (the dependent variable) and then the entire DataFrame where “Infant Mortality is dropped as the data (the independent variables). <strong>You should also drop the “Country” column as unique strings don’t play well in basic linear models.</strong></p>
 <p><font size=8 color="#009600">✎</font> Do This - Make an linear model (did you split your data?) that predicts “Infant Mortality” using the other variables (dropping the “Country” column) and print the <code class="docutils literal notranslate"><span class="pre">.r2_score</span></code> of that process.</p>
@@ -595,8 +599,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="visualizing-your-fit">
+</div>
+<div class="section" id="visualizing-your-fit">
 <h3>2.2 Visualizing your fit<a class="headerlink" href="#visualizing-your-fit" title="Permalink to this headline">#</a></h3>
 <p>We can check how well we are justified in using this model, by comparing the actual and predicted values. Plot the predicted values against the real values. In a perfect model, they would form a line with a slope of 1.</p>
 <p><font size=8 color="#009600">✎</font> Do This - Make the plots mentioned above. How well does your model fit your data? What can you conclude from this graph?</p>
@@ -607,8 +611,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="a-reduced-model-using-only-the-significant-features">
+</div>
+<div class="section" id="a-reduced-model-using-only-the-significant-features">
 <h3>2.3 A “reduced” model using only the “significant” features<a class="headerlink" href="#a-reduced-model-using-only-the-significant-features" title="Permalink to this headline">#</a></h3>
 <p>Modeling data is as much a craft as it is a science. We often seek the simplest models that explain or data well because they are typically more interpretable, easier to explain, and provide the information on the main influences of the system we are studying. There are reasons we might want a more complex model to capture the details and the nuance of the system. But for the U.N.E.S.C.O. data that we have, we are likely able to capture most of the system using a smaller number of features.</p>
 <p><font size=8 color="#009600">✎</font> Do This - use <code class="docutils literal notranslate"><span class="pre">pandas</span></code> built=in correlation function (<code class="docutils literal notranslate"><span class="pre">.corr()</span></code>) to find the top 3 variables that correlate strongly with “Infant Mortality”</p>
@@ -637,9 +641,9 @@ document.write(`
 </div>
 <p>Review this model and the one you constructed earlier in the notebook. Report how the Adjusted R-squared value changed from using only the top three vs using all the available features. How well does this reduced model appear to fit your data?</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -673,12 +677,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../notes/regression_with_scikit.html"
+       href="../notes/reverse-feature-elimination.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Regression using sci-kit learn</p>
+        <p class="prev-next-title">Reverse Feature Elimination</p>
       </div>
     </a>
     <a class="right-next"

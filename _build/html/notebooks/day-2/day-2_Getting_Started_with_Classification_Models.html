@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Getting Started with Classification Models &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -188,6 +187,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -210,6 +211,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -448,17 +452,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-classification-models">
+  <div class="tex2jax_ignore mathjax_ignore section" id="getting-started-with-classification-models">
 <h1>Getting Started with Classification Models<a class="headerlink" href="#getting-started-with-classification-models" title="Permalink to this headline">#</a></h1>
-<section id="goals">
+<div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Define machine learning and describe the seven steps used to build machine learning models of data.</p></li>
 <li><p>Explain what a classification problem is, and the concepts of false positives and false negatives.</p></li>
 <li><p>Make a data set that could be used for classification and plot the data</p></li>
 </ol>
-</section>
-<section id="our-imports">
+</div>
+<div class="section" id="our-imports">
 <h2>0. Our Imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -468,8 +472,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="a-quick-introduction-to-machine-learning">
+</div>
+<div class="section" id="a-quick-introduction-to-machine-learning">
 <h2>1. A quick introduction to machine learning<a class="headerlink" href="#a-quick-introduction-to-machine-learning" title="Permalink to this headline">#</a></h2>
 <p>In this notebook, we’ll begin our dive more into Machine Learning.  The two videos included below should give you a basic understanding for what machine learning is and how it is used.</p>
 <p><strong>Watch the videos and answer the questions.</strong></p>
@@ -530,8 +534,8 @@ document.write(`
 <li><p>Hyperparameter Tuning involves…</p></li>
 <li><p>Prediction involves…</p></li>
 </ol>
-</section>
-<section id="various-kinds-of-machine-learning">
+</div>
+<div class="section" id="various-kinds-of-machine-learning">
 <h2>2. Various kinds of machine learning<a class="headerlink" href="#various-kinds-of-machine-learning" title="Permalink to this headline">#</a></h2>
 <p>There are lots of different kinds of machine learning out there. You might only associate ML with the kind of deep neural networks you see discussed by Google. But there are many kinds. Look at the image below:</p>
 <img src="https://miro.medium.com/max/1166/1*xMwqdbPMm3l_1cOVHAUYcQ.png"><p>See anything that looks familiar? Regression is a whole category and OLS is one kind of machine learning. The diagram above is based on algorithmic approaches but here is another based on the process:</p>
@@ -558,8 +562,8 @@ document.write(`
 <p><font size=8 color="#009600">✎</font> Supervised learning is:</p>
 <p><font size=8 color="#009600">✎</font> Unsupervised learning is:</p>
 <p><font size=8 color="#009600">✎</font> Reinforcement learning is:</p>
-</section>
-<section id="classification">
+</div>
+<div class="section" id="classification">
 <h2>3. Classification<a class="headerlink" href="#classification" title="Permalink to this headline">#</a></h2>
 <p>Classification represents a group of algorithms that map observations (features) into class labels. We’ve seen examples of classification before. The Iris data set is an example of mapping a set of observations, 4 features per observation, into one of three class labels, a particular Iris type. It’s easy to imagine many applications and there are multiple algorithms focus on the classification task.</p>
 <p>Classification is a <strong>supervised</strong> learning task. One of the principal concerns we have for a classifier is how often it makes mistakes (i.e., false positives and false negatives relative to its true predictions)</p>
@@ -584,7 +588,7 @@ document.write(`
 </div>
 <p><strong>Question 7:</strong> After watching this video explain in your own words the concepts of false positives and false negatives. Feel free to use your own examples.</p>
 <p><font size=8 color="#009600">✎</font> Answer here.</p>
-<section id="making-some-data">
+<div class="section" id="making-some-data">
 <h3>3.1 Making some data<a class="headerlink" href="#making-some-data" title="Permalink to this headline">#</a></h3>
 <p>We spend a lot of time reading in data but sometimes it is easier to generate some data, under our control, and see what we get. To get a better handle on how easy/hard classification might be, we can use the function <code class="docutils literal notranslate"><span class="pre">make_classification</span></code></p>
 <p>This function is part of the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> library, which is the standard for machine learning in python, much like <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is the standard for data handling. We have used <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> in the past, mostly for its improved statistical properties, but <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> is a big, broad, and well maintained library. We will use it a lot during the rest of the class as will you in your data science future.</p>
@@ -613,8 +617,8 @@ document.write(`
 </div>
 <p>Given your plots (you might run the code a few times), what does a “redundant feature” appear to be?</p>
 <p><font size=8 color="#009600">✎</font> Answer here.</p>
-</section>
-<section id="plot-some-examples">
+</div>
+<div class="section" id="plot-some-examples">
 <h3>3.2 Plot some examples<a class="headerlink" href="#plot-some-examples" title="Permalink to this headline">#</a></h3>
 <p>Some data are easier to classify than others. You might remember this from the work we did with the iris data set earlier in the semester. As a reminder, we include a plot of the iris data set below along with the classfication of each sample.</p>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Iris_dataset_scatterplot.svg/768px-Iris_dataset_scatterplot.svg.png"/>
@@ -635,9 +639,9 @@ document.write(`
 </div>
 <p>Given the plots here, which of these would be easiest to classify? Why? You might think back to the iris data set if it helps.</p>
 <p><font size=8 color="#009600">✎</font> Answer here.</p>
-</section>
-</section>
-<section id="getting-started-with-classification-logistic-regression">
+</div>
+</div>
+<div class="section" id="getting-started-with-classification-logistic-regression">
 <h2>4. Getting Started with Classification: Logistic Regression<a class="headerlink" href="#getting-started-with-classification-logistic-regression" title="Permalink to this headline">#</a></h2>
 <p>We will learn a variety of classifiers in this class. We will start with one of the most widely used ones: Logistic Regression. The video below provides a conceptual explanation of the technique.</p>
 <div class="cell docutils container">
@@ -661,8 +665,8 @@ document.write(`
 </div>
 <p>Think about a situation where you might want to classify some set of things using logistic regression. What is that set? What are the classes? And what kinds of features would you use to build that model?</p>
 <p><font size=8 color="#009600">✎</font> Answer here.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

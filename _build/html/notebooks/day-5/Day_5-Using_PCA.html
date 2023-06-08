@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Using PCA &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -190,6 +189,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -212,6 +213,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -464,9 +468,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="using-pca">
+  <div class="tex2jax_ignore mathjax_ignore section" id="using-pca">
 <h1>Using PCA<a class="headerlink" href="#using-pca" title="Permalink to this headline">#</a></h1>
-<section id="goals">
+<div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">#</a></h2>
 <p>After completing this notebook, you will be able to:</p>
 <ol class="arabic simple">
@@ -476,8 +480,8 @@ document.write(`
 <li><p>Be able to transform data into lower dimensions uing PCA</p></li>
 <li><p>Be able to use KernelPCA to separate nonlinearly separable data</p></li>
 </ol>
-</section>
-<section id="our-imports">
+</div>
+<div class="section" id="our-imports">
 <h2>0. Our Imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -502,8 +506,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="getting-example-data">
+</div>
+<div class="section" id="getting-example-data">
 <h2>1. Getting Example Data<a class="headerlink" href="#getting-example-data" title="Permalink to this headline">#</a></h2>
 <p>Today we’ll be looking at sklearn’s breast cancer identification dataset. You could get this directly from sklearn with <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.datasets</span> <span class="pre">import</span> <span class="pre">load_breast_cancer</span></code>, but its good to practice reading in data so we’ll do it by hand. There are two files you’ll need for this data:</p>
 <ul class="simple">
@@ -520,7 +524,7 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="getting-the-right-columns">
+<div class="section" id="getting-the-right-columns">
 <h3>1.1 Getting the right columns<a class="headerlink" href="#getting-the-right-columns" title="Permalink to this headline">#</a></h3>
 <p>Note that the dataframe from <code class="docutils literal notranslate"><span class="pre">cancer.csv</span></code> has a column that is just the index again. This isn’t actually part of the data so you should get rid of it.</p>
 <p><font size=8 color="#009600">✎</font> Use the DataFrame <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method to make a new DataFrame that doesen’t have this extra column.</p>
@@ -532,8 +536,8 @@ document.write(`
 </div>
 </div>
 <p>How many features does this data have? Does all of the data fall on the same scale?</p>
-</section>
-<section id="scaling-the-data">
+</div>
+<div class="section" id="scaling-the-data">
 <h3>1.2 Scaling the Data<a class="headerlink" href="#scaling-the-data" title="Permalink to this headline">#</a></h3>
 <p>Like you saw in the previous notebook, to use PCA to reduce the number of features, the data needs to be scaled.</p>
 <p><font size=8 color="#009600">✎</font> Do this - use <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing.StandardScaler</span></code> to scale the <code class="docutils literal notranslate"><span class="pre">cancer.csv</span></code> data.</p>
@@ -544,13 +548,13 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="appplying-pca">
+</div>
+</div>
+<div class="section" id="appplying-pca">
 <h2>2. Appplying PCA<a class="headerlink" href="#appplying-pca" title="Permalink to this headline">#</a></h2>
 <p>Now that the data is scaled appropriatley, we’re ready to actually use Principal Component analysis.</p>
 <p>The syntax for doing PCA with scikit-learn is similar to other classes we’ve worked with from sklearn. You first initialize an instance of the PCA class (this is where you choose hyperparameters), then fit it to your data.  (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">documentation</a>)</p>
-<section id="task">
+<div class="section" id="task">
 <h3>2.1 Task<a class="headerlink" href="#task" title="Permalink to this headline">#</a></h3>
 <p><font size=8 color="#009600">✎</font>  Create and fit a PCA object without specifying any hyperparameters.</p>
 <div class="cell docutils container">
@@ -569,8 +573,8 @@ document.write(`
 </div>
 </div>
 <p>answer here</p>
-</section>
-<section id="explained-variance-curve">
+</div>
+<div class="section" id="explained-variance-curve">
 <h3>2.2 Explained Variance Curve<a class="headerlink" href="#explained-variance-curve" title="Permalink to this headline">#</a></h3>
 <p>It can be useful to visually see how much variance each principal component explains.</p>
 <p><font size=8 color="#009600">✎</font> Make a plot of the running total of the explained variance from each principal component.</p>
@@ -583,11 +587,11 @@ document.write(`
 </div>
 <p><font size=8 color="#009600">✎</font> About how many Principal Components does it take to cover <span class="math notranslate nohighlight">\(90\%\)</span> of the variance in the data?</p>
 <p>answer here</p>
-</section>
-<section id="transforming-data-with-pca">
+</div>
+<div class="section" id="transforming-data-with-pca">
 <h3>2.3 Transforming Data with PCA<a class="headerlink" href="#transforming-data-with-pca" title="Permalink to this headline">#</a></h3>
 <p>To move data into a lower dimensional space with PCA, we can use the <code class="docutils literal notranslate"><span class="pre">transform(data)</span></code> method. Since we can only visualize data in <span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(3\)</span> dimensions, let’s try transforming data using <span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(3\)</span> principal components.</p>
-<section id="d-transform">
+<div class="section" id="d-transform">
 <h4>2.3.1 2d Transform<a class="headerlink" href="#d-transform" title="Permalink to this headline">#</a></h4>
 <p><font size=8 color="#009600">✎</font> Do this - Create a new pca object with only 2 principal components and transform the data into this 2d space. How much of the total variance is explained by these two principal components?</p>
 <p>(note: Is there another method that lets you fit and transform with only one line of code?)</p>
@@ -598,8 +602,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="d-transformed-data-plot">
+</div>
+<div class="section" id="d-transformed-data-plot">
 <h4>2.3.2 2d Transformed Data Plot<a class="headerlink" href="#d-transformed-data-plot" title="Permalink to this headline">#</a></h4>
 <p><font size=8 color="#009600">✎</font> Do this - Make a scatter plot of the transformed data (now in 2d) with the two principal components as axes. Color the points in the scatter plot by if the corresponding cell is malignant or not.</p>
 <p>Hint: To get the colors working in the <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> </code> argument, try casting the dataframe with the target data as a numpy array. You’ll need to transpose / index the array to get the data in the form matplotlib needs.</p>
@@ -610,13 +614,13 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="observations">
+</div>
+<div class="section" id="observations">
 <h4>2.3.3 Observations<a class="headerlink" href="#observations" title="Permalink to this headline">#</a></h4>
 <p>What kind of structure do you see in this transformed data? Is it seperable? If yes (or mostly yes), <strong>how</strong> is it separable?</p>
 <p>answer here</p>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h4>2.3.3 3d Transform<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
 <p><font size=8 color="#009600">✎</font> Repeat the procedure from 2.3.1 - 2.3.3 but in 3d. Here some <a class="reference external" href="https://matplotlib.org/stable/tutorials/toolkits/mplot3d.html">documentation</a> on <code class="docutils literal notranslate"><span class="pre">mplot3d</span></code>, which you can use to make a 3d scatter plot.</p>
 <div class="cell docutils container">
@@ -626,10 +630,10 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
-<section id="time-permitting-kernel-pca">
+</div>
+</div>
+</div>
+<div class="section" id="time-permitting-kernel-pca">
 <h2>3. (Time Permitting) Kernel PCA<a class="headerlink" href="#time-permitting-kernel-pca" title="Permalink to this headline">#</a></h2>
 <p>Standard PCA is extremely useful for data that is linearly separable, but it falls short when data has nonlinear structure. In those cases, Kernel PCA may be of use. Kernel PCA is similar in concept to Support Vector Machines (SVMs), as it works by using a kernel function to move data into a higher dimensional space, where the data may become linearly seperable, and hence a typical PCA is effective.</p>
 <p>Here’s some circles like we saw last class:</p>
@@ -647,7 +651,7 @@ document.write(`
 <img alt="../../_images/ff7646faf03344690fa3f2d8bf7087112d68a69b1afed4d318dfd74264fd7836.png" src="../../_images/ff7646faf03344690fa3f2d8bf7087112d68a69b1afed4d318dfd74264fd7836.png" />
 </div>
 </div>
-<section id="standard-pca-on-nonlinear-data">
+<div class="section" id="standard-pca-on-nonlinear-data">
 <h3>3.1 Standard PCA on Nonlinear Data<a class="headerlink" href="#standard-pca-on-nonlinear-data" title="Permalink to this headline">#</a></h3>
 <p><font size=8 color="#009600">✎</font> Try using a regular PCA to transform this data (but don’t change the dimensionality) and plot the results.</p>
 <div class="cell docutils container">
@@ -659,8 +663,8 @@ document.write(`
 </div>
 <p><font size=8 color="#009600">✎</font> What does your group observe?</p>
 <p>answer here</p>
-</section>
-<section id="trying-kernel-pca">
+</div>
+<div class="section" id="trying-kernel-pca">
 <h3>3.2 Trying Kernel PCA<a class="headerlink" href="#trying-kernel-pca" title="Permalink to this headline">#</a></h3>
 <p><font size=8 color="#009600">✎</font> Now try using a Kernel PCA to transform the data. Try to find a kernel and set of parameters that separate the data linearly. What do you observe? (Hint: the <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code> kernel is sensitive to different values of <code class="docutils literal notranslate"><span class="pre">gamma</span></code>)</p>
 <div class="cell docutils container">
@@ -678,9 +682,9 @@ document.write(`
 <li><p>Incremental PCA: Like a standard PCA but can be much more memory efficient in some cases.</p></li>
 </ul>
 <p>This list is very much non-exhaustive.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

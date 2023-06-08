@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A Multiplicity of Models &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -190,6 +189,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -212,6 +213,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -470,7 +474,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="a-multiplicity-of-models">
+  <div class="tex2jax_ignore mathjax_ignore section" id="a-multiplicity-of-models">
 <h1>A Multiplicity of Models<a class="headerlink" href="#a-multiplicity-of-models" title="Permalink to this headline">#</a></h1>
 <p>We haven’t really talked too much about specific models or algorithms, that is something you can study on your own, but be warned – that liteature is extensive, so I’d suggest starting with YouTube videos.</p>
 <p>In general you might approach a given classification or regression problem with a number of different possible models to determine which is the most useful for your purposes (e.g., most accurate, least biased, etc.). A few potential models (<em>not exhaustive</em>) are listed below based on the type of problem they can solve:</p>
@@ -480,7 +484,7 @@ document.write(`
 </ul>
 <p>In this notebook, you will work with synthesized data to understand the workflow for using and comparing classifiers. Along the way, we will introduce new models, but only link to videos that explain what they do.</p>
 <hr class="docutils" />
-<section id="today-s-initial-imports">
+<div class="section" id="today-s-initial-imports">
 <h2>0. Today’s Initial Imports<a class="headerlink" href="#today-s-initial-imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -499,14 +503,14 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-validating-a-logistic-regression-model">
+<div class="section" id="example-validating-a-logistic-regression-model">
 <h2>1. Example: Validating a Logistic Regression Model<a class="headerlink" href="#example-validating-a-logistic-regression-model" title="Permalink to this headline">#</a></h2>
 <p>We will start with a Logistic Regression Model and synthesized data.</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=yIYKR4sgzI8">[Logistic Regression Explained]</a> <em>(No need to watch in class.)</em></p>
 <p>By reviewing and working with this example, you should be able to identify and explain the different ways in which we are validating the Logisitc Regression model.</p>
-<section id="making-classification-data">
+<div class="section" id="making-classification-data">
 <h3>1.1 Making classification data<a class="headerlink" href="#making-classification-data" title="Permalink to this headline">#</a></h3>
 <p>We start by making the data using the <code class="docutils literal notranslate"><span class="pre">make_classification()</span></code> method. I will pick 1000 samples with 20 features; only 4 of them will be informative about the 2 classes. What <code class="docutils literal notranslate"><span class="pre">make_classification()</span></code> returns are the data (the features for the model) and the class labels (the 1 or 0). For simplicity and familiarity, I convert them both to <code class="docutils literal notranslate"><span class="pre">pandas</span></code> data frames as this is typically what you would do with data you read in.</p>
 <div class="cell docutils container">
@@ -758,8 +762,8 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="plotting-feature-spaces">
+</div>
+<div class="section" id="plotting-feature-spaces">
 <h3>1.2 Plotting Feature Spaces<a class="headerlink" href="#plotting-feature-spaces" title="Permalink to this headline">#</a></h3>
 <p>We’ve found that looking at the classes in some feature subspace has been helpful in seeing if there are subspaces where the classes are more separated. We do this so frequently, it is worth having a little piece of code to do that. I’ve written one below.</p>
 <div class="cell docutils container">
@@ -799,8 +803,8 @@ document.write(`
 <p><font size=+3>✎</font> <strong>Do this:</strong> Which two features did you find? Keep note here!</p>
 <p><em>If you rerun the data creation process with a different random state, the same two features might no longer be useful.</em></p>
 <p><font size=+3>✎</font> <strong>Do this:</strong> Erase this and write here.</p>
-</section>
-<section id="a-logistic-regression-model">
+</div>
+<div class="section" id="a-logistic-regression-model">
 <h3>1.3 A Logistic Regression Model<a class="headerlink" href="#a-logistic-regression-model" title="Permalink to this headline">#</a></h3>
 <p>As we did with KNN, we will train and test a classification model. This time it will be a <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logitstic Regression</a> model. We will first use the confusion matrix to determine how things are going. I’ve written to code below to split the data, create the model, fit it, and predict the classes of the test data.</p>
 <div class="cell docutils container">
@@ -823,17 +827,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[116   4]
- [  1 129]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[121   0]
+ [  1 128]]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
 </pre></div>
 </div>
 </div>
 </div>
-<section id="the-metric-zoo">
+<div class="section" id="the-metric-zoo">
 <h4>1.3.1 The Metric Zoo<a class="headerlink" href="#the-metric-zoo" title="Permalink to this headline">#</a></h4>
 <p>There are many different ways to use the confusion matrix to determine different qualities of your classifier. Accuracy, the number of true positives and negatives comapred to all predictions is just one of these metrics. There’s a lot of them! <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">[Wikipedia article on evaluation metrics]</a></p>
 <p>Two of the more important ones are the accuracy (as we’ve used before) and the <a class="reference external" href="https://en.wikipedia.org/wiki/F-score">f1-score</a> (closer to 1 is better). The <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> toolkit has all these built-in, but one tool that is at the ready is <code class="docutils literal notranslate"><span class="pre">classification_report()</span></code>, which gives the accuracy, the f-1 score, as well as the <a class="reference external" href="https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values">precision</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">recall</a> – two other common metrics for evaluation.</p>
@@ -847,19 +851,19 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.99      0.97      0.98       120
-           1       0.97      0.99      0.98       130
+           0       0.99      1.00      1.00       121
+           1       1.00      0.99      1.00       129
 
-    accuracy                           0.98       250
-   macro avg       0.98      0.98      0.98       250
-weighted avg       0.98      0.98      0.98       250
+    accuracy                           1.00       250
+   macro avg       1.00      1.00      1.00       250
+weighted avg       1.00      1.00      1.00       250
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="auc-and-the-roc-curve">
+</div>
+</div>
+<div class="section" id="auc-and-the-roc-curve">
 <h3>1.4 AUC and the ROC Curve<a class="headerlink" href="#auc-and-the-roc-curve" title="Permalink to this headline">#</a></h3>
 <p>The Receiver Operator Characteristic (ROC) Curve and the associated Area Under the Curve (AUC) are additional tools that help us validate our model. Fortunately, <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> has <code class="docutils literal notranslate"><span class="pre">roc_curve</span></code>, that will return to quantities needed to plot this curve. The AUC can also be determined using the built in <code class="docutils literal notranslate"><span class="pre">roc_auc_score()</span></code> method.</p>
 <p>Below I wrote a little bit of code to plot the ROC curve and compute the AUC for this model.</p>
@@ -882,11 +886,11 @@ weighted avg       0.98      0.98      0.98       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ba60ab985d37e78081ac38a42f2e40ec5f3cd4d9df9205749ee7ca645a8a4095.png" src="../../_images/ba60ab985d37e78081ac38a42f2e40ec5f3cd4d9df9205749ee7ca645a8a4095.png" />
+<img alt="../../_images/43b77b314ceb089d11ce6b913edd8d7e1bb49576bff3378f00c3fcdaca79838c.png" src="../../_images/43b77b314ceb089d11ce6b913edd8d7e1bb49576bff3378f00c3fcdaca79838c.png" />
 </div>
 </div>
-</section>
-<section id="model-specific-tools-logistic-regression">
+</div>
+<div class="section" id="model-specific-tools-logistic-regression">
 <h3>1.5 Model Specific Tools - Logistic Regression<a class="headerlink" href="#model-specific-tools-logistic-regression" title="Permalink to this headline">#</a></h3>
 <p>A LR model uses a transformed linear model to fit the data. It predicts numerical weights for each feature in the data. Those numerical weights can be converted to odds ratio by exponentiating them:</p>
 <p><span class="math notranslate nohighlight">\(odds_i = \exp(\beta_i)\)</span></p>
@@ -905,16 +909,15 @@ weighted avg       0.98      0.98      0.98       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 1.20079098e+00 -2.36081918e-01  4.93269302e+00  2.52707492e+00
-   2.79512547e-01 -1.39363224e-01 -4.37219079e-01 -2.93711440e-01
-   1.57774448e-01 -7.18714143e-02  1.07718834e-01 -4.58719481e-01
-   2.07555465e-01  6.41153762e-01 -5.16024844e-01 -2.17974002e-01
-  -5.18044054e-01 -1.82605537e-03 -3.07899374e+00  1.15346893e-01]]
-Odds Ratios: [3.32274410e+00 7.89715979e-01 1.38752673e+02 1.25168397e+01
- 1.32248501e+00 8.69911998e-01 6.45829928e-01 7.45491579e-01
- 1.17090207e+00 9.30650556e-01 1.11373456e+00 6.32092534e-01
- 1.23066597e+00 1.89867023e+00 5.96888563e-01 8.04146348e-01
- 5.95684536e-01 9.98175611e-01 4.60055268e-02 1.12226268e+00]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 8.61437006e-01 -3.70265032e-01  3.71631053e+00  1.85410032e+00
+  -1.10525038e-02  4.17830430e-02 -3.90232818e-01 -4.49883426e-01
+  -4.38335859e-01 -1.73620650e-01  2.13333912e-01 -3.38943473e-01
+   4.84382038e-02  3.62511271e-01  1.98746594e-03 -2.59648788e-01
+  -2.33390828e-01  1.54544847e-03 -2.49942350e+00  1.95171971e-01]]
+Odds Ratios: [ 2.36655901  0.69055129 41.11243102  6.38595035  0.98900835  1.04266824
+  0.67689926  0.63770249  0.64510908  0.84061572  1.2377979   0.71252273
+  1.04963051  1.43693342  1.00198944  0.77132244  0.79184404  1.00154664
+  0.08213233  1.21552   ]
 </pre></div>
 </div>
 </div>
@@ -927,8 +930,8 @@ Odds Ratios: [3.32274410e+00 7.89715979e-01 1.38752673e+02 1.25168397e+01
 </div>
 </div>
 </div>
-</section>
-<section id="monte-carlo-validation">
+</div>
+<div class="section" id="monte-carlo-validation">
 <h3>1.5 Monte Carlo Validation<a class="headerlink" href="#monte-carlo-validation" title="Permalink to this headline">#</a></h3>
 <p>One of the important things about machine learning is that it often relies on the randomness of the draw of training and testing sets. As a result, any  one time the model is run you are working with a particualr choice of data for training and testing. Thus, there’s a problem in reporting the results of a single model because it depends on the curiousities of what was drawn in the first place!</p>
 <p>One of the ways we validate the model we have used is to determine how representative our one run is compared to a large number of runs. Ideally, we’d like to know what the disitrbution of possible results could be. That allows us to put some error bounds on the estimated model parameters and to explain the confidence we have in our approach and results.</p>
@@ -966,15 +969,15 @@ Odds Ratios: [3.32274410e+00 7.89715979e-01 1.38752673e+02 1.25168397e+01
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.988
-AUC: 0.9893617021276595
-Coefs: [[ 1.30405636 -0.55831336  4.87433461  2.52005703 -0.14413387 -0.31768611
-  -0.42099465 -0.30376852 -0.5461883   0.13327192  0.01640248  0.13906363
-  -0.02089164  0.38683774 -0.22838935 -0.03737366 -0.43328023 -0.05441173
-  -2.96527531 -0.03415901]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.98
+AUC: 0.9796062789500771
+Coefs: [[ 1.77122752 -0.35569709  7.80067001  3.61087164  1.00135424  0.03540748
+  -0.27157261 -0.38260835  0.14185264 -0.35659388 -0.0184247  -0.12048229
+  -0.20418968  0.98932964 -0.69475104 -0.11172684 -1.00175747 -0.22759542
+  -4.6406333   0.83937512]]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
 </pre></div>
 </div>
@@ -997,10 +1000,10 @@ Coefs: [[ 1.30405636 -0.55831336  4.87433461  2.52005703 -0.14413387 -0.31768611
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="parameter-tuning">
+<div class="section" id="parameter-tuning">
 <h2>2. Parameter Tuning<a class="headerlink" href="#parameter-tuning" title="Permalink to this headline">#</a></h2>
 <p>Great! Now that we have seen how we can explore our confidence in the model we created, we can now determine if indeed we have the best logisitc regression model we could have. There’s a number of parameters that the logisitic regression method can take when you create an instance. Each of them control different aspects of how the model fits.</p>
 <p>For our purposes, we will just explore if it was ok to use no penalization. Penalization is how a logistic regression model might control for variables that don’t matter too much. Penalization tends to shrink model coefficients towards zero if they are small, so it’s clear what contributes and what doesn’t.</p>
@@ -1017,17 +1020,17 @@ Coefs: [[ 1.30405636 -0.55831336  4.87433461  2.52005703 -0.14413387 -0.31768611
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
 10 fits failed out of a total of 20.
 The score on these train-test partitions for these parameters will be set to nan.
 If these failures are not expected, you can try to debug them by setting error_score=&#39;raise&#39;.
@@ -1036,29 +1039,27 @@ Below are more details about the failures:
 --------------------------------------------------------------------------------
 5 fits failed with the following error:
 Traceback (most recent call last):
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
     estimator.fit(X_train, y_train, **fit_params)
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
     solver = _check_solver(self.solver, self.penalty, self.dual)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
     raise ValueError(
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
 
 --------------------------------------------------------------------------------
 5 fits failed with the following error:
 Traceback (most recent call last):
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
     estimator.fit(X_train, y_train, **fit_params)
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
     solver = _check_solver(self.solver, self.penalty, self.dual)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
     raise ValueError(
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
 
   warnings.warn(some_fits_failed_message, FitFailedWarning)
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.984   nan 0.981]
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.984   nan 0.981]
   warnings.warn(
 </pre></div>
 </div>
@@ -1068,7 +1069,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 <p>At the end of all this, we get call back with the parameter grid we created. Notice that if we had another parameter to set, <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> will try to run all parameter combinations. So that each new parameter is multiplicative leading to many models quite fast. So be careful here!</p>
 <p>For example, consider we had three paramters, one that had two settings, one with three, and one with five. If you call a grid search with these paramters, you will be asking <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> to create an run 2x3x5 models (30 models). If you have another parameter you want to try that has another 4 settings, you are up to 120 models!</p>
-<section id="results-of-a-grid-search">
+<div class="section" id="results-of-a-grid-search">
 <h3>2.1 Results of a Grid Search<a class="headerlink" href="#results-of-a-grid-search" title="Permalink to this headline">#</a></h3>
 <p>In any event, after running this, we can find the <code class="docutils literal notranslate"><span class="pre">best_estimator_</span></code> and the <code class="docutils literal notranslate"><span class="pre">best_score_</span></code>. The <code class="docutils literal notranslate"><span class="pre">best_estimator</span></code> is the call you should use for the best model tested. If any settings are the default, they will not appear in the parentheses. The <code class="docutils literal notranslate"><span class="pre">best_score_</span></code> is the accuracy of that model. Of course, you can get more details (like above) if you choose that best model and run it through Monte Carlo validation.</p>
 <div class="cell docutils container">
@@ -1085,8 +1086,8 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 </div>
-</section>
-<section id="what-about-other-classifiers">
+</div>
+<div class="section" id="what-about-other-classifiers">
 <h3>2.2 What about other classifiers?<a class="headerlink" href="#what-about-other-classifiers" title="Permalink to this headline">#</a></h3>
 <p>There are many other classifers we can try on the same problem to see how well they do. There’s many out there and there’s lots of nuance to understand about each if you are going to use them. We will use K Nearest Neighbors, Supprt Vector Machines, and a Random Forest Classifier. To learn more about each, I’d suggest these videos:</p>
 <ul class="simple">
@@ -1104,7 +1105,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 </div>
-<section id="knn">
+<div class="section" id="knn">
 <h4>2.2.1 KNN<a class="headerlink" href="#knn" title="Permalink to this headline">#</a></h4>
 <p>As we did previously we can vary the number of neighbors from the default of 5 (always good to know the defaults of the models you are calling). But this time we will use <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>. I’ve written the code to do this below. You can adapt it for other models in the next sections as you like.</p>
 <div class="cell docutils container">
@@ -1151,7 +1152,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.972, 0.972312912105499)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.964, 0.9630661797680825)
 </pre></div>
 </div>
 </div>
@@ -1193,16 +1194,16 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9667999999999999 +/- 0.01091787525116495
-Mean AUC: 0.9668592083670348 +/- 0.01071217541494987
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9655866666666666 +/- 0.010811837134466203
+Mean AUC: 0.9656546816032755 +/- 0.010633124142022832
 </pre></div>
 </div>
-<img alt="../../_images/39d3aaae28401a1682308b1dc78808e04eecee023ece00e12a5c9088a37f92d3.png" src="../../_images/39d3aaae28401a1682308b1dc78808e04eecee023ece00e12a5c9088a37f92d3.png" />
-<img alt="../../_images/d75b3807dadcfa69ed635e8ba33776040ddf86f9bfa79c43f25fa9c646346db4.png" src="../../_images/d75b3807dadcfa69ed635e8ba33776040ddf86f9bfa79c43f25fa9c646346db4.png" />
+<img alt="../../_images/62993ad327beb6bb7b13cbd5c3ea91576ac37c10df0dc6c423372fbf681c7152.png" src="../../_images/62993ad327beb6bb7b13cbd5c3ea91576ac37c10df0dc6c423372fbf681c7152.png" />
+<img alt="../../_images/aef916b385ca2c4abe747a24e642bb432bfebb4bef71f5b3cf38ade71f05884d.png" src="../../_images/aef916b385ca2c4abe747a24e642bb432bfebb4bef71f5b3cf38ade71f05884d.png" />
 </div>
 </div>
-</section>
-<section id="linearsvc">
+</div>
+<div class="section" id="linearsvc">
 <h4>2.2.2 LinearSVC<a class="headerlink" href="#linearsvc" title="Permalink to this headline">#</a></h4>
 <p><font size=+3>✎</font> <strong>Do this:</strong> For the <code class="docutils literal notranslate"><span class="pre">LinearSVC()</span></code> model, repeat the work above to determine the distribution of accuracies and aucs for the model. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to vary the <code class="docutils literal notranslate"><span class="pre">C</span></code> parameter and find the best model. <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html">Linear SVC Documentation</a></p>
 <div class="cell docutils container">
@@ -1212,8 +1213,8 @@ Mean AUC: 0.9668592083670348 +/- 0.01071217541494987
 </div>
 </div>
 </div>
-</section>
-<section id="random-forest">
+</div>
+<div class="section" id="random-forest">
 <h4>2.2.3 Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">#</a></h4>
 <p><font size=+3>✎</font> <strong>Do this:</strong> For the <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier()</span></code> model, repeat the work above to determine the distribution of accuracies and aucs for the model. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to vary the <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> parameter and find the best model. <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest Documentation</a></p>
 <div class="cell docutils container">
@@ -1223,11 +1224,11 @@ Mean AUC: 0.9668592083670348 +/- 0.01071217541494987
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 <hr class="docutils" />
-<section id="what-about-other-kinds-of-data">
+<div class="section" id="what-about-other-kinds-of-data">
 <h2>3. What about other kinds of data?<a class="headerlink" href="#what-about-other-kinds-of-data" title="Permalink to this headline">#</a></h2>
 <p>Many times it is important to know the strucutre of your data, hence plotting feature spaces. Sometimes the models you are using might be incompatible with the structure of your data. Some models try to draw lines to separate, some draw curves, some are more emergent. Let’s test this out with a ciruclar data set where we can clearly see the separation. Below, we create some data and store the values in data frames.</p>
 <div class="cell docutils container">
@@ -1272,28 +1273,28 @@ Mean AUC: 0.9668592083670348 +/- 0.01071217541494987
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.728085</td>
-      <td>-0.331500</td>
+      <td>-0.187381</td>
+      <td>0.982287</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.448383</td>
-      <td>-0.893841</td>
+      <td>0.997159</td>
+      <td>-0.075327</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.711536</td>
-      <td>0.702650</td>
+      <td>-0.947098</td>
+      <td>0.320944</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.617860</td>
-      <td>-0.786288</td>
+      <td>-0.778462</td>
+      <td>-0.627691</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.999684</td>
-      <td>-0.025130</td>
+      <td>0.992115</td>
+      <td>0.125333</td>
     </tr>
   </tbody>
 </table>
@@ -1330,7 +1331,7 @@ Mean AUC: 0.9668592083670348 +/- 0.01071217541494987
   <tbody>
     <tr>
       <th>0</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1352,7 +1353,7 @@ Mean AUC: 0.9668592083670348 +/- 0.01071217541494987
 </table>
 </div></div></div>
 </div>
-<section id="plot-it">
+<div class="section" id="plot-it">
 <h3>3.1 Plot it!<a class="headerlink" href="#plot-it" title="Permalink to this headline">#</a></h3>
 <p>Let’s plot this data to see why we might not expect the same results as we had found for the previous case.</p>
 <div class="cell docutils container">
@@ -1366,7 +1367,7 @@ Mean AUC: 0.9668592083670348 +/- 0.01071217541494987
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/43611f01b29a26f2f4efd2459f81d8f1a40f3ee84af17cb36251fe61d54e40ed.png" src="../../_images/43611f01b29a26f2f4efd2459f81d8f1a40f3ee84af17cb36251fe61d54e40ed.png" />
+<img alt="../../_images/42c87a6e996ebe02320edd1972c7c66e4ff570d7f93a0f441f5c3e8fcd55e251.png" src="../../_images/42c87a6e996ebe02320edd1972c7c66e4ff570d7f93a0f441f5c3e8fcd55e251.png" />
 </div>
 </div>
 <p>It is really easy to see in the figure above that we have two clearly separated classes. Let’s fire up the Logisitic Regression model and see what it can find.</p>
@@ -1388,20 +1389,20 @@ Mean AUC: 0.9668592083670348 +/- 0.01071217541494987
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
-0.43599999999999994
+0.42400000000000004
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
 10 fits failed out of a total of 20.
 The score on these train-test partitions for these parameters will be set to nan.
 If these failures are not expected, you can try to debug them by setting error_score=&#39;raise&#39;.
@@ -1410,36 +1411,34 @@ Below are more details about the failures:
 --------------------------------------------------------------------------------
 5 fits failed with the following error:
 Traceback (most recent call last):
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
     estimator.fit(X_train, y_train, **fit_params)
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
     solver = _check_solver(self.solver, self.penalty, self.dual)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
     raise ValueError(
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
 
 --------------------------------------------------------------------------------
 5 fits failed with the following error:
 Traceback (most recent call last):
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
     estimator.fit(X_train, y_train, **fit_params)
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
     solver = _check_solver(self.solver, self.penalty, self.dual)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
+  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
     raise ValueError(
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
 
   warnings.warn(some_fits_failed_message, FitFailedWarning)
-/home/caballero/.conda/envs/teaching/lib/python3.11/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.436   nan 0.436]
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.424   nan 0.424]
   warnings.warn(
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="time-to-try-other-models">
+</div>
+<div class="section" id="time-to-try-other-models">
 <h3>3.2 Time to try other models<a class="headerlink" href="#time-to-try-other-models" title="Permalink to this headline">#</a></h3>
 <p>It appears the the logistic regression does pretty poorly. That is because logistic regression is not good with nonlinear problems. It is a linear model, so it’s hard for it to deal with things like circles!</p>
 <p><font size=+3>✎</font> <strong>Do this:</strong> Test the SVC, KNN, and RF models on these data. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to find the best model for each. How do the accuracies compare? Which might you use to work more on this problem? <em>No need to plot disitrbutions for this, you can do that later if you like.</em></p>
@@ -1450,8 +1449,8 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 </div>
-</section>
-<section id="let-s-make-the-data-a-bit-messier">
+</div>
+<div class="section" id="let-s-make-the-data-a-bit-messier">
 <h3>3.3 Let’s make the data a bit messier.<a class="headerlink" href="#let-s-make-the-data-a-bit-messier" title="Permalink to this headline">#</a></h3>
 <p>You probably found that one model worked perfectly. We can add a little noice to make things more interesting.</p>
 <div class="cell docutils container">
@@ -1467,11 +1466,11 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/63a43c7492c68bb971bec9f5446eaa1f9ec3fea84355524be0144406375e3a48.png" src="../../_images/63a43c7492c68bb971bec9f5446eaa1f9ec3fea84355524be0144406375e3a48.png" />
+<img alt="../../_images/843217832b74c82deb568f7a3053bdf91f8b301ce99871b60919f21e07f76013.png" src="../../_images/843217832b74c82deb568f7a3053bdf91f8b301ce99871b60919f21e07f76013.png" />
 </div>
 </div>
-</section>
-<section id="try-to-find-the-best-model-for-this-data">
+</div>
+<div class="section" id="try-to-find-the-best-model-for-this-data">
 <h3>3.4 Try to find the best model for this data<a class="headerlink" href="#try-to-find-the-best-model-for-this-data" title="Permalink to this headline">#</a></h3>
 <p><font size=+3>✎</font> <strong>Do this:</strong> Test the LR, SVC, KNN, and RF models on these data. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to find the best model for each. How do the accuracies compare? Which might you use to work more on this problem? <em>No need to plot disitrbutions for this, you can do that later if you like.</em></p>
 <div class="cell docutils container">
@@ -1481,9 +1480,9 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

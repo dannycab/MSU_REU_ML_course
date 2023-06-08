@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What is Principal Component Analysis? &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -188,6 +187,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -210,6 +211,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -439,7 +443,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="what-is-principal-component-analysis">
+  <div class="tex2jax_ignore mathjax_ignore section" id="what-is-principal-component-analysis">
 <h1>What is Principal Component Analysis?<a class="headerlink" href="#what-is-principal-component-analysis" title="Permalink to this headline">#</a></h1>
 <p>In data science, we often run into datasets with a very large number of features. This is often called the <strong>curse of dimensionality</strong> and can cause a lot of issues, especially overfitting and undervaluing important features. Many features can be redundant or carry little to no information of value. Not to mention massive datasets can cause models to run a lot slower.</p>
 <p>To lift this curse, we rely on tools from the area of machine learning called <strong>dimension reduction</strong>. Dimensionality reduction seeks to move (or project) data into lower dimensional space while still retaining the important information.</p>
@@ -465,7 +469,7 @@ document.write(`
         </div></div>
 </div>
 <p>If you’re interested in the specifics of the PCA algortithm <a class="reference external" href="https://towardsdatascience.com/the-mathematics-behind-principal-component-analysis-fff2d7f4b643">this article</a> does a good job of explaining how the algorithm works, and <a class="reference external" href="https://medium.com/data-science-365/an-in-depth-guide-to-pca-with-numpy-1fb128535b3e">this one</a> gives a good explanation on how you might go about implementing the algorithm by hand (we won’t do that in this course).</p>
-<section id="data-scaling">
+<div class="section" id="data-scaling">
 <h2>Data Scaling<a class="headerlink" href="#data-scaling" title="Permalink to this headline">#</a></h2>
 <p>PCA is very sensitive to the relative scaling of features in data. That is, if features are scaled differently, the ones with larger values will be treated as much more significant than ones with smaller values, even if that isn’t actually the case. To get around this issue we standardize the scale of our data.</p>
 <p>Convieniently, scikit-learn has a class <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing.StandardScaler</span></code> (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">documentation</a>) that that can handle this scaling for us. Using it is similar to using other classes in sklearn, here’s a code snippet to help:</p>
@@ -642,8 +646,8 @@ document.write(`
 </div></div></div>
 </div>
 <p>Look at how the range of possible values for each data has changed.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
