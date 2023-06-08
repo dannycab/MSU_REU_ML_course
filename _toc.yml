@@ -23,6 +23,8 @@ parts:
   - file: notebooks/day-3/Day-3_Polynomial_Regression.ipynb
   - file: notebooks/notes/importance_of_visualization.ipynb
   - file: notebooks/notes/regression_with_scikit.ipynb
+  - file: notebooks/notes/cross_validation.ipynb
+  - file: notebooks/notes/reverse_feature_elimination.ipynb
   - file: notebooks/day-3/Day-3_Multiple_Regression.ipynb
 - caption: Evaluating Models
   chapters:

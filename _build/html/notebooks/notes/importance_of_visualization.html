@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>The Importance of Visualization &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -452,7 +453,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="the-importance-of-visualization">
+  <section class="tex2jax_ignore mathjax_ignore" id="the-importance-of-visualization">
 <h1>The Importance of Visualization<a class="headerlink" href="#the-importance-of-visualization" title="Permalink to this headline">#</a></h1>
 <p>The Anscombe dataset is a dataset often used to demonstrate the importance of visualization in exploratory data analysis. It consists of four different sets of data that have identical statistical properties (mean, variance, correlation, and linear regression), but look very different when plotted. H</p>
 <div class="cell docutils container">
@@ -499,7 +500,7 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="section" id="compute-some-common-statistics">
+<section id="compute-some-common-statistics">
 <h2>Compute some common statistics<a class="headerlink" href="#compute-some-common-statistics" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Mean - unweighted average of the data</p></li>
@@ -628,11 +629,11 @@ Linear Regression intercept   3.000091   3.000909   3.002455   3.001727
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c853af8a7adb2fd741f0195eb31ca5569327185c8c7a3cde483a564a8f03dbd2.png" src="../../_images/c853af8a7adb2fd741f0195eb31ca5569327185c8c7a3cde483a564a8f03dbd2.png" />
+<img alt="../../_images/078af2333ff0c64559a930be94ab919271e6f97cda4503336c152806dc41e9f4.png" src="../../_images/078af2333ff0c64559a930be94ab919271e6f97cda4503336c152806dc41e9f4.png" />
 </div>
 </div>
-</div>
-<div class="section" id="focus-on-dataset-1">
+</section>
+<section id="focus-on-dataset-1">
 <h2>Focus on Dataset 1<a class="headerlink" href="#focus-on-dataset-1" title="Permalink to this headline">#</a></h2>
 <p>We will performa a standard regression (not machine learning) on data set to get intution about how this works. The process will be:</p>
 <ol class="arabic simple">
@@ -642,7 +643,7 @@ Linear Regression intercept   3.000091   3.000909   3.002455   3.001727
 <li><p>Visualize</p></li>
 </ol>
 <p>This looks linear, but we often have to go back and forth between them and tweak things.</p>
-<div class="section" id="build-the-model-and-check-the-coefficients">
+<section id="build-the-model-and-check-the-coefficients">
 <h3>Build the model and check the coefficients<a class="headerlink" href="#build-the-model-and-check-the-coefficients" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -663,14 +664,14 @@ Linear Regression intercept   3.000091   3.000909   3.002455   3.001727
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 3.0000909090909094
-Coefficient: 0.5000909090909093
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept: 3.0000909090909103
+Coefficient: 0.5000909090909091
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="compute-r-2">
+</section>
+<section id="compute-r-2">
 <h3>Compute R<span class="math notranslate nohighlight">\(^2\)</span><a class="headerlink" href="#compute-r-2" title="Permalink to this headline">#</a></h3>
 <p>You’ve probably learned that R<span class="math notranslate nohighlight">\(^2\)</span> is a good measure for how well a linear fit is working. Canonically, we say that a given R<span class="math notranslate nohighlight">\(^2\)</span> will indicate what fraction of the variance the model can account for. 1.0 being a perfect fit. There are many reasons to use this measure, but as we will learn we can make more valid cliams with deeper investagations (and with machine learning techniques)</p>
 <div class="cell docutils container">
@@ -685,16 +686,16 @@ Coefficient: 0.5000909090909093
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R-squared: 0.6665424595087748
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R-squared: 0.666542459508775
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="visualize-the-fit">
+</section>
+<section id="visualize-the-fit">
 <h3>Visualize the fit<a class="headerlink" href="#visualize-the-fit" title="Permalink to this headline">#</a></h3>
 <p>There are several ways we can validate our fits using this approach. Three quick graphs that help are the model-fit plot, the predicted vs true plot, and the residual plot. Each of them appear below where they are also described.</p>
-<div class="section" id="model-fit-plot">
+<section id="model-fit-plot">
 <h4>Model-Fit Plot<a class="headerlink" href="#model-fit-plot" title="Permalink to this headline">#</a></h4>
 <p>This is probably the plot you are most used to seeing. All of the data are scatter plot and the line of best fit is run through them. This is the same graph as above.</p>
 <div class="cell docutils container">
@@ -713,8 +714,8 @@ Coefficient: 0.5000909090909093
 <img alt="../../_images/0b68cf143b4015fe47b4c44643af1f20b02e8b1a782a888238f0f277a128be00.png" src="../../_images/0b68cf143b4015fe47b4c44643af1f20b02e8b1a782a888238f0f277a128be00.png" />
 </div>
 </div>
-</div>
-<div class="section" id="predicted-vs-true-plot">
+</section>
+<section id="predicted-vs-true-plot">
 <h4>Predicted vs. True plot<a class="headerlink" href="#predicted-vs-true-plot" title="Permalink to this headline">#</a></h4>
 <p>The model makes predictions (the points on the line of best fit that are calucalted from the x values). If the model were perfect the predicted values and true values would perfectly line up. However, we can see if the model is predicting better for different data if we plot the true data vs the predicted data. The 45 degree line would correspond to perfect prediction.</p>
 <div class="cell docutils container">
@@ -733,8 +734,8 @@ Coefficient: 0.5000909090909093
 <img alt="../../_images/18fc0e08a930636bb41068a67031304d923aeda04d61fd4a5a0ab08b6fbf9ad4.png" src="../../_images/18fc0e08a930636bb41068a67031304d923aeda04d61fd4a5a0ab08b6fbf9ad4.png" />
 </div>
 </div>
-</div>
-<div class="section" id="residual-plot">
+</section>
+<section id="residual-plot">
 <h4>Residual Plot<a class="headerlink" href="#residual-plot" title="Permalink to this headline">#</a></h4>
 <p>One of the most common plots for a linear model is the residual plot, which indicates how far the predictions are from the model. The distribution of those residuals is very important and indicate if a linear model is a reasonable choice. We want those residiual plots to look random and Gaussian. If they have structure or form, a linear regression might not be our regressor of choice.</p>
 <div class="cell docutils container">
@@ -756,17 +757,17 @@ Coefficient: 0.5000909090909093
 <img alt="../../_images/2107c7840e6fc64892be650e2acd6e0ed7b1b80e98b4b177913a1771502e3d0e.png" src="../../_images/2107c7840e6fc64892be650e2acd6e0ed7b1b80e98b4b177913a1771502e3d0e.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="things-to-try">
+</section>
+</section>
+</section>
+<section id="things-to-try">
 <h2>Things to try<a class="headerlink" href="#things-to-try" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Repeat this analysis for another data set. How does it compare? How can you tell that the linear model isn’t the best choice?</p></li>
 <li><p>There’s no restriction to using another type of regression algorithm. Repeat this analysis with <a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html">another regression model</a>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

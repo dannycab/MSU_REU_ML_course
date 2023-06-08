@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Python Basics Review &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -462,9 +463,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="python-basics-review">
+  <section class="tex2jax_ignore mathjax_ignore" id="python-basics-review">
 <h1>Python Basics Review<a class="headerlink" href="#python-basics-review" title="Permalink to this headline">#</a></h1>
-<div class="section" id="varables">
+<section id="varables">
 <h2>1. Varables<a class="headerlink" href="#varables" title="Permalink to this headline">#</a></h2>
 <p>In python, we use <strong>variables</strong> to contain data. Here are the most common types:</p>
 <ul class="simple">
@@ -506,10 +507,10 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="operators">
+</section>
+<section id="operators">
 <h2>2. Operators<a class="headerlink" href="#operators" title="Permalink to this headline">#</a></h2>
-<div class="section" id="arithmetic">
+<section id="arithmetic">
 <h3>2.1 Arithmetic<a class="headerlink" href="#arithmetic" title="Permalink to this headline">#</a></h3>
 <p>In python we can perform basic arithmetic operations:</p>
 <div class="cell docutils container">
@@ -565,8 +566,8 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="comparision">
+</section>
+<section id="comparision">
 <h3>2.2 Comparision<a class="headerlink" href="#comparision" title="Permalink to this headline">#</a></h3>
 <p>Often it is useful to compare the values of different variables, these comparisions return booleans.</p>
 <div class="cell docutils container">
@@ -593,11 +594,11 @@ True
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="lists-tuples-and-dictionaries">
+</section>
+</section>
+<section id="lists-tuples-and-dictionaries">
 <h2>3. Lists, Tuples, and Dictionaries<a class="headerlink" href="#lists-tuples-and-dictionaries" title="Permalink to this headline">#</a></h2>
-<div class="section" id="lists">
+<section id="lists">
 <h3>3.1 Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h3>
 <p><strong>Lists</strong> store several variables. These variables need not be the same type. Lists are declared with <code class="docutils literal notranslate"><span class="pre">[]</span></code> with commas separating entries.</p>
 <div class="cell docutils container">
@@ -671,8 +672,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="tuples">
+</section>
+<section id="tuples">
 <h3>3.2 Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h3>
 <p>There is another object similar to lists called <strong>tuples</strong>. We can create tuples using <code class="docutils literal notranslate"><span class="pre">()</span></code>, and index them just like lists:</p>
 <div class="cell docutils container">
@@ -728,8 +729,8 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="dictionaries">
+</section>
+<section id="dictionaries">
 <h3>3.3 Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h3>
 <p><strong>Dictionaries</strong> store values in key:value pairs.</p>
 <div class="cell docutils container">
@@ -775,9 +776,9 @@ True
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="arrays">
+</section>
+</section>
+<section id="arrays">
 <h2>4. Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">#</a></h2>
 <p><strong>NumPy Arrays</strong> store many floating point numbers (or complex numbers). These are part of the python library <strong>NumPy</strong> which is probably the most important python library.</p>
 <div class="cell docutils container">
@@ -933,8 +934,8 @@ masked: [0.  0.5 1.  1.5 2. ]
 </div>
 </div>
 <p>Numpy has a wealth of other functionality, such as built in functions like <code class="docutils literal notranslate"><span class="pre">sin</span></code> or <code class="docutils literal notranslate"><span class="pre">exp</span></code> or methods for arrays such as finding the maximum of an array with <code class="docutils literal notranslate"><span class="pre">.max</span></code> or the index of that entry with <code class="docutils literal notranslate"><span class="pre">.argmax</span></code>, but there are far too many of these methods to list here. NumPy even has a fast fourier transform! A general rule of thumb is if you think it would exist, it probably does and you can find it in the <a class="reference external" href="https://numpy.org/">numpy documentation</a>.</p>
-</div>
-<div class="section" id="plotting">
+</section>
+<section id="plotting">
 <h2>5. Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">#</a></h2>
 <p>One of the great things about python is that it makes plotting pretty simple, thanks to the <strong>matplotlib</strong> library.</p>
 <div class="cell docutils container">
@@ -986,11 +987,11 @@ masked: [0.  0.5 1.  1.5 2. ]
 </div>
 </div>
 <p>Matplotlib has tons of other features as well, such as scatter plots, bar charts, subplots and 3d plotting, just to name a few. <a class="reference external" href="https://towardsdatascience.com/matplotlib-tutorial-learn-basics-of-pythons-powerful-plotting-library-b5d1b8f67596">This article</a> has a lot of great information on getting started with matplotlib.</p>
-</div>
-<div class="section" id="loops">
+</section>
+<section id="loops">
 <h2>6. Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h2>
 <p>Sometimes you need to be able to write an algorithm yourself. To do this, we use <strong>loops</strong>. Specifically, there are two main kinds of loops, <strong>for loops</strong> and <strong>while loops</strong>.</p>
-<div class="section" id="for-loops">
+<section id="for-loops">
 <h3>6.1 For Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">#</a></h3>
 <p>For looops loop over a container. They have the form <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">y:</span></code> where y is the container. As the loop runs, <code class="docutils literal notranslate"><span class="pre">x</span></code> takes on the value of everything stored in <code class="docutils literal notranslate"><span class="pre">y</span></code>, one after the other. Lines of code that are part of the loop after its declaration must be indented in the lines after the loop is declared. Here are a couple examples of simple for loops:</p>
 <div class="cell docutils container">
@@ -1022,8 +1023,8 @@ loop 2:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="while-loops">
+</section>
+<section id="while-loops">
 <h3>6.2 While Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">#</a></h3>
 <p>While loops continue to run while some logical statement is <code class="docutils literal notranslate"><span class="pre">True</span></code> and stop running when that statement is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="cell docutils container">
@@ -1047,8 +1048,8 @@ a: 0 b: 4
 </div>
 </div>
 <p>A warning - If you make a mistake when using while loops, it is much easier for things to go spectacularly wrong since a loop could try to run forever. A good general rule of thumb is to use for loops whenever possible and only use while loops when it is extremely convienient to do so.</p>
-</div>
-<div class="section" id="example-numerical-integration-of-object-falling-in-1d">
+</section>
+<section id="example-numerical-integration-of-object-falling-in-1d">
 <h3>5.3 Example: Numerical Integration of Object Falling in 1d<a class="headerlink" href="#example-numerical-integration-of-object-falling-in-1d" title="Permalink to this headline">#</a></h3>
 <p>When learning loops in python, it can be useful to see how you would do the same thing a couple different ways. Here, we show two ways of numerically solving an object falling in 1d with no air resistance. We choose <span class="math notranslate nohighlight">\(m = 1 kg\)</span>, <span class="math notranslate nohighlight">\(v_0 = 0 m/s\)</span>, <span class="math notranslate nohighlight">\(p_0 = 0 kgm/s\)</span>, and <span class="math notranslate nohighlight">\(y_0 = 500 m\)</span> for initial conditions and the standard <span class="math notranslate nohighlight">\(g = 9.81 m/s^2\)</span> for the acceleration due to gravity.</p>
 <p>The numerical method we are going to use is called <strong>Euler’s Method</strong>, which is the simplest but also least effective numerical integration technique. Euler’s method works by first updating the momentum of the object with the force it feels, then it updates the position of the object using its velocity (which can be found from <span class="math notranslate nohighlight">\(v = p/m\)</span>).</p>
@@ -1121,8 +1122,8 @@ a: 0 b: 4
 <img alt="../../_images/9de13a527f2c649794199eb0adddfd489f30a83b9bacbde800f7d3aacf3f7060.png" src="../../_images/9de13a527f2c649794199eb0adddfd489f30a83b9bacbde800f7d3aacf3f7060.png" />
 </div>
 </div>
-</div>
-<div class="section" id="if-and-else-statements">
+</section>
+<section id="if-and-else-statements">
 <h3>6.4 if and else statements<a class="headerlink" href="#if-and-else-statements" title="Permalink to this headline">#</a></h3>
 <p>Conditional logic in loops is often very useful. This can be done with <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements. Here’s an example:</p>
 <div class="cell docutils container">
@@ -1170,8 +1171,8 @@ a: 0 b: 4
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="nested-loops">
+</section>
+<section id="nested-loops">
 <h3>6.5 Nested loops<a class="headerlink" href="#nested-loops" title="Permalink to this headline">#</a></h3>
 <p>multiple loops can be <strong>nested</strong> within each other. Here’s an example of a code that makes a grid of points and plots them.</p>
 <div class="cell docutils container">
@@ -1199,9 +1200,9 @@ a: 0 b: 4
 <img alt="../../_images/0b1799de3cf3779976160422e0a1f1f985ee00103f2115b95b6ca6fe6277ecc3.png" src="../../_images/0b1799de3cf3779976160422e0a1f1f985ee00103f2115b95b6ca6fe6277ecc3.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="functions">
+</section>
+</section>
+<section id="functions">
 <h2>7. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
 <p>Often you may want to repeat a calculation in python many times. <strong>Functions</strong> are super useful for this. Functions are declared with <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">functionname(imputs):</span></code> and will return anything after the word <code class="docutils literal notranslate"><span class="pre">return</span></code> is used. Here’s an example of a simple function that calculates the square root of a number:</p>
 <div class="cell docutils container">
@@ -1272,8 +1273,8 @@ a: 0 b: 4
 <img alt="../../_images/586382226ec13d61223f1029c3467bac270f05514cd3759ea16e7b167ed7cefd.png" src="../../_images/586382226ec13d61223f1029c3467bac270f05514cd3759ea16e7b167ed7cefd.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
