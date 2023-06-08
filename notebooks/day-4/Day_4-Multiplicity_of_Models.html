@@ -189,6 +189,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
@@ -211,6 +213,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -822,8 +827,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[125   4]
- [  1 120]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[121   0]
+ [  1 128]]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -846,12 +851,12 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.99      0.97      0.98       129
-           1       0.97      0.99      0.98       121
+           0       0.99      1.00      1.00       121
+           1       1.00      0.99      1.00       129
 
-    accuracy                           0.98       250
-   macro avg       0.98      0.98      0.98       250
-weighted avg       0.98      0.98      0.98       250
+    accuracy                           1.00       250
+   macro avg       1.00      1.00      1.00       250
+weighted avg       1.00      1.00      1.00       250
 </pre></div>
 </div>
 </div>
@@ -881,7 +886,7 @@ weighted avg       0.98      0.98      0.98       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a2b3d7bfc5e6ca926a7fcd088670bf204237b0f8d77a02399c032009d428aad5.png" src="../../_images/a2b3d7bfc5e6ca926a7fcd088670bf204237b0f8d77a02399c032009d428aad5.png" />
+<img alt="../../_images/43b77b314ceb089d11ce6b913edd8d7e1bb49576bff3378f00c3fcdaca79838c.png" src="../../_images/43b77b314ceb089d11ce6b913edd8d7e1bb49576bff3378f00c3fcdaca79838c.png" />
 </div>
 </div>
 </div>
@@ -904,15 +909,15 @@ weighted avg       0.98      0.98      0.98       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 1.02470973 -0.50080308  4.28964141  2.28773652 -0.0490215  -0.06887834
-  -0.28140105 -0.48739778 -0.69442412  0.23220838  0.30433555  0.44230002
-   0.09116539  0.44262344  0.11213226 -0.12940883 -0.18460373  0.08879185
-  -2.86851858  0.20112589]]
-Odds Ratios: [2.78628656e+00 6.06043763e-01 7.29403078e+01 9.85261124e+00
- 9.52160655e-01 9.33440238e-01 7.54725590e-01 6.14222658e-01
- 4.99361935e-01 1.26138255e+00 1.35572389e+00 1.55628259e+00
- 1.09545017e+00 1.55678601e+00 1.11866081e+00 8.78614688e-01
- 8.31433695e-01 1.09285315e+00 5.67829837e-02 1.22277870e+00]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 8.61437006e-01 -3.70265032e-01  3.71631053e+00  1.85410032e+00
+  -1.10525038e-02  4.17830430e-02 -3.90232818e-01 -4.49883426e-01
+  -4.38335859e-01 -1.73620650e-01  2.13333912e-01 -3.38943473e-01
+   4.84382038e-02  3.62511271e-01  1.98746594e-03 -2.59648788e-01
+  -2.33390828e-01  1.54544847e-03 -2.49942350e+00  1.95171971e-01]]
+Odds Ratios: [ 2.36655901  0.69055129 41.11243102  6.38595035  0.98900835  1.04266824
+  0.67689926  0.63770249  0.64510908  0.84061572  1.2377979   0.71252273
+  1.04963051  1.43693342  1.00198944  0.77132244  0.79184404  1.00154664
+  0.08213233  1.21552   ]
 </pre></div>
 </div>
 </div>
@@ -965,11 +970,11 @@ Odds Ratios: [2.78628656e+00 6.06043763e-01 7.29403078e+01 9.85261124e+00
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.98
-AUC: 0.9798076923076924
-Coefs: [[ 1.03258175 -0.37991324  4.25848689  2.11461028 -0.30019945 -0.04570583
-  -0.6471334  -0.55601323 -0.6471341   0.09044686  0.30411245  0.28254682
-   0.12941598  0.39352586 -0.18825108  0.014377   -0.34059195 -0.03916844
-  -2.74903522 -0.1610371 ]]
+AUC: 0.9796062789500771
+Coefs: [[ 1.77122752 -0.35569709  7.80067001  3.61087164  1.00135424  0.03540748
+  -0.27157261 -0.38260835  0.14185264 -0.35659388 -0.0184247  -0.12048229
+  -0.20418968  0.98932964 -0.69475104 -0.11172684 -1.00175747 -0.22759542
+  -4.6406333   0.83937512]]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -1147,7 +1152,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.972, 0.9715447154471545)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.964, 0.9630661797680825)
 </pre></div>
 </div>
 </div>
@@ -1189,12 +1194,12 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9655733333333333 +/- 0.010450101541239796
-Mean AUC: 0.96575053338737 +/- 0.010011231368556636
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9655866666666666 +/- 0.010811837134466203
+Mean AUC: 0.9656546816032755 +/- 0.010633124142022832
 </pre></div>
 </div>
-<img alt="../../_images/cce900244210a4bd254983a5033c5391d7dfddada55b2a1a76fdb76706405859.png" src="../../_images/cce900244210a4bd254983a5033c5391d7dfddada55b2a1a76fdb76706405859.png" />
-<img alt="../../_images/404bde68602bd5517a17a6ab9ec36b49c46485b9624749fd54fbc3d5cacf8aa3.png" src="../../_images/404bde68602bd5517a17a6ab9ec36b49c46485b9624749fd54fbc3d5cacf8aa3.png" />
+<img alt="../../_images/62993ad327beb6bb7b13cbd5c3ea91576ac37c10df0dc6c423372fbf681c7152.png" src="../../_images/62993ad327beb6bb7b13cbd5c3ea91576ac37c10df0dc6c423372fbf681c7152.png" />
+<img alt="../../_images/aef916b385ca2c4abe747a24e642bb432bfebb4bef71f5b3cf38ade71f05884d.png" src="../../_images/aef916b385ca2c4abe747a24e642bb432bfebb4bef71f5b3cf38ade71f05884d.png" />
 </div>
 </div>
 </div>
@@ -1268,28 +1273,28 @@ Mean AUC: 0.96575053338737 +/- 0.010011231368556636
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.189199</td>
-      <td>-0.777305</td>
+      <td>-0.187381</td>
+      <td>0.982287</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.743821</td>
-      <td>-0.294500</td>
+      <td>0.997159</td>
+      <td>-0.075327</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.260842</td>
-      <td>-0.965382</td>
+      <td>-0.947098</td>
+      <td>0.320944</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.750987</td>
-      <td>-0.275714</td>
+      <td>-0.778462</td>
+      <td>-0.627691</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.322325</td>
-      <td>-0.732193</td>
+      <td>0.992115</td>
+      <td>0.125333</td>
     </tr>
   </tbody>
 </table>
@@ -1326,11 +1331,11 @@ Mean AUC: 0.96575053338737 +/- 0.010011231368556636
   <tbody>
     <tr>
       <th>0</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1338,11 +1343,11 @@ Mean AUC: 0.96575053338737 +/- 0.010011231368556636
     </tr>
     <tr>
       <th>3</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -1362,7 +1367,7 @@ Mean AUC: 0.96575053338737 +/- 0.010011231368556636
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eead8789b2e56174830da8526c4cbe4ae5106c90bcdbba2d7a5018ba3a4c811c.png" src="../../_images/eead8789b2e56174830da8526c4cbe4ae5106c90bcdbba2d7a5018ba3a4c811c.png" />
+<img alt="../../_images/42c87a6e996ebe02320edd1972c7c66e4ff570d7f93a0f441f5c3e8fcd55e251.png" src="../../_images/42c87a6e996ebe02320edd1972c7c66e4ff570d7f93a0f441f5c3e8fcd55e251.png" />
 </div>
 </div>
 <p>It is really easy to see in the figure above that we have two clearly separated classes. Let’s fire up the Logisitic Regression model and see what it can find.</p>
@@ -1384,7 +1389,7 @@ Mean AUC: 0.96575053338737 +/- 0.010011231368556636
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
-0.45
+0.42400000000000004
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -1426,7 +1431,7 @@ Traceback (most recent call last):
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
 
   warnings.warn(some_fits_failed_message, FitFailedWarning)
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [ nan 0.45  nan 0.45]
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.424   nan 0.424]
   warnings.warn(
 </pre></div>
 </div>
@@ -1461,7 +1466,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3ad5c52afdadb97d20131958f6e43fa48a9584182928d116560be8f1accaede7.png" src="../../_images/3ad5c52afdadb97d20131958f6e43fa48a9584182928d116560be8f1accaede7.png" />
+<img alt="../../_images/843217832b74c82deb568f7a3053bdf91f8b301ce99871b60919f21e07f76013.png" src="../../_images/843217832b74c82deb568f7a3053bdf91f8b301ce99871b60919f21e07f76013.png" />
 </div>
 </div>
 </div>
