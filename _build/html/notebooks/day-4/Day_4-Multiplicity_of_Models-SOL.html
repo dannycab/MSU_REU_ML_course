@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-4/Day_4-Multiplicity_of_Models-SOL';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Contributions" href="../../contributions.html" />
+    <link rel="next" title="Using PCA" href="../day-5/Day_5-Using_PCA-SOL.html" />
     <link rel="prev" title="Solution - Multidimensional Linear Regression" href="../day-3/Day-3_Multiple_Regression-SOL.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -201,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/pca_example.html">Illustrating PCA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
@@ -216,6 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Solution - A Multiplicity of Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -828,8 +830,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[121   5]
- [  2 122]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[142   1]
+ [  2 105]]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -852,12 +854,12 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.98      0.96      0.97       126
-           1       0.96      0.98      0.97       124
+           0       0.99      0.99      0.99       143
+           1       0.99      0.98      0.99       107
 
-    accuracy                           0.97       250
-   macro avg       0.97      0.97      0.97       250
-weighted avg       0.97      0.97      0.97       250
+    accuracy                           0.99       250
+   macro avg       0.99      0.99      0.99       250
+weighted avg       0.99      0.99      0.99       250
 </pre></div>
 </div>
 </div>
@@ -887,7 +889,7 @@ weighted avg       0.97      0.97      0.97       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b9c989bc5f87b77056927af7ee064e3eaad957ea0c395f5a5f3e54807f3bbcad.png" src="../../_images/b9c989bc5f87b77056927af7ee064e3eaad957ea0c395f5a5f3e54807f3bbcad.png" />
+<img alt="../../_images/1045116be963a89c435f873cbaa5c1033cf5968bfe97ba24a1a160f20c1a7c9e.png" src="../../_images/1045116be963a89c435f873cbaa5c1033cf5968bfe97ba24a1a160f20c1a7c9e.png" />
 </div>
 </div>
 </div>
@@ -910,15 +912,14 @@ weighted avg       0.97      0.97      0.97       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 1.19174174 -0.43116526  5.41830904  2.78794027  0.0282483   0.04957795
-  -0.95054671 -0.80523544  0.35752546  0.43295974  0.25415245 -0.63201927
-   0.55605301  0.76902359 -0.26639813 -0.2967891  -0.21099182  0.08679447
-  -3.53295568  0.30816753]]
-Odds Ratios: [3.29281143e+00 6.49751522e-01 2.25497492e+02 1.62475198e+01
- 1.02865107e+00 1.05082750e+00 3.86529647e-01 4.46982677e-01
- 1.42978697e+00 1.54181414e+00 1.28936836e+00 5.31517437e-01
- 1.74377623e+00 2.15765846e+00 7.66134048e-01 7.43200739e-01
- 8.09780689e-01 1.09067249e+00 2.92184279e-02 1.36092897e+00]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 0.88996919 -0.31231568  4.14175292  1.96013377  0.09003597  0.1363079
+  -0.28509621 -0.50131741 -0.34131229  0.10594982  0.07789232 -0.01100046
+  -0.07579856  0.34493647  0.05719386 -0.07953057 -0.31892119 -0.04640164
+  -2.66740243  0.1543182 ]]
+Odds Ratios: [ 2.43505461  0.73175049 62.91300622  7.1002768   1.09421364  1.14603471
+  0.75194191  0.60573213  0.71083689  1.11176608  1.08100625  0.98905982
+  0.92700292  1.41190022  1.05886106  0.92354979  0.72693283  0.95465846
+  0.06943235  1.16686213]
 </pre></div>
 </div>
 </div>
@@ -948,7 +949,7 @@ Odds Ratios: [3.29281143e+00 6.49751522e-01 2.25497492e+02 1.62475198e+01
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/36ff9c264ed16ea5b676c1eac824c798ee3c9ca5377016567d5035f00d1ec20a.png" src="../../_images/36ff9c264ed16ea5b676c1eac824c798ee3c9ca5377016567d5035f00d1ec20a.png" />
+<img alt="../../_images/70bb800ba76cad35aeb0f6f643a194d9292461cdea1aab3578be5f7ae4a571f6.png" src="../../_images/70bb800ba76cad35aeb0f6f643a194d9292461cdea1aab3578be5f7ae4a571f6.png" />
 <img alt="../../_images/9e0e6d71c9187ba95494a29c9bab3b8962225200899d6162588fad6546e4acbb.png" src="../../_images/9e0e6d71c9187ba95494a29c9bab3b8962225200899d6162588fad6546e4acbb.png" />
 </div>
 </div>
@@ -991,12 +992,12 @@ Odds Ratios: [3.29281143e+00 6.49751522e-01 2.25497492e+02 1.62475198e+01
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.984
-AUC: 0.9837986680327868
-Coefs: [[ 1.15687622 -0.61520836  4.1635516   2.29126832 -0.08808596 -0.17739169
-  -0.26087979 -0.2961155  -0.78236479  0.02314676  0.31174175  0.12931285
-  -0.03443914  0.37610759  0.02013263  0.3167792  -0.46752935  0.07536986
-  -3.07890736  0.05190596]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.98
+AUC: 0.9798924180327868
+Coefs: [[ 1.12309832 -0.19320378  4.86012587  2.54116591 -0.01369338 -0.02678742
+  -0.46010767 -0.35371243 -0.3813592   0.3805858   0.46971463 -0.23466759
+   0.24425849  0.43931522  0.03788471 -0.24205895 -0.14084432  0.08057729
+  -3.20160803 -0.0196379 ]]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -1111,10 +1112,6 @@ Coefs: [[ 1.15687622 -0.61520836  4.1635516   2.29126832 -0.08808596 -0.17739169
   warnings.warn(
 /Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -1209,9 +1206,13 @@ Coefs: [[ 1.15687622 -0.61520836  4.1635516   2.29126832 -0.08808596 -0.17739169
   warnings.warn(
 /Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+  warnings.warn(
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
+  warnings.warn(
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
 /Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
   warnings.warn(
@@ -1295,13 +1296,13 @@ Coefs: [[ 1.15687622 -0.61520836  4.1635516   2.29126832 -0.08808596 -0.17739169
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9815599999999999 +/- 0.008369372736352475
-Mean AUC: 0.9815628932606603 +/- 0.008316894150179265
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9813199999999999 +/- 0.00810046912221756
+Mean AUC: 0.9813146304706923 +/- 0.008041887653630791
 </pre></div>
 </div>
-<img alt="../../_images/76799e1feaf2103ec3eb9ad7c87bc8272e75ae5b2965fd0355ace3d8a5ed1d72.png" src="../../_images/76799e1feaf2103ec3eb9ad7c87bc8272e75ae5b2965fd0355ace3d8a5ed1d72.png" />
-<img alt="../../_images/cb06d362bc49dabc829e53641f6a6b59bb97ef65320c99de98af0e604fb6e400.png" src="../../_images/cb06d362bc49dabc829e53641f6a6b59bb97ef65320c99de98af0e604fb6e400.png" />
-<img alt="../../_images/67efce6112bc65612f66f94f8e1d1aed69d3681b45fdb0075aff882300dad70a.png" src="../../_images/67efce6112bc65612f66f94f8e1d1aed69d3681b45fdb0075aff882300dad70a.png" />
+<img alt="../../_images/bd203445fef277936b8e5de8527c16bef7731bd66350a283e1b393cb61c47794.png" src="../../_images/bd203445fef277936b8e5de8527c16bef7731bd66350a283e1b393cb61c47794.png" />
+<img alt="../../_images/074cb36b6765c98f34ffab24a7650bfd9e22600f961d80b0c0045ac9981284d9.png" src="../../_images/074cb36b6765c98f34ffab24a7650bfd9e22600f961d80b0c0045ac9981284d9.png" />
+<img alt="../../_images/902c1403ad14811c6322517022845c5aa9ca96e76f4e2089069697ba45f398e5.png" src="../../_images/902c1403ad14811c6322517022845c5aa9ca96e76f4e2089069697ba45f398e5.png" />
 </div>
 </div>
 </div>
@@ -1456,7 +1457,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.952, 0.9488548636129696)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.968, 0.9669871794871795)
 </pre></div>
 </div>
 </div>
@@ -1498,12 +1499,12 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9658 +/- 0.010827742146911337
-Mean AUC: 0.9658345775147378 +/- 0.010622700409651225
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9664666666666667 +/- 0.011216456164443788
+Mean AUC: 0.966566455697258 +/- 0.010979731126969653
 </pre></div>
 </div>
-<img alt="../../_images/d54c69ae1b28647f88617950290a791216ce77885b7686e01ff875562dd07b41.png" src="../../_images/d54c69ae1b28647f88617950290a791216ce77885b7686e01ff875562dd07b41.png" />
-<img alt="../../_images/aca6f5c567319bbe1fa57269298350f512c55ee7950060c7b930cb65fbc1cfdd.png" src="../../_images/aca6f5c567319bbe1fa57269298350f512c55ee7950060c7b930cb65fbc1cfdd.png" />
+<img alt="../../_images/a3f4c87f636f652c5606f7975cdc4c2c5dd3fb54b5fce902aeb0789b92120795.png" src="../../_images/a3f4c87f636f652c5606f7975cdc4c2c5dd3fb54b5fce902aeb0789b92120795.png" />
+<img alt="../../_images/3fb31508d5c60904947f8ee26a74fd75705d79362b2f6e0f2a38b96aa8477705.png" src="../../_images/3fb31508d5c60904947f8ee26a74fd75705d79362b2f6e0f2a38b96aa8477705.png" />
 </div>
 </div>
 </div>
@@ -1560,7 +1561,7 @@ Mean AUC: 0.9658345775147378 +/- 0.010622700409651225
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.98, 0.9808373590982286)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.988, 0.9872881355932203)
 </pre></div>
 </div>
 </div>
@@ -1604,12 +1605,12 @@ Mean AUC: 0.9658345775147378 +/- 0.010622700409651225
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9857866666666666 +/- 0.007575915052908723
-Mean AUC: 0.9858099404661368 +/- 0.007509294561963864
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.98588 +/- 0.006798941094023398
+Mean AUC: 0.9858902918377369 +/- 0.0067497753360815545
 </pre></div>
 </div>
-<img alt="../../_images/966cb1fa52f2ce9363e97bb5d12bbffb03e0381eb06132b0c1407ff9342b4f22.png" src="../../_images/966cb1fa52f2ce9363e97bb5d12bbffb03e0381eb06132b0c1407ff9342b4f22.png" />
-<img alt="../../_images/6a09cb950f703dce7fa9675f24e8e217ac10caea4d4ae561066b30fa0a286bf9.png" src="../../_images/6a09cb950f703dce7fa9675f24e8e217ac10caea4d4ae561066b30fa0a286bf9.png" />
+<img alt="../../_images/d87e802d9ae7f5bbca5786e2f9a1e015b8355e3837e34e048d25636f40be5133.png" src="../../_images/d87e802d9ae7f5bbca5786e2f9a1e015b8355e3837e34e048d25636f40be5133.png" />
+<img alt="../../_images/2878e158b9470a1cf5567d95b9daf59634a457ad67d3ba1ec3847643b1a21ef3.png" src="../../_images/2878e158b9470a1cf5567d95b9daf59634a457ad67d3ba1ec3847643b1a21ef3.png" />
 </div>
 </div>
 </div>
@@ -1660,7 +1661,7 @@ Mean AUC: 0.9858099404661368 +/- 0.007509294561963864
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier(max_features=&#39;auto&#39;)
-0.986
+0.9869999999999999
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/ensemble/_forest.py:424: FutureWarning: `max_features=&#39;auto&#39;` has been deprecated in 1.1 and will be removed in 1.3. To keep the past behaviour, explicitly set `max_features=&#39;sqrt&#39;` or remove this parameter as it is also the default value for RandomForestClassifiers and ExtraTreesClassifiers.
@@ -1690,7 +1691,7 @@ Mean AUC: 0.9858099404661368 +/- 0.007509294561963864
   warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.98, 0.9798076923076924)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.972, 0.9721418931945248)
 </pre></div>
 </div>
 </div>
@@ -1733,6 +1734,14 @@ Mean AUC: 0.9858099404661368 +/- 0.007509294561963864
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/ensemble/_forest.py:424: FutureWarning: `max_features=&#39;auto&#39;` has been deprecated in 1.1 and will be removed in 1.3. To keep the past behaviour, explicitly set `max_features=&#39;sqrt&#39;` or remove this parameter as it is also the default value for RandomForestClassifiers and ExtraTreesClassifiers.
+  warn(
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/ensemble/_forest.py:424: FutureWarning: `max_features=&#39;auto&#39;` has been deprecated in 1.1 and will be removed in 1.3. To keep the past behaviour, explicitly set `max_features=&#39;sqrt&#39;` or remove this parameter as it is also the default value for RandomForestClassifiers and ExtraTreesClassifiers.
+  warn(
+</pre></div>
+</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/ensemble/_forest.py:424: FutureWarning: `max_features=&#39;auto&#39;` has been deprecated in 1.1 and will be removed in 1.3. To keep the past behaviour, explicitly set `max_features=&#39;sqrt&#39;` or remove this parameter as it is also the default value for RandomForestClassifiers and ExtraTreesClassifiers.
   warn(
 </pre></div>
@@ -2673,17 +2682,59 @@ Mean AUC: 0.9858099404661368 +/- 0.007509294561963864
 <span class="g g-Whitespace">    </span><span class="mi">894</span>     <span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">895</span>     <span class="k">return</span> <span class="bp">self</span>
 
-<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/tree/_classes.py:379,</span> in <span class="ni">BaseDecisionTree.fit</span><span class="nt">(self, X, y, sample_weight, check_input)</span>
-<span class="g g-Whitespace">    </span><span class="mi">368</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">369</span>     <span class="n">builder</span> <span class="o">=</span> <span class="n">BestFirstTreeBuilder</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">370</span>         <span class="n">splitter</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">371</span>         <span class="n">min_samples_split</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">376</span>         <span class="bp">self</span><span class="o">.</span><span class="n">min_impurity_decrease</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">377</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">379</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tree_</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">381</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_outputs_</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">is_classifier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">382</span>     <span class="bp">self</span><span class="o">.</span><span class="n">n_classes_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_classes_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/tree/_classes.py:177,</span> in <span class="ni">BaseDecisionTree.fit</span><span class="nt">(self, X, y, sample_weight, check_input)</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span> <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">check_input</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">177</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_validate_params</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span>     <span class="n">random_state</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span>     <span class="k">if</span> <span class="n">check_input</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span>         <span class="c1"># Need to validate separately here.</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="c1"># We can&#39;t pass multi_output=True because that would allow y to be</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span>         <span class="c1"># csr.</span>
+
+<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/base.py:600,</span> in <span class="ni">BaseEstimator._validate_params</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">592</span> <span class="k">def</span> <span class="nf">_validate_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">593</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Validate types and values of constructor parameters</span>
+<span class="g g-Whitespace">    </span><span class="mi">594</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">595</span><span class="sd">     The expected type and values must be defined in the `_parameter_constraints`</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">598</span><span class="sd">     accepted constraints.</span>
+<span class="g g-Whitespace">    </span><span class="mi">599</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">600</span>     <span class="n">validate_parameter_constraints</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">601</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_parameter_constraints</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">602</span>         <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">603</span>         <span class="n">caller_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">604</span>     <span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/utils/_param_validation.py:74,</span> in <span class="ni">validate_parameter_constraints</span><span class="nt">(parameter_constraints, params, caller_name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="k">if</span> <span class="n">constraints</span> <span class="o">==</span> <span class="s2">&quot;no_validation&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="k">continue</span>
+<span class="ne">---&gt; </span><span class="mi">74</span> <span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span><span class="n">make_constraint</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span> <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="n">constraints</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="n">constraints</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>     <span class="k">if</span> <span class="n">constraint</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">param_val</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>         <span class="c1"># this constraint is satisfied, no need to check further.</span>
+
+<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/utils/_param_validation.py:74,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="k">if</span> <span class="n">constraints</span> <span class="o">==</span> <span class="s2">&quot;no_validation&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="k">continue</span>
+<span class="ne">---&gt; </span><span class="mi">74</span> <span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span><span class="n">make_constraint</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span> <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="n">constraints</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="n">constraints</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>     <span class="k">if</span> <span class="n">constraint</span><span class="o">.</span><span class="n">is_satisfied_by</span><span class="p">(</span><span class="n">param_val</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>         <span class="c1"># this constraint is satisfied, no need to check further.</span>
+
+<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/utils/_param_validation.py:125,</span> in <span class="ni">make_constraint</span><span class="nt">(constraint)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="k">return</span> <span class="n">_Callables</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="k">if</span> <span class="n">constraint</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">125</span>     <span class="k">return</span> <span class="n">_NoneConstraint</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">constraint</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="k">return</span> <span class="n">_InstancesOf</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/utils/_param_validation.py:226,</span> in <span class="ni">_Constraint.__init__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span> <span class="k">class</span> <span class="nc">_Constraint</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Base class for the constraint objects.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">226</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>         <span class="bp">self</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span>     <span class="nd">@abstractmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>     <span class="k">def</span> <span class="nf">is_satisfied_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -3133,11 +3184,11 @@ c:\ProgramData\Anaconda3\lib\site-packages\sklearn\model_selection\_search.py:96
       </div>
     </a>
     <a class="right-next"
-       href="../../contributions.html"
+       href="../day-5/Day_5-Using_PCA-SOL.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Contributions</p>
+        <p class="prev-next-title">Using PCA</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

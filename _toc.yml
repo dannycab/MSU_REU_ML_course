@@ -33,6 +33,7 @@ parts:
 - caption: Dimension Reduction
   chapters:
   - file: notebooks/day-5/day_5-What_is_PCA.ipynb
+  - file: notebooks/notes/pca_example.ipynb
   - file: notebooks/day-5/Day_5-Using_PCA.ipynb
 - caption: Resources
   chapters:
@@ -46,7 +47,7 @@ parts:
   - file: notebooks/day-3/Day-3_Polynomial_Regression-SOL.ipynb
   - file: notebooks/day-3/Day-3_Multiple_Regression-SOL.ipynb
   - file: notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb
-#   - file: notebooks/day-5/Day_5-Using_PCA-SOL.ipynb
+  - file: notebooks/day-5/Day_5-Using_PCA-SOL.ipynb
 - caption: Acknowledgements
   chapters:
   - file: contributions.md

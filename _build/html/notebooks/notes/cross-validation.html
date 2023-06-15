@@ -201,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca_example.html">Illustrating PCA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
@@ -216,6 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -503,7 +505,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/380f5f4d78a96943cdf4070d75816afab9c61df4d7a2495718a54847caf567a4.png" src="../../_images/380f5f4d78a96943cdf4070d75816afab9c61df4d7a2495718a54847caf567a4.png" />
+<img alt="../../_images/18f72be1a3a7e991b1be6e34c7a1d401dfca80b03ffa6dab9e11bcba93af6757.png" src="../../_images/18f72be1a3a7e991b1be6e34c7a1d401dfca80b03ffa6dab9e11bcba93af6757.png" />
 </div>
 </div>
 </div>
@@ -550,14 +552,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  114.09168024247018
-R2:  0.9778546122657943
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  98.73625573865445
+R2:  0.9929198215410193
 Fit Coefficients:
- [ 5.08716520e+01  1.61178361e-02  5.13748604e-01  6.27860287e-02
-  2.36601178e-01 -1.51808546e-01 -3.61739412e-01  4.34482695e-01
-  3.06056944e-02 -7.85842699e-01 -2.81343356e-01  3.06370761e+01
- -3.54764050e-01  5.61811648e-01 -6.01424299e-01 -1.71524606e-01
-  2.85275138e-01  2.82351479e-02  2.40005469e-01  1.76667414e+01]
+ [-6.89950691e-01 -6.49005644e-01 -4.92697642e-01 -3.78143620e-02
+  4.46102196e-01 -2.25153645e-01  1.54006815e-01  6.31195665e+01
+ -1.01246621e-01  2.24855717e-01  8.83420649e+00 -6.95722779e-01
+ -2.10714084e-01  1.84451450e-01  9.61737001e+01  6.59118166e-02
+  1.53725145e-02 -2.22072087e-01  2.94855640e-01 -2.52130852e-02]
 </pre></div>
 </div>
 </div>
@@ -572,13 +574,14 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  97.36330749983158
-R2:  0.9782829746716124
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  93.91895078532096
+R2:  0.9936547270854814
 Fit Coefficients:
- [50.90691483 -0.39057722  0.38082937  0.19048623  0.34329717 -0.25889568
- -0.25712743  0.25964468 -0.38585326 -0.55935121 -0.22874503 30.51737299
- -0.18004489  0.80703113 -0.1093566  -0.25884041  0.24214802 -0.40131779
-  0.35991641 17.36608643]
+ [-5.22926430e-01 -4.16934188e-01 -1.67648524e-01  1.37896442e-01
+  1.25270931e-01 -3.55935309e-02 -8.33345564e-02  6.34332039e+01
+ -2.11300699e-01  2.98779944e-01  8.90617984e+00 -8.22388819e-01
+ -1.56667991e-01  3.14552996e-01  9.61235785e+01  2.38381133e-01
+  1.24505010e-01 -2.34758534e-01  6.00274289e-01  4.06718500e-01]
 </pre></div>
 </div>
 </div>
@@ -655,7 +658,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/affb71e22411e1588a2672c9353745ee99fd51c6512857c098fe15b0ac722ae9.png" src="../../_images/affb71e22411e1588a2672c9353745ee99fd51c6512857c098fe15b0ac722ae9.png" />
+<img alt="../../_images/9bf6422c33bcd51bc3e4d27c3fe09a165f756e562822b98d164461c1d3e3f921.png" src="../../_images/9bf6422c33bcd51bc3e4d27c3fe09a165f756e562822b98d164461c1d3e3f921.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -692,7 +695,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2d652396b7f1d3a7f057d78f09e34e34db240aacf512d0f1d18bd88ffd695272.png" src="../../_images/2d652396b7f1d3a7f057d78f09e34e34db240aacf512d0f1d18bd88ffd695272.png" />
+<img alt="../../_images/6b383187a27173fdbe0d9feffa27b79ea19a4cc1deef71b99a6af924f7b3d361.png" src="../../_images/6b383187a27173fdbe0d9feffa27b79ea19a4cc1deef71b99a6af924f7b3d361.png" />
 </div>
 </div>
 </div>

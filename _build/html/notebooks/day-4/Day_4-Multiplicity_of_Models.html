@@ -201,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/pca_example.html">Illustrating PCA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
@@ -216,6 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -827,8 +829,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[121   0]
- [  1 128]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[115   6]
+ [  0 129]]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -851,12 +853,12 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.99      1.00      1.00       121
-           1       1.00      0.99      1.00       129
+           0       1.00      0.95      0.97       121
+           1       0.96      1.00      0.98       129
 
-    accuracy                           1.00       250
-   macro avg       1.00      1.00      1.00       250
-weighted avg       1.00      1.00      1.00       250
+    accuracy                           0.98       250
+   macro avg       0.98      0.98      0.98       250
+weighted avg       0.98      0.98      0.98       250
 </pre></div>
 </div>
 </div>
@@ -886,7 +888,7 @@ weighted avg       1.00      1.00      1.00       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/43b77b314ceb089d11ce6b913edd8d7e1bb49576bff3378f00c3fcdaca79838c.png" src="../../_images/43b77b314ceb089d11ce6b913edd8d7e1bb49576bff3378f00c3fcdaca79838c.png" />
+<img alt="../../_images/f5f22d5360debee4e3898e4ea97e24f495b5764bf86e558d056772d8f360ab44.png" src="../../_images/f5f22d5360debee4e3898e4ea97e24f495b5764bf86e558d056772d8f360ab44.png" />
 </div>
 </div>
 </div>
@@ -909,15 +911,15 @@ weighted avg       1.00      1.00      1.00       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 8.61437006e-01 -3.70265032e-01  3.71631053e+00  1.85410032e+00
-  -1.10525038e-02  4.17830430e-02 -3.90232818e-01 -4.49883426e-01
-  -4.38335859e-01 -1.73620650e-01  2.13333912e-01 -3.38943473e-01
-   4.84382038e-02  3.62511271e-01  1.98746594e-03 -2.59648788e-01
-  -2.33390828e-01  1.54544847e-03 -2.49942350e+00  1.95171971e-01]]
-Odds Ratios: [ 2.36655901  0.69055129 41.11243102  6.38595035  0.98900835  1.04266824
-  0.67689926  0.63770249  0.64510908  0.84061572  1.2377979   0.71252273
-  1.04963051  1.43693342  1.00198944  0.77132244  0.79184404  1.00154664
-  0.08213233  1.21552   ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 1.42290676 -0.91836136  5.20802351  2.78377764 -0.19838198 -0.34911424
+  -0.33950366 -0.1303793  -0.97696346 -0.00798553  0.15874478  0.14158897
+  -0.27204412  0.51400545  0.02585804  0.38457984 -0.73329418  0.00618497
+  -3.34962471 -0.20054824]]
+Odds Ratios: [4.14916355e+00 3.99172604e-01 1.82732531e+02 1.61800280e+01
+ 8.20056549e-01 7.05312554e-01 7.12123690e-01 8.77762434e-01
+ 3.76452478e-01 9.92046268e-01 1.17203878e+00 1.15210300e+00
+ 7.61820646e-01 1.67197481e+00 1.02619526e+00 1.46899697e+00
+ 4.80324106e-01 1.00620413e+00 3.50975235e-02 8.18282018e-01]
 </pre></div>
 </div>
 </div>
@@ -969,12 +971,12 @@ Odds Ratios: [ 2.36655901  0.69055129 41.11243102  6.38595035  0.98900835  1.042
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.98
-AUC: 0.9796062789500771
-Coefs: [[ 1.77122752 -0.35569709  7.80067001  3.61087164  1.00135424  0.03540748
-  -0.27157261 -0.38260835  0.14185264 -0.35659388 -0.0184247  -0.12048229
-  -0.20418968  0.98932964 -0.69475104 -0.11172684 -1.00175747 -0.22759542
-  -4.6406333   0.83937512]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.984
+AUC: 0.9839166237776633
+Coefs: [[ 0.9915094  -0.15392065  4.85969431  2.31872725  0.24415741  0.23858397
+  -0.6708923  -0.5762803  -0.14434064  0.22800097  0.29633314 -0.43121445
+   0.62977755  0.53331766 -0.38702834 -0.09016225 -0.09094411 -0.00750528
+  -3.19658137  0.47798976]]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -1152,7 +1154,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.964, 0.9630661797680825)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.972, 0.972)
 </pre></div>
 </div>
 </div>
@@ -1194,12 +1196,12 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9655866666666666 +/- 0.010811837134466203
-Mean AUC: 0.9656546816032755 +/- 0.010633124142022832
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9652799999999998 +/- 0.011769519956225922
+Mean AUC: 0.965510225988888 +/- 0.011411015212518064
 </pre></div>
 </div>
-<img alt="../../_images/62993ad327beb6bb7b13cbd5c3ea91576ac37c10df0dc6c423372fbf681c7152.png" src="../../_images/62993ad327beb6bb7b13cbd5c3ea91576ac37c10df0dc6c423372fbf681c7152.png" />
-<img alt="../../_images/aef916b385ca2c4abe747a24e642bb432bfebb4bef71f5b3cf38ade71f05884d.png" src="../../_images/aef916b385ca2c4abe747a24e642bb432bfebb4bef71f5b3cf38ade71f05884d.png" />
+<img alt="../../_images/b0e09515f783c746ef20af61e05e9199a7dbe0393084c3e60c09a035d5c885c7.png" src="../../_images/b0e09515f783c746ef20af61e05e9199a7dbe0393084c3e60c09a035d5c885c7.png" />
+<img alt="../../_images/3c28c2c2aef1c94366ebead8bfcdcba685287f377ef53f69a706e46c5439a1cc.png" src="../../_images/3c28c2c2aef1c94366ebead8bfcdcba685287f377ef53f69a706e46c5439a1cc.png" />
 </div>
 </div>
 </div>
@@ -1273,28 +1275,28 @@ Mean AUC: 0.9656546816032755 +/- 0.010633124142022832
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.187381</td>
-      <td>0.982287</td>
+      <td>-0.670022</td>
+      <td>0.437115</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.997159</td>
-      <td>-0.075327</td>
+      <td>-0.783884</td>
+      <td>0.159768</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.947098</td>
-      <td>0.320944</td>
+      <td>0.379779</td>
+      <td>-0.925077</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.778462</td>
-      <td>-0.627691</td>
+      <td>0.797727</td>
+      <td>-0.060261</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.992115</td>
-      <td>0.125333</td>
+      <td>0.266256</td>
+      <td>0.754392</td>
     </tr>
   </tbody>
 </table>
@@ -1331,11 +1333,11 @@ Mean AUC: 0.9656546816032755 +/- 0.010633124142022832
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1343,11 +1345,11 @@ Mean AUC: 0.9656546816032755 +/- 0.010633124142022832
     </tr>
     <tr>
       <th>3</th>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1367,7 +1369,7 @@ Mean AUC: 0.9656546816032755 +/- 0.010633124142022832
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/42c87a6e996ebe02320edd1972c7c66e4ff570d7f93a0f441f5c3e8fcd55e251.png" src="../../_images/42c87a6e996ebe02320edd1972c7c66e4ff570d7f93a0f441f5c3e8fcd55e251.png" />
+<img alt="../../_images/68435c410a1b49d6401d50a7c0f8543688f658c8b77fda42c2f320c46ab6a541.png" src="../../_images/68435c410a1b49d6401d50a7c0f8543688f658c8b77fda42c2f320c46ab6a541.png" />
 </div>
 </div>
 <p>It is really easy to see in the figure above that we have two clearly separated classes. Let’s fire up the Logisitic Regression model and see what it can find.</p>
@@ -1389,7 +1391,7 @@ Mean AUC: 0.9656546816032755 +/- 0.010633124142022832
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
-0.42400000000000004
+0.41600000000000004
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
@@ -1431,7 +1433,7 @@ Traceback (most recent call last):
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
 
   warnings.warn(some_fits_failed_message, FitFailedWarning)
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.424   nan 0.424]
+/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.416   nan 0.416]
   warnings.warn(
 </pre></div>
 </div>
@@ -1466,7 +1468,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/843217832b74c82deb568f7a3053bdf91f8b301ce99871b60919f21e07f76013.png" src="../../_images/843217832b74c82deb568f7a3053bdf91f8b301ce99871b60919f21e07f76013.png" />
+<img alt="../../_images/02358a088279f216bc4107875bba5e28a50ae4149ffb85c92f22940db4e919c1.png" src="../../_images/02358a088279f216bc4107875bba5e28a50ae4149ffb85c92f22940db4e919c1.png" />
 </div>
 </div>
 </div>
