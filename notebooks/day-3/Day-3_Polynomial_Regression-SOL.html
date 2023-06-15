@@ -201,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/pca_example.html">Illustrating PCA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
@@ -216,6 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Solution - Polynomial Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -562,7 +564,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/e30bfec08e19c1ad614564dccd600add8010134f7250b97f4ecb46b811bd6a69.png" src="../../_images/e30bfec08e19c1ad614564dccd600add8010134f7250b97f4ecb46b811bd6a69.png" />
+<img alt="../../_images/97666b848e6e29174fc8adbee3229c89fe9af3e7e19ef9433ab12c587813d057.png" src="../../_images/97666b848e6e29174fc8adbee3229c89fe9af3e7e19ef9433ab12c587813d057.png" />
 </div>
 </div>
 </div>
@@ -830,17 +832,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0 r2 = -0.0003
-x1 r2 = 0.367
-x2 r2 = 0.3147
-x3 r2 = 0.6299
-x4 r2 = 0.8766
-x5 r2 = 0.8713
-x6 r2 = 0.8721
-x7 r2 = 0.872
-x8 r2 = 0.8725
-x9 r2 = 0.872
-x10 r2 = 0.8724
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0 r2 = -0.0009
+x1 r2 = 0.3332
+x2 r2 = 0.2971
+x3 r2 = 0.5619
+x4 r2 = 0.8447
+x5 r2 = 0.8458
+x6 r2 = 0.8455
+x7 r2 = 0.846
+x8 r2 = 0.8459
+x9 r2 = 0.841
+x10 r2 = 0.8407
 </pre></div>
 </div>
 </div>
@@ -875,11 +877,11 @@ x10 r2 = 0.8724
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>explained_variance:  0.8803
-r2:  0.8766
-MAE:  10.6122
-MSE:  202.9614
-RMSE:  14.2465
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>explained_variance:  0.8447
+r2:  0.8447
+MAE:  13.601
+MSE:  278.5487
+RMSE:  16.6898
 </pre></div>
 </div>
 </div>
@@ -912,10 +914,10 @@ RMSE:  14.2465
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17f0718e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17b69f040&gt;
 </pre></div>
 </div>
-<img alt="../../_images/197dc02cfe46b8f6b7419dffbccc5e01ecd03a846575262180dfd7792a33abe3.png" src="../../_images/197dc02cfe46b8f6b7419dffbccc5e01ecd03a846575262180dfd7792a33abe3.png" />
+<img alt="../../_images/c29725d186190f6d6ce65401bd7bf40a2779d69d353a52bce0af10def803ebb5.png" src="../../_images/c29725d186190f6d6ce65401bd7bf40a2779d69d353a52bce0af10def803ebb5.png" />
 </div>
 </div>
 <div class="section" id="are-we-justified-in-using-this-model">
@@ -956,8 +958,8 @@ RMSE:  14.2465
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Residuals&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/d08a5660f5c41999d58d39d332fd2559385e2029aed45f8ca71a1a656c34f6fb.png" src="../../_images/d08a5660f5c41999d58d39d332fd2559385e2029aed45f8ca71a1a656c34f6fb.png" />
-<img alt="../../_images/b4e1de9cb98249e0406789fec14c3a06071bd83f8e93ef90e2e4d360d901954e.png" src="../../_images/b4e1de9cb98249e0406789fec14c3a06071bd83f8e93ef90e2e4d360d901954e.png" />
+<img alt="../../_images/dbf79c3e7e0271ddf2a109debf81e516adb1a4b5332b8ba81921bd5daf59881e.png" src="../../_images/dbf79c3e7e0271ddf2a109debf81e516adb1a4b5332b8ba81921bd5daf59881e.png" />
+<img alt="../../_images/9542abc0e750b4f865d9687be84830afe2e7cc1a4d6e68782fb6e37aee197bb0.png" src="../../_images/9542abc0e750b4f865d9687be84830afe2e7cc1a4d6e68782fb6e37aee197bb0.png" />
 </div>
 </div>
 <p><font size=8 color="#009600">✎</font> Answer here - Do we appear justified in using this model? Why or why not?</p>
