@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Python Basics Review &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -18,56 +19,54 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/resources/python_review';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Solution - Getting Started with Pandas" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html" />
-    <link rel="prev" title="Using PCA" href="../day-5/Day_5-Using_PCA.html" />
+    <link rel="next" title="The Importance of Visualization" href="../notes/importance_of_visualization.html" />
+    <link rel="prev" title="Exploring data with Pandas" href="../day-1/Day-1_Exploring-data-with-Pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -75,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -110,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -129,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
+  
   
   
   
@@ -141,18 +153,29 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="2023 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="2023 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    2023 MSU REU Short Course on Machine Learning
+                    2024 MSU REU Short Course on Machine Learning
                 </a>
             </li>
         </ul>
@@ -174,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Data</span></p>
@@ -182,42 +205,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">Getting Started with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">Exploring data with Pandas</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python Basics Review</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">What is Tuning and Validation?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">A Multiplicity of Models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/pca_example.html">Illustrating PCA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python Basics Review</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -395,20 +389,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -467,12 +463,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="python-basics-review">
-<h1>Python Basics Review<a class="headerlink" href="#python-basics-review" title="Permalink to this headline">#</a></h1>
-<div class="section" id="varables">
-<h2>1. Varables<a class="headerlink" href="#varables" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="python-basics-review">
+<h1>Python Basics Review<a class="headerlink" href="#python-basics-review" title="Permalink to this heading">#</a></h1>
+<section id="varables">
+<h2>1. Varables<a class="headerlink" href="#varables" title="Permalink to this heading">#</a></h2>
 <p>In python, we use <strong>variables</strong> to contain data. Here are the most common types:</p>
 <ul class="simple">
 <li><p>Integers: These are exactly what they sound like, they are values that look like <span class="math notranslate nohighlight">\(... ,-3,-2,-1,0,1,2,3,...\)</span>.</p></li>
@@ -513,11 +509,11 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="operators">
-<h2>2. Operators<a class="headerlink" href="#operators" title="Permalink to this headline">#</a></h2>
-<div class="section" id="arithmetic">
-<h3>2.1 Arithmetic<a class="headerlink" href="#arithmetic" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="operators">
+<h2>2. Operators<a class="headerlink" href="#operators" title="Permalink to this heading">#</a></h2>
+<section id="arithmetic">
+<h3>2.1 Arithmetic<a class="headerlink" href="#arithmetic" title="Permalink to this heading">#</a></h3>
 <p>In python we can perform basic arithmetic operations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -572,9 +568,9 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="comparision">
-<h3>2.2 Comparision<a class="headerlink" href="#comparision" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="comparision">
+<h3>2.2 Comparision<a class="headerlink" href="#comparision" title="Permalink to this heading">#</a></h3>
 <p>Often it is useful to compare the values of different variables, these comparisions return booleans.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -600,12 +596,12 @@ True
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="lists-tuples-and-dictionaries">
-<h2>3. Lists, Tuples, and Dictionaries<a class="headerlink" href="#lists-tuples-and-dictionaries" title="Permalink to this headline">#</a></h2>
-<div class="section" id="lists">
-<h3>3.1 Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="lists-tuples-and-dictionaries">
+<h2>3. Lists, Tuples, and Dictionaries<a class="headerlink" href="#lists-tuples-and-dictionaries" title="Permalink to this heading">#</a></h2>
+<section id="lists">
+<h3>3.1 Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h3>
 <p><strong>Lists</strong> store several variables. These variables need not be the same type. Lists are declared with <code class="docutils literal notranslate"><span class="pre">[]</span></code> with commas separating entries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -678,9 +674,9 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="tuples">
-<h3>3.2 Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="tuples">
+<h3>3.2 Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h3>
 <p>There is another object similar to lists called <strong>tuples</strong>. We can create tuples using <code class="docutils literal notranslate"><span class="pre">()</span></code>, and index them just like lists:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -735,9 +731,9 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="dictionaries">
-<h3>3.3 Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="dictionaries">
+<h3>3.3 Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h3>
 <p><strong>Dictionaries</strong> store values in key:value pairs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -782,10 +778,10 @@ True
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="arrays">
-<h2>4. Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="arrays">
+<h2>4. Arrays<a class="headerlink" href="#arrays" title="Permalink to this heading">#</a></h2>
 <p><strong>NumPy Arrays</strong> store many floating point numbers (or complex numbers). These are part of the python library <strong>NumPy</strong> which is probably the most important python library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -940,9 +936,9 @@ masked: [0.  0.5 1.  1.5 2. ]
 </div>
 </div>
 <p>Numpy has a wealth of other functionality, such as built in functions like <code class="docutils literal notranslate"><span class="pre">sin</span></code> or <code class="docutils literal notranslate"><span class="pre">exp</span></code> or methods for arrays such as finding the maximum of an array with <code class="docutils literal notranslate"><span class="pre">.max</span></code> or the index of that entry with <code class="docutils literal notranslate"><span class="pre">.argmax</span></code>, but there are far too many of these methods to list here. NumPy even has a fast fourier transform! A general rule of thumb is if you think it would exist, it probably does and you can find it in the <a class="reference external" href="https://numpy.org/">numpy documentation</a>.</p>
-</div>
-<div class="section" id="plotting">
-<h2>5. Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="plotting">
+<h2>5. Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h2>
 <p>One of the great things about python is that it makes plotting pretty simple, thanks to the <strong>matplotlib</strong> library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -967,7 +963,7 @@ masked: [0.  0.5 1.  1.5 2. ]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/67f044a8e8e94a5a194eb0788217ea26195563be5f385d5164f53331136ac50f.png" src="../../_images/67f044a8e8e94a5a194eb0788217ea26195563be5f385d5164f53331136ac50f.png" />
+<img alt="../../_images/e2337d966e2ce0b7b3e4793d76332cf3829f4bb5150c28c9ec0a2ee392ba27f2.png" src="../../_images/e2337d966e2ce0b7b3e4793d76332cf3829f4bb5150c28c9ec0a2ee392ba27f2.png" />
 </div>
 </div>
 <p>You can also plot multiple things on the same plot by using <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> twice:</p>
@@ -989,16 +985,16 @@ masked: [0.  0.5 1.  1.5 2. ]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aa1f1658e20c0112b3758504d990aa8a16796e1c69ccd5615bb539bcf5fde0c0.png" src="../../_images/aa1f1658e20c0112b3758504d990aa8a16796e1c69ccd5615bb539bcf5fde0c0.png" />
+<img alt="../../_images/c3562a96b4ae1125575ff6de432179d8faea69a664cf2112e3aad93c756050b7.png" src="../../_images/c3562a96b4ae1125575ff6de432179d8faea69a664cf2112e3aad93c756050b7.png" />
 </div>
 </div>
 <p>Matplotlib has tons of other features as well, such as scatter plots, bar charts, subplots and 3d plotting, just to name a few. <a class="reference external" href="https://towardsdatascience.com/matplotlib-tutorial-learn-basics-of-pythons-powerful-plotting-library-b5d1b8f67596">This article</a> has a lot of great information on getting started with matplotlib.</p>
-</div>
-<div class="section" id="loops">
-<h2>6. Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="loops">
+<h2>6. Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h2>
 <p>Sometimes you need to be able to write an algorithm yourself. To do this, we use <strong>loops</strong>. Specifically, there are two main kinds of loops, <strong>for loops</strong> and <strong>while loops</strong>.</p>
-<div class="section" id="for-loops">
-<h3>6.1 For Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">#</a></h3>
+<section id="for-loops">
+<h3>6.1 For Loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h3>
 <p>For looops loop over a container. They have the form <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">y:</span></code> where y is the container. As the loop runs, <code class="docutils literal notranslate"><span class="pre">x</span></code> takes on the value of everything stored in <code class="docutils literal notranslate"><span class="pre">y</span></code>, one after the other. Lines of code that are part of the loop after its declaration must be indented in the lines after the loop is declared. Here are a couple examples of simple for loops:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1029,9 +1025,9 @@ loop 2:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="while-loops">
-<h3>6.2 While Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="while-loops">
+<h3>6.2 While Loops<a class="headerlink" href="#while-loops" title="Permalink to this heading">#</a></h3>
 <p>While loops continue to run while some logical statement is <code class="docutils literal notranslate"><span class="pre">True</span></code> and stop running when that statement is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1054,9 +1050,9 @@ a: 0 b: 4
 </div>
 </div>
 <p>A warning - If you make a mistake when using while loops, it is much easier for things to go spectacularly wrong since a loop could try to run forever. A good general rule of thumb is to use for loops whenever possible and only use while loops when it is extremely convienient to do so.</p>
-</div>
-<div class="section" id="example-numerical-integration-of-object-falling-in-1d">
-<h3>5.3 Example: Numerical Integration of Object Falling in 1d<a class="headerlink" href="#example-numerical-integration-of-object-falling-in-1d" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="example-numerical-integration-of-object-falling-in-1d">
+<h3>5.3 Example: Numerical Integration of Object Falling in 1d<a class="headerlink" href="#example-numerical-integration-of-object-falling-in-1d" title="Permalink to this heading">#</a></h3>
 <p>When learning loops in python, it can be useful to see how you would do the same thing a couple different ways. Here, we show two ways of numerically solving an object falling in 1d with no air resistance. We choose <span class="math notranslate nohighlight">\(m = 1 kg\)</span>, <span class="math notranslate nohighlight">\(v_0 = 0 m/s\)</span>, <span class="math notranslate nohighlight">\(p_0 = 0 kgm/s\)</span>, and <span class="math notranslate nohighlight">\(y_0 = 500 m\)</span> for initial conditions and the standard <span class="math notranslate nohighlight">\(g = 9.81 m/s^2\)</span> for the acceleration due to gravity.</p>
 <p>The numerical method we are going to use is called <strong>Euler’s Method</strong>, which is the simplest but also least effective numerical integration technique. Euler’s method works by first updating the momentum of the object with the force it feels, then it updates the position of the object using its velocity (which can be found from <span class="math notranslate nohighlight">\(v = p/m\)</span>).</p>
 <p>First we’ll show a way of doing this using a for loop and numpy array indexing, and we’ll plot the results:</p>
@@ -1089,7 +1085,7 @@ a: 0 b: 4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ddffa43141bf4381ff4828f0c3d095bd31c0a7436e7286526ca1e8d37c669e60.png" src="../../_images/ddffa43141bf4381ff4828f0c3d095bd31c0a7436e7286526ca1e8d37c669e60.png" />
+<img alt="../../_images/9219d05d688a46fd51608b22e07cdeecf637fe35ae4b8c2f3f96eed68dbceeba.png" src="../../_images/9219d05d688a46fd51608b22e07cdeecf637fe35ae4b8c2f3f96eed68dbceeba.png" />
 </div>
 </div>
 <p>Next, here is a way to do this using a while loop and lists:</p>
@@ -1125,12 +1121,12 @@ a: 0 b: 4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9de13a527f2c649794199eb0adddfd489f30a83b9bacbde800f7d3aacf3f7060.png" src="../../_images/9de13a527f2c649794199eb0adddfd489f30a83b9bacbde800f7d3aacf3f7060.png" />
+<img alt="../../_images/37ed93d51e1cd3ede2b5fc22923beee6c471738653e8a9de54b00f26fa09fa77.png" src="../../_images/37ed93d51e1cd3ede2b5fc22923beee6c471738653e8a9de54b00f26fa09fa77.png" />
 </div>
 </div>
-</div>
-<div class="section" id="if-and-else-statements">
-<h3>6.4 if and else statements<a class="headerlink" href="#if-and-else-statements" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="if-and-else-statements">
+<h3>6.4 if and else statements<a class="headerlink" href="#if-and-else-statements" title="Permalink to this heading">#</a></h3>
 <p>Conditional logic in loops is often very useful. This can be done with <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements. Here’s an example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1177,9 +1173,9 @@ a: 0 b: 4
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="nested-loops">
-<h3>6.5 Nested loops<a class="headerlink" href="#nested-loops" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="nested-loops">
+<h3>6.5 Nested loops<a class="headerlink" href="#nested-loops" title="Permalink to this heading">#</a></h3>
 <p>multiple loops can be <strong>nested</strong> within each other. Here’s an example of a code that makes a grid of points and plots them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1203,13 +1199,13 @@ a: 0 b: 4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0b1799de3cf3779976160422e0a1f1f985ee00103f2115b95b6ca6fe6277ecc3.png" src="../../_images/0b1799de3cf3779976160422e0a1f1f985ee00103f2115b95b6ca6fe6277ecc3.png" />
+<img alt="../../_images/9e56f25097b73cd1526ea4cc9c0c68e83e2ccdbc1fb336528d1d487141453df8.png" src="../../_images/9e56f25097b73cd1526ea4cc9c0c68e83e2ccdbc1fb336528d1d487141453df8.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="functions">
-<h2>7. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="functions">
+<h2>7. Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
 <p>Often you may want to repeat a calculation in python many times. <strong>Functions</strong> are super useful for this. Functions are declared with <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">functionname(imputs):</span></code> and will return anything after the word <code class="docutils literal notranslate"><span class="pre">return</span></code> is used. Here’s an example of a simple function that calculates the square root of a number:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1260,7 +1256,7 @@ a: 0 b: 4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ddffa43141bf4381ff4828f0c3d095bd31c0a7436e7286526ca1e8d37c669e60.png" src="../../_images/ddffa43141bf4381ff4828f0c3d095bd31c0a7436e7286526ca1e8d37c669e60.png" />
+<img alt="../../_images/9219d05d688a46fd51608b22e07cdeecf637fe35ae4b8c2f3f96eed68dbceeba.png" src="../../_images/9219d05d688a46fd51608b22e07cdeecf637fe35ae4b8c2f3f96eed68dbceeba.png" />
 </div>
 </div>
 <p>Note that having this as a function makes it really easy to try different initial conditions, since all we have to do is change the imput to the function:</p>
@@ -1276,11 +1272,11 @@ a: 0 b: 4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/586382226ec13d61223f1029c3467bac270f05514cd3759ea16e7b167ed7cefd.png" src="../../_images/586382226ec13d61223f1029c3467bac270f05514cd3759ea16e7b167ed7cefd.png" />
+<img alt="../../_images/c6dd9b8991c1a3faa7525a59974a9bccf126d50050a0feff9d95ca7d7ee07d0d.png" src="../../_images/c6dd9b8991c1a3faa7525a59974a9bccf126d50050a0feff9d95ca7d7ee07d0d.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1307,34 +1303,30 @@ a: 0 b: 4
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../day-5/Day_5-Using_PCA.html"
+       href="../day-1/Day-1_Exploring-data-with-Pandas.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Using PCA</p>
+        <p class="prev-next-title">Exploring data with Pandas</p>
       </div>
     </a>
     <a class="right-next"
-       href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html"
+       href="../notes/importance_of_visualization.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Solution - Getting Started with Pandas</p>
+        <p class="prev-next-title">The Importance of Visualization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1342,6 +1334,7 @@ a: 0 b: 4
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1393,6 +1386,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2021-2023, Michigan State University.
@@ -1419,8 +1413,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

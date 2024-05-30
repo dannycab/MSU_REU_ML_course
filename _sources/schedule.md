@@ -20,7 +20,7 @@
 * [Day 1 notebook - Getting Started](./notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb)
 * [Day 1 notebook - Exploring Data](./notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb)
 
-## Day 2 - Building a Regression Model
+<!-- ## Day 2 - Building a Regression Model
 
 ### Today, we will:
 
@@ -72,4 +72,4 @@
 
 ## Day 5 - Advanced topics 1
 
-## Day 6 - Advanced topics 2
+## Day 6 - Advanced topics 2 -->

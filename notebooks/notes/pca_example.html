@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Illustrating PCA &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -18,46 +19,44 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/notes/pca_example';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -65,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Using PCA" href="../day-5/Day_5-Using_PCA.html" />
     <link rel="prev" title="What is Principal Component Analysis?" href="../day-5/day_5-What_is_PCA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,9 +137,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
+  
   
   
   
@@ -139,12 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="2023 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="2023 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -393,20 +416,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -451,10 +476,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="illustrating-pca">
-<h1>Illustrating PCA<a class="headerlink" href="#illustrating-pca" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="illustrating-pca">
+<h1>Illustrating PCA<a class="headerlink" href="#illustrating-pca" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -473,9 +498,23 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+</pre></div>
 </div>
-<div class="section" id="making-the-data">
-<h2>Making the data<a class="headerlink" href="#making-the-data" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<section id="making-the-data">
+<h2>Making the data<a class="headerlink" href="#making-the-data" title="Permalink to this heading">#</a></h2>
 <p>We are going to illiustrate the use of PCA with a made up data set. You can imagine that these are events in a detector that are tagged with different types of results. In the default case there’s 8 of those different events (could be decay channels in a experiment, or the results of classes of observations). The crtiical aspect is that there are many, many feautres in the data set…too many to really make sense of. In this case, we have 200 features, which is way too many to understand immediately.</p>
 <p>Below, we’ve created that data set. We’ve tried to make it noisy with a bigger <code class="docutils literal notranslate"><span class="pre">cluster_std</span></code>, but remember that you are only able to see 2 or 3 of the 200 features at any one time.</p>
 <div class="cell docutils container">
@@ -504,8 +543,8 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="section" id="visualizing-the-confusion-matrix">
-<h3>Visualizing the confusion matrix<a class="headerlink" href="#visualizing-the-confusion-matrix" title="Permalink to this headline">#</a></h3>
+<section id="visualizing-the-confusion-matrix">
+<h3>Visualizing the confusion matrix<a class="headerlink" href="#visualizing-the-confusion-matrix" title="Permalink to this heading">#</a></h3>
 <p>We have 8 potential classes. That is quite a few and makes the 2x2 matrix we were using in the past not relevant. There’s seven ways to incorrectly classify these data! Below is a little function that takes the known and opredicted labels and demonstrates the quality of the fit. We will call this function later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -526,10 +565,10 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="investgating-the-subspace">
-<h2>Investgating the subspace<a class="headerlink" href="#investgating-the-subspace" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="investgating-the-subspace">
+<h2>Investgating the subspace<a class="headerlink" href="#investgating-the-subspace" title="Permalink to this heading">#</a></h2>
 <p>Note we can ony see 2-3 dimensions at any one time. Below, we plot the subsapce consisting of the first three features. But remember there’s 200 features. The second plot is also 3D, but for features 52, 100, and 179. It probably seems really hard to know how this fit is going to work. Everything looks really messy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -561,9 +600,9 @@ document.write(`
 <img alt="../../_images/6bbf7c9b0d975be756c8c30712cfd84ef53e5fe3090915281031d7a8109a30f6.png" src="../../_images/6bbf7c9b0d975be756c8c30712cfd84ef53e5fe3090915281031d7a8109a30f6.png" />
 </div>
 </div>
-</div>
-<div class="section" id="build-a-classifier-model">
-<h2>Build a classifier model<a class="headerlink" href="#build-a-classifier-model" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="build-a-classifier-model">
+<h2>Build a classifier model<a class="headerlink" href="#build-a-classifier-model" title="Permalink to this heading">#</a></h2>
 <p>Below, we use the <code class="docutils literal notranslate"><span class="pre">RandomForestClassifer</span></code> to illustrate the approach to making classifier models. Note the only input to a basic RF model is the number of trees in the forest. This relates to the depth of your forest, and you can think of this as being able to capture more nuanced splits or decisions. We should be able to reduce the number of tress and produce a less accurate model. We start with 100 trees, which is the default for <code class="docutils literal notranslate"><span class="pre">scikit</span></code>.</p>
 <p>Notice the process is all the same as before. We illistrate a less accurate model by reducing the number of trees a lot.</p>
 <p><em>Given the consistent quality of this fit with a low number of trees, my suspicion is that we are overfitting these data.</em></p>
@@ -627,15 +666,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of Low RF model: 0.993
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of Low RF model: 0.975
 </pre></div>
 </div>
-<img alt="../../_images/5aa51d70ed18dc51a295c4b4785f74387d8704d202c4eb0a3427e24c2788f253.png" src="../../_images/5aa51d70ed18dc51a295c4b4785f74387d8704d202c4eb0a3427e24c2788f253.png" />
+<img alt="../../_images/0260892463ba67b69cb4ce324a631fecddae77ef7bb7b2d6bea6f7b69eb38a79.png" src="../../_images/0260892463ba67b69cb4ce324a631fecddae77ef7bb7b2d6bea6f7b69eb38a79.png" />
 </div>
 </div>
-</div>
-<div class="section" id="introduce-the-pca">
-<h2>Introduce the PCA<a class="headerlink" href="#introduce-the-pca" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="introduce-the-pca">
+<h2>Introduce the PCA<a class="headerlink" href="#introduce-the-pca" title="Permalink to this heading">#</a></h2>
 <p>A PCA tries to find a combination of features that maximizes the variance that each new feature accounts for. We can see this by looking at subplots of the data before an after the PCA is done. To do a PCA, we must choose the number of components to reduce to. Remember that we have 200 features, so our goal is to produce a reaonably accurate model with much fewer features. Two is the lowest number one should start with, but the work you do will inform this decision. There’s also plenty of research on how to choose the number of features to include. Much of this relies on what is called the <a class="reference external" href="https://en.wikipedia.org/wiki/Scree_plot">Scree Plot</a>.</p>
 <p>Below, we form a PCA object with only 2 features instead of 200. We reun the PCA, fit the data, and then compare two subspace plots.</p>
 <p><strong>Note there are ONLY two features in the PCA data, so the subspace plot is complete!</strong></p>
@@ -667,9 +706,9 @@ document.write(`
 <img alt="../../_images/8c2a2bff527730d53e38afe8ca778db0c98208e1e7416f0e79385da4ca6fa5ff.png" src="../../_images/8c2a2bff527730d53e38afe8ca778db0c98208e1e7416f0e79385da4ca6fa5ff.png" />
 </div>
 </div>
-</div>
-<div class="section" id="build-a-model-using-pca-data">
-<h2>Build a model using PCA data<a class="headerlink" href="#build-a-model-using-pca-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="build-a-model-using-pca-data">
+<h2>Build a model using PCA data<a class="headerlink" href="#build-a-model-using-pca-data" title="Permalink to this heading">#</a></h2>
 <p>See below, we follow the same process, except now we use the <code class="docutils literal notranslate"><span class="pre">X_pca</span></code> input features, remember there’s only two features in that data. We run the same RF algorithm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -700,17 +739,17 @@ document.write(`
 <img alt="../../_images/bc371757453fae2a3ce3c687817faf020e274c93733ace5ad6432d149e185002.png" src="../../_images/bc371757453fae2a3ce3c687817faf020e274c93733ace5ad6432d149e185002.png" />
 </div>
 </div>
-</div>
-<div class="section" id="things-to-try">
-<h2>Things to try<a class="headerlink" href="#things-to-try" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="things-to-try">
+<h2>Things to try<a class="headerlink" href="#things-to-try" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>How do other classifiers perform? Do you have to consider certain parameters or issues in setting them up? Think about how many features and classes you have.</p></li>
 <li><p>Can you generate a data set that fits poorly on initial run? Think about all the parameters we can adjust. Does PCA help?</p></li>
 <li><p>Can you repeat our analysis here for a regression problem instead? <code class="docutils literal notranslate"><span class="pre">make_regression</span></code> can make those data.</p></li>
 </ol>
 <p>Alternatively, you can start on the PCA notebook with the cancer data.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -737,11 +776,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../day-5/day_5-What_is_PCA.html"
@@ -761,10 +799,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -772,6 +807,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -809,6 +845,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2021-2023, Michigan State University.
@@ -835,8 +872,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

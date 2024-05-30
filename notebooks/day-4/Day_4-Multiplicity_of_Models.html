@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>A Multiplicity of Models &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -18,46 +19,44 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -67,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="What is Principal Component Analysis?" href="../day-5/day_5-What_is_PCA.html" />
     <link rel="prev" title="What is Tuning and Validation?" href="Day_4-What_is_Tuning_and_Validation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -75,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -110,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -129,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
+  
   
   
   
@@ -141,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="2023 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="2023 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -395,20 +418,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -474,10 +499,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="a-multiplicity-of-models">
-<h1>A Multiplicity of Models<a class="headerlink" href="#a-multiplicity-of-models" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="a-multiplicity-of-models">
+<h1>A Multiplicity of Models<a class="headerlink" href="#a-multiplicity-of-models" title="Permalink to this heading">#</a></h1>
 <p>We haven’t really talked too much about specific models or algorithms, that is something you can study on your own, but be warned – that liteature is extensive, so I’d suggest starting with YouTube videos.</p>
 <p>In general you might approach a given classification or regression problem with a number of different possible models to determine which is the most useful for your purposes (e.g., most accurate, least biased, etc.). A few potential models (<em>not exhaustive</em>) are listed below based on the type of problem they can solve:</p>
 <ul class="simple">
@@ -486,8 +511,8 @@ document.write(`
 </ul>
 <p>In this notebook, you will work with synthesized data to understand the workflow for using and comparing classifiers. Along the way, we will introduce new models, but only link to videos that explain what they do.</p>
 <hr class="docutils" />
-<div class="section" id="today-s-initial-imports">
-<h2>0. Today’s Initial Imports<a class="headerlink" href="#today-s-initial-imports" title="Permalink to this headline">#</a></h2>
+<section id="today-s-initial-imports">
+<h2>0. Today’s Initial Imports<a class="headerlink" href="#today-s-initial-imports" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -504,16 +529,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span><span class="p">,</span> <span class="n">make_circles</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">ShuffleSplit</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
 </div>
 </div>
+</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="example-validating-a-logistic-regression-model">
-<h2>1. Example: Validating a Logistic Regression Model<a class="headerlink" href="#example-validating-a-logistic-regression-model" title="Permalink to this headline">#</a></h2>
+<section id="example-validating-a-logistic-regression-model">
+<h2>1. Example: Validating a Logistic Regression Model<a class="headerlink" href="#example-validating-a-logistic-regression-model" title="Permalink to this heading">#</a></h2>
 <p>We will start with a Logistic Regression Model and synthesized data.</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=yIYKR4sgzI8">[Logistic Regression Explained]</a> <em>(No need to watch in class.)</em></p>
 <p>By reviewing and working with this example, you should be able to identify and explain the different ways in which we are validating the Logisitc Regression model.</p>
-<div class="section" id="making-classification-data">
-<h3>1.1 Making classification data<a class="headerlink" href="#making-classification-data" title="Permalink to this headline">#</a></h3>
+<section id="making-classification-data">
+<h3>1.1 Making classification data<a class="headerlink" href="#making-classification-data" title="Permalink to this heading">#</a></h3>
 <p>We start by making the data using the <code class="docutils literal notranslate"><span class="pre">make_classification()</span></code> method. I will pick 1000 samples with 20 features; only 4 of them will be informative about the 2 classes. What <code class="docutils literal notranslate"><span class="pre">make_classification()</span></code> returns are the data (the features for the model) and the class labels (the 1 or 0). For simplicity and familiarity, I convert them both to <code class="docutils literal notranslate"><span class="pre">pandas</span></code> data frames as this is typically what you would do with data you read in.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -764,9 +803,9 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="plotting-feature-spaces">
-<h3>1.2 Plotting Feature Spaces<a class="headerlink" href="#plotting-feature-spaces" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="plotting-feature-spaces">
+<h3>1.2 Plotting Feature Spaces<a class="headerlink" href="#plotting-feature-spaces" title="Permalink to this heading">#</a></h3>
 <p>We’ve found that looking at the classes in some feature subspace has been helpful in seeing if there are subspaces where the classes are more separated. We do this so frequently, it is worth having a little piece of code to do that. I’ve written one below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -799,15 +838,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/74813367b4316dc2b1f6bda36a5ca3f038c1ba30ff1c9c2a991fc3a79edc0622.png" src="../../_images/74813367b4316dc2b1f6bda36a5ca3f038c1ba30ff1c9c2a991fc3a79edc0622.png" />
+<img alt="../../_images/1aadcccc893b01e97c38791fde81eff9277c131f3f2bc0749227bfb2a026fef2.png" src="../../_images/1aadcccc893b01e97c38791fde81eff9277c131f3f2bc0749227bfb2a026fef2.png" />
 </div>
 </div>
 <p><font size=+3>✎</font> <strong>Do this:</strong> Which two features did you find? Keep note here!</p>
 <p><em>If you rerun the data creation process with a different random state, the same two features might no longer be useful.</em></p>
 <p><font size=+3>✎</font> <strong>Do this:</strong> Erase this and write here.</p>
-</div>
-<div class="section" id="a-logistic-regression-model">
-<h3>1.3 A Logistic Regression Model<a class="headerlink" href="#a-logistic-regression-model" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="a-logistic-regression-model">
+<h3>1.3 A Logistic Regression Model<a class="headerlink" href="#a-logistic-regression-model" title="Permalink to this heading">#</a></h3>
 <p>As we did with KNN, we will train and test a classification model. This time it will be a <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logitstic Regression</a> model. We will first use the confusion matrix to determine how things are going. I’ve written to code below to split the data, create the model, fit it, and predict the classes of the test data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -829,18 +868,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[115   6]
- [  0 129]]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[122   2]
+ [  1 125]]
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="the-metric-zoo">
-<h4>1.3.1 The Metric Zoo<a class="headerlink" href="#the-metric-zoo" title="Permalink to this headline">#</a></h4>
+<section id="the-metric-zoo">
+<h4>1.3.1 The Metric Zoo<a class="headerlink" href="#the-metric-zoo" title="Permalink to this heading">#</a></h4>
 <p>There are many different ways to use the confusion matrix to determine different qualities of your classifier. Accuracy, the number of true positives and negatives comapred to all predictions is just one of these metrics. There’s a lot of them! <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">[Wikipedia article on evaluation metrics]</a></p>
 <p>Two of the more important ones are the accuracy (as we’ve used before) and the <a class="reference external" href="https://en.wikipedia.org/wiki/F-score">f1-score</a> (closer to 1 is better). The <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> toolkit has all these built-in, but one tool that is at the ready is <code class="docutils literal notranslate"><span class="pre">classification_report()</span></code>, which gives the accuracy, the f-1 score, as well as the <a class="reference external" href="https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values">precision</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">recall</a> – two other common metrics for evaluation.</p>
 <p>Once we have predicted class labels, then we can use <code class="docutils literal notranslate"><span class="pre">classification_report</span></code>. Both the <code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code> and <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> can be used with any of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>’s classifiers.</p>
@@ -853,20 +888,20 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       1.00      0.95      0.97       121
-           1       0.96      1.00      0.98       129
+           0       0.99      0.98      0.99       124
+           1       0.98      0.99      0.99       126
 
-    accuracy                           0.98       250
-   macro avg       0.98      0.98      0.98       250
-weighted avg       0.98      0.98      0.98       250
+    accuracy                           0.99       250
+   macro avg       0.99      0.99      0.99       250
+weighted avg       0.99      0.99      0.99       250
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="auc-and-the-roc-curve">
-<h3>1.4 AUC and the ROC Curve<a class="headerlink" href="#auc-and-the-roc-curve" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="auc-and-the-roc-curve">
+<h3>1.4 AUC and the ROC Curve<a class="headerlink" href="#auc-and-the-roc-curve" title="Permalink to this heading">#</a></h3>
 <p>The Receiver Operator Characteristic (ROC) Curve and the associated Area Under the Curve (AUC) are additional tools that help us validate our model. Fortunately, <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> has <code class="docutils literal notranslate"><span class="pre">roc_curve</span></code>, that will return to quantities needed to plot this curve. The AUC can also be determined using the built in <code class="docutils literal notranslate"><span class="pre">roc_auc_score()</span></code> method.</p>
 <p>Below I wrote a little bit of code to plot the ROC curve and compute the AUC for this model.</p>
 <p>Again, both of the tools are available for any classifier model.</p>
@@ -888,12 +923,12 @@ weighted avg       0.98      0.98      0.98       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f5f22d5360debee4e3898e4ea97e24f495b5764bf86e558d056772d8f360ab44.png" src="../../_images/f5f22d5360debee4e3898e4ea97e24f495b5764bf86e558d056772d8f360ab44.png" />
+<img alt="../../_images/5073472fa154403a10a1b2cd664a5540e8c24f017a5624e50792aca0c78a68dc.png" src="../../_images/5073472fa154403a10a1b2cd664a5540e8c24f017a5624e50792aca0c78a68dc.png" />
 </div>
 </div>
-</div>
-<div class="section" id="model-specific-tools-logistic-regression">
-<h3>1.5 Model Specific Tools - Logistic Regression<a class="headerlink" href="#model-specific-tools-logistic-regression" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="model-specific-tools-logistic-regression">
+<h3>1.5 Model Specific Tools - Logistic Regression<a class="headerlink" href="#model-specific-tools-logistic-regression" title="Permalink to this heading">#</a></h3>
 <p>A LR model uses a transformed linear model to fit the data. It predicts numerical weights for each feature in the data. Those numerical weights can be converted to odds ratio by exponentiating them:</p>
 <p><span class="math notranslate nohighlight">\(odds_i = \exp(\beta_i)\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(\beta_i\)</span> is the numerical weight for the <span class="math notranslate nohighlight">\(i\)</span> th feature determined by the model. In <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> speak, these would be “coefficients” of the model; <code class="docutils literal notranslate"><span class="pre">coef_</span></code> in code (and yes with the trailing underscore). The nice thing about LR is that these coefficients are typically interpretable. That is if the odds of a feature is close to one then that feature has virtually no effect on the model. On the other hand, if a feature is much larger than one, we find that might contribute a lot to the model.</p>
@@ -911,15 +946,16 @@ weighted avg       0.98      0.98      0.98       250
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 1.42290676 -0.91836136  5.20802351  2.78377764 -0.19838198 -0.34911424
-  -0.33950366 -0.1303793  -0.97696346 -0.00798553  0.15874478  0.14158897
-  -0.27204412  0.51400545  0.02585804  0.38457984 -0.73329418  0.00618497
-  -3.34962471 -0.20054824]]
-Odds Ratios: [4.14916355e+00 3.99172604e-01 1.82732531e+02 1.61800280e+01
- 8.20056549e-01 7.05312554e-01 7.12123690e-01 8.77762434e-01
- 3.76452478e-01 9.92046268e-01 1.17203878e+00 1.15210300e+00
- 7.61820646e-01 1.67197481e+00 1.02619526e+00 1.46899697e+00
- 4.80324106e-01 1.00620413e+00 3.50975235e-02 8.18282018e-01]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Coefficients: [[ 1.02189378e+00 -3.71783071e-01  4.43549628e+00  2.24329546e+00
+  -4.41167499e-03  1.43147515e-02 -5.28586474e-01 -1.41168130e-01
+   1.42575654e-01  7.05571192e-02  1.69208663e-01 -3.45129669e-01
+   2.67088237e-01  3.25967509e-01 -1.06930456e-01 -8.99527147e-02
+  -2.87542346e-01  2.07373909e-02 -2.91332282e+00  2.21984351e-01]]
+Odds Ratios: [2.77845156e+00 6.89503800e-01 8.43939978e+01 9.42433766e+00
+ 9.95598042e-01 1.01441770e+00 5.89437566e-01 8.68343305e-01
+ 1.15324032e+00 1.07310586e+00 1.18436725e+00 7.08128526e-01
+ 1.30615569e+00 1.38537036e+00 8.98588162e-01 9.13974402e-01
+ 7.50104802e-01 1.02095390e+00 5.42950171e-02 1.24855184e+00]
 </pre></div>
 </div>
 </div>
@@ -932,9 +968,9 @@ Odds Ratios: [4.14916355e+00 3.99172604e-01 1.82732531e+02 1.61800280e+01
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="monte-carlo-validation">
-<h3>1.5 Monte Carlo Validation<a class="headerlink" href="#monte-carlo-validation" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="monte-carlo-validation">
+<h3>1.5 Monte Carlo Validation<a class="headerlink" href="#monte-carlo-validation" title="Permalink to this heading">#</a></h3>
 <p>One of the important things about machine learning is that it often relies on the randomness of the draw of training and testing sets. As a result, any  one time the model is run you are working with a particualr choice of data for training and testing. Thus, there’s a problem in reporting the results of a single model because it depends on the curiousities of what was drawn in the first place!</p>
 <p>One of the ways we validate the model we have used is to determine how representative our one run is compared to a large number of runs. Ideally, we’d like to know what the disitrbution of possible results could be. That allows us to put some error bounds on the estimated model parameters and to explain the confidence we have in our approach and results.</p>
 <p>There’s two main types of validation, although many others exist and there’s nuance inside of each:</p>
@@ -971,16 +1007,12 @@ Odds Ratios: [4.14916355e+00 3.99172604e-01 1.82732531e+02 1.61800280e+01
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.984
-AUC: 0.9839166237776633
-Coefs: [[ 0.9915094  -0.15392065  4.85969431  2.31872725  0.24415741  0.23858397
-  -0.6708923  -0.5762803  -0.14434064  0.22800097  0.29633314 -0.43121445
-   0.62977755  0.53331766 -0.38702834 -0.09016225 -0.09094411 -0.00750528
-  -3.19658137  0.47798976]]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.992
+AUC: 0.9919871794871795
+Coefs: [[ 0.82106995 -0.38171862  3.53448337  1.75272453  0.12482036  0.11928583
+  -0.28699421 -0.42154622 -0.29441276 -0.00668235  0.16386893 -0.1923016
+   0.30320224  0.35200971 -0.14342249 -0.02229111 -0.25323457  0.0094466
+  -2.57084617  0.10205547]]
 </pre></div>
 </div>
 </div>
@@ -1002,11 +1034,11 @@ Coefs: [[ 0.9915094  -0.15392065  4.85969431  2.31872725  0.24415741  0.23858397
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="parameter-tuning">
-<h2>2. Parameter Tuning<a class="headerlink" href="#parameter-tuning" title="Permalink to this headline">#</a></h2>
+<section id="parameter-tuning">
+<h2>2. Parameter Tuning<a class="headerlink" href="#parameter-tuning" title="Permalink to this heading">#</a></h2>
 <p>Great! Now that we have seen how we can explore our confidence in the model we created, we can now determine if indeed we have the best logisitc regression model we could have. There’s a number of parameters that the logisitic regression method can take when you create an instance. Each of them control different aspects of how the model fits.</p>
 <p>For our purposes, we will just explore if it was ok to use no penalization. Penalization is how a logistic regression model might control for variables that don’t matter too much. Penalization tends to shrink model coefficients towards zero if they are small, so it’s clear what contributes and what doesn’t.</p>
 <p>To do a little paramter testing we will use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code>. The method basically wraps any class to a classifier (or regressor) and then lets you tell it, please try all these potential versions. For example, we have four choices of penalization <code class="docutils literal notranslate"><span class="pre">l1</span></code>, <code class="docutils literal notranslate"><span class="pre">l2</span></code>, <code class="docutils literal notranslate"><span class="pre">elasticnet</span></code> (which is <code class="docutils literal notranslate"><span class="pre">l1</span></code> and <code class="docutils literal notranslate"><span class="pre">l2</span></code> at the same time), and <code class="docutils literal notranslate"><span class="pre">none</span></code> (which we have used all along). So we can test all four models simulatneously to see which is the best.</p>
@@ -1022,17 +1054,7 @@ Coefs: [[ 0.9915094  -0.15392065  4.85969431  2.31872725  0.24415741  0.23858397
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\ProgramData\Anaconda3\lib\site-packages\sklearn\model_selection\_validation.py:372: FitFailedWarning: 
 10 fits failed out of a total of 20.
 The score on these train-test partitions for these parameters will be set to nan.
 If these failures are not expected, you can try to debug them by setting error_score=&#39;raise&#39;.
@@ -1041,38 +1063,40 @@ Below are more details about the failures:
 --------------------------------------------------------------------------------
 5 fits failed with the following error:
 Traceback (most recent call last):
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\model_selection\_validation.py&quot;, line 680, in _fit_and_score
     estimator.fit(X_train, y_train, **fit_params)
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\linear_model\_logistic.py&quot;, line 1461, in fit
     solver = _check_solver(self.solver, self.penalty, self.dual)
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\linear_model\_logistic.py&quot;, line 447, in _check_solver
     raise ValueError(
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
 
 --------------------------------------------------------------------------------
 5 fits failed with the following error:
 Traceback (most recent call last):
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\model_selection\_validation.py&quot;, line 680, in _fit_and_score
     estimator.fit(X_train, y_train, **fit_params)
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\linear_model\_logistic.py&quot;, line 1461, in fit
     solver = _check_solver(self.solver, self.penalty, self.dual)
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\linear_model\_logistic.py&quot;, line 447, in _check_solver
     raise ValueError(
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
 
   warnings.warn(some_fits_failed_message, FitFailedWarning)
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.984   nan 0.981]
+c:\ProgramData\Anaconda3\lib\site-packages\sklearn\model_selection\_search.py:969: UserWarning: One or more of the test scores are non-finite: [  nan 0.984   nan 0.981]
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GridSearchCV(estimator=LogisticRegression(),
-             param_grid={&#x27;penalty&#x27;: [&#x27;l1&#x27;, &#x27;l2&#x27;, &#x27;elasticnet&#x27;, &#x27;none&#x27;]})</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" ><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">GridSearchCV</label><div class="sk-toggleable__content"><pre>GridSearchCV(estimator=LogisticRegression(),
-             param_grid={&#x27;penalty&#x27;: [&#x27;l1&#x27;, &#x27;l2&#x27;, &#x27;elasticnet&#x27;, &#x27;none&#x27;]})</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">estimator: LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div></div></div></div></div></div></div></div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(estimator=LogisticRegression(),
+             param_grid={&#39;penalty&#39;: [&#39;l1&#39;, &#39;l2&#39;, &#39;elasticnet&#39;, &#39;none&#39;]})
+</pre></div>
+</div>
+</div>
 </div>
 <p>At the end of all this, we get call back with the parameter grid we created. Notice that if we had another parameter to set, <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> will try to run all parameter combinations. So that each new parameter is multiplicative leading to many models quite fast. So be careful here!</p>
 <p>For example, consider we had three paramters, one that had two settings, one with three, and one with five. If you call a grid search with these paramters, you will be asking <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> to create an run 2x3x5 models (30 models). If you have another parameter you want to try that has another 4 settings, you are up to 120 models!</p>
-<div class="section" id="results-of-a-grid-search">
-<h3>2.1 Results of a Grid Search<a class="headerlink" href="#results-of-a-grid-search" title="Permalink to this headline">#</a></h3>
+<section id="results-of-a-grid-search">
+<h3>2.1 Results of a Grid Search<a class="headerlink" href="#results-of-a-grid-search" title="Permalink to this heading">#</a></h3>
 <p>In any event, after running this, we can find the <code class="docutils literal notranslate"><span class="pre">best_estimator_</span></code> and the <code class="docutils literal notranslate"><span class="pre">best_score_</span></code>. The <code class="docutils literal notranslate"><span class="pre">best_estimator</span></code> is the call you should use for the best model tested. If any settings are the default, they will not appear in the parentheses. The <code class="docutils literal notranslate"><span class="pre">best_score_</span></code> is the accuracy of that model. Of course, you can get more details (like above) if you choose that best model and run it through Monte Carlo validation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1088,9 +1112,9 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="what-about-other-classifiers">
-<h3>2.2 What about other classifiers?<a class="headerlink" href="#what-about-other-classifiers" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="what-about-other-classifiers">
+<h3>2.2 What about other classifiers?<a class="headerlink" href="#what-about-other-classifiers" title="Permalink to this heading">#</a></h3>
 <p>There are many other classifers we can try on the same problem to see how well they do. There’s many out there and there’s lots of nuance to understand about each if you are going to use them. We will use K Nearest Neighbors, Supprt Vector Machines, and a Random Forest Classifier. To learn more about each, I’d suggest these videos:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=HVXime0nQeI">KNN</a></p></li>
@@ -1107,8 +1131,8 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 </div>
-<div class="section" id="knn">
-<h4>2.2.1 KNN<a class="headerlink" href="#knn" title="Permalink to this headline">#</a></h4>
+<section id="knn">
+<h4>2.2.1 KNN<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h4>
 <p>As we did previously we can vary the number of neighbors from the default of 5 (always good to know the defaults of the models you are calling). But this time we will use <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>. I’ve written the code to do this below. You can adapt it for other models in the next sections as you like.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1154,7 +1178,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.972, 0.972)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.96, 0.9612179487179487)
 </pre></div>
 </div>
 </div>
@@ -1196,17 +1220,17 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9652799999999998 +/- 0.011769519956225922
-Mean AUC: 0.965510225988888 +/- 0.011411015212518064
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Accuracy: 0.9663866666666666 +/- 0.010466955410029972
+Mean AUC: 0.9663051634461004 +/- 0.010381470414473966
 </pre></div>
 </div>
-<img alt="../../_images/b0e09515f783c746ef20af61e05e9199a7dbe0393084c3e60c09a035d5c885c7.png" src="../../_images/b0e09515f783c746ef20af61e05e9199a7dbe0393084c3e60c09a035d5c885c7.png" />
-<img alt="../../_images/3c28c2c2aef1c94366ebead8bfcdcba685287f377ef53f69a706e46c5439a1cc.png" src="../../_images/3c28c2c2aef1c94366ebead8bfcdcba685287f377ef53f69a706e46c5439a1cc.png" />
+<img alt="../../_images/faab4e6e730c902b32d3b703a92e21e7b2df99001e942986995ff49ee613382f.png" src="../../_images/faab4e6e730c902b32d3b703a92e21e7b2df99001e942986995ff49ee613382f.png" />
+<img alt="../../_images/d583e9ca327ede4ee173f3543fc06e3516ec670e510b021ff98c7030801af75f.png" src="../../_images/d583e9ca327ede4ee173f3543fc06e3516ec670e510b021ff98c7030801af75f.png" />
 </div>
 </div>
-</div>
-<div class="section" id="linearsvc">
-<h4>2.2.2 LinearSVC<a class="headerlink" href="#linearsvc" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="linearsvc">
+<h4>2.2.2 LinearSVC<a class="headerlink" href="#linearsvc" title="Permalink to this heading">#</a></h4>
 <p><font size=+3>✎</font> <strong>Do this:</strong> For the <code class="docutils literal notranslate"><span class="pre">LinearSVC()</span></code> model, repeat the work above to determine the distribution of accuracies and aucs for the model. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to vary the <code class="docutils literal notranslate"><span class="pre">C</span></code> parameter and find the best model. <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html">Linear SVC Documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1215,9 +1239,9 @@ Mean AUC: 0.965510225988888 +/- 0.011411015212518064
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="random-forest">
-<h4>2.2.3 Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="random-forest">
+<h4>2.2.3 Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h4>
 <p><font size=+3>✎</font> <strong>Do this:</strong> For the <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier()</span></code> model, repeat the work above to determine the distribution of accuracies and aucs for the model. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to vary the <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> parameter and find the best model. <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest Documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1226,12 +1250,12 @@ Mean AUC: 0.965510225988888 +/- 0.011411015212518064
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="what-about-other-kinds-of-data">
-<h2>3. What about other kinds of data?<a class="headerlink" href="#what-about-other-kinds-of-data" title="Permalink to this headline">#</a></h2>
+<section id="what-about-other-kinds-of-data">
+<h2>3. What about other kinds of data?<a class="headerlink" href="#what-about-other-kinds-of-data" title="Permalink to this heading">#</a></h2>
 <p>Many times it is important to know the strucutre of your data, hence plotting feature spaces. Sometimes the models you are using might be incompatible with the structure of your data. Some models try to draw lines to separate, some draw curves, some are more emergent. Let’s test this out with a ciruclar data set where we can clearly see the separation. Below, we create some data and store the values in data frames.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1275,28 +1299,28 @@ Mean AUC: 0.965510225988888 +/- 0.011411015212518064
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.670022</td>
-      <td>0.437115</td>
+      <td>-0.968583</td>
+      <td>0.248690</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.783884</td>
-      <td>0.159768</td>
+      <td>-0.787651</td>
+      <td>0.140018</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.379779</td>
-      <td>-0.925077</td>
+      <td>0.356412</td>
+      <td>0.934329</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.797727</td>
-      <td>-0.060261</td>
+      <td>-0.012566</td>
+      <td>-0.999921</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.266256</td>
-      <td>0.754392</td>
+      <td>-0.787651</td>
+      <td>-0.140018</td>
     </tr>
   </tbody>
 </table>
@@ -1333,7 +1357,7 @@ Mean AUC: 0.965510225988888 +/- 0.011411015212518064
   <tbody>
     <tr>
       <th>0</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1345,7 +1369,7 @@ Mean AUC: 0.965510225988888 +/- 0.011411015212518064
     </tr>
     <tr>
       <th>3</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1355,8 +1379,8 @@ Mean AUC: 0.965510225988888 +/- 0.011411015212518064
 </table>
 </div></div></div>
 </div>
-<div class="section" id="plot-it">
-<h3>3.1 Plot it!<a class="headerlink" href="#plot-it" title="Permalink to this headline">#</a></h3>
+<section id="plot-it">
+<h3>3.1 Plot it!<a class="headerlink" href="#plot-it" title="Permalink to this heading">#</a></h3>
 <p>Let’s plot this data to see why we might not expect the same results as we had found for the previous case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1369,7 +1393,7 @@ Mean AUC: 0.965510225988888 +/- 0.011411015212518064
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/68435c410a1b49d6401d50a7c0f8543688f658c8b77fda42c2f320c46ab6a541.png" src="../../_images/68435c410a1b49d6401d50a7c0f8543688f658c8b77fda42c2f320c46ab6a541.png" />
+<img alt="../../_images/bf14002e72d85fd9bd23ac4392c83724c5fedba1b180ccc915dffe810d83af47.png" src="../../_images/bf14002e72d85fd9bd23ac4392c83724c5fedba1b180ccc915dffe810d83af47.png" />
 </div>
 </div>
 <p>It is really easy to see in the figure above that we have two clearly separated classes. Let’s fire up the Logisitic Regression model and see what it can find.</p>
@@ -1391,20 +1415,10 @@ Mean AUC: 0.965510225988888 +/- 0.011411015212518064
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
-0.41600000000000004
+0.45599999999999996
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:1173: FutureWarning: `penalty=&#39;none&#39;`has been deprecated in 1.2 and will be removed in 1.4. To keep the past behaviour, set `penalty=None`.
-  warnings.warn(
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\ProgramData\Anaconda3\lib\site-packages\sklearn\model_selection\_validation.py:372: FitFailedWarning: 
 10 fits failed out of a total of 20.
 The score on these train-test partitions for these parameters will be set to nan.
 If these failures are not expected, you can try to debug them by setting error_score=&#39;raise&#39;.
@@ -1413,35 +1427,35 @@ Below are more details about the failures:
 --------------------------------------------------------------------------------
 5 fits failed with the following error:
 Traceback (most recent call last):
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\model_selection\_validation.py&quot;, line 680, in _fit_and_score
     estimator.fit(X_train, y_train, **fit_params)
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\linear_model\_logistic.py&quot;, line 1461, in fit
     solver = _check_solver(self.solver, self.penalty, self.dual)
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\linear_model\_logistic.py&quot;, line 447, in _check_solver
     raise ValueError(
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got l1 penalty.
 
 --------------------------------------------------------------------------------
 5 fits failed with the following error:
 Traceback (most recent call last):
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_validation.py&quot;, line 686, in _fit_and_score
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\model_selection\_validation.py&quot;, line 680, in _fit_and_score
     estimator.fit(X_train, y_train, **fit_params)
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 1162, in fit
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\linear_model\_logistic.py&quot;, line 1461, in fit
     solver = _check_solver(self.solver, self.penalty, self.dual)
-  File &quot;/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py&quot;, line 54, in _check_solver
+  File &quot;c:\ProgramData\Anaconda3\lib\site-packages\sklearn\linear_model\_logistic.py&quot;, line 447, in _check_solver
     raise ValueError(
 ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties, got elasticnet penalty.
 
   warnings.warn(some_fits_failed_message, FitFailedWarning)
-/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/sklearn/model_selection/_search.py:952: UserWarning: One or more of the test scores are non-finite: [  nan 0.416   nan 0.416]
+c:\ProgramData\Anaconda3\lib\site-packages\sklearn\model_selection\_search.py:969: UserWarning: One or more of the test scores are non-finite: [  nan 0.456   nan 0.456]
   warnings.warn(
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="time-to-try-other-models">
-<h3>3.2 Time to try other models<a class="headerlink" href="#time-to-try-other-models" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="time-to-try-other-models">
+<h3>3.2 Time to try other models<a class="headerlink" href="#time-to-try-other-models" title="Permalink to this heading">#</a></h3>
 <p>It appears the the logistic regression does pretty poorly. That is because logistic regression is not good with nonlinear problems. It is a linear model, so it’s hard for it to deal with things like circles!</p>
 <p><font size=+3>✎</font> <strong>Do this:</strong> Test the SVC, KNN, and RF models on these data. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to find the best model for each. How do the accuracies compare? Which might you use to work more on this problem? <em>No need to plot disitrbutions for this, you can do that later if you like.</em></p>
 <div class="cell docutils container">
@@ -1451,9 +1465,9 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="let-s-make-the-data-a-bit-messier">
-<h3>3.3 Let’s make the data a bit messier.<a class="headerlink" href="#let-s-make-the-data-a-bit-messier" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="let-s-make-the-data-a-bit-messier">
+<h3>3.3 Let’s make the data a bit messier.<a class="headerlink" href="#let-s-make-the-data-a-bit-messier" title="Permalink to this heading">#</a></h3>
 <p>You probably found that one model worked perfectly. We can add a little noice to make things more interesting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1468,12 +1482,12 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02358a088279f216bc4107875bba5e28a50ae4149ffb85c92f22940db4e919c1.png" src="../../_images/02358a088279f216bc4107875bba5e28a50ae4149ffb85c92f22940db4e919c1.png" />
+<img alt="../../_images/d0884ecd2cf2dba5fc9ccff64ea9df077fc3fafa9ffccaae9aa8c337883c3e4b.png" src="../../_images/d0884ecd2cf2dba5fc9ccff64ea9df077fc3fafa9ffccaae9aa8c337883c3e4b.png" />
 </div>
 </div>
-</div>
-<div class="section" id="try-to-find-the-best-model-for-this-data">
-<h3>3.4 Try to find the best model for this data<a class="headerlink" href="#try-to-find-the-best-model-for-this-data" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="try-to-find-the-best-model-for-this-data">
+<h3>3.4 Try to find the best model for this data<a class="headerlink" href="#try-to-find-the-best-model-for-this-data" title="Permalink to this heading">#</a></h3>
 <p><font size=+3>✎</font> <strong>Do this:</strong> Test the LR, SVC, KNN, and RF models on these data. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV()</span></code> to find the best model for each. How do the accuracies compare? Which might you use to work more on this problem? <em>No need to plot disitrbutions for this, you can do that later if you like.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1482,9 +1496,9 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1511,11 +1525,10 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="Day_4-What_is_Tuning_and_Validation.html"
@@ -1535,10 +1548,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1546,6 +1556,7 @@ ValueError: Solver lbfgs supports only &#39;l2&#39; or &#39;none&#39; penalties,
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1604,6 +1615,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2021-2023, Michigan State University.
@@ -1630,8 +1642,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

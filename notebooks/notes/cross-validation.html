@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Cross-Validation of your models &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -18,46 +19,44 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -67,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Reverse Feature Elimination" href="reverse-feature-elimination.html" />
     <link rel="prev" title="Regression using sci-kit learn" href="regression_with_scikit.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -75,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -110,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -129,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
+  
   
   
   
@@ -141,18 +153,29 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="2023 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="2023 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    2023 MSU REU Short Course on Machine Learning
+                    2024 MSU REU Short Course on Machine Learning
                 </a>
             </li>
         </ul>
@@ -174,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Methods and Model Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_svm.html">Support Vector Machines</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="04_svm_rbf.html">Support Vector Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Data</span></p>
@@ -182,42 +205,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">Getting Started with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">Exploring data with Pandas</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
 <li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_with_scikit.html">Regression using sci-kit learn</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cross-Validation of your models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">What is Tuning and Validation?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">A Multiplicity of Models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pca_example.html">Illustrating PCA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -395,20 +389,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -455,10 +451,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="cross-validation-of-your-models">
-<h1>Cross-Validation of your models<a class="headerlink" href="#cross-validation-of-your-models" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="cross-validation-of-your-models">
+<h1>Cross-Validation of your models<a class="headerlink" href="#cross-validation-of-your-models" title="Permalink to this heading">#</a></h1>
 <p>One of the things about machine learning is that it often leverages randomness (sampling, shuffling, etc) to build the strength in your claims. We can use this to our advantage by being able to estimate the performance of model. Below we show how to do this using “Monte Carlo” methods, i.e., simple bootstrapping.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">sci-kit</span></code> library has many buiult-in tools for validation, which you will emply at the end on your own.</p>
 <div class="cell docutils container">
@@ -476,9 +472,21 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#conda install -c conda-forge seaborn (you might need to run this first)</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+</pre></div>
 </div>
-<div class="section" id="generate-some-regression-data-and-store-it-in-a-data-frame">
-<h2>Generate some regression data and store it in a data frame<a class="headerlink" href="#generate-some-regression-data-and-store-it-in-a-data-frame" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<section id="generate-some-regression-data-and-store-it-in-a-data-frame">
+<h2>Generate some regression data and store it in a data frame<a class="headerlink" href="#generate-some-regression-data-and-store-it-in-a-data-frame" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate regression dataset with 10 variables</span>
@@ -492,9 +500,9 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-the-features">
-<h2>Plot the features<a class="headerlink" href="#plot-the-features" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="plot-the-features">
+<h2>Plot the features<a class="headerlink" href="#plot-the-features" title="Permalink to this heading">#</a></h2>
 <p><strong>Note this takes a while to run. You don’t have to use it everytime</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -505,12 +513,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/18f72be1a3a7e991b1be6e34c7a1d401dfca80b03ffa6dab9e11bcba93af6757.png" src="../../_images/18f72be1a3a7e991b1be6e34c7a1d401dfca80b03ffa6dab9e11bcba93af6757.png" />
+<img alt="../../_images/23ae656af85fea0400ece7edb37cc5a1a89588511700da9bd3ba8e19b4044b46.png" src="../../_images/23ae656af85fea0400ece7edb37cc5a1a89588511700da9bd3ba8e19b4044b46.png" />
 </div>
 </div>
-</div>
-<div class="section" id="make-our-process-modular">
-<h2>Make our process modular<a class="headerlink" href="#make-our-process-modular" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="make-our-process-modular">
+<h2>Make our process modular<a class="headerlink" href="#make-our-process-modular" title="Permalink to this heading">#</a></h2>
 <p>One of the useful things about the <code class="docutils literal notranslate"><span class="pre">sci-kit</span></code> library is that it makes the process of doing machine learning pretty routine. In that we know the process that we follow and we can find where in the process to diagnose issues. This is not to say any of this is simple, but rather it can be made into a process.</p>
 <p>Below, we’ve written a function that performs a linear regression on data. It returns the Mean Sqaured Error (<code class="docutils literal notranslate"><span class="pre">mse</span></code>), the R<span class="math notranslate nohighlight">\(^2\)</span> value (<code class="docutils literal notranslate"><span class="pre">r2</span></code>), and the fit coefficients for the linear model (<code class="docutils literal notranslate"><span class="pre">coeffs</span></code>). Notice this last variable is a list not just a number. It will be as long as the number of features in the model.</p>
 <div class="cell docutils container">
@@ -539,8 +547,8 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="section" id="call-our-function">
-<h3>Call our function<a class="headerlink" href="#call-our-function" title="Permalink to this headline">#</a></h3>
+<section id="call-our-function">
+<h3>Call our function<a class="headerlink" href="#call-our-function" title="Permalink to this heading">#</a></h3>
 <p>Now, we can call our function a notice that it produces a differnt value each time because it is randomly sampling every time it runs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -552,14 +560,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  98.73625573865445
-R2:  0.9929198215410193
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  99.21247134889744
+R2:  0.9914387394226644
 Fit Coefficients:
- [-6.89950691e-01 -6.49005644e-01 -4.92697642e-01 -3.78143620e-02
-  4.46102196e-01 -2.25153645e-01  1.54006815e-01  6.31195665e+01
- -1.01246621e-01  2.24855717e-01  8.83420649e+00 -6.95722779e-01
- -2.10714084e-01  1.84451450e-01  9.61737001e+01  6.59118166e-02
-  1.53725145e-02 -2.22072087e-01  2.94855640e-01 -2.52130852e-02]
+ [ 2.57973673e-01 -2.51600712e-01 -2.67313687e-02  1.80535758e+01
+ -4.12042555e-01 -7.94413146e-02 -3.18549079e-01 -3.36720843e-01
+ -1.95920928e-01  2.33443929e-01  7.15587733e-01 -4.53921651e-01
+  5.47024051e+01  1.89573070e-01  8.75427876e+01 -1.98602368e-01
+ -4.61596752e-01 -1.90904552e-01  3.26989985e-02  5.13796942e-01]
 </pre></div>
 </div>
 </div>
@@ -574,22 +582,22 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  93.91895078532096
-R2:  0.9936547270854814
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  99.96972428821016
+R2:  0.9902773766911356
 Fit Coefficients:
- [-5.22926430e-01 -4.16934188e-01 -1.67648524e-01  1.37896442e-01
-  1.25270931e-01 -3.55935309e-02 -8.33345564e-02  6.34332039e+01
- -2.11300699e-01  2.98779944e-01  8.90617984e+00 -8.22388819e-01
- -1.56667991e-01  3.14552996e-01  9.61235785e+01  2.38381133e-01
-  1.24505010e-01 -2.34758534e-01  6.00274289e-01  4.06718500e-01]
+ [ 1.91931274e-02 -1.16527997e-01 -2.24438724e-01  1.83099021e+01
+ -8.13203565e-01 -1.25171534e-01 -2.04961587e-01 -2.28212882e-01
+ -2.29514160e-01 -2.14786812e-01  5.29892604e-01 -1.12233579e-01
+  5.46377457e+01  6.18798939e-01  8.76695174e+01 -1.80870573e-01
+ -4.88923181e-01  8.61128083e-02  1.68459973e-01  5.29974103e-01]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="automating-the-runs">
-<h2>Automating the runs<a class="headerlink" href="#automating-the-runs" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="automating-the-runs">
+<h2>Automating the runs<a class="headerlink" href="#automating-the-runs" title="Permalink to this heading">#</a></h2>
 <p>Now that we have this working, we can run a loop a perform as many of these analyses as we like. Below, we’ve written a short loop that does this and stores all the important things a pandas data frame for later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -619,8 +627,8 @@ Fit Coefficients:
 </div>
 </div>
 </div>
-<div class="section" id="plot-the-distributions">
-<h3>Plot the distributions<a class="headerlink" href="#plot-the-distributions" title="Permalink to this headline">#</a></h3>
+<section id="plot-the-distributions">
+<h3>Plot the distributions<a class="headerlink" href="#plot-the-distributions" title="Permalink to this heading">#</a></h3>
 <p>Below, we plot the distributions of the results, which demonstrate both the random nature of the train/test splitting, but also that we can build confidence in our analysis by providing uncertainty to our estimates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -658,7 +666,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9bf6422c33bcd51bc3e4d27c3fe09a165f756e562822b98d164461c1d3e3f921.png" src="../../_images/9bf6422c33bcd51bc3e4d27c3fe09a165f756e562822b98d164461c1d3e3f921.png" />
+<img alt="../../_images/ac6d49b77ebacb1491f0c17e3ec2d1585dd2f1e7acd619507240cd050763e2f6.png" src="../../_images/ac6d49b77ebacb1491f0c17e3ec2d1585dd2f1e7acd619507240cd050763e2f6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -695,20 +703,20 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6b383187a27173fdbe0d9feffa27b79ea19a4cc1deef71b99a6af924f7b3d361.png" src="../../_images/6b383187a27173fdbe0d9feffa27b79ea19a4cc1deef71b99a6af924f7b3d361.png" />
+<img alt="../../_images/e4cf76930aeac9a0f6cf9d1ebe917de2043b8abf64ddc4c3a5b5a5f33e069812.png" src="../../_images/e4cf76930aeac9a0f6cf9d1ebe917de2043b8abf64ddc4c3a5b5a5f33e069812.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="things-to-try">
-<h2>Things to try<a class="headerlink" href="#things-to-try" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="things-to-try">
+<h2>Things to try<a class="headerlink" href="#things-to-try" title="Permalink to this heading">#</a></h2>
 <p>We have performed “Monte Carlo” validation where we randomly sample the training and test sets. The <code class="docutils literal notranslate"><span class="pre">sci-kit</span></code> library has forms of validation built-in. You can find lots of <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html">details on their documentation</a>. Here’s a bit more on how each validator <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html">selects data</a>.</p>
 <ul class="simple">
 <li><p>Review the <code class="docutils literal notranslate"><span class="pre">sci-kit</span></code> documentation and reproduce our work above using a built-in validator.</p></li>
 <li><p>Change the training and testing sizes, how well does your model perform?</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -735,11 +743,10 @@ Fit Coefficients:
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="regression_with_scikit.html"
@@ -759,10 +766,7 @@ Fit Coefficients:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -770,6 +774,7 @@ Fit Coefficients:
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -809,6 +814,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2021-2023, Michigan State University.
@@ -835,8 +841,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

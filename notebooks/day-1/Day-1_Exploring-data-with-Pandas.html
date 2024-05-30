@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Exploring data with Pandas &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -18,54 +19,52 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-1/Day-1_Exploring-data-with-Pandas';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Getting Started with Classification Models" href="../day-2/day-2_Getting_Started_with_Classification_Models.html" />
+    <link rel="next" title="Python Basics Review" href="../resources/python_review.html" />
     <link rel="prev" title="Getting Started with Pandas" href="Day-1_Getting-Started-with-Pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,9 +137,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
+  
   
   
   
@@ -139,18 +151,29 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="2023 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="2023 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    2023 MSU REU Short Course on Machine Learning
+                    2024 MSU REU Short Course on Machine Learning
                 </a>
             </li>
         </ul>
@@ -172,7 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Data</span></p>
@@ -180,42 +203,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Day-1_Getting-Started-with-Pandas.html">Getting Started with Pandas</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Exploring data with Pandas</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">What is Tuning and Validation?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">A Multiplicity of Models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/pca_example.html">Illustrating PCA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -393,20 +387,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -469,29 +465,29 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="exploring-data-with-pandas">
-<h1>Exploring data with Pandas<a class="headerlink" href="#exploring-data-with-pandas" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="exploring-data-with-pandas">
+<h1>Exploring data with Pandas<a class="headerlink" href="#exploring-data-with-pandas" title="Permalink to this heading">#</a></h1>
 <img src="https://miro.medium.com/max/819/1*Dss7A8Z-M4x8LD9ccgw7pQ.png" width="500px"><p>Today, we will:</p>
 <ol class="arabic simple">
 <li><p>Make sure that everyone remembers how to do the basics with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
 <li><p>Do some data analysis with existing data sets.</p></li>
 <li><p>Make some visualizations of the data.</p></li>
 </ol>
-<div class="section" id="notebook-instructions">
-<h2>Notebook instructions<a class="headerlink" href="#notebook-instructions" title="Permalink to this headline">#</a></h2>
+<section id="notebook-instructions">
+<h2>Notebook instructions<a class="headerlink" href="#notebook-instructions" title="Permalink to this heading">#</a></h2>
 <p>Work through the notebook making sure to write all necessary code and answer any questions.</p>
-<div class="section" id="outline">
-<h3>Outline:<a class="headerlink" href="#outline" title="Permalink to this headline">#</a></h3>
+<section id="outline">
+<h3>Outline:<a class="headerlink" href="#outline" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p><span class="xref myst">Review of <code class="docutils literal notranslate"><span class="pre">pandas</span></code></span></p></li>
-<li><p><span class="xref myst">Loading and exploring a dataset</span></p></li>
-<li><p><span class="xref myst">Visualizing your data</span></p></li>
+<li><p><a class="reference internal" href="#review"><span class="xref myst">Review of <code class="docutils literal notranslate"><span class="pre">pandas</span></code></span></a></p></li>
+<li><p><a class="reference internal" href="#loading"><span class="xref myst">Loading and exploring a dataset</span></a></p></li>
+<li><p><a class="reference internal" href="#visualizing"><span class="xref myst">Visualizing your data</span></a></p></li>
 </ol>
-</div>
-<div class="section" id="useful-imports-make-sure-to-execute-this-cell">
-<h3>Useful imports (make sure to execute this cell!)<a class="headerlink" href="#useful-imports-make-sure-to-execute-this-cell" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="useful-imports-make-sure-to-execute-this-cell">
+<h3>Useful imports (make sure to execute this cell!)<a class="headerlink" href="#useful-imports-make-sure-to-execute-this-cell" title="Permalink to this heading">#</a></h3>
 <p>Let’s get a few of our imports out of the way. If you find others you need to add, consider coming back and putting them here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -505,10 +501,10 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p><a id="review"></a></p>
-</div>
-</div>
-<div class="section" id="review-of-pandas">
-<h2>1. Review of <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#review-of-pandas" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="review-of-pandas">
+<h2>1. Review of <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#review-of-pandas" title="Permalink to this heading">#</a></h2>
 <p>Let’s take a moment to highlight some key concepts. <strong>Discuss with your group mates</strong> the following prompts and write down a brief definition of each of these concepts.</p>
 <p><strong>If you don’t feel like you have good working definitions yet, try doing a quick internet search to see if you can find a definition that makes sense to you.</strong></p>
 <p>✅ <strong>Question 1:</strong> What are the features of a Pandas Series?</p>
@@ -517,18 +513,18 @@ document.write(`
 <p><font size=+3>✎</font> Do This -  Write your discussion notes here.</p>
 <hr class="docutils" />
 <p><a id="loading"></a></p>
-</div>
-<div class="section" id="loading-and-exploring-a-dataset">
-<h2>2. Loading and exploring a dataset<a class="headerlink" href="#loading-and-exploring-a-dataset" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="loading-and-exploring-a-dataset">
+<h2>2. Loading and exploring a dataset<a class="headerlink" href="#loading-and-exploring-a-dataset" title="Permalink to this heading">#</a></h2>
 <p>The goal is typically to read some sort of preexisting data <strong>into</strong> a DataFrame so we can work with it.</p>
 <p>Pandas is pretty flexible about reading in data and can read in a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">variety of formats</a>. However, it sometimes needs a little help. Let’s start with a “toy” dataset, the <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set"> Iris Data set </a>.</p>
 <p>A toy dataset is often one that has a particularly nice set of features or is of a manageable size such that it can be used as a good dataset for learning new data analysis techiques or testing out code. This allows one to focus on the code and data science methods without getting too caught up in wrangling the data. However, <strong>data wrangling</strong> is an authentic part of doing any sort of meaningful data analysis as data more often messier than not.</p>
 <p>Although you will be working with a toy dataset today, you may still have to do a bit of wrangling along the way.</p>
-<div class="section" id="getting-used-to-looking-for-useful-information-on-the-internet">
-<h3>2.1 Getting used to looking for useful information on the internet<a class="headerlink" href="#getting-used-to-looking-for-useful-information-on-the-internet" title="Permalink to this headline">#</a></h3>
+<section id="getting-used-to-looking-for-useful-information-on-the-internet">
+<h3>2.1 Getting used to looking for useful information on the internet<a class="headerlink" href="#getting-used-to-looking-for-useful-information-on-the-internet" title="Permalink to this heading">#</a></h3>
 <p>Another authentic part of working as a computational professional is getting comfortable with searching for help on the internet when you get stuck or run into something that is unfamiliar to you. The Python data analysis/computional modeling world can be complicated and is ever-evolving. There is also a large number of publicly available toolsets with varying levels of complexity and nuance. Through practice and experience, we become better computational folks by learning how to search for better, more efficient, and clearer ways to do things.</p>
-<div class="section" id="the-iris-data">
-<h4>The Iris data<a class="headerlink" href="#the-iris-data" title="Permalink to this headline">#</a></h4>
+<section id="the-iris-data">
+<h4>The Iris data<a class="headerlink" href="#the-iris-data" title="Permalink to this heading">#</a></h4>
 <p>The iris data set is pretty straight forward (review the wikipedia link above if you haven’t yet), especially if someone has done all of the data wrangling and cleaning for you. To make it a little more interesting we provide it in a raw form that you might encounter with other data.</p>
 <p><strong>✅ Do This:</strong>  To get started, <strong>you’ll need to download the following two files</strong>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/main/notebooks/day-1/iris.data</span></code></p>
@@ -536,10 +532,10 @@ document.write(`
 <p>Once you’ve done so, you should have access to the following : <code class="docutils literal notranslate"><span class="pre">iris.data</span></code> and <code class="docutils literal notranslate"><span class="pre">iris.names</span></code>. Open them both and discuss what you see. This is a good opportunity to use you favorite text editor or use something new. Feel free to ask your group members or instructors what they prefer to use.</p>
 <p>✅ <strong>Question 3</strong>: Describe the data and the information in the names file. What characteristics are provided there? Perhaps the iris dataset link above will help.</p>
 <p><font size=+3>✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text). <strong>Practice using appropriate Markdown formating to make your answer’s easy to read.</strong></p>
-</div>
-</div>
-<div class="section" id="reading-in-a-file">
-<h3>2.2 Reading in a file<a class="headerlink" href="#reading-in-a-file" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="reading-in-a-file">
+<h3>2.2 Reading in a file<a class="headerlink" href="#reading-in-a-file" title="Permalink to this heading">#</a></h3>
 <p>Pandas supports a number of file formats, but one of the most common is the one provided by the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function. Typically, the phrase <strong>csv</strong> stands for “comma separated values”, a text file format that excel and other spread sheets use. In a typical csv file, each line represents a line in a spreadsheet and each cell value is separated from the next by a comma.</p>
 <p>However, you can use other separators as well. Look at the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">documentation for <code class="docutils literal notranslate"><span class="pre">read_csv</span></code></a>.</p>
 <p><strong>✅ Do This:</strong> Read the <code class="docutils literal notranslate"><span class="pre">iris.data</span></code> file into your notebook <strong>with the appropriate column headers</strong>. Display the DataFrame to make sure it looks reasonable.</p>
@@ -550,9 +546,9 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="describing-your-data">
-<h3>2.3 Describing your data<a class="headerlink" href="#describing-your-data" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="describing-your-data">
+<h3>2.3 Describing your data<a class="headerlink" href="#describing-your-data" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> methods tells you about the data. If the data is too big to see (height and width) you can use the two options below to show more of the data. You can change the values to suit your needs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -572,9 +568,9 @@ document.write(`
 </div>
 </div>
 <p><font size=+3>✎</font> Do This - Erase the contents of this cell and replace it with your answer. Did you find any useful features? What makes those features useful in classfying the species of the irises?</p>
-</div>
-<div class="section" id="grouping-your-data">
-<h3>2.4 Grouping your data<a class="headerlink" href="#grouping-your-data" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="grouping-your-data">
+<h3>2.4 Grouping your data<a class="headerlink" href="#grouping-your-data" title="Permalink to this heading">#</a></h3>
 <p>You can perform operations to group elements using the <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> method. The result of the use of <code class="docutils literal notranslate"><span class="pre">.groupby</span></code> is a <code class="docutils literal notranslate"><span class="pre">GroupBy</span></code> object. If you were to print it you see only the class instance name as nothing is computed until an operation is performed on the groups, much like other iterators. However, you can use <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> on the result of a <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> call. If you haven’t used this before, you may need to consult the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html">documentation for <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code></a></p>
 <p><strong>✅ Do This:</strong> Make a GroupBy object using the iris DataFrame and group by the class/species of the data. Then run <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> on the group result. Now take a look at the data from the group. Thinking again about classification, do you see any data features you could use to classify the data when you look at it this way?</p>
 <div class="cell docutils container">
@@ -587,13 +583,13 @@ document.write(`
 <p><font size=+3>✎</font> Do this - Erase this and put your answer here. Did you find any useful features? What makes those features useful in classfying the species of the irises? How did using <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> help (or not) in finding useful features?</p>
 <hr class="docutils" />
 <p><a id="visualizing"></a></p>
-</div>
-</div>
-<div class="section" id="visualizing-your-data">
-<h2>3. Visualizing your data<a class="headerlink" href="#visualizing-your-data" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="visualizing-your-data">
+<h2>3. Visualizing your data<a class="headerlink" href="#visualizing-your-data" title="Permalink to this heading">#</a></h2>
 <p>We are often limited in understanding our data because it is complex, has many features, or is quite large. In these situations, visualizations (plots, charts, and graphs) can help represent our data in ways that help us gain greater insight into the trends, features, and classes we want to understand.</p>
-<div class="section" id="making-a-scatter-matrix">
-<h3>3.1 Making a scatter matrix<a class="headerlink" href="#making-a-scatter-matrix" title="Permalink to this headline">#</a></h3>
+<section id="making-a-scatter-matrix">
+<h3>3.1 Making a scatter matrix<a class="headerlink" href="#making-a-scatter-matrix" title="Permalink to this heading">#</a></h3>
 <p>Rather than just looking at the raw values or exploring basic statistical values for our data, it would be better if we were to visualize the differences. Since the number of features is small, we can use a plotting feature of Pandas called <code class="docutils literal notranslate"><span class="pre">scatter_matrix()</span></code>. Did you notice that we imported <code class="docutils literal notranslate"><span class="pre">scatter_matrix</span></code> at the start of this notebook?</p>
 <p><strong>✅ Do This:</strong> Try calling the <code class="docutils literal notranslate"><span class="pre">scatter_matrix</span></code> function on your dataframe. Use a <code class="docutils literal notranslate"><span class="pre">marker</span></code> that you prefer. Look up the documentation for <code class="docutils literal notranslate"><span class="pre">scatter_matrix</span></code> on the Pandas website for more information! You may need to make the figure bigger to get a good look at it.</p>
 <p><strong>Note</strong>: There is a similar sort of plot that can be made with the <a class="reference external" href="https://seaborn.pydata.org/index.html">seaborn</a> package, which you may have seen before. If so, do you remember what it is?</p>
@@ -606,9 +602,9 @@ document.write(`
 </div>
 <p>✅ <strong>Question 4</strong>: Does this visualization help you to determine the features that might be useful for classification? Why or why not?</p>
 <p><font size=+3>✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text). <strong>Practice using appropriate Markdown formating to make your answers easy to read.</strong></p>
-</div>
-<div class="section" id="color-coding-your-data">
-<h3>3.2 Color coding your data<a class="headerlink" href="#color-coding-your-data" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="color-coding-your-data">
+<h3>3.2 Color coding your data<a class="headerlink" href="#color-coding-your-data" title="Permalink to this heading">#</a></h3>
 <p>The default scatter matrix probably isn’t as helpful as we might hope as it’s impossible to tell which points on the plot represent our classes/sepcies.</p>
 <p>We could really use a separate color indication for each dot so we can tell the species apart. Essentially, we need to create an array such that, for each observation in the DataFrame, we can assign a color value to associate it with the appropriate species. It could be just an integer, or it could be one of the standard colors such as “red”.</p>
 <p><strong>✅ Do This:</strong> Create a new list, array, or Pandas Series object that maps each species to a particular color. Then recreate the scatter matrix using the <code class="docutils literal notranslate"><span class="pre">c</span></code> argument to give the points in the plot different colors.</p>
@@ -626,9 +622,9 @@ document.write(`
 </ul>
 <p>✅ <strong>Question 5</strong>: Are you better able to discern features that might be useful in classfying irises? What can you say about the features of each iris species? Can you separate one species easily? If so, using which feature(s)?</p>
 <p><font size=+3>✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text). <strong>Practice using appropriate Markdown formating to make your answers easy to read.</strong></p>
-</div>
-<div class="section" id="separating-species-of-irises">
-<h3>3.3 Separating species of irises<a class="headerlink" href="#separating-species-of-irises" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="separating-species-of-irises">
+<h3>3.3 Separating species of irises<a class="headerlink" href="#separating-species-of-irises" title="Permalink to this heading">#</a></h3>
 <p>Now we will use the feature(s) you found above to try to separate iris species. In future parts of the course, we may explore how to do this using models, but for now, you will try to do this by slicing the DataFrame.</p>
 <p><strong>✅ Do This:</strong> One of these species is obviously easier to separate than the others. Can you use a Boolean mask on the dataframe and isolate that one species using the features and <em>not the species label</em>? Try to do so below and confirm that you were successful.</p>
 <div class="cell docutils container">
@@ -647,11 +643,11 @@ document.write(`
 </div>
 </div>
 <p><font size=+3>✎</font> Do This - Erase the contents of this cell and replace it with your answer. How effective your Boolean mask separation of the 3 species? Any ideas for improvements?</p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="physics-data-sets">
-<h2>4. Physics Data Sets<a class="headerlink" href="#physics-data-sets" title="Permalink to this headline">#</a></h2>
+<section id="physics-data-sets">
+<h2>4. Physics Data Sets<a class="headerlink" href="#physics-data-sets" title="Permalink to this heading">#</a></h2>
 <p>We used the famous Iris data set to do this activity. That is because it is well known and clearly documented. Most data sets you will work with will not have the same level of documentation. Let’s try to find some physics data sets that you can read in and plot.</p>
 <p>Places to look for data:</p>
 <ul class="simple">
@@ -663,8 +659,8 @@ document.write(`
 <li><p><a class="reference external" href="https://registry.opendata.aws">AWS Open Data Registry</a>: AWS Open Data Registry is a collection of publicly available datasets provided by Amazon Web Services (AWS). It hosts a variety of datasets, including satellite imagery, genomics data, and more.</p></li>
 <li><p><a class="reference external" href="https://www.openml.org">OpenML</a>: OpenML is an online platform that hosts a vast collection of datasets for machine learning research. It also provides tools and resources for collaborative machine learning experimentation.</p></li>
 </ul>
-<div class="section" id="reading-data-from-the-internet">
-<h3>4.1 Reading data from the internet<a class="headerlink" href="#reading-data-from-the-internet" title="Permalink to this headline">#</a></h3>
+<section id="reading-data-from-the-internet">
+<h3>4.1 Reading data from the internet<a class="headerlink" href="#reading-data-from-the-internet" title="Permalink to this heading">#</a></h3>
 <p>You can pull data directly from the internet using the pandas different read functions. For example <code class="docutils literal notranslate"><span class="pre">read_html</span></code> can pull data from tables. For example, we can pull the <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_physical_constants">table of all the physical constants from Wikipedia</a> using just a couple lines of Python code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -699,20 +695,12 @@ document.write(`
       <th>Quantity</th>
       <th>Value[a][b]</th>
       <th>Relative standard uncertainty</th>
-      <th>Ref</th>
+      <th>Ref[1]</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>NaN</td>
-      <td>Newtonian constant of gravitation</td>
-      <td>6.67430(15)×10−11 m3⋅kg−1⋅s−2</td>
-      <td>2.2×10−5</td>
-      <td>[1]</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>NaN</td>
       <td>speed of light in vacuum</td>
       <td>299792458 m⋅s−1</td>
@@ -720,7 +708,7 @@ document.write(`
       <td>[2]</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>NaN</td>
       <td>Planck constant</td>
       <td>6.62607015×10−34 J⋅Hz−1</td>
@@ -728,7 +716,7 @@ document.write(`
       <td>[3]</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>NaN</td>
       <td>reduced Planck constant</td>
       <td>1.054571817...×10−34 J⋅s</td>
@@ -736,12 +724,20 @@ document.write(`
       <td>[4]</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>NaN</td>
       <td>vacuum magnetic permeability</td>
-      <td>1.25663706212(19)×10−6 N⋅A−2</td>
-      <td>1.5×10−10</td>
+      <td>1.25663706127(20)×10−6 N⋅A−2</td>
+      <td>1.6×10−10</td>
       <td>[5]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>characteristic impedance of vacuum</td>
+      <td>376.730313412(59) Ω</td>
+      <td>1.6×10−10</td>
+      <td>[6]</td>
     </tr>
   </tbody>
 </table>
@@ -755,15 +751,15 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="you-made-it-to-the-end">
-<h3>🛑 You made it to the end!<a class="headerlink" href="#you-made-it-to-the-end" title="Permalink to this headline">#</a></h3>
+<section id="you-made-it-to-the-end">
+<h3>🛑 You made it to the end!<a class="headerlink" href="#you-made-it-to-the-end" title="Permalink to this heading">#</a></h3>
 <p>Is there anything that we covered today that you’re still not feeling certain about? Talk to your group or check in with an instructor.</p>
 <hr class="docutils" />
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -790,11 +786,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="Day-1_Getting-Started-with-Pandas.html"
@@ -806,18 +801,15 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../day-2/day-2_Getting_Started_with_Classification_Models.html"
+       href="../resources/python_review.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Getting Started with Classification Models</p>
+        <p class="prev-next-title">Python Basics Review</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -825,6 +817,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -880,6 +873,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2021-2023, Michigan State University.
@@ -906,8 +900,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,0 +1,61 @@
+Traceback (most recent call last):
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.12/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.12/asyncio/base_events.py", line 664, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.12/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.12/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.12/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# create the Anscombe dataset
+data = {
+    'x1': [10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0],
+    'y1': [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68],
+    'x2': [10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0],
+    'y2': [9.14, 8.14, 8.74, 8.77, 9.26, 8.10, 6.13, 3.10, 9.13, 7.26, 4.74],
+    'x3': [10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0],
+    'y3': [7.46, 6.77, 12.74, 7.11, 7.81, 8.84, 6.08, 5.39, 8.15, 6.42, 5.73],
+    'x4': [8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 19.0, 8.0, 8.0, 8.0],
+    'y4': [6.58, 5.76, 7.71, 8.84, 8.47, 7.04, 5.25, 12.50, 5.56, 7.91, 6.89]
+}
+
+# create a pandas dataframe from the data
+df = pd.DataFrame(data)
+
+# print the dataframe
+print(df)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 4[0m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[0;32m----> 4[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlinear_model[39;00m [38;5;28;01mimport[39;00m LinearRegression
+[1;32m      6[0m [38;5;66;03m# create the Anscombe dataset[39;00m
+[1;32m      7[0m data [38;5;241m=[39m {
+[1;32m      8[0m     [38;5;124m'[39m[38;5;124mx1[39m[38;5;124m'[39m: [[38;5;241m10.0[39m, [38;5;241m8.0[39m, [38;5;241m13.0[39m, [38;5;241m9.0[39m, [38;5;241m11.0[39m, [38;5;241m14.0[39m, [38;5;241m6.0[39m, [38;5;241m4.0[39m, [38;5;241m12.0[39m, [38;5;241m7.0[39m, [38;5;241m5.0[39m],
+[1;32m      9[0m     [38;5;124m'[39m[38;5;124my1[39m[38;5;124m'[39m: [[38;5;241m8.04[39m, [38;5;241m6.95[39m, [38;5;241m7.58[39m, [38;5;241m8.81[39m, [38;5;241m8.33[39m, [38;5;241m9.96[39m, [38;5;241m7.24[39m, [38;5;241m4.26[39m, [38;5;241m10.84[39m, [38;5;241m4.82[39m, [38;5;241m5.68[39m],
+[0;32m   (...)[0m
+[1;32m     15[0m     [38;5;124m'[39m[38;5;124my4[39m[38;5;124m'[39m: [[38;5;241m6.58[39m, [38;5;241m5.76[39m, [38;5;241m7.71[39m, [38;5;241m8.84[39m, [38;5;241m8.47[39m, [38;5;241m7.04[39m, [38;5;241m5.25[39m, [38;5;241m12.50[39m, [38;5;241m5.56[39m, [38;5;241m7.91[39m, [38;5;241m6.89[39m]
+[1;32m     16[0m }
+
+[0;31mModuleNotFoundError[0m: No module named 'sklearn'
+
