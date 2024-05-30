@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Support Vector Machines &#8212; 2023 MSU REU Machine Learning Short Course</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Support Vector Machines (Radial Kernel) &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
   
@@ -18,46 +19,44 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/notes/04_svm_rbf';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -65,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Getting Started with Pandas" href="../day-1/Day-1_Getting-Started-with-Pandas.html" />
     <link rel="prev" title="Support Vector Machines" href="03_svm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,9 +137,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
+  
   
   
   
@@ -139,18 +151,29 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="2023 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="2023 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    2023 MSU REU Short Course on Machine Learning
+                    2024 MSU REU Short Course on Machine Learning
                 </a>
             </li>
         </ul>
@@ -172,7 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Methods and Model Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_svm.html">Support Vector Machines</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Support Vector Machines</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Support Vector Machines (Radial Kernel)</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Data</span></p>
@@ -180,42 +203,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas.html">Getting Started with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas.html">Exploring data with Pandas</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
 <li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression_with_scikit.html">Regression using sci-kit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cross-validation.html">Cross-Validation of your models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">What is Tuning and Validation?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">A Multiplicity of Models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pca_example.html">Illustrating PCA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -393,20 +387,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -423,7 +419,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Support Vector Machines</h1>
+    <h1>Support Vector Machines (Radial Kernel)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -433,7 +429,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Support Vector Machines</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Support Vector Machines (Radial Kernel)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-make-some-circles">Let’s make some circles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-look-at-the-data-in-3d">Let’s look at the data in 3D</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-make-a-little-more-data">Let’s make a little more data</a></li>
@@ -461,10 +457,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="support-vector-machines">
-<h1>Support Vector Machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machines-radial-kernel">
+<h1>Support Vector Machines (Radial Kernel)<a class="headerlink" href="#support-vector-machines-radial-kernel" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>As a classifier, an SVM creates new dimensions from the original data, to be able to seperate the groups along the original features as well as any created dimensions.</p></li>
 <li><p>The kernel that we choose tells us what constructed dimensions are available to us.</p></li>
@@ -476,8 +472,8 @@ document.write(`
 <li><p><strong>We are now going to use a new kernel: RBF</strong>, this will create new dimensions that aren’t linear. You do not need to know the details of how this works (that is for later coursework).</p></li>
 </ul>
 <p><strong>We use <code class="docutils literal notranslate"><span class="pre">make_circles</span></code> because it gives us control over the data and it’s separation; we don’t have to clean or standardize it.</strong></p>
-<div class="section" id="let-s-make-some-circles">
-<h2>Let’s make some circles<a class="headerlink" href="#let-s-make-some-circles" title="Permalink to this headline">#</a></h2>
+<section id="let-s-make-some-circles">
+<h2>Let’s make some circles<a class="headerlink" href="#let-s-make-some-circles" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##imports</span>
@@ -501,12 +497,12 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$x_1$&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/332c211517db6a5ad1a96fc9c9abf7b2d550520be68e3786ee4209af51eb48c4.png" src="../../_images/332c211517db6a5ad1a96fc9c9abf7b2d550520be68e3786ee4209af51eb48c4.png" />
+<img alt="../../_images/a209aa6e663b4aeabfd0e466d91bb80a56ab8f5fc248132491c68a6bf53e4136.png" src="../../_images/a209aa6e663b4aeabfd0e466d91bb80a56ab8f5fc248132491c68a6bf53e4136.png" />
 </div>
 </div>
-</div>
-<div class="section" id="let-s-look-at-the-data-in-3d">
-<h2>Let’s look at the data in 3D<a class="headerlink" href="#let-s-look-at-the-data-in-3d" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="let-s-look-at-the-data-in-3d">
+<h2>Let’s look at the data in 3D<a class="headerlink" href="#let-s-look-at-the-data-in-3d" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
@@ -517,15 +513,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x17b30ef40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x13df90920&gt;
 </pre></div>
 </div>
-<img alt="../../_images/44a919f38e4afc460ab85ddd2fabfa905f14c68a091b4dc92925a4a6befb6688.png" src="../../_images/44a919f38e4afc460ab85ddd2fabfa905f14c68a091b4dc92925a4a6befb6688.png" />
+<img alt="../../_images/d7f56f2491e017c636b23cccbceb6601a2e37515662e73f34ed53c3376d2a9f8.png" src="../../_images/d7f56f2491e017c636b23cccbceb6601a2e37515662e73f34ed53c3376d2a9f8.png" />
 </div>
 </div>
-</div>
-<div class="section" id="let-s-make-a-little-more-data">
-<h2>Let’s make a little more data<a class="headerlink" href="#let-s-make-a-little-more-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="let-s-make-a-little-more-data">
+<h2>Let’s make a little more data<a class="headerlink" href="#let-s-make-a-little-more-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
@@ -540,12 +536,12 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$x_1$&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/627d8b3d568f4a2b78ff7d5f8d92ed6725479eebc80630e9589abe457023e481.png" src="../../_images/627d8b3d568f4a2b78ff7d5f8d92ed6725479eebc80630e9589abe457023e481.png" />
+<img alt="../../_images/93299be576d684f10634d3d54fb6fab2d99fa40e54e0eeab35a312b1793c42fc.png" src="../../_images/93299be576d684f10634d3d54fb6fab2d99fa40e54e0eeab35a312b1793c42fc.png" />
 </div>
 </div>
-</div>
-<div class="section" id="let-s-train-up-a-linear-svm">
-<h2>Let’s train up a linear SVM<a class="headerlink" href="#let-s-train-up-a-linear-svm" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="let-s-train-up-a-linear-svm">
+<h2>Let’s train up a linear SVM<a class="headerlink" href="#let-s-train-up-a-linear-svm" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>This is what we did last class; but now we have split the data</p></li>
 </ul>
@@ -564,14 +560,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.46
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.496
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="let-s-check-the-report-and-confusion-matrix">
-<h2>Let’s check the report and confusion matrix<a class="headerlink" href="#let-s-check-the-report-and-confusion-matrix" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="let-s-check-the-report-and-confusion-matrix">
+<h2>Let’s check the report and confusion matrix<a class="headerlink" href="#let-s-check-the-report-and-confusion-matrix" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>We want more details than simply accuracy</p></li>
 </ul>
@@ -590,23 +586,23 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report:
                precision    recall  f1-score   support
 
-           0       0.47      0.41      0.44       128
-           1       0.45      0.52      0.48       122
+           0       0.49      0.44      0.46       124
+           1       0.50      0.56      0.53       126
 
-    accuracy                           0.46       250
-   macro avg       0.46      0.46      0.46       250
-weighted avg       0.46      0.46      0.46       250
+    accuracy                           0.50       250
+   macro avg       0.50      0.50      0.49       250
+weighted avg       0.50      0.50      0.49       250
 
 Confusion Matrix:
- [[52 76]
- [59 63]]
+ [[54 70]
+ [56 70]]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="let-s-look-at-the-roc-curve-and-compute-the-auc">
-<h2>Let’s look at the ROC curve and compute the AUC<a class="headerlink" href="#let-s-look-at-the-roc-curve-and-compute-the-auc" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="let-s-look-at-the-roc-curve-and-compute-the-auc">
+<h2>Let’s look at the ROC curve and compute the AUC<a class="headerlink" href="#let-s-look-at-the-roc-curve-and-compute-the-auc" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Construct the ROC and the AUC</span>
@@ -620,23 +616,23 @@ Confusion Matrix:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b958fa576151deb93a6a690c6a955b56896fc08fa58e60d10dcfb5a41457bf92.png" src="../../_images/b958fa576151deb93a6a690c6a955b56896fc08fa58e60d10dcfb5a41457bf92.png" />
+<img alt="../../_images/7a9c8c508f4ca9d1adfe108786dc663696686a09a1c64b76b984745cf6613ff5.png" src="../../_images/7a9c8c508f4ca9d1adfe108786dc663696686a09a1c64b76b984745cf6613ff5.png" />
 </div>
 </div>
-</div>
-<div class="section" id="the-linear-kernel-absolutely-failed">
-<h2>The Linear Kernel Absolutely Failed!<a class="headerlink" href="#the-linear-kernel-absolutely-failed" title="Permalink to this headline">#</a></h2>
-<div class="section" id="let-s-use-rbf-instead-and-see-what-happens">
-<h3>Let’s use RBF instead and see what happens<a class="headerlink" href="#let-s-use-rbf-instead-and-see-what-happens" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="the-linear-kernel-absolutely-failed">
+<h2>The Linear Kernel Absolutely Failed!<a class="headerlink" href="#the-linear-kernel-absolutely-failed" title="Permalink to this heading">#</a></h2>
+<section id="let-s-use-rbf-instead-and-see-what-happens">
+<h3>Let’s use RBF instead and see what happens<a class="headerlink" href="#let-s-use-rbf-instead-and-see-what-happens" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Train the model</p></li>
 <li><p>Test the model</p></li>
 <li><p>Evalaute the model: accuracy, scores, confusion matrix, ROC, AUC</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="train-the-model-and-start-evaluating-it">
-<h2>Train the model and start evaluating it<a class="headerlink" href="#train-the-model-and-start-evaluating-it" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="train-the-model-and-start-evaluating-it">
+<h2>Train the model and start evaluating it<a class="headerlink" href="#train-the-model-and-start-evaluating-it" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Fit with a RBF kernel</span>
@@ -654,9 +650,9 @@ Confusion Matrix:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="use-the-model-to-predict-and-report-out">
-<h2>Use the model to predict and report out<a class="headerlink" href="#use-the-model-to-predict-and-report-out" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="use-the-model-to-predict-and-report-out">
+<h2>Use the model to predict and report out<a class="headerlink" href="#use-the-model-to-predict-and-report-out" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Use the model to predict</span>
@@ -672,23 +668,23 @@ Confusion Matrix:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report:
                precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00       128
-           1       1.00      1.00      1.00       122
+           0       1.00      1.00      1.00       124
+           1       1.00      1.00      1.00       126
 
     accuracy                           1.00       250
    macro avg       1.00      1.00      1.00       250
 weighted avg       1.00      1.00      1.00       250
 
 Confusion Matrix:
- [[128   0]
- [  0 122]]
+ [[124   0]
+ [  0 126]]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="construct-the-roc-and-the-auc">
-<h2>Construct the ROC and the AUC<a class="headerlink" href="#construct-the-roc-and-the-auc" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="construct-the-roc-and-the-auc">
+<h2>Construct the ROC and the AUC<a class="headerlink" href="#construct-the-roc-and-the-auc" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Construct the ROC and the AUC</span>
@@ -702,23 +698,23 @@ Confusion Matrix:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ee4b952cfd6e33b299236db92737656372fcd0130cb938e285377caddc75f63d.png" src="../../_images/ee4b952cfd6e33b299236db92737656372fcd0130cb938e285377caddc75f63d.png" />
+<img alt="../../_images/1bb968f28d357afe59307911f8611b2113c0684c7e7676f1e1c48902867ae1a7.png" src="../../_images/1bb968f28d357afe59307911f8611b2113c0684c7e7676f1e1c48902867ae1a7.png" />
 </div>
 </div>
-</div>
-<div class="section" id="today">
-<h2>Today<a class="headerlink" href="#today" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="today">
+<h2>Today<a class="headerlink" href="#today" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>We are going to use SVM with real data. We are going to use the linear kernel again, but you can change to RBF (it will take much longer to run).</p></li>
 <li><p>We are also going to introduce hyper-parameter optimization and grid searching (again takes more time)</p></li>
 </ul>
 <p>In the construction of the SVM: <code class="docutils literal notranslate"><span class="pre">cls</span> <span class="pre">=</span> <span class="pre">svm.SVC(kernel=&quot;linear&quot;,</span> <span class="pre">C=10)</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code> is a hyperparameter that we can adjust. <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> has a mechanism to do this automatically via a search and find the “best” choice: <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>.</p>
 <p><strong>Please ask lots of questions about what the code is doing today because you are not writing a lot of code today!</strong></p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="questions-comments-concerns">
-<h1>Questions, Comments, Concerns?<a class="headerlink" href="#questions-comments-concerns" title="Permalink to this headline">#</a></h1>
-</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="questions-comments-concerns">
+<h1>Questions, Comments, Concerns?<a class="headerlink" href="#questions-comments-concerns" title="Permalink to this heading">#</a></h1>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -745,11 +741,10 @@ Confusion Matrix:
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="03_svm.html"
@@ -769,10 +764,7 @@ Confusion Matrix:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -781,13 +773,14 @@ Confusion Matrix:
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Support Vector Machines</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Support Vector Machines (Radial Kernel)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-make-some-circles">Let’s make some circles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-look-at-the-data-in-3d">Let’s look at the data in 3D</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-make-a-little-more-data">Let’s make a little more data</a></li>
@@ -827,6 +820,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2021-2023, Michigan State University.
@@ -853,8 +847,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

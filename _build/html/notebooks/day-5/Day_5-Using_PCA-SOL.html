@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Using PCA &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -18,46 +19,44 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -67,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Contributions" href="../../contributions.html" />
     <link rel="prev" title="Solution - A Multiplicity of Models" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -75,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -110,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -129,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
+  
   
   
   
@@ -141,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="2023 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="2023 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -395,20 +418,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -468,12 +493,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="using-pca">
-<h1>Using PCA<a class="headerlink" href="#using-pca" title="Permalink to this headline">#</a></h1>
-<div class="section" id="goals">
-<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="using-pca">
+<h1>Using PCA<a class="headerlink" href="#using-pca" title="Permalink to this heading">#</a></h1>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this heading">#</a></h2>
 <p>After completing this notebook, you will be able to:</p>
 <ol class="arabic simple">
 <li><p>Standardize data with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></p></li>
@@ -482,9 +507,9 @@ document.write(`
 <li><p>Be able to transform data into lower dimensions uing PCA</p></li>
 <li><p>Be able to use KernelPCA to separate nonlinearly separable data</p></li>
 </ol>
-</div>
-<div class="section" id="our-imports">
-<h2>0. Our Imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="our-imports">
+<h2>0. Our Imports<a class="headerlink" href="#our-imports" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard Imports</span>
@@ -507,10 +532,24 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># PCA Imports</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">KernelPCA</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
 </div>
 </div>
-<div class="section" id="getting-example-data">
-<h2>1. Getting Example Data<a class="headerlink" href="#getting-example-data" title="Permalink to this headline">#</a></h2>
+</div>
+</section>
+<section id="getting-example-data">
+<h2>1. Getting Example Data<a class="headerlink" href="#getting-example-data" title="Permalink to this heading">#</a></h2>
 <p>Today we’ll be looking at sklearn’s breast cancer identification dataset. You could get this directly from sklearn with <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.datasets</span> <span class="pre">import</span> <span class="pre">load_breast_cancer</span></code>, but its good to practice reading in data so we’ll do it by hand. There are two files you’ll need for this data:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cancer.csv</span></code> contains the cell measurements</p></li>
@@ -698,8 +737,8 @@ document.write(`
 <p>5 rows × 31 columns</p>
 </div></div></div>
 </div>
-<div class="section" id="getting-the-right-columns">
-<h3>1.1 Getting the right columns<a class="headerlink" href="#getting-the-right-columns" title="Permalink to this headline">#</a></h3>
+<section id="getting-the-right-columns">
+<h3>1.1 Getting the right columns<a class="headerlink" href="#getting-the-right-columns" title="Permalink to this heading">#</a></h3>
 <p>Note that the dataframe from <code class="docutils literal notranslate"><span class="pre">cancer.csv</span></code> has a column that is just the index again. This isn’t actually part of the data so you should get rid of it.</p>
 <p><font size=8 color="#009600">✎</font> Use the DataFrame <code class="docutils literal notranslate"><span class="pre">drop()</span></code> method to make a new DataFrame that doesen’t have this extra column.</p>
 <div class="cell docutils container">
@@ -880,9 +919,9 @@ document.write(`
 </div></div></div>
 </div>
 <p>How many features does this data have? Does all of the data fall on the same scale?</p>
-</div>
-<div class="section" id="scaling-the-data">
-<h3>1.2 Scaling the Data<a class="headerlink" href="#scaling-the-data" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="scaling-the-data">
+<h3>1.2 Scaling the Data<a class="headerlink" href="#scaling-the-data" title="Permalink to this heading">#</a></h3>
 <p>Like you saw in the previous notebook, to use PCA to reduce the number of features, the data needs to be scaled.</p>
 <p><font size=8 color="#009600">✎</font> Do this - use <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing.StandardScaler</span></code> to scale the <code class="docutils literal notranslate"><span class="pre">cancer.csv</span></code> data.</p>
 <div class="cell docutils container">
@@ -1069,14 +1108,14 @@ document.write(`
 <p>5 rows × 30 columns</p>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="appplying-pca">
-<h2>2. Appplying PCA<a class="headerlink" href="#appplying-pca" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="appplying-pca">
+<h2>2. Appplying PCA<a class="headerlink" href="#appplying-pca" title="Permalink to this heading">#</a></h2>
 <p>Now that the data is scaled appropriatley, we’re ready to actually use Principal Component analysis.</p>
 <p>The syntax for doing PCA with scikit-learn is similar to other classes we’ve worked with from sklearn. You first initialize an instance of the PCA class (this is where you choose hyperparameters), then fit it to your data.  (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">documentation</a>)</p>
-<div class="section" id="task">
-<h3>2.1 Task<a class="headerlink" href="#task" title="Permalink to this headline">#</a></h3>
+<section id="task">
+<h3>2.1 Task<a class="headerlink" href="#task" title="Permalink to this heading">#</a></h3>
 <p><font size=8 color="#009600">✎</font>  Create and fit a PCA object without specifying any hyperparameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1088,7 +1127,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>PCA()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">PCA</label><div class="sk-toggleable__content"><pre>PCA()</pre></div></div></div></div></div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PCA()
+</pre></div>
+</div>
+</div>
 </div>
 <p><font size=8 color="#009600">✎</font> What is the total explained variance from all of the principal components? How many principal components are there? (you’ll probably want to write some code to figure this out)</p>
 <div class="cell docutils container">
@@ -1106,9 +1148,9 @@ Number of principal components: 30
 </div>
 </div>
 <p>answer here</p>
-</div>
-<div class="section" id="explained-variance-curve">
-<h3>2.2 Explained Variance Curve<a class="headerlink" href="#explained-variance-curve" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="explained-variance-curve">
+<h3>2.2 Explained Variance Curve<a class="headerlink" href="#explained-variance-curve" title="Permalink to this heading">#</a></h3>
 <p>It can be useful to visually see how much variance each principal component explains.</p>
 <p><font size=8 color="#009600">✎</font> Make a plot of the running total of the explained variance from each principal component.</p>
 <div class="cell docutils container">
@@ -1143,18 +1185,18 @@ Number of principal components: 30
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a29d5ecc6a11d8583d7ee031f91899cea705a4d395d1d00aa35b40bf7d04504b.png" src="../../_images/a29d5ecc6a11d8583d7ee031f91899cea705a4d395d1d00aa35b40bf7d04504b.png" />
-<img alt="../../_images/a29d5ecc6a11d8583d7ee031f91899cea705a4d395d1d00aa35b40bf7d04504b.png" src="../../_images/a29d5ecc6a11d8583d7ee031f91899cea705a4d395d1d00aa35b40bf7d04504b.png" />
+<img alt="../../_images/07999ca0bafa4e7bec09f60abbfe3969887e1d8593d9eccf87443c6e493fcac1.png" src="../../_images/07999ca0bafa4e7bec09f60abbfe3969887e1d8593d9eccf87443c6e493fcac1.png" />
+<img alt="../../_images/07999ca0bafa4e7bec09f60abbfe3969887e1d8593d9eccf87443c6e493fcac1.png" src="../../_images/07999ca0bafa4e7bec09f60abbfe3969887e1d8593d9eccf87443c6e493fcac1.png" />
 </div>
 </div>
 <p><font size=8 color="#009600">✎</font> About how many Principal Components does it take to cover <span class="math notranslate nohighlight">\(90\%\)</span> of the variance in the data?</p>
 <p>answer here</p>
-</div>
-<div class="section" id="transforming-data-with-pca">
-<h3>2.3 Transforming Data with PCA<a class="headerlink" href="#transforming-data-with-pca" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="transforming-data-with-pca">
+<h3>2.3 Transforming Data with PCA<a class="headerlink" href="#transforming-data-with-pca" title="Permalink to this heading">#</a></h3>
 <p>To move data into a lower dimensional space with PCA, we can use the <code class="docutils literal notranslate"><span class="pre">transform(data)</span></code> method. Since we can only visualize data in <span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(3\)</span> dimensions, let’s try transforming data using <span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(3\)</span> principal components.</p>
-<div class="section" id="d-transform">
-<h4>2.3.1 2d Transform<a class="headerlink" href="#d-transform" title="Permalink to this headline">#</a></h4>
+<section id="d-transform">
+<h4>2.3.1 2d Transform<a class="headerlink" href="#d-transform" title="Permalink to this heading">#</a></h4>
 <p><font size=8 color="#009600">✎</font> Do this - Create a new pca object with only 2 principal components and transform the data into this 2d space. How much of the total variance is explained by these two principal components?</p>
 <p>(note: Is there another method that lets you fit and transform with only one line of code?)</p>
 <div class="cell docutils container">
@@ -1228,9 +1270,9 @@ Number of principal components: 30
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="d-transformed-data-plot">
-<h4>2.3.2 2d Transformed Data Plot<a class="headerlink" href="#d-transformed-data-plot" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="d-transformed-data-plot">
+<h4>2.3.2 2d Transformed Data Plot<a class="headerlink" href="#d-transformed-data-plot" title="Permalink to this heading">#</a></h4>
 <p><font size=8 color="#009600">✎</font> Do this - Make a scatter plot of the transformed data (now in 2d) with the two principal components as axes. Color the points in the scatter plot by if the corresponding cell is malignant or not.</p>
 <p>Hint: To get the colors working in the <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> </code> argument, try casting the dataframe with the target data as a numpy array. You’ll need to transpose / index the array to get the data in the form matplotlib needs.</p>
 <div class="cell docutils container">
@@ -1247,17 +1289,17 @@ Number of principal components: 30
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1279ff4a29b60dc54d332e72a16b677fabe3b678f4fcbb2195cc0a2e72d2f126.png" src="../../_images/1279ff4a29b60dc54d332e72a16b677fabe3b678f4fcbb2195cc0a2e72d2f126.png" />
+<img alt="../../_images/8d556a2531372ebe5d5099f412465b0518cfdb12a2e7e4295a8aba7c6f6efb08.png" src="../../_images/8d556a2531372ebe5d5099f412465b0518cfdb12a2e7e4295a8aba7c6f6efb08.png" />
 </div>
 </div>
-</div>
-<div class="section" id="observations">
-<h4>2.3.3 Observations<a class="headerlink" href="#observations" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="observations">
+<h4>2.3.3 Observations<a class="headerlink" href="#observations" title="Permalink to this heading">#</a></h4>
 <p>What kind of structure do you see in this transformed data? Is it seperable? If yes (or mostly yes), <strong>how</strong> is it separable?</p>
 <p>answer here</p>
-</div>
-<div class="section" id="id1">
-<h4>2.3.3 3d Transform<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="id1">
+<h4>2.3.3 3d Transform<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
 <p><font size=8 color="#009600">✎</font> Repeat the procedure from 2.3.1 - 2.3.3 but in 3d. Here some <a class="reference external" href="https://matplotlib.org/stable/tutorials/toolkits/mplot3d.html">documentation</a> on <code class="docutils literal notranslate"><span class="pre">mplot3d</span></code>, which you can use to make a 3d scatter plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1282,14 +1324,14 @@ Number of principal components: 30
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total explained variance: 0.726
 </pre></div>
 </div>
-<img alt="../../_images/c2318662fc2ecf22d2fbe1e2ac79f803631bbced6fbe0348fdc3cc674d01b5eb.png" src="../../_images/c2318662fc2ecf22d2fbe1e2ac79f803631bbced6fbe0348fdc3cc674d01b5eb.png" />
+<img alt="../../_images/e2a6292fa8e60a62985a9e956cc8d9137652b4dafcd2b0beeabbc28d0645888a.png" src="../../_images/e2a6292fa8e60a62985a9e956cc8d9137652b4dafcd2b0beeabbc28d0645888a.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="time-permitting-kernel-pca">
-<h2>3. (Time Permitting) Kernel PCA<a class="headerlink" href="#time-permitting-kernel-pca" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+</section>
+<section id="time-permitting-kernel-pca">
+<h2>3. (Time Permitting) Kernel PCA<a class="headerlink" href="#time-permitting-kernel-pca" title="Permalink to this heading">#</a></h2>
 <p>Standard PCA is extremely useful for data that is linearly separable, but it falls short when data has nonlinear structure. In those cases, Kernel PCA may be of use. Kernel PCA is similar in concept to Support Vector Machines (SVMs), as it works by using a kernel function to move data into a higher dimensional space, where the data may become linearly seperable, and hence a typical PCA is effective.</p>
 <p>Here’s some circles like we saw last class:</p>
 <div class="cell docutils container">
@@ -1303,11 +1345,11 @@ Number of principal components: 30
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ff7646faf03344690fa3f2d8bf7087112d68a69b1afed4d318dfd74264fd7836.png" src="../../_images/ff7646faf03344690fa3f2d8bf7087112d68a69b1afed4d318dfd74264fd7836.png" />
+<img alt="../../_images/d4f05aea933b1de9a1dd2ba21393b7d4fda5e6faabb113ceffc718759e075b19.png" src="../../_images/d4f05aea933b1de9a1dd2ba21393b7d4fda5e6faabb113ceffc718759e075b19.png" />
 </div>
 </div>
-<div class="section" id="standard-pca-on-nonlinear-data">
-<h3>3.1 Standard PCA on Nonlinear Data<a class="headerlink" href="#standard-pca-on-nonlinear-data" title="Permalink to this headline">#</a></h3>
+<section id="standard-pca-on-nonlinear-data">
+<h3>3.1 Standard PCA on Nonlinear Data<a class="headerlink" href="#standard-pca-on-nonlinear-data" title="Permalink to this heading">#</a></h3>
 <p><font size=8 color="#009600">✎</font> Try using a regular PCA to transform this data (but don’t change the dimensionality) and plot the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1323,14 +1365,14 @@ Number of principal components: 30
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e7186ef090eed53f5c4be4e394b283bd8984803883672e134f7ac44d56dd2a4c.png" src="../../_images/e7186ef090eed53f5c4be4e394b283bd8984803883672e134f7ac44d56dd2a4c.png" />
+<img alt="../../_images/cb3a1d72264b0b5aca8c2ef6e3fd053b6ee2180fb5399c06a7e0f22c7ba75ad0.png" src="../../_images/cb3a1d72264b0b5aca8c2ef6e3fd053b6ee2180fb5399c06a7e0f22c7ba75ad0.png" />
 </div>
 </div>
 <p><font size=8 color="#009600">✎</font> What does your group observe?</p>
 <p>answer here</p>
-</div>
-<div class="section" id="trying-kernel-pca">
-<h3>3.2 Trying Kernel PCA<a class="headerlink" href="#trying-kernel-pca" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="trying-kernel-pca">
+<h3>3.2 Trying Kernel PCA<a class="headerlink" href="#trying-kernel-pca" title="Permalink to this heading">#</a></h3>
 <p><font size=8 color="#009600">✎</font> Now try using a Kernel PCA to transform the data. Try to find a kernel and set of parameters that separate the data linearly. What do you observe? (Hint: the <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code> kernel is sensitive to different values of <code class="docutils literal notranslate"><span class="pre">gamma</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1347,7 +1389,7 @@ Number of principal components: 30
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ad9aa7cf94866128c0fe655dec47c08a838cac16b9efcb8e2acbcf59b6492880.png" src="../../_images/ad9aa7cf94866128c0fe655dec47c08a838cac16b9efcb8e2acbcf59b6492880.png" />
+<img alt="../../_images/6d929a847ea6c7bdaebba11b51bd4ea8e8b537e889d8d94c3b202f1a89109e24.png" src="../../_images/6d929a847ea6c7bdaebba11b51bd4ea8e8b537e889d8d94c3b202f1a89109e24.png" />
 </div>
 </div>
 <p>answer here</p>
@@ -1358,9 +1400,9 @@ Number of principal components: 30
 <li><p>Incremental PCA: Like a standard PCA but can be much more memory efficient in some cases.</p></li>
 </ul>
 <p>This list is very much non-exhaustive.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1387,11 +1429,10 @@ Number of principal components: 30
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../day-4/Day_4-Multiplicity_of_Models-SOL.html"
@@ -1411,10 +1452,7 @@ Number of principal components: 30
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1422,6 +1460,7 @@ Number of principal components: 30
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1474,6 +1513,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2021-2023, Michigan State University.
@@ -1500,8 +1540,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

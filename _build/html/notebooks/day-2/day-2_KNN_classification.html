@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Classification using K Nearest Neighbors &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -18,46 +19,44 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-2/day-2_KNN_classification';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -65,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Polynomial Regression" href="../day-3/Day-3_Polynomial_Regression.html" />
     <link rel="prev" title="Getting Started with Classification Models" href="day-2_Getting_Started_with_Classification_Models.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -73,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -108,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -127,9 +137,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
+  
   
   
   
@@ -139,12 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="2023 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="2023 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -393,20 +416,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -459,13 +484,13 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="classification-using-k-nearest-neighbors">
-<h1>Classification using K Nearest Neighbors<a class="headerlink" href="#classification-using-k-nearest-neighbors" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="classification-using-k-nearest-neighbors">
+<h1>Classification using K Nearest Neighbors<a class="headerlink" href="#classification-using-k-nearest-neighbors" title="Permalink to this heading">#</a></h1>
 <img src="https://www.pngkey.com/png/full/574-5745035_machine-learning-workflow-machine-learning-data-pipeline.png" width=700px>
-<div class="section" id="agenda-for-today">
-<h2>Agenda for today<a class="headerlink" href="#agenda-for-today" title="Permalink to this headline">#</a></h2>
+<section id="agenda-for-today">
+<h2>Agenda for today<a class="headerlink" href="#agenda-for-today" title="Permalink to this heading">#</a></h2>
 </p>
 <ol class="arabic simple">
 <li><p>Review Gettting Started Assignment</p></li>
@@ -473,9 +498,9 @@ document.write(`
 <li><p>Use KNN classifier on breast cancer dataset</p></li>
 <li><p>Evaluate the quality of the model</p></li>
 </ol>
-</div>
-<div class="section" id="imports-for-the-day">
-<h2>0. Imports for the day<a class="headerlink" href="#imports-for-the-day" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="imports-for-the-day">
+<h2>0. Imports for the day<a class="headerlink" href="#imports-for-the-day" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -491,24 +516,38 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
 </div>
 </div>
+</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="review-of-getting-started-notebook">
-<h2>1. Review of Getting Started Notebook<a class="headerlink" href="#review-of-getting-started-notebook" title="Permalink to this headline">#</a></h2>
-<p>Pull up the <span class="xref myst">solution notebook</span></p>
-</div>
+<section id="review-of-getting-started-notebook">
+<h2>1. Review of Getting Started Notebook<a class="headerlink" href="#review-of-getting-started-notebook" title="Permalink to this heading">#</a></h2>
+<p>Pull up the <a class="reference internal" href="#./notebooks/day-3/day-3_Getting_Started_with_Classification_Models-SOL.ipynb"><span class="xref myst">solution notebook</span></a></p>
+</section>
 <hr class="docutils" />
-<div class="section" id="training-vs-testing">
-<h2>2. Training vs Testing<a class="headerlink" href="#training-vs-testing" title="Permalink to this headline">#</a></h2>
+<section id="training-vs-testing">
+<h2>2. Training vs Testing<a class="headerlink" href="#training-vs-testing" title="Permalink to this heading">#</a></h2>
 <p>As you learned in the pre-class, classification is an ML process that maps features of an input data set to class labels. Classification is a <strong>supervised</strong> learning approach where example data is used to train the data. We typically divide the data used to train and evaluate the classifier (the result model) into two sets (training and testing). <em>In some cases, folks split into three sets (training, testing, and validation).</em></p>
 <p>✅ <strong>Do This:</strong> As a group, discuss what these three sets represent. It might help to review these terms on the web. The answers down below:</p>
 <p><font size=8 color="#009600">✎</font> Training set is:</p>
 <p><font size=8 color="#009600">✎</font> Testing set is:</p>
 <p><strong>Defining the features and building the model</strong></p>
 <p>If you review the image at the top of the notebook, you might notice that one of the first steps in machine learning is to go from “raw data” into a set of “features” and “labels”. Extracting features from our data can sometimes be one of the trickier parts of the process and also one of the most important ones. We have to think carefully about exactly what the “right” features are for training our machine learning algorithm and, when possible, it is advantageous to find ways to reduce the total number of features we are trying to model. Once we define our features, we can build our model.</p>
-<div class="section" id="working-with-data">
-<h3>2.1 Working with data<a class="headerlink" href="#working-with-data" title="Permalink to this headline">#</a></h3>
+<section id="working-with-data">
+<h3>2.1 Working with data<a class="headerlink" href="#working-with-data" title="Permalink to this heading">#</a></h3>
 <p>There is a common data set used to work with classification called the breast cancer data set. It is actually available in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> but what fun is working withe cleaned up data. Let’s look at the original. We will use <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)">data from a Breast Cancer study</a> for this notebook. On this site, you will find  “breast-cancer-wisconsin.data” and “breast-cancer-wisconsin.names”. The data are in “.data” and the “.names” describes that data.</p>
 <p>We can also directly import them from the web:</p>
 <ul class="simple">
@@ -542,10 +581,10 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="splitting-the-dataset-for-model-into-training-and-testing-sets">
-<h3>2.2 : Splitting the dataset for model into training and testing sets<a class="headerlink" href="#splitting-the-dataset-for-model-into-training-and-testing-sets" title="Permalink to this headline">#</a></h3>
+<section id="splitting-the-dataset-for-model-into-training-and-testing-sets">
+<h3>2.2 : Splitting the dataset for model into training and testing sets<a class="headerlink" href="#splitting-the-dataset-for-model-into-training-and-testing-sets" title="Permalink to this heading">#</a></h3>
 <p>Let’s split the data in a training set and final testing set. We want to randomly select 75% of the data for training and 25% of the data for testing.</p>
 <p>You should turn the <code class="docutils literal notranslate"><span class="pre">class_labels</span></code> into 0 (now 2, for benign) and 1 (now 4, for malignant) as the classifier we are using (Logisitic Regression) predicts values between 0 and 1.</p>
 <p>✅ Do This - You will need to come up with a way to split the data into separate training and testing sets (we will leave the validation set out for now).  Make sure you keep the feature vectors and classes together.</p>
@@ -565,11 +604,11 @@ document.write(`
 </div>
 <p><strong>Question</strong>: Why do we need to separate our samples into a training and testing set. Why can’t we just use all the data for both? Wouldn’t that make it work better?</p>
 <p><font size=8 color="#009600">✎</font> Do This - Erase the contents of this cell and replace it with your answer to the above question!  (double-click on this text to edit this cell, and hit shift+enter to save the text)</p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="k-nearest-neighbors">
-<h2>3 K Nearest Neighbors<a class="headerlink" href="#k-nearest-neighbors" title="Permalink to this headline">#</a></h2>
+<section id="k-nearest-neighbors">
+<h2>3 K Nearest Neighbors<a class="headerlink" href="#k-nearest-neighbors" title="Permalink to this heading">#</a></h2>
 <p>One of the more conceptually simply classifiers in K Nearest Neighbors or KNN. In KNN, we assume that in the N-dimensional space, which represents the N input features, that things in the same close are “close” to each other. That is the more similar their location in this virtual space, the more likely two points (or three or four…) are members of the same class.</p>
 <p>KNN has one basic “hyperparameter”, which is what we can use to tune the model. It is how many neighbors it should include as part of the analysis (2, 3, 4, etc.). We will explore this at the end of the notebook. For now, we will setup the model.</p>
 <p>More information on KNN from a conceptual persepctive is in the video below.</p>
@@ -588,12 +627,11 @@ document.write(`
             src="https://www.youtube.com/embed/HVXime0nQeI"
             frameborder="0"
             allowfullscreen
-            
         ></iframe>
         </div></div>
 </div>
-<div class="section" id="the-benefits-of-sklearn">
-<h3>3.1 The benefits of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code><a class="headerlink" href="#the-benefits-of-sklearn" title="Permalink to this headline">#</a></h3>
+<section id="the-benefits-of-sklearn">
+<h3>3.1 The benefits of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code><a class="headerlink" href="#the-benefits-of-sklearn" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> workflow is similar across all implementations. We will always:</p>
 <ol class="arabic simple">
 <li><p>Create the model object (in this case <code class="docutils literal notranslate"><span class="pre">KNeighborsClassifier()</span></code>). <em>You can set hyperparameters at this step.</em></p></li>
@@ -614,9 +652,9 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="how-d-it-go">
-<h3>3.1 How’d it go?<a class="headerlink" href="#how-d-it-go" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="how-d-it-go">
+<h3>3.1 How’d it go?<a class="headerlink" href="#how-d-it-go" title="Permalink to this heading">#</a></h3>
 <p>There are a number of ways that we can check the performance of our model. The major difference in the standard statistics approach and supervised learning approaches is that we test our models using the data that we held out: “the test data.”</p>
 <p>That is, we will use our classifier model to make predictions from the test features and we can then compare those predictions to actual test labels. As you did above, we can use the output of the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method of the model to predict how well the classifier works on the test data (the data it was not trained on). Conveniently that is the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> method and, again, we use it on the result of the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code>.</p>
 <p>But how well did the model do? It turns out that we can’t simply make a plot of predicted versus actual like we did for regression. Instead, we use the “confusion matrix” and associated measures derived from it. The <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion Matrix</a> gives you the number of true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN). Through this we can determine the accuracy but the total number of TPs and TNs compared to all the data in the test set.</p>
@@ -644,11 +682,11 @@ document.write(`
 </div>
 <p><strong>Question:</strong> How well did your model predict the test class labels? Given what you learned in the pre-class assignment about false positives and false negatives, what other questions should we ask about the accuracy of our model?</p>
 <p><font size=8 color="#009600">✎</font> Answer here.</p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="tuning-hyperparameters">
-<h2>4. Tuning hyperparameters<a class="headerlink" href="#tuning-hyperparameters" title="Permalink to this headline">#</a></h2>
+<section id="tuning-hyperparameters">
+<h2>4. Tuning hyperparameters<a class="headerlink" href="#tuning-hyperparameters" title="Permalink to this heading">#</a></h2>
 <p>Most ML models have some number of parameters that can be tuned to try to build better models. Later, we will see how to explore those parameters automatically, but now, we will just do things manually. For KNN, this is ok because there’s only one commnly tuned parameter: <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code>, which the number of neighboring points the algorithm takes into account when it looks for similar classes.</p>
 <p>Look at the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">documentation for KNN</a> and determine the default number of neighbors.</p>
 <p><font size=8 color="#009600">✎</font> Do this.</p>
@@ -664,8 +702,8 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="section" id="automate-it">
-<h3>4.1 Automate it<a class="headerlink" href="#automate-it" title="Permalink to this headline">#</a></h3>
+<section id="automate-it">
+<h3>4.1 Automate it<a class="headerlink" href="#automate-it" title="Permalink to this heading">#</a></h3>
 <p>Now that you have checked a slightly different number of neighbors, let’s systematically see how our accuract changes with number of neighbors.</p>
 <p><font size=8 color="#009600">✎</font> Do this.</p>
 <ul class="simple">
@@ -681,9 +719,9 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -710,11 +748,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="day-2_Getting_Started_with_Classification_Models.html"
@@ -734,10 +771,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -745,6 +779,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -790,6 +825,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2021-2023, Michigan State University.
@@ -816,8 +852,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

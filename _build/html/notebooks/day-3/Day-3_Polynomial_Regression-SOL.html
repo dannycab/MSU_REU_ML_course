@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Solution - Polynomial Regression &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
   
@@ -18,46 +19,44 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -67,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Solution - Multidimensional Linear Regression" href="Day-3_Multiple_Regression-SOL.html" />
     <link rel="prev" title="Solution - Classification using K Nearest Neighbors" href="../day-2/day-2_KNN_classification-SOL.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -75,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -110,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -129,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
+  
   
   
   
@@ -141,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="2023 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="2023 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -395,20 +418,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -460,12 +485,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="solution-polynomial-regression">
-<h1>Solution - Polynomial Regression<a class="headerlink" href="#solution-polynomial-regression" title="Permalink to this headline">#</a></h1>
-<img src="https://i.pinimg.com/originals/52/2c/20/522c209c019fe9592857bcb569184478.jpg"><div class="section" id="goals">
-<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="solution-polynomial-regression">
+<h1>Solution - Polynomial Regression<a class="headerlink" href="#solution-polynomial-regression" title="Permalink to this heading">#</a></h1>
+<img src="https://i.pinimg.com/originals/52/2c/20/522c209c019fe9592857bcb569184478.jpg"><section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this heading">#</a></h2>
 <p>After completing this notebook, you will be able to:</p>
 <ol class="arabic simple">
 <li><p>Generate data for a polynomial regression</p></li>
@@ -474,9 +499,9 @@ document.write(`
 <li><p>Evaluate the quality of fit for a set of models using adjusted <span class="math notranslate nohighlight">\(R^2\)</span> and by comparing true and predicted values</p></li>
 <li><p>Explain why that model is the best fit for this data</p></li>
 </ol>
-</div>
-<div class="section" id="our-imports">
-<h2>Our Imports<a class="headerlink" href="#our-imports" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="our-imports">
+<h2>Our Imports<a class="headerlink" href="#our-imports" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -493,18 +518,32 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span> <span class="c1">## Used for automatically splitting data</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>    <span class="c1">## One of many kinds of regression models</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
 </div>
 </div>
+</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="polynomial-regression">
-<h2>1. Polynomial Regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this headline">#</a></h2>
+<section id="polynomial-regression">
+<h2>1. Polynomial Regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this heading">#</a></h2>
 <p>To understand and model the underlying relationships between variables in data, we can create <strong>regression models</strong> to “fit” the data. The simplest regression model (that you’ve probably seen before) is linear regression with a first order polynomial, where the relationship between two variables is fit with a straight line: <span class="math notranslate nohighlight">\(Ax + B\)</span>.</p>
 <p>It’s possible that a straight line is not going to be good enough to model the data we are working with. We can augment our <span class="math notranslate nohighlight">\( Ax + B\)</span> with extra features. By adding features we are still doing linear regression, but we the features themselves can consist of, well anything.</p>
 <p>However, to be focused, we will use polynomials. We can add values like <span class="math notranslate nohighlight">\(x^2\)</span> or <span class="math notranslate nohighlight">\(x^5\)</span> to the potential set of features that can be used to better map against our data.</p>
 <p><font size=8 color="#009600">✎</font> Do This -  The question is, how many such features should we add? What are the advantages and disadvantages of adding more and more features? Think about it and answer in the cell below.</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-<div class="section" id="let-s-make-some-data">
-<h3>1.1 Let’s make some Data<a class="headerlink" href="#let-s-make-some-data" title="Permalink to this headline">#</a></h3>
+<section id="let-s-make-some-data">
+<h3>1.1 Let’s make some Data<a class="headerlink" href="#let-s-make-some-data" title="Permalink to this heading">#</a></h3>
 <p>It’s always good when we are starting out to generate our own data. Data we generate gives us the advantage of <strong>knowing</strong> what the answer should be.</p>
 <p><font size=8 color="#009600">✎</font> Do This -  Let’s do the following:</p>
 <ul class="simple">
@@ -536,9 +575,9 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-the-data">
-<h3>1.2 Plot the data<a class="headerlink" href="#plot-the-data" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="plot-the-data">
+<h3>1.2 Plot the data<a class="headerlink" href="#plot-the-data" title="Permalink to this heading">#</a></h3>
 <p>We should really look at our data before we try to model it.</p>
 <p><font size=8 color="#009600">✎</font> Do This -  plot <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs both <code class="docutils literal notranslate"><span class="pre">y_ary</span></code> and <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code>. Do it overlapping with colors, or side by side, whatever you think would look good. <em>Make sure to label your axes!</em> Consider adding a legend by using: <code class="docutils literal notranslate"><span class="pre">plt.legend(['Plot</span> <span class="pre">1',</span> <span class="pre">'Plot</span> <span class="pre">2'])</span></code>.</p>
 <div class="cell docutils container">
@@ -564,14 +603,14 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/97666b848e6e29174fc8adbee3229c89fe9af3e7e19ef9433ab12c587813d057.png" src="../../_images/97666b848e6e29174fc8adbee3229c89fe9af3e7e19ef9433ab12c587813d057.png" />
+<img alt="../../_images/824b609ab2917773e98271967feddec45f3f73a5528b71c52025ea65872c5baf.png" src="../../_images/824b609ab2917773e98271967feddec45f3f73a5528b71c52025ea65872c5baf.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="making-the-polynomial-features">
-<h2>2 Making the Polynomial Features<a class="headerlink" href="#making-the-polynomial-features" title="Permalink to this headline">#</a></h2>
+<section id="making-the-polynomial-features">
+<h2>2 Making the Polynomial Features<a class="headerlink" href="#making-the-polynomial-features" title="Permalink to this heading">#</a></h2>
 <p>Ultimately it would be nice to do our work using a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame so that we have the opportunity to label our columns. There’s the added benefit that <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> just works with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames.</p>
 <p><font size=8 color="#009600">✎</font> Do This - Make a DataFrame consisting of the following columns: a constant value for the intercept, the values in <code class="docutils literal notranslate"><span class="pre">x_ary</span></code>, and additional powers of <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> up to 10.</p>
 <p>You can do this one of two ways:</p>
@@ -721,8 +760,8 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<div class="section" id="train-test-splitting">
-<h3>2.1 Train-test splitting<a class="headerlink" href="#train-test-splitting" title="Permalink to this headline">#</a></h3>
+<section id="train-test-splitting">
+<h3>2.1 Train-test splitting<a class="headerlink" href="#train-test-splitting" title="Permalink to this heading">#</a></h3>
 <p>One of the critical aspects of machine learning is worrying about overfitting or underfitting your data. This is essential to machine learning as we can never avoid the Bias-Variance tradeoff (<a class="reference external" href="https://www.youtube.com/watch?v=EuBBz3bI-aA">Great Conceptual Video on this</a>).</p>
 <ul class="simple">
 <li><p><strong>Overfitting</strong> - when your model captures too many aspects of what it learns from so that it fits the data it learned from really well. Results: A really good fit for learned data, but not a great fit for new data from the same phenomenon.</p></li>
@@ -756,9 +795,9 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="fitting-using-the-polynomials">
-<h3>2.2 Fitting using the Polynomials<a class="headerlink" href="#fitting-using-the-polynomials" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="fitting-using-the-polynomials">
+<h3>2.2 Fitting using the Polynomials<a class="headerlink" href="#fitting-using-the-polynomials" title="Permalink to this heading">#</a></h3>
 <p>We’ll talk about measures of “goodness” of fit in more detail on day 4, but one good measure for a multi-feature fit is the <strong>Adjusted R-squared</strong> value. In general, the <strong>R-squared</strong> describes the variance in the model that it can account for. If the R-squared is 1.0, then all the variance is accounted for an you have a perfect fit. If the value is 0 and you have no fit. However, for multiple features R-squared tends to over-estimate. The Adjusted R-squared tries to deal with this and provide a value that is better suited to multiple features.</p>
 <p>We’ll leave it to you how you want to do this, but what we’d like you to try is to fit different combinations of features against <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code> and report the Adjusted R-squared value. For example, what is the Adj-r-squared for:</p>
 <ol class="arabic simple">
@@ -832,17 +871,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0 r2 = -0.0009
-x1 r2 = 0.3332
-x2 r2 = 0.2971
-x3 r2 = 0.5619
-x4 r2 = 0.8447
-x5 r2 = 0.8458
-x6 r2 = 0.8455
-x7 r2 = 0.846
-x8 r2 = 0.8459
-x9 r2 = 0.841
-x10 r2 = 0.8407
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0 r2 = -0.0029
+x1 r2 = 0.383
+x2 r2 = 0.3585
+x3 r2 = 0.6245
+x4 r2 = 0.8687
+x5 r2 = 0.8681
+x6 r2 = 0.867
+x7 r2 = 0.8677
+x8 r2 = 0.8668
+x9 r2 = 0.8684
+x10 r2 = 0.8689
 </pre></div>
 </div>
 </div>
@@ -877,22 +916,22 @@ x10 r2 = 0.8407
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>explained_variance:  0.8447
-r2:  0.8447
-MAE:  13.601
-MSE:  278.5487
-RMSE:  16.6898
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>explained_variance:  0.8694
+r2:  0.8687
+MAE:  12.0222
+MSE:  219.0911
+RMSE:  14.8017
 </pre></div>
 </div>
 </div>
 </div>
 <p><font size=8 color="#009600">✎</font> Do This - Which combination of features best “fit” your data? What was the Adjusted R-squared? Why might that combination produce the best fit?</p>
 <p><font size=8 color="#009600">✎</font> Answer here</p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="plot-your-data-and-your-model">
-<h2>3. Plot your data and your model<a class="headerlink" href="#plot-your-data-and-your-model" title="Permalink to this headline">#</a></h2>
+<section id="plot-your-data-and-your-model">
+<h2>3. Plot your data and your model<a class="headerlink" href="#plot-your-data-and-your-model" title="Permalink to this heading">#</a></h2>
 <p><font size=8 color="#009600">✎</font> Do This -  Plot <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs <code class="docutils literal notranslate"><span class="pre">y_noisy</span></code> and <code class="docutils literal notranslate"><span class="pre">x_ary</span></code> vs the best fitted values based on the adjusted rsquared value. Do it in the same graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -914,14 +953,14 @@ RMSE:  16.6898
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17b69f040&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17dbc332f10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/c29725d186190f6d6ce65401bd7bf40a2779d69d353a52bce0af10def803ebb5.png" src="../../_images/c29725d186190f6d6ce65401bd7bf40a2779d69d353a52bce0af10def803ebb5.png" />
+<img alt="../../_images/b5f4d9f98aea471632fdc692bf2c7108de5e89cb5a910f9546bd416d4488c4b7.png" src="../../_images/b5f4d9f98aea471632fdc692bf2c7108de5e89cb5a910f9546bd416d4488c4b7.png" />
 </div>
 </div>
-<div class="section" id="are-we-justified-in-using-this-model">
-<h3>3.1 Are we justified in using this model?<a class="headerlink" href="#are-we-justified-in-using-this-model" title="Permalink to this headline">#</a></h3>
+<section id="are-we-justified-in-using-this-model">
+<h3>3.1 Are we justified in using this model?<a class="headerlink" href="#are-we-justified-in-using-this-model" title="Permalink to this heading">#</a></h3>
 <p>We can check how well we are justified in using this model, by comparing the actual and predicted values as well as making a residual plot.</p>
 <ul class="simple">
 <li><p>The first plot is plotting the predicted values against the real values. In a perfect model, they would form a line with a slope of 1.</p></li>
@@ -958,14 +997,14 @@ RMSE:  16.6898
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Residuals&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/dbf79c3e7e0271ddf2a109debf81e516adb1a4b5332b8ba81921bd5daf59881e.png" src="../../_images/dbf79c3e7e0271ddf2a109debf81e516adb1a4b5332b8ba81921bd5daf59881e.png" />
-<img alt="../../_images/9542abc0e750b4f865d9687be84830afe2e7cc1a4d6e68782fb6e37aee197bb0.png" src="../../_images/9542abc0e750b4f865d9687be84830afe2e7cc1a4d6e68782fb6e37aee197bb0.png" />
+<img alt="../../_images/0e76f3bf99bc9dd38de04f9824e7c61a78ea87e485a883af91aebf4d557e272f.png" src="../../_images/0e76f3bf99bc9dd38de04f9824e7c61a78ea87e485a883af91aebf4d557e272f.png" />
+<img alt="../../_images/cb33baae40200bbd0a86efae38056575ffe9fbf7ea65eb03da30036ff43ecbdf.png" src="../../_images/cb33baae40200bbd0a86efae38056575ffe9fbf7ea65eb03da30036ff43ecbdf.png" />
 </div>
 </div>
 <p><font size=8 color="#009600">✎</font> Answer here - Do we appear justified in using this model? Why or why not?</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -992,11 +1031,10 @@ RMSE:  16.6898
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../day-2/day-2_KNN_classification-SOL.html"
@@ -1016,10 +1054,7 @@ RMSE:  16.6898
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1027,6 +1062,7 @@ RMSE:  16.6898
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1071,6 +1107,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2021-2023, Michigan State University.
@@ -1097,8 +1134,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
