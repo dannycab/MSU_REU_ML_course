@@ -16,15 +16,11 @@ parts:
   chapters:
   - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb
   - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb
-# - caption: Modeling Data
-#   chapters:
-#   - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models.ipynb
-#   - file: notebooks/day-2/day-2_KNN_classification.ipynb
+- caption: Modeling Data
+  chapters:
+  - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models.ipynb
+  - file: notebooks/day-2/day-2_KNN_classification.ipynb
 #   - file: notebooks/day-3/Day-3_Polynomial_Regression.ipynb
-#   - file: notebooks/notes/importance_of_visualization.ipynb
-#   - file: notebooks/notes/regression_with_scikit.ipynb
-#   - file: notebooks/notes/cross-validation.ipynb
-#   - file: notebooks/notes/reverse-feature-elimination.ipynb
 #   - file: notebooks/day-3/Day-3_Multiple_Regression.ipynb
 # - caption: Evaluating Models
 #   chapters:
@@ -46,8 +42,8 @@ parts:
   chapters:
   - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb
   - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas-SOL.ipynb
-#   - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models-SOL.ipynb
-#   - file: notebooks/day-2/day-2_KNN_classification-SOL.ipynb
+  - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models-SOL.ipynb
+  - file: notebooks/day-2/day-2_KNN_classification-SOL.ipynb
 #   - file: notebooks/day-3/Day-3_Polynomial_Regression-SOL.ipynb
 #   - file: notebooks/day-3/Day-3_Multiple_Regression-SOL.ipynb
 #   - file: notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb
