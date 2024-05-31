@@ -42,10 +42,10 @@ parts:
   - file: notebooks/notes/regression_with_scikit.ipynb
   - file: notebooks/notes/cross-validation.ipynb
   - file: notebooks/notes/reverse-feature-elimination.ipynb
-# - caption: Solutions
-#   chapters:
-#   - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb
-#   - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas-SOL.ipynb
+- caption: Solutions
+  chapters:
+  - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb
+  - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas-SOL.ipynb
 #   - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models-SOL.ipynb
 #   - file: notebooks/day-2/day-2_KNN_classification-SOL.ipynb
 #   - file: notebooks/day-3/Day-3_Polynomial_Regression-SOL.ipynb

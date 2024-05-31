@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Cross-Validation of your models &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
@@ -15,49 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/notes/cross-validation';</script>
@@ -74,27 +73,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -116,8 +111,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -213,6 +213,11 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cross-Validation of your models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Getting-Started-with-Pandas-SOL.html">Solution - Getting Started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../contributions.html">Contributions</a></li>
@@ -231,7 +236,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -240,7 +245,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,7 +459,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="cross-validation-of-your-models">
-<h1>Cross-Validation of your models<a class="headerlink" href="#cross-validation-of-your-models" title="Permalink to this heading">#</a></h1>
+<h1>Cross-Validation of your models<a class="headerlink" href="#cross-validation-of-your-models" title="Link to this heading">#</a></h1>
 <p>One of the things about machine learning is that it often leverages randomness (sampling, shuffling, etc) to build the strength in your claims. We can use this to our advantage by being able to estimate the performance of model. Below we show how to do this using “Monte Carlo” methods, i.e., simple bootstrapping.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">sci-kit</span></code> library has many buiult-in tools for validation, which you will emply at the end on your own.</p>
 <div class="cell docutils container">
@@ -486,7 +491,7 @@ document.write(`
 </div>
 </div>
 <section id="generate-some-regression-data-and-store-it-in-a-data-frame">
-<h2>Generate some regression data and store it in a data frame<a class="headerlink" href="#generate-some-regression-data-and-store-it-in-a-data-frame" title="Permalink to this heading">#</a></h2>
+<h2>Generate some regression data and store it in a data frame<a class="headerlink" href="#generate-some-regression-data-and-store-it-in-a-data-frame" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate regression dataset with 10 variables</span>
@@ -502,7 +507,7 @@ document.write(`
 </div>
 </section>
 <section id="plot-the-features">
-<h2>Plot the features<a class="headerlink" href="#plot-the-features" title="Permalink to this heading">#</a></h2>
+<h2>Plot the features<a class="headerlink" href="#plot-the-features" title="Link to this heading">#</a></h2>
 <p><strong>Note this takes a while to run. You don’t have to use it everytime</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -518,7 +523,7 @@ document.write(`
 </div>
 </section>
 <section id="make-our-process-modular">
-<h2>Make our process modular<a class="headerlink" href="#make-our-process-modular" title="Permalink to this heading">#</a></h2>
+<h2>Make our process modular<a class="headerlink" href="#make-our-process-modular" title="Link to this heading">#</a></h2>
 <p>One of the useful things about the <code class="docutils literal notranslate"><span class="pre">sci-kit</span></code> library is that it makes the process of doing machine learning pretty routine. In that we know the process that we follow and we can find where in the process to diagnose issues. This is not to say any of this is simple, but rather it can be made into a process.</p>
 <p>Below, we’ve written a function that performs a linear regression on data. It returns the Mean Sqaured Error (<code class="docutils literal notranslate"><span class="pre">mse</span></code>), the R<span class="math notranslate nohighlight">\(^2\)</span> value (<code class="docutils literal notranslate"><span class="pre">r2</span></code>), and the fit coefficients for the linear model (<code class="docutils literal notranslate"><span class="pre">coeffs</span></code>). Notice this last variable is a list not just a number. It will be as long as the number of features in the model.</p>
 <div class="cell docutils container">
@@ -548,7 +553,7 @@ document.write(`
 </div>
 </div>
 <section id="call-our-function">
-<h3>Call our function<a class="headerlink" href="#call-our-function" title="Permalink to this heading">#</a></h3>
+<h3>Call our function<a class="headerlink" href="#call-our-function" title="Link to this heading">#</a></h3>
 <p>Now, we can call our function a notice that it produces a differnt value each time because it is randomly sampling every time it runs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -597,7 +602,7 @@ Fit Coefficients:
 </section>
 </section>
 <section id="automating-the-runs">
-<h2>Automating the runs<a class="headerlink" href="#automating-the-runs" title="Permalink to this heading">#</a></h2>
+<h2>Automating the runs<a class="headerlink" href="#automating-the-runs" title="Link to this heading">#</a></h2>
 <p>Now that we have this working, we can run a loop a perform as many of these analyses as we like. Below, we’ve written a short loop that does this and stores all the important things a pandas data frame for later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -628,7 +633,7 @@ Fit Coefficients:
 </div>
 </div>
 <section id="plot-the-distributions">
-<h3>Plot the distributions<a class="headerlink" href="#plot-the-distributions" title="Permalink to this heading">#</a></h3>
+<h3>Plot the distributions<a class="headerlink" href="#plot-the-distributions" title="Link to this heading">#</a></h3>
 <p>Below, we plot the distributions of the results, which demonstrate both the random nature of the train/test splitting, but also that we can build confidence in our analysis by providing uncertainty to our estimates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -709,7 +714,7 @@ Fit Coefficients:
 </section>
 </section>
 <section id="things-to-try">
-<h2>Things to try<a class="headerlink" href="#things-to-try" title="Permalink to this heading">#</a></h2>
+<h2>Things to try<a class="headerlink" href="#things-to-try" title="Link to this heading">#</a></h2>
 <p>We have performed “Monte Carlo” validation where we randomly sample the training and test sets. The <code class="docutils literal notranslate"><span class="pre">sci-kit</span></code> library has forms of validation built-in. You can find lots of <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html">details on their documentation</a>. Here’s a bit more on how each validator <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html">selects data</a>.</p>
 <ul class="simple">
 <li><p>Review the <code class="docutils literal notranslate"><span class="pre">sci-kit</span></code> documentation and reproduce our work above using a built-in validator.</p></li>
@@ -745,7 +750,7 @@ Fit Coefficients:
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -841,8 +846,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

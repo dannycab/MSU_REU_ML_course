@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Solution - Getting Started with Pandas &#8212; 2023 MSU REU Machine Learning Short Course</title>
   
@@ -15,54 +14,54 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Solution - Exploring data with Pandas" href="Day-1_Exploring-data-with-Pandas-SOL.html" />
-    <link rel="prev" title="Python Basics Review" href="../resources/python_review.html" />
+    <link rel="prev" title="Reverse Feature Elimination" href="../notes/reverse-feature-elimination.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -72,27 +71,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -114,8 +109,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -173,7 +173,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    2023 MSU REU Short Course on Machine Learning
+                    2024 MSU REU Short Course on Machine Learning
                 </a>
             </li>
         </ul>
@@ -195,7 +195,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Data</span></p>
@@ -203,42 +203,18 @@
 <li class="toctree-l1"><a class="reference internal" href="Day-1_Getting-Started-with-Pandas.html">Getting Started with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Day-1_Exploring-data-with-Pandas.html">Exploring data with Pandas</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modeling Data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluating Models</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-What_is_Tuning_and_Validation.html">What is Tuning and Validation?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models.html">A Multiplicity of Models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dimension Reduction</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../day-5/day_5-What_is_PCA.html">What is Principal Component Analysis?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/pca_example.html">Illustrating PCA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA.html">Using PCA</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../resources/python_review.html">Python Basics Review</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Solution - Getting Started with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-4/Day_4-Multiplicity_of_Models-SOL.html">Solution - A Multiplicity of Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../day-5/Day_5-Using_PCA-SOL.html">Using PCA</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -258,7 +234,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -267,7 +243,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -486,17 +462,17 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solution-getting-started-with-pandas">
-<h1>Solution - Getting Started with Pandas<a class="headerlink" href="#solution-getting-started-with-pandas" title="Permalink to this heading">#</a></h1>
+<h1>Solution - Getting Started with Pandas<a class="headerlink" href="#solution-getting-started-with-pandas" title="Link to this heading">#</a></h1>
 <p>In this notebook we will be:</p>
 <ol class="arabic simple">
 <li><p>Reviewing the basics of Pandas</p></li>
 <li><p>Reviewing Pandas Dataframes</p></li>
 </ol>
 <section id="notebook-instructions">
-<h2>Notebook instructions<a class="headerlink" href="#notebook-instructions" title="Permalink to this heading">#</a></h2>
+<h2>Notebook instructions<a class="headerlink" href="#notebook-instructions" title="Link to this heading">#</a></h2>
 <p>Recall that to make notebook cells that have Python code in them do something, hold down the ‘shift’ key and then press the ‘enter’ key (you’ll have to do this to get the YouTube videos to run).  To edit a cell (to add answers, for example) you double-click on the cell, add your text, and then enter it by holding down ‘shift’ and pressing ‘enter’</p>
 <section id="imports-for-this-notebook">
-<h3>Imports for this Notebook<a class="headerlink" href="#imports-for-this-notebook" title="Permalink to this heading">#</a></h3>
+<h3>Imports for this Notebook<a class="headerlink" href="#imports-for-this-notebook" title="Link to this heading">#</a></h3>
 <p>One of the downsides of notebooks is knowing when things got imported and what modules were important. Trying to get into the habit of including all of the important imports at the top of the notebook is a good way to ensure that you don’t run into issues later on in the notebook. When you restart the notebook, you can run that first cell to get the imports right.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -513,10 +489,10 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="the-basics-of-pandas">
-<h2>1. The basics of Pandas<a class="headerlink" href="#the-basics-of-pandas" title="Permalink to this heading">#</a></h2>
+<h2>1. The basics of Pandas<a class="headerlink" href="#the-basics-of-pandas" title="Link to this heading">#</a></h2>
 <p>Pandas is a fundamental tool for doing Data Science work in Python. While we can do this work in straight Python, Pandas makes much of that work easier. We cannot do justice to all of Pandas, as it is a big package, but here we’ll remind ourselves of some of the basics. As you do more data science work, you’ll pick more and more of Pandas as you go along.</p>
 <section id="pandas-series">
-<h3>1.1 Pandas Series<a class="headerlink" href="#pandas-series" title="Permalink to this heading">#</a></h3>
+<h3>1.1 Pandas Series<a class="headerlink" href="#pandas-series" title="Link to this heading">#</a></h3>
 <p>The basic Pandas data structure is called a <em>Series</em>. It is a sequence, not unlike a numpy array, but with an associated set of labels for each value called the <em>index</em>. If you don’t provide the index labels, Pandas will use the regular 0-based index as the label. Again: if you don’t provide index labels, it will use the numeric index as the index label. That will be important later.</p>
 <p>You can make a Series using either a python <em>dict</em>, with keys as the indices, or by separately providing the values and indices. You can also update the index labels or reset the labels to the default. Note however that the <code class="docutils literal notranslate"><span class="pre">reset_index</span></code> method does <em>not</em> change the Series but returns, not a Series but a DataFrame, where the original index is preserved as a new column.</p>
 <p>✅ <strong>Review the following example and make sure you understand everything that is happening. Discuss with your group mates.</strong></p>
@@ -569,7 +545,7 @@ dtype: int64
 </div>
 </section>
 <section id="manipulating-series">
-<h3>1.2 Manipulating Series<a class="headerlink" href="#manipulating-series" title="Permalink to this heading">#</a></h3>
+<h3>1.2 Manipulating Series<a class="headerlink" href="#manipulating-series" title="Link to this heading">#</a></h3>
 <p>Once you have a Pandas Series object, You can access the values in a number of ways:</p>
 <ul class="simple">
 <li><p>using the label in [ ], much as you would in a dictionary</p></li>
@@ -602,7 +578,7 @@ dtype: int64
 7
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6q/fl2y7xb92570fzrj3q_0pj1w0000gn/T/ipykernel_71212/3640324809.py:8: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6q/fl2y7xb92570fzrj3q_0pj1w0000gn/T/ipykernel_16383/3640324809.py:8: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
   print(series_index[2])
 </pre></div>
 </div>
@@ -643,7 +619,7 @@ dtype: int64
 </div>
 </section>
 <section id="numpy-like-operations">
-<h3>1.3 Numpy like operations<a class="headerlink" href="#numpy-like-operations" title="Permalink to this heading">#</a></h3>
+<h3>1.3 Numpy like operations<a class="headerlink" href="#numpy-like-operations" title="Link to this heading">#</a></h3>
 <p>Finally, you can do many of the things you can do with NumPy arrays, such as indexing NumPy arrays, with a Pandas Series object as well.</p>
 <p>✅ <strong>Review the following examples to convince yourself how you can use NumPy-style operations to access Series data in Pandas. Discuss with your group mates.</strong></p>
 <p>Look at how you can work with ranges of the series elements. The labels are ordered and so the following works:</p>
@@ -701,7 +677,7 @@ dtype: int64
 </section>
 <hr class="docutils" />
 <section id="the-pandas-dataframe">
-<h2>2. The Pandas Dataframe<a class="headerlink" href="#the-pandas-dataframe" title="Permalink to this heading">#</a></h2>
+<h2>2. The Pandas Dataframe<a class="headerlink" href="#the-pandas-dataframe" title="Link to this heading">#</a></h2>
 <p>A Pandas DataFrame is a 2 dimensional data structure. The easiest way to think of a DataFrame is as a group of Series objects where each Series represents a column in the 2D structure. As with Series you can make them a number of ways but the standard way is to use a dictionary where the keys are the column <em>headers</em> and the values are a list of values under that header.</p>
 <div align="left"><img src="https://i.ibb.co/C13ybjZ/df.png" alt="df" border="0" width=400></div>
 <p>It is always important to know the <strong>types</strong> in each column as that can affect the kinds of operations you can perform on a column. Listing the <code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> provides such a list. A type of <code class="docutils literal notranslate"><span class="pre">object</span></code> is likely (though not necessarily) a string.</p>
@@ -755,7 +731,7 @@ Name: age, dtype: int64
 </div>
 </div>
 <section id="data-frame-indexing">
-<h3>2.1 Data Frame indexing<a class="headerlink" href="#data-frame-indexing" title="Permalink to this heading">#</a></h3>
+<h3>2.1 Data Frame indexing<a class="headerlink" href="#data-frame-indexing" title="Link to this heading">#</a></h3>
 <p>As we noted above, the index for a DataFrame by default is a 0-based array index. However, we can choose to use a different column as an index for the DataFrame. The <code class="docutils literal notranslate"><span class="pre">.set_index()</span></code> method allows us to set the index.</p>
 <p>An <strong>irritating</strong> issue is whether the Series being worked on changes. Typically it does not but most methods provide a <code class="docutils literal notranslate"><span class="pre">inplace</span> <span class="pre">=</span> <span class="pre">True</span></code> setting to apply the changes to the existing element. Otherwise you must assign the result to preserve it.</p>
 <p>If you do not do so, the column being used as an index is no longer available using standard indexing. If you provide <code class="docutils literal notranslate"><span class="pre">drop</span> <span class="pre">=</span> <span class="pre">False</span></code> in set_index, the column is preserved in the DataFrame as well as in the index. If you <code class="docutils literal notranslate"><span class="pre">.reset_index()</span></code> returns to 0-based indexing</p>
@@ -822,7 +798,7 @@ age
 </div>
 </section>
 <section id="try-it-yourself">
-<h3>2.2 Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permalink to this heading">#</a></h3>
+<h3>2.2 Try it yourself<a class="headerlink" href="#try-it-yourself" title="Link to this heading">#</a></h3>
 <p>✅ <strong>Try doing the following</strong>:</p>
 <ul class="simple">
 <li><p>Make a DataFrame to store student grades. The column headers should be:</p>
@@ -937,7 +913,7 @@ age
 </section>
 <hr class="docutils" />
 <section id="follow-up-questions">
-<h2>Follow-up Questions<a class="headerlink" href="#follow-up-questions" title="Permalink to this heading">#</a></h2>
+<h2>Follow-up Questions<a class="headerlink" href="#follow-up-questions" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Is there anything involving using Pandas that you’re curious about or are there any specific issues you’ve run into in the past with Pandas that you couldn’t find a solution for?</p></li>
 </ol>
@@ -971,16 +947,16 @@ age
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../resources/python_review.html"
+       href="../notes/reverse-feature-elimination.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Python Basics Review</p>
+        <p class="prev-next-title">Reverse Feature Elimination</p>
       </div>
     </a>
     <a class="right-next"
@@ -1072,8 +1048,8 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
