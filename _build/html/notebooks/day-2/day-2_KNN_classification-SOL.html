@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/day-2/day-2_KNN_classification-SOL';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Contributions" href="../../contributions.html" />
+    <link rel="next" title="Solution - Polynomial Regression" href="../day-3/Day-3_Polynomial_Regression-SOL.html" />
     <link rel="prev" title="Solution - Getting Started with Classification Models" href="day-2_Getting_Started_with_Classification_Models-SOL.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -207,6 +207,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -222,6 +224,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -950,7 +954,7 @@ Length of train: 512
 Length of test: 171
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6q/fl2y7xb92570fzrj3q_0pj1w0000gn/T/ipykernel_17006/4273374078.py:5: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/5_/9z7lhk0s2y95hvkzs6lzdvvc0000gn/T/ipykernel_16479/4273374078.py:5: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
 The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
 
 For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
@@ -1024,11 +1028,11 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0
- 1 0 0 0 0 1 1 0 0 0 1 0 1 0 0 1 0 0 1 1 1 1 0 1 1 1 0 0 0 1 0 1 1 1 0 0 0
- 0 1 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1 1 0 0 0 1 1 0 0 0 0 1 0 1 1 1 0 1 0 0
- 0 0 0 0 1 0 1 1 0 0 1 0 0 0 0 1 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 0
- 0 0 1 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 1 0 1 1 0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 0 0 0 1 0 1 0 0 1 0 1 0 0 0 0 1 0 0 0 0 1 1 1 0 0 1 0 1 0 0 0 1 0 1 0 0
+ 1 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0 1 1 0 1 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 1 0 0 0 1 1 0 0 0 0 0 1 1 0 1 0
+ 0 0 1 0 0 0 1 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 1 1 0 1 0 1 0 0 0 1 0 0 0 1 0
+ 0 1 0 1 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 1 0]
 </pre></div>
 </div>
 </div>
@@ -1061,8 +1065,8 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[112   2]
- [  4  53]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[115   2]
+ [  4  50]]
 Accuracy: 0.9649122807017544
 </pre></div>
 </div>
@@ -1128,7 +1132,7 @@ Accuracy: 0.9649122807017544
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9590643274853801
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9707602339181286
 </pre></div>
 </div>
 </div>
@@ -1184,7 +1188,7 @@ Accuracy: 0.9649122807017544
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a70ee2919bf3b99a7c1bf8f8c7586555ce412fb28e0485ab2f5c79ff170209de.png" src="../../_images/a70ee2919bf3b99a7c1bf8f8c7586555ce412fb28e0485ab2f5c79ff170209de.png" />
+<img alt="../../_images/ea457517e230a876aba3c1fea6b03910b0cb5de93f1f333d5d57d3f58a4f6a7d.png" src="../../_images/ea457517e230a876aba3c1fea6b03910b0cb5de93f1f333d5d57d3f58a4f6a7d.png" />
 </div>
 </div>
 </section>
@@ -1231,11 +1235,11 @@ Accuracy: 0.9649122807017544
       </div>
     </a>
     <a class="right-next"
-       href="../../contributions.html"
+       href="../day-3/Day-3_Polynomial_Regression-SOL.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Contributions</p>
+        <p class="prev-next-title">Solution - Polynomial Regression</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

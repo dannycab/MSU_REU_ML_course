@@ -20,8 +20,8 @@ parts:
   chapters:
   - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models.ipynb
   - file: notebooks/day-2/day-2_KNN_classification.ipynb
-#   - file: notebooks/day-3/Day-3_Polynomial_Regression.ipynb
-#   - file: notebooks/day-3/Day-3_Multiple_Regression.ipynb
+  - file: notebooks/day-3/Day-3_Polynomial_Regression.ipynb
+  - file: notebooks/day-3/Day-3_Multiple_Regression.ipynb
 # - caption: Evaluating Models
 #   chapters:
 #   - file: notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb
@@ -44,8 +44,8 @@ parts:
   - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas-SOL.ipynb
   - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models-SOL.ipynb
   - file: notebooks/day-2/day-2_KNN_classification-SOL.ipynb
-#   - file: notebooks/day-3/Day-3_Polynomial_Regression-SOL.ipynb
-#   - file: notebooks/day-3/Day-3_Multiple_Regression-SOL.ipynb
+  - file: notebooks/day-3/Day-3_Polynomial_Regression-SOL.ipynb
+  - file: notebooks/day-3/Day-3_Multiple_Regression-SOL.ipynb
 #   - file: notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb
 #   - file: notebooks/day-5/Day_5-Using_PCA-SOL.ipynb
 - caption: Acknowledgements
