@@ -209,6 +209,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="current nav bd-sidenav">
@@ -224,6 +226,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -484,18 +488,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#conda install -c conda-forge seaborn (you might need to run this first)</span>
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <section id="generate-some-regression-data-and-store-it-in-a-data-frame">
 <h2>Generate some regression data and store it in a data frame<a class="headerlink" href="#generate-some-regression-data-and-store-it-in-a-data-frame" title="Link to this heading">#</a></h2>
@@ -525,7 +517,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/23ae656af85fea0400ece7edb37cc5a1a89588511700da9bd3ba8e19b4044b46.png" src="../../_images/23ae656af85fea0400ece7edb37cc5a1a89588511700da9bd3ba8e19b4044b46.png" />
+<img alt="../../_images/5ec3e4df14adf2a92c201e633a9011f9dc8bddfd709d31d91a1a5c7a7f5d1e01.png" src="../../_images/5ec3e4df14adf2a92c201e633a9011f9dc8bddfd709d31d91a1a5c7a7f5d1e01.png" />
 </div>
 </div>
 </section>
@@ -572,14 +564,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  99.21247134889744
-R2:  0.9914387394226644
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  106.18055473273273
+R2:  0.9811446889273071
 Fit Coefficients:
- [ 2.57973673e-01 -2.51600712e-01 -2.67313687e-02  1.80535758e+01
- -4.12042555e-01 -7.94413146e-02 -3.18549079e-01 -3.36720843e-01
- -1.95920928e-01  2.33443929e-01  7.15587733e-01 -4.53921651e-01
-  5.47024051e+01  1.89573070e-01  8.75427876e+01 -1.98602368e-01
- -4.61596752e-01 -1.90904552e-01  3.26989985e-02  5.13796942e-01]
+ [-5.22354887e-02 -3.53167381e-02 -1.72740320e-01 -3.53351169e-01
+  2.45058604e-01 -4.23919054e-01 -2.59870627e-01  6.51324653e-03
+  5.23456041e-01  7.87849966e-02  4.17642551e+01  5.85895391e+01
+  5.68602671e-01  2.58229232e+01  4.75180942e-02 -2.55560622e-01
+  3.64615351e-01 -3.95046229e-02  3.26034564e-01 -1.30505846e-01]
 </pre></div>
 </div>
 </div>
@@ -594,14 +586,14 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  99.96972428821016
-R2:  0.9902773766911356
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  103.61986504853513
+R2:  0.9822027679064943
 Fit Coefficients:
- [ 1.91931274e-02 -1.16527997e-01 -2.24438724e-01  1.83099021e+01
- -8.13203565e-01 -1.25171534e-01 -2.04961587e-01 -2.28212882e-01
- -2.29514160e-01 -2.14786812e-01  5.29892604e-01 -1.12233579e-01
-  5.46377457e+01  6.18798939e-01  8.76695174e+01 -1.80870573e-01
- -4.88923181e-01  8.61128083e-02  1.68459973e-01  5.29974103e-01]
+ [-6.72320077e-01  1.50241657e-01  2.96673614e-02 -1.33308059e-01
+  2.02202763e-01 -2.36491532e-01 -3.01097761e-01 -9.14199830e-03
+  3.38640912e-01  1.10660571e-01  4.17433854e+01  5.84574803e+01
+  4.74080139e-01  2.58196872e+01 -1.99033654e-01 -9.26008970e-04
+  1.37397763e-01 -2.23255002e-01  1.68538473e-01 -4.83430042e-02]
 </pre></div>
 </div>
 </div>
@@ -678,7 +670,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ac6d49b77ebacb1491f0c17e3ec2d1585dd2f1e7acd619507240cd050763e2f6.png" src="../../_images/ac6d49b77ebacb1491f0c17e3ec2d1585dd2f1e7acd619507240cd050763e2f6.png" />
+<img alt="../../_images/9e689691e140727869d88cd35df4e9040593ccb614b020e39d005b352e41d73e.png" src="../../_images/9e689691e140727869d88cd35df4e9040593ccb614b020e39d005b352e41d73e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -715,7 +707,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e4cf76930aeac9a0f6cf9d1ebe917de2043b8abf64ddc4c3a5b5a5f33e069812.png" src="../../_images/e4cf76930aeac9a0f6cf9d1ebe917de2043b8abf64ddc4c3a5b5a5f33e069812.png" />
+<img alt="../../_images/c4418425b1c0505813d853d4194117abbaec2fabbfeea3600bc5d44a3b78b45c.png" src="../../_images/c4418425b1c0505813d853d4194117abbaec2fabbfeea3600bc5d44a3b78b45c.png" />
 </div>
 </div>
 </section>

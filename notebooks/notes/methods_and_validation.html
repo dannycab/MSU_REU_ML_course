@@ -207,6 +207,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models.html">Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification.html">Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression.html">Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression.html">Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -222,6 +224,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../day-1/Day-1_Exploring-data-with-Pandas-SOL.html">Solution - Exploring data with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_Getting_Started_with_Classification_Models-SOL.html">Solution - Getting Started with Classification Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/day-2_KNN_classification-SOL.html">Solution - Classification using K Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Polynomial_Regression-SOL.html">Solution - Polynomial Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/Day-3_Multiple_Regression-SOL.html">Solution - Multidimensional Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -492,10 +496,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1442041a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x16f4104c0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/0794baac4febcc9f6d11b138d084b261364a9475a4d06b7f7a86774613992f71.png" src="../../_images/0794baac4febcc9f6d11b138d084b261364a9475a4d06b7f7a86774613992f71.png" />
+<img alt="../../_images/178275f21b4dab67793b4b66badc6c037a06bc11e4301bcb648c4f16a688049a.png" src="../../_images/178275f21b4dab67793b4b66badc6c037a06bc11e4301bcb648c4f16a688049a.png" />
 </div>
 </div>
 <section id="building-a-fit-and-determining-the-accuracy-of-the-seperation-traditional-methods">
@@ -555,7 +559,7 @@ Accuracy: 0.98
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ad4c25f249ca29f6ad161a72af7853461245a5c2f541aabf18c3d458e367b713.png" src="../../_images/ad4c25f249ca29f6ad161a72af7853461245a5c2f541aabf18c3d458e367b713.png" />
+<img alt="../../_images/f09905b55a8ee6ef7227104735ebc598ba0c00c3cbda9b0dd3b3eecd64f4ae55.png" src="../../_images/f09905b55a8ee6ef7227104735ebc598ba0c00c3cbda9b0dd3b3eecd64f4ae55.png" />
 </div>
 </div>
 </section>
@@ -606,7 +610,7 @@ Accuracy: 0.98
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ef5bf44358069322fa252b6dcf3e912ca56c420ada1c6437c1b7da5d1e42b85a.png" src="../../_images/ef5bf44358069322fa252b6dcf3e912ca56c420ada1c6437c1b7da5d1e42b85a.png" />
+<img alt="../../_images/f2725d22312236a5b1ac01445e12c3d3f18e8ef20d6d70f1deeb3942648b65c6.png" src="../../_images/f2725d22312236a5b1ac01445e12c3d3f18e8ef20d6d70f1deeb3942648b65c6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -634,7 +638,7 @@ Accuracy: 0.98
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2411108d943060da7ea682c4d17ee5811d3f97c92c997f53f6f2998e0873f45d.png" src="../../_images/2411108d943060da7ea682c4d17ee5811d3f97c92c997f53f6f2998e0873f45d.png" />
+<img alt="../../_images/80c913951b9ea11fa788089511cd1578838fd11e7e831136238813d4e220ddb8.png" src="../../_images/80c913951b9ea11fa788089511cd1578838fd11e7e831136238813d4e220ddb8.png" />
 </div>
 </div>
 </section>
@@ -668,10 +672,10 @@ Accuracy: 0.98
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-5.934779633069666, 3.9544192208055775)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-5.934779633069667, 3.9544192208055775)
 </pre></div>
 </div>
-<img alt="../../_images/c4ed9a2b097d4ad0349448e4ca7c6304eb4698ea600651c7edecebc0abb4eda4.png" src="../../_images/c4ed9a2b097d4ad0349448e4ca7c6304eb4698ea600651c7edecebc0abb4eda4.png" />
+<img alt="../../_images/505d702b3c1baa74b13dfe065c76cdcb3a1c2f9601f8ea930fe758b731ad6cd1.png" src="../../_images/505d702b3c1baa74b13dfe065c76cdcb3a1c2f9601f8ea930fe758b731ad6cd1.png" />
 </div>
 </div>
 <section id="let-s-try-a-linear-classifier">
@@ -714,7 +718,7 @@ Accuracy: 0.98
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3337567a4773342afe425ac00dac8e84315a6c9d430968871edcf7274ef91b0e.png" src="../../_images/3337567a4773342afe425ac00dac8e84315a6c9d430968871edcf7274ef91b0e.png" />
+<img alt="../../_images/a379985236aa1ce83340e1d4f3b4fbca73fe30eb7f1dd5b5dbac49061f84a31b.png" src="../../_images/a379985236aa1ce83340e1d4f3b4fbca73fe30eb7f1dd5b5dbac49061f84a31b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -757,7 +761,7 @@ Accuracy: 0.98
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ddfbdf9e784bc09b498ae0fa3c0c159b4d056e38fd430aa0c34ec1ac38e51ad9.png" src="../../_images/ddfbdf9e784bc09b498ae0fa3c0c159b4d056e38fd430aa0c34ec1ac38e51ad9.png" />
+<img alt="../../_images/89f03d30aa7c03614667713ac6165b99f907cf85efed97cd54349b0a120ba037.png" src="../../_images/89f03d30aa7c03614667713ac6165b99f907cf85efed97cd54349b0a120ba037.png" />
 </div>
 </div>
 </section>
