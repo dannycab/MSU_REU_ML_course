@@ -24,7 +24,7 @@ By the end of this short course, you should be able to:
 The course will be conducted over the next two-ish weeks. We will meet in 1300 BPS from 10am-12pm EDT. The course will make use of Jupyter notebooks, so you will need to make sure that you have installed the [Anaconda distribution of Python with Jupyter](https://www.anaconda.com/products/individual) or something equivalent. The course is broken down into 6 topics:
 
 1. May 30th - [Introduction to Jupyter Notebooks, Machine Learning, and Working with Data](./notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb)
-2. June 4th - Classifier Problems 
-3. June 6th - Regression Problems
-4. June 7th-24th - Independent Pair Project Work (choose a data set and build a model)
+2. June 4th - [Classifier Problems ](./notebooks/day-2/day-2_KNN_classification.ipynb)
+3. June 6th - [Regression Problems](./notebooks/day-3/Day-3_Multiple_Regression.ipynb)
+4. June 7th-24th - [Independent Pair Project Work](project.md)
 5. June 25th - Project Discussion and Additional Resources

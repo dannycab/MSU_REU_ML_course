@@ -488,6 +488,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#conda install -c conda-forge seaborn (you might need to run this first)</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <section id="generate-some-regression-data-and-store-it-in-a-data-frame">
 <h2>Generate some regression data and store it in a data frame<a class="headerlink" href="#generate-some-regression-data-and-store-it-in-a-data-frame" title="Link to this heading">#</a></h2>
@@ -517,7 +529,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b6862d05a706acdfc729a4aab4b973ec6387d8be9a6360d666d0e454527835e3.png" src="../../_images/b6862d05a706acdfc729a4aab4b973ec6387d8be9a6360d666d0e454527835e3.png" />
+<img alt="../../_images/23ae656af85fea0400ece7edb37cc5a1a89588511700da9bd3ba8e19b4044b46.png" src="../../_images/23ae656af85fea0400ece7edb37cc5a1a89588511700da9bd3ba8e19b4044b46.png" />
 </div>
 </div>
 </section>
@@ -564,14 +576,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  98.96798167498
-R2:  0.9930096640657938
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  99.21247134889744
+R2:  0.9914387394226644
 Fit Coefficients:
- [-3.21513642e-02 -7.55686973e-01 -4.58538664e-01 -2.70573959e-01
- -3.28202788e-01  4.13940126e-01  6.51068851e-01  4.20486983e-01
-  1.14324548e-01 -4.50924635e-01  5.16797589e-03  8.49830953e+01
-  2.84563562e-01  2.52898167e-03 -5.68216789e-01 -2.37279423e-01
-  1.11208919e+00 -1.34804376e-01  6.14012296e+00  6.27498050e+01]
+ [ 2.57973673e-01 -2.51600712e-01 -2.67313687e-02  1.80535758e+01
+ -4.12042555e-01 -7.94413146e-02 -3.18549079e-01 -3.36720843e-01
+ -1.95920928e-01  2.33443929e-01  7.15587733e-01 -4.53921651e-01
+  5.47024051e+01  1.89573070e-01  8.75427876e+01 -1.98602368e-01
+ -4.61596752e-01 -1.90904552e-01  3.26989985e-02  5.13796942e-01]
 </pre></div>
 </div>
 </div>
@@ -586,14 +598,14 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  103.41229981688804
-R2:  0.9907742562674412
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  99.96972428821016
+R2:  0.9902773766911356
 Fit Coefficients:
- [-5.65149720e-02 -4.70240888e-01 -2.27115465e-01 -4.92981978e-02
- -1.76110515e-01  5.79279059e-01  2.23285151e-01  2.54987117e-01
-  1.27265084e-01 -7.31601076e-01 -1.21415706e-01  8.51852339e+01
-  1.43907420e-02 -9.53065647e-02 -7.92060421e-01 -1.42089017e-01
-  1.20383133e+00 -1.19166306e-01  5.84018326e+00  6.23724831e+01]
+ [ 1.91931274e-02 -1.16527997e-01 -2.24438724e-01  1.83099021e+01
+ -8.13203565e-01 -1.25171534e-01 -2.04961587e-01 -2.28212882e-01
+ -2.29514160e-01 -2.14786812e-01  5.29892604e-01 -1.12233579e-01
+  5.46377457e+01  6.18798939e-01  8.76695174e+01 -1.80870573e-01
+ -4.88923181e-01  8.61128083e-02  1.68459973e-01  5.29974103e-01]
 </pre></div>
 </div>
 </div>
@@ -670,7 +682,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/639f76a1ae5537820248186caa51a5040262ebf4a43cd009919e84ede565ea74.png" src="../../_images/639f76a1ae5537820248186caa51a5040262ebf4a43cd009919e84ede565ea74.png" />
+<img alt="../../_images/ac6d49b77ebacb1491f0c17e3ec2d1585dd2f1e7acd619507240cd050763e2f6.png" src="../../_images/ac6d49b77ebacb1491f0c17e3ec2d1585dd2f1e7acd619507240cd050763e2f6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -707,7 +719,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/480bbdf4b2fcdae93c19a7e91d8c96af0c596a5b76c802a7b8ae150fc0c6b7e3.png" src="../../_images/480bbdf4b2fcdae93c19a7e91d8c96af0c596a5b76c802a7b8ae150fc0c6b7e3.png" />
+<img alt="../../_images/e4cf76930aeac9a0f6cf9d1ebe917de2043b8abf64ddc4c3a5b5a5f33e069812.png" src="../../_images/e4cf76930aeac9a0f6cf9d1ebe917de2043b8abf64ddc4c3a5b5a5f33e069812.png" />
 </div>
 </div>
 </section>

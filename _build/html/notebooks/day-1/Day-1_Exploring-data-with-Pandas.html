@@ -689,54 +689,75 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://en.wikipedia.org/wiki/List_of_physical_constants&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">tables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File ~/opt/anaconda3/envs/teaching/lib/python3.10/site-packages/pandas/io/html.py:1212,</span> in <span class="ni">read_html</span><span class="nt">(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only, extract_links, dtype_backend)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1208</span> <span class="n">check_dtype_backend</span><span class="p">(</span><span class="n">dtype_backend</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1210</span> <span class="n">io</span> <span class="o">=</span> <span class="n">stringify_path</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1212</span> <span class="k">return</span> <span class="n">_parse</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1213</span>     <span class="n">flavor</span><span class="o">=</span><span class="n">flavor</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1214</span>     <span class="n">io</span><span class="o">=</span><span class="n">io</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1215</span>     <span class="n">match</span><span class="o">=</span><span class="n">match</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1216</span>     <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1217</span>     <span class="n">index_col</span><span class="o">=</span><span class="n">index_col</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1218</span>     <span class="n">skiprows</span><span class="o">=</span><span class="n">skiprows</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1219</span>     <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1220</span>     <span class="n">thousands</span><span class="o">=</span><span class="n">thousands</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1221</span>     <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1222</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1223</span>     <span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1224</span>     <span class="n">converters</span><span class="o">=</span><span class="n">converters</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1225</span>     <span class="n">na_values</span><span class="o">=</span><span class="n">na_values</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1226</span>     <span class="n">keep_default_na</span><span class="o">=</span><span class="n">keep_default_na</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1227</span>     <span class="n">displayed_only</span><span class="o">=</span><span class="n">displayed_only</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1228</span>     <span class="n">extract_links</span><span class="o">=</span><span class="n">extract_links</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1229</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1230</span> <span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File ~/opt/anaconda3/envs/teaching/lib/python3.10/site-packages/pandas/io/html.py:977,</span> in <span class="ni">_parse</span><span class="nt">(flavor, io, match, attrs, encoding, displayed_only, extract_links, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">975</span> <span class="n">retained</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">976</span> <span class="k">for</span> <span class="n">flav</span> <span class="ow">in</span> <span class="n">flavor</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">977</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">_parser_dispatch</span><span class="p">(</span><span class="n">flav</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">978</span>     <span class="n">p</span> <span class="o">=</span> <span class="n">parser</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">compiled_match</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">displayed_only</span><span class="p">,</span> <span class="n">extract_links</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">980</span>     <span class="k">try</span><span class="p">:</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/teaching/lib/python3.10/site-packages/pandas/io/html.py:934,</span> in <span class="ni">_parser_dispatch</span><span class="nt">(flavor)</span>
-<span class="g g-Whitespace">    </span><span class="mi">932</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">933</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">_HAS_LXML</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">934</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;lxml not found, please install it&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="k">return</span> <span class="n">_valid_parsers</span><span class="p">[</span><span class="n">flavor</span><span class="p">]</span>
-
-<span class="ne">ImportError</span>: lxml not found, please install it
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Symbol</th>
+      <th>Quantity</th>
+      <th>Value[a][b]</th>
+      <th>Relative standard uncertainty</th>
+      <th>Ref[1]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>speed of light in vacuum</td>
+      <td>299792458 m⋅s−1</td>
+      <td>0</td>
+      <td>[2]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>Planck constant</td>
+      <td>6.62607015×10−34 J⋅Hz−1</td>
+      <td>0</td>
+      <td>[3]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>reduced Planck constant</td>
+      <td>1.054571817...×10−34 J⋅s</td>
+      <td>0</td>
+      <td>[4]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>vacuum magnetic permeability</td>
+      <td>1.25663706127(20)×10−6 N⋅A−2</td>
+      <td>1.6×10−10</td>
+      <td>[5]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>characteristic impedance of vacuum</td>
+      <td>376.730313412(59) Ω</td>
+      <td>1.6×10−10</td>
+      <td>[6]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p><font size=+3>✎</font> Do This - Find a physics data set of interest and read it in with pandas (from the web). Make plots of the data contained in the file.</p>
 <div class="cell docutils container">
