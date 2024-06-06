@@ -4,6 +4,7 @@ parts:
 - caption: Schedule
   chapters:
   - file: schedule.md
+  - file: project.md
 - caption: Notes
   chapters:
   - file: notebooks/notes/01_logit.ipynb
