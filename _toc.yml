@@ -3,9 +3,9 @@ root: intro.md
 parts:
 - caption: Logistics
   chapters:
-  - file: getting-started.md
-  - file: schedule.md
-  - file: using-this-book.md
+  - file: course_info/getting-started.md
+  - file: course_info/schedule.md
+  - file: course_info/using-this-book.md
 - caption: Class Activities
   chapters:
   - file: activities/01-exploring-data-with-pandas-student.ipynb
