@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Regression using sci-kit learn &#8212; 2025 MSU REU Machine Learning Short Course</title>
+    <title>Detailed Schedule &#8212; 2025 MSU REU Machine Learning Short Course</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/regression_with_scikit';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'course_info/schedule';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Cross-Validation of your models" href="cross-validation.html" />
-    <link rel="prev" title="The Importance of Visualization" href="importance_of_visualization.html" />
+    <link rel="next" title="Using this book" href="using-this-book.html" />
+    <link rel="prev" title="Getting Started" href="getting-started.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,10 +180,10 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../course_info/getting-started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../course_info/schedule.html">Detailed Schedule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../course_info/using-this-book.html">Using this book</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Detailed Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-this-book.html">Using this book</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -195,31 +195,31 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_logit.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/01_logit.html">Machine Learning</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="02_knn.html">The Confusion Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/02_knn.html">The Confusion Matrix</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Methods and Model Validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_svm.html">Support Vector Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="05_pca.html">Principal Component Analysis (PCA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/05_pca.html">Principal Component Analysis (PCA)</a></li>
 
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="python_review.html">Python Basics Review</a></li>
-<li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Regression using sci-kit learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cross-validation.html">Cross-Validation of your models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/python_review.html">Python Basics Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 </ul>
 
     </div>
@@ -266,73 +266,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/notes/regression_with_scikit.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/notes/regression_with_scikit.ipynb&branch=main" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on JupyterHub"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
-  </span>
-<span class="btn__text-container">JupyterHub</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/notes/regression_with_scikit.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -341,7 +274,7 @@
       
       
       
-      <li><a href="../_sources/notes/regression_with_scikit.ipynb" target="_blank"
+      <li><a href="../_sources/course_info/schedule.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -351,7 +284,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -425,7 +358,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Regression using sci-kit learn</h1>
+    <h1>Detailed Schedule</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -435,11 +368,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-fake-regression-data">Make some fake regression data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-subplots">Creating subplots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-01-exploring-data-with-pandas">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#today-we-will">Today, we will:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#materials">Materials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
 </ul>
             </nav>
         </div>
@@ -451,149 +385,89 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="regression-using-sci-kit-learn">
-<h1>Regression using sci-kit learn<a class="headerlink" href="#regression-using-sci-kit-learn" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_regression</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">scale</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-</div>
-<section id="make-some-fake-regression-data">
-<h2>Make some fake regression data<a class="headerlink" href="#make-some-fake-regression-data" title="Link to this heading">#</a></h2>
-<p>We make some data with 5 features, but 3 ones that will help us predict. We made one of the features redundant with another by replicating an existing feature and scaling it. We are going to follow our process here:</p>
-<ol class="arabic simple">
-<li><p>Build model</p></li>
-<li><p>Fit data</p></li>
-<li><p>Evaluate fit</p></li>
-<li><p>Visualize</p></li>
-</ol>
-<p>But we can probably appreciate that we should look at these data before we try to do our analysis.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generating data</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_regression</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_targets</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># Make a variable redundant and scale it poorly so you can see it</span>
-
-<span class="c1">#Convert to pandas data frame</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Feature 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature 4&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature 5&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Feature 1</th>
-      <th>Feature 2</th>
-      <th>Feature 3</th>
-      <th>Feature 4</th>
-      <th>Feature 5</th>
-      <th>Target</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>-1.867265</td>
-      <td>-186.726519</td>
-      <td>-1.612716</td>
-      <td>2.314659</td>
-      <td>-0.471932</td>
-      <td>67.011794</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>-0.493001</td>
-      <td>-49.300093</td>
-      <td>0.849602</td>
-      <td>-0.208122</td>
-      <td>0.357015</td>
-      <td>-63.011106</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>-0.059525</td>
-      <td>-5.952536</td>
-      <td>-1.024388</td>
-      <td>-0.926930</td>
-      <td>-0.252568</td>
-      <td>-178.808987</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-1.124642</td>
-      <td>-112.464209</td>
-      <td>1.277677</td>
-      <td>0.711615</td>
-      <td>0.332314</td>
-      <td>-72.663818</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>-0.465730</td>
-      <td>-46.572975</td>
-      <td>-1.913280</td>
-      <td>-0.463418</td>
-      <td>-1.724918</td>
-      <td>-47.971879</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<section id="creating-subplots">
-<h3>Creating subplots<a class="headerlink" href="#creating-subplots" title="Link to this heading">#</a></h3>
-<p>These are the “feature subspaces” we discussed. This plot also illustrates one reason for using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Its exploratory data analysis tools are really simple to invoke.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/97d6c00c31f29ccf9bffb365221e5d93f12657dc0de6387985439b75a9ccf9a8.png" src="../_images/97d6c00c31f29ccf9bffb365221e5d93f12657dc0de6387985439b75a9ccf9a8.png" />
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="detailed-schedule">
+<h1>Detailed Schedule<a class="headerlink" href="#detailed-schedule" title="Link to this heading">#</a></h1>
+<section id="day-01-exploring-data-with-pandas">
+<h2>Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#day-01-exploring-data-with-pandas" title="Link to this heading">#</a></h2>
+<section id="today-we-will">
+<h3>Today, we will:<a class="headerlink" href="#today-we-will" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Download/Install <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> (if needed)</p></li>
+<li><p>Start up and navigate <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code></p></li>
+<li><p>Read, slice, and filter data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p></li>
+<li><p>Explore data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code></p></li>
+</ul>
 </section>
+<section id="materials">
+<h3>Materials<a class="headerlink" href="#materials" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="getting-started.html"><span class="std std-doc">Getting Started</span></a></p></li>
+<li><p><a class="reference internal" href="../activities/01-exploring-data-with-pandas-student.html"><span class="std std-doc">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></span></a></p></li>
+<li><p><a class="reference internal" href="../activities/01-exploring-data-with-pandas.html"><span class="std std-doc">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</span></a></p></li>
+</ul>
 </section>
-<section id="linear-regression">
-<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h2>
-<p>We will instead use the machine learning paradigm for our linear regression. Below, we have split the data for you. Your job is to perform the linear regression – building the model on the test data, and validate against the true data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split dataset into train and test sets</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Target&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<section id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/">Getting started with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/index.html#user-guide"><code class="docutils literal notranslate"><span class="pre">pandas</span></code> documentation</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/matplotlib-tutorial-learn-basics-of-pythons-powerful-plotting-library-b5d1b8f67596">Getting started with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></p></li>
+<li><p><a class="reference external" href="https://seaborn.pydata.org/tutorial.html">Getting started with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a></p></li>
+</ul>
+<!-- ## Day 2 - Building a Regression Model
+
+### Today, we will:
+
+* Read in data
+* Explore and clean data
+* Discuss and plan a regression problem
+* Use `scikit-learn` to build a regression model
+* Evaluate the fit of the model
+
+### Resources
+
+* [Linear Regression reminder video](https://www.youtube.com/watch?v=nk2CQITm_eo)
+* [Getting started with `scikit-learn` regression](https://www.educative.io/blog/scikit-learn-tutorial-linear-regression) _(You probably don't need to install anything with `pip`.)_
+* [More about `scikit-learn`](https://scikit-learn.org/stable/getting_started.html)
+
+### Materials
+
+* [Day 2 notebook - Polynomial Regression](./notebooks/day-2/Day-2_Polynomial_Regression.ipynb)
+* [Day 2 notebook - Multiple Regression](./notebooks/day-2/Day-2_Multiple_Regression.ipynb)
+
+## Day 3 - Building a Classification Model
+
+### Today, we will:
+
+* Read in data
+* Explore, clean, and transform data
+* Discuss and plan a classification problem
+* Use `scikit-learn` to build a classification model
+* Evaluate the fit of the model
+
+### Materials
+
+* [Day 3 notebook - Getting Started](./notebooks/day-3/day-3_Getting_Started_with_Classification_Models.ipynb)
+* [Day 3 notebook - KNN](./notebooks/day-3/day-3_KNN_classification.ipynb)
+
+## Day 4 - Using A Multiplicity of Models
+
+### Today, we will:
+
+* Construct data sets
+* Tune parameters to achieve different fits
+* Gain confidence in models through cross validation/Monte Carlo validation
+* Discuss other models that fit into the `scikit-learn` framework
+
+### Materials
+
+* [Day 4 notebook - What is Tuning and Validation?](./notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb)
+* [Day 4 notebook - A Multiplicity of Models](./notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb)
+
+## Day 5 - Advanced topics 1
+
+## Day 6 - Advanced topics 2 -->
+</section>
 </section>
 </section>
 
@@ -606,16 +480,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "jbook"
+            mode: "python"
         },
         kernelOptions: {
-            name: "jbook",
-            path: "./notes"
+            name: "python3",
+            path: "./course_info"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'jbook'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -628,20 +502,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="importance_of_visualization.html"
+       href="getting-started.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The Importance of Visualization</p>
+        <p class="prev-next-title">Getting Started</p>
       </div>
     </a>
     <a class="right-next"
-       href="cross-validation.html"
+       href="using-this-book.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Cross-Validation of your models</p>
+        <p class="prev-next-title">Using this book</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -661,11 +535,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-fake-regression-data">Make some fake regression data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-subplots">Creating subplots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-01-exploring-data-with-pandas">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#today-we-will">Today, we will:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#materials">Materials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
 </ul>
   </nav></div>
 

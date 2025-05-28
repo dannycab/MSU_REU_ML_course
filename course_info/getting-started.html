@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Regression using sci-kit learn &#8212; 2025 MSU REU Machine Learning Short Course</title>
+    <title>Getting Started &#8212; 2025 MSU REU Machine Learning Short Course</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/regression_with_scikit';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'course_info/getting-started';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Cross-Validation of your models" href="cross-validation.html" />
-    <link rel="prev" title="The Importance of Visualization" href="importance_of_visualization.html" />
+    <link rel="next" title="Detailed Schedule" href="schedule.html" />
+    <link rel="prev" title="2025 MSU Physics and Astronomy Short Course on Machine Learning" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,10 +180,10 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../course_info/getting-started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../course_info/schedule.html">Detailed Schedule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../course_info/using-this-book.html">Using this book</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Detailed Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-this-book.html">Using this book</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -195,31 +195,31 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_logit.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/01_logit.html">Machine Learning</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="02_knn.html">The Confusion Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/02_knn.html">The Confusion Matrix</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Methods and Model Validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_svm.html">Support Vector Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="05_pca.html">Principal Component Analysis (PCA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/05_pca.html">Principal Component Analysis (PCA)</a></li>
 
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="python_review.html">Python Basics Review</a></li>
-<li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Regression using sci-kit learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cross-validation.html">Cross-Validation of your models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/python_review.html">Python Basics Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 </ul>
 
     </div>
@@ -266,73 +266,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/notes/regression_with_scikit.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/notes/regression_with_scikit.ipynb&branch=main" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on JupyterHub"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
-  </span>
-<span class="btn__text-container">JupyterHub</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/notes/regression_with_scikit.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -341,7 +274,7 @@
       
       
       
-      <li><a href="../_sources/notes/regression_with_scikit.ipynb" target="_blank"
+      <li><a href="../_sources/course_info/getting-started.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -351,7 +284,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -425,7 +358,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Regression using sci-kit learn</h1>
+    <h1>Getting Started</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -435,11 +368,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-fake-regression-data">Make some fake regression data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-subplots">Creating subplots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-anaconda">Using Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-virtual-environment">Using a virtual environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-anaconda">With Anaconda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-venv">With venv</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
 </ul>
             </nav>
         </div>
@@ -451,149 +385,119 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="regression-using-sci-kit-learn">
-<h1>Regression using sci-kit learn<a class="headerlink" href="#regression-using-sci-kit-learn" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_regression</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">scale</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-</div>
-<section id="make-some-fake-regression-data">
-<h2>Make some fake regression data<a class="headerlink" href="#make-some-fake-regression-data" title="Link to this heading">#</a></h2>
-<p>We make some data with 5 features, but 3 ones that will help us predict. We made one of the features redundant with another by replicating an existing feature and scaling it. We are going to follow our process here:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h1>
+<p>In this course, we will be using Python and the Jupyter notebook environment to explore machine learning concepts. Below are the steps to get you set up and ready to go. There are two main options for setting up your environment: using Anaconda or using Google Colab.</p>
+<p>We will focus on Anaconda here because it is the most common way to set up a Python environment for data science and machine learning. However, if you prefer to use Google Colab, you can simply <a class="reference external" href="https://colab.research.google.com/">login to Google Colab</a> and create a new notebook. You can then upload or copy and paste the code from the Jupyter notebooks into your Colab notebook.</p>
+<section id="using-anaconda">
+<h2>Using Anaconda<a class="headerlink" href="#using-anaconda" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Build model</p></li>
-<li><p>Fit data</p></li>
-<li><p>Evaluate fit</p></li>
-<li><p>Visualize</p></li>
+<li><p>Download the Anaconda installer for your operating system from the <a class="reference external" href="https://www.anaconda.com/products/distribution#download-section">Anaconda website</a>.</p></li>
+<li><p>Follow the installation instructions for your operating system:</p>
+<ul class="simple">
+<li><p>For Windows, run the installer and follow the prompts.</p></li>
+<li><p>For macOS, open the downloaded <code class="docutils literal notranslate"><span class="pre">.pkg</span></code> file and follow the prompts.</p></li>
+<li><p>For Linux, open a terminal and run the installer script.</p></li>
+</ul>
+</li>
+<li><p>After installation, open the Anaconda Navigator application.</p></li>
+<li><p>In Anaconda Navigator, you can create a new environment by clicking on the “Environments” tab and then clicking “Create”. Name your environment (e.g., <code class="docutils literal notranslate"><span class="pre">ml_course</span></code>) and select Python 3.x as the version.</p></li>
+<li><p>Once the environment is created, you can install the necessary packages by clicking on the “Home” tab, selecting your environment, and then clicking “Install” next to the packages you need (e.g., <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>).</p></li>
 </ol>
-<p>But we can probably appreciate that we should look at these data before we try to do our analysis.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generating data</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_regression</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_targets</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># Make a variable redundant and scale it poorly so you can see it</span>
-
-<span class="c1">#Convert to pandas data frame</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Feature 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature 4&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature 5&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Feature 1</th>
-      <th>Feature 2</th>
-      <th>Feature 3</th>
-      <th>Feature 4</th>
-      <th>Feature 5</th>
-      <th>Target</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>-1.867265</td>
-      <td>-186.726519</td>
-      <td>-1.612716</td>
-      <td>2.314659</td>
-      <td>-0.471932</td>
-      <td>67.011794</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>-0.493001</td>
-      <td>-49.300093</td>
-      <td>0.849602</td>
-      <td>-0.208122</td>
-      <td>0.357015</td>
-      <td>-63.011106</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>-0.059525</td>
-      <td>-5.952536</td>
-      <td>-1.024388</td>
-      <td>-0.926930</td>
-      <td>-0.252568</td>
-      <td>-178.808987</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-1.124642</td>
-      <td>-112.464209</td>
-      <td>1.277677</td>
-      <td>0.711615</td>
-      <td>0.332314</td>
-      <td>-72.663818</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>-0.465730</td>
-      <td>-46.572975</td>
-      <td>-1.913280</td>
-      <td>-0.463418</td>
-      <td>-1.724918</td>
-      <td>-47.971879</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<section id="creating-subplots">
-<h3>Creating subplots<a class="headerlink" href="#creating-subplots" title="Link to this heading">#</a></h3>
-<p>These are the “feature subspaces” we discussed. This plot also illustrates one reason for using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Its exploratory data analysis tools are really simple to invoke.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/97d6c00c31f29ccf9bffb365221e5d93f12657dc0de6387985439b75a9ccf9a8.png" src="../_images/97d6c00c31f29ccf9bffb365221e5d93f12657dc0de6387985439b75a9ccf9a8.png" />
-</div>
-</div>
+<p>You will need the following packages for this course:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>: for data manipulation and analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>: for plotting and visualization</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>: for machine learning algorithms and tools</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>: for numerical operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: for statistical data visualization</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ipykernel</span></code>: to run Jupyter notebooks in your environment</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jupyter</span></code>: to run Jupyter notebooks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code>: for an enhanced Jupyter notebook interface</p></li>
+</ul>
 </section>
-</section>
-<section id="linear-regression">
-<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h2>
-<p>We will instead use the machine learning paradigm for our linear regression. Below, we have split the data for you. Your job is to perform the linear regression – building the model on the test data, and validate against the true data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split dataset into train and test sets</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Target&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<section id="using-a-virtual-environment">
+<h2>Using a virtual environment<a class="headerlink" href="#using-a-virtual-environment" title="Link to this heading">#</a></h2>
+<p>A <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a> is a self-contained directory that contains a Python installation for a particular version of Python, plus several additional packages. This allows you to manage dependencies for different projects separately. This can be useful when there are conflicting dependencies between different projects or when you want to ensure that your project runs with a specific version of a package.</p>
+<section id="with-anaconda">
+<h3>With Anaconda<a class="headerlink" href="#with-anaconda" title="Link to this heading">#</a></h3>
+<p>If you would like to use a virtual environment with Anaconda, you can create one using the following steps:</p>
+<ol class="arabic">
+<li><p>Open Anaconda Prompt (or your terminal if you are on macOS or Linux).</p></li>
+<li><p>Create a new environment with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>ml_course
 </pre></div>
 </div>
+</li>
+<li><p>Activate the environment with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>ml_course
+</pre></div>
 </div>
+</li>
+<li><p>Install the necessary packages with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>matplotlib<span class="w"> </span>scikit-learn<span class="w"> </span>numpy<span class="w"> </span>seaborn<span class="w"> </span>ipykernel<span class="w"> </span>jupyter<span class="w"> </span>jupyter-lab
+</pre></div>
 </div>
+</li>
+<li><p>Add the kernel to Jupyter Notebook so you can use this environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="o">=</span>ml_course
+</pre></div>
+</div>
+</li>
+<li><p>You can now launch Jupyter Notebook from this environment by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+</li>
+<li><p>This will open a new tab in your web browser where you can create and run Jupyter notebooks.</p></li>
+</ol>
+</section>
+<section id="with-venv">
+<h3>With venv<a class="headerlink" href="#with-venv" title="Link to this heading">#</a></h3>
+<p>Alternatively, if you prefer to use Python’s built-in <code class="docutils literal notranslate"><span class="pre">venv</span></code> module to create a virtual environment, you can follow these steps:</p>
+<ol class="arabic">
+<li><p>Open your terminal (Command Prompt on Windows, Terminal on macOS or Linux).</p></li>
+<li><p>Navigate to the directory where you want to create your virtual environment.</p></li>
+<li><p>Create a new virtual environment with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>ml_course
+</pre></div>
+</div>
+</li>
+<li><p>Activate the virtual environment:</p>
+<ul>
+<li><p>On Windows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ml_course<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</pre></div>
+</div>
+</li>
+<li><p>On macOS or Linux:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>ml_course/bin/activate
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Install the necessary packages with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>matplotlib<span class="w"> </span>scikit-learn<span class="w"> </span>numpy<span class="w"> </span>seaborn<span class="w"> </span>ipykernel<span class="w"> </span>jupyter<span class="w"> </span>jupyter-lab
+</pre></div>
+</div>
+</li>
+<li><p>Add the kernel to Jupyter Notebook so you can use this environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="o">=</span>ml_course
+</pre></div>
+</div>
+</li>
+<li><p>You can now launch Jupyter Notebook or Lab by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -606,16 +510,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "jbook"
+            mode: "python"
         },
         kernelOptions: {
-            name: "jbook",
-            path: "./notes"
+            name: "python3",
+            path: "./course_info"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'jbook'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -628,20 +532,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="importance_of_visualization.html"
+       href="../intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The Importance of Visualization</p>
+        <p class="prev-next-title">2025 MSU Physics and Astronomy Short Course on Machine Learning</p>
       </div>
     </a>
     <a class="right-next"
-       href="cross-validation.html"
+       href="schedule.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Cross-Validation of your models</p>
+        <p class="prev-next-title">Detailed Schedule</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -661,11 +565,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-fake-regression-data">Make some fake regression data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-subplots">Creating subplots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-anaconda">Using Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-virtual-environment">Using a virtual environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-anaconda">With Anaconda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-venv">With venv</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
 </ul>
   </nav></div>
 

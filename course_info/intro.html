@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Support Vector Machines &#8212; 2025 MSU REU Machine Learning Short Course</title>
+    <title>2025 MSU Physics and Astronomy Short Course on Machine Learning &#8212; 2025 MSU REU Machine Learning Short Course</title>
   
   
   
@@ -57,11 +57,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/03_svm';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'course_info/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Support Vector Machines (Radial Kernel)" href="04_svm_rbf.html" />
-    <link rel="prev" title="Methods and Model Validation" href="methods_and_validation.html" />
+    <link rel="next" title="Getting Started" href="getting-started.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,6 +125,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -142,7 +145,7 @@
     
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="#">
   
   
   
@@ -173,17 +176,17 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
                     2025 MSU Physics and Astronomy Short Course on Machine Learning
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../course_info/getting-started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../course_info/schedule.html">Detailed Schedule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../course_info/using-this-book.html">Using this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Detailed Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-this-book.html">Using this book</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -194,32 +197,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../activities/01-exploring-data-with-pandas.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_logit.html">Machine Learning</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/01_logit.html">Machine Learning</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="02_knn.html">The Confusion Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/02_knn.html">The Confusion Matrix</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Methods and Model Validation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Support Vector Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="05_pca.html">Principal Component Analysis (PCA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/05_pca.html">Principal Component Analysis (PCA)</a></li>
 
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="python_review.html">Python Basics Review</a></li>
-<li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_with_scikit.html">Regression using sci-kit learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cross-validation.html">Cross-Validation of your models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/python_review.html">Python Basics Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 </ul>
 
     </div>
@@ -266,73 +269,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/notes/03_svm.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/notes/03_svm.ipynb&branch=main" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on JupyterHub"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
-  </span>
-<span class="btn__text-container">JupyterHub</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/notes/03_svm.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -341,7 +277,7 @@
       
       
       
-      <li><a href="../_sources/notes/03_svm.ipynb" target="_blank"
+      <li><a href="../_sources/course_info/intro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -351,7 +287,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -425,7 +361,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Support Vector Machines</h1>
+    <h1>2025 MSU Physics and Astronomy Short Course on Machine Learning</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -435,14 +371,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Support Vector Machines</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-make-some-blobs">Let’s make some blobs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-draw-a-separation-line">Let’s draw a separation line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-class">Connecting to the class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organization-of-the-course">Organization of the Course</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-comments-concerns">Questions, Comments, Concerns?</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -453,72 +385,54 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machines">
-<h1>Support Vector Machines<a class="headerlink" href="#support-vector-machines" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="msu-physics-and-astronomy-short-course-on-machine-learning">
+<h1>2025 MSU Physics and Astronomy Short Course on Machine Learning<a class="headerlink" href="#msu-physics-and-astronomy-short-course-on-machine-learning" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>I am actively updating the site to focus more on physics data and to better align the course with your needs. Not everything is ready yet, but I will be updating the site as we go along. If you have any questions or suggestions, please let me know! <a class="reference external" href="mailto:caball14&#37;&#52;&#48;msu&#46;edu">caball14<span>&#64;</span>msu<span>&#46;</span>edu</a></p>
+</div></blockquote>
+<p>This short course will focus on the essential aspects of machine learning that are likely to feature in a variety of research areas that you might interact with. From astrophysics to nuclear physics to physics education, many researchers are using the tools of machine learning to gain insight into essential problems in physics. This course will provide you with the basic tools to get started with machine learning and to begin to explore how these tools might be useful in your own research.</p>
+<section id="connecting-to-the-class">
+<h2>Connecting to the class<a class="headerlink" href="#connecting-to-the-class" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>As a classifier, an SVM creates new dimensions from the original data, to be able to seperate the groups along the original features as well as any created dimensions.</p></li>
-<li><p>The kernel that we choose tells us what constructed dimensions are available to us.</p></li>
-<li><p>We will start with a linear kernel, which tries to construct hyper-planes to seperate the data.</p>
-<ul>
-<li><p>For 2D, linearly separable data, this is just a line.</p></li>
+<li><p>We will meet on Fridays from 10am-12pm in BPS 1300</p></li>
+<li><p>Email Danny at <a class="reference external" href="mailto:caball14&#37;&#52;&#48;msu&#46;edu">caball14<span>&#64;</span>msu<span>&#46;</span>edu</a> or make an appointment on <a class="reference external" href="https://app.cal.com/dannycaballero/15min">Danny’s calendar</a> if you have any questions or concerns.</p></li>
 </ul>
-</li>
+</section>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
+<p>By the end of this short course, you should be able to:</p>
+<ul class="simple">
+<li><p>Read data into a pandas DataFrame</p></li>
+<li><p>Plot data and propose potential models for analysis</p></li>
+<li><p>Split data into training and testing sets</p></li>
+<li><p>Build classification and regression models</p></li>
+<li><p>Evaluate the quality of fitted models</p></li>
+<li><p>Articulate the basic workflow of machine learning</p></li>
 </ul>
-<p><strong>We use <code class="docutils literal notranslate"><span class="pre">make_blobs</span></code> because it gives us control over the data and it’s separation; we don’t have to clean or standardize it.</strong></p>
-<section id="let-s-make-some-blobs">
-<h2>Let’s make some blobs<a class="headerlink" href="#let-s-make-some-blobs" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##imports</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">svm</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
-
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="c1">## Plot Blobs</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$x_1$&#39;)
-</pre></div>
-</div>
-<img alt="../_images/0e1ed6536ba4e1aae13f39a3ba208d6ead59a41b6b790bd33753405cf01697cc.png" src="../_images/0e1ed6536ba4e1aae13f39a3ba208d6ead59a41b6b790bd33753405cf01697cc.png" />
-</div>
-</div>
 </section>
-<section id="let-s-draw-a-separation-line">
-<h2>Let’s draw a separation line<a class="headerlink" href="#let-s-draw-a-separation-line" title="Link to this heading">#</a></h2>
-<p>We are just guessing. SVM does this automatically.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Make guess for separation line</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
-
-<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">6.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
-
-<span class="c1">#yy = -1*xx</span>
-<span class="c1">#yy = -2 * xx - 1</span>
-<span class="n">yy</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">xx</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0xffff4156f4d0&gt;]
-</pre></div>
-</div>
-<img alt="../_images/7ad8eac1a256b3cfad77de6ec7f8b45724fc6f161696ae75ef903d1637e444f3.png" src="../_images/7ad8eac1a256b3cfad77de6ec7f8b45724fc6f161696ae75ef903d1637e444f3.png" />
-</div>
-</div>
+<section id="organization-of-the-course">
+<h2>Organization of the Course<a class="headerlink" href="#organization-of-the-course" title="Link to this heading">#</a></h2>
+<p>The course will be conducted over the next four weeks. We will meet in 1300 BPS from 10am-12pm EDT. The course will make use of Jupyter notebooks, so you will need to make sure that you have installed the <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda distribution of Python with Jupyter</a> or something equivalent. The course is broken down into 6 topics:</p>
+<ol class="arabic simple">
+<li><p>May 30th - Getting Started with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>; software installation, reading data, plotting data, etc.</p></li>
+<li><p>June 6th - The <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> workflow (linear regression); quality of fit, residuals, etc.</p></li>
+<li><p>June 13th - The <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> workflow (KNN classification); confusion matrices, ROC curves, etc.</p></li>
+<li><p>June 20th - More <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> models (decision trees, random forests, etc.)</p></li>
+</ol>
+<p>The first class is intended to make sure you have what you need to get started with the course. If you are comfortable with Python and Jupyter notebooks, you can skip the first class (e.g., if you are an MSU student and have already taken CMSE 201). Of course, you are welcome to attend the first class if you would like a refresher on the basics of Python and Jupyter notebooks, or just to hang out.</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="questions-comments-concerns">
-<h1>Questions, Comments, Concerns?<a class="headerlink" href="#questions-comments-concerns" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -530,16 +444,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "jbook"
+            mode: "python"
         },
         kernelOptions: {
-            name: "jbook",
-            path: "./notes"
+            name: "python3",
+            path: "./course_info"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'jbook'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -551,21 +465,12 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="methods_and_validation.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Methods and Model Validation</p>
-      </div>
-    </a>
     <a class="right-next"
-       href="04_svm_rbf.html"
+       href="getting-started.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Support Vector Machines (Radial Kernel)</p>
+        <p class="prev-next-title">Getting Started</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -585,14 +490,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Support Vector Machines</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-make-some-blobs">Let’s make some blobs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-draw-a-separation-line">Let’s draw a separation line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-class">Connecting to the class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organization-of-the-course">Organization of the Course</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-comments-concerns">Questions, Comments, Concerns?</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
