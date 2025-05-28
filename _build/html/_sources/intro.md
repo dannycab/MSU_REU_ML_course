@@ -1,5 +1,7 @@
 # 2025 MSU Physics and Astronomy Short Course on Machine Learning
 
+> I am actively updating the site to focus more on physics data and to better align the course with your needs. Not everything is ready yet, but I will be updating the site as we go along. If you have any questions or suggestions, please let me know! <caball14@msu.edu>
+
 This short course will focus on the essential aspects of machine learning that are likely to feature in a variety of research areas that you might interact with. From astrophysics to nuclear physics to physics education, many researchers are using the tools of machine learning to gain insight into essential problems in physics. This course will provide you with the basic tools to get started with machine learning and to begin to explore how these tools might be useful in your own research.
 
 ## Connecting to the class

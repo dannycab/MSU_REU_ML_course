@@ -1,24 +1,27 @@
 # Detailed Schedule
 
-## Day 1 - Introduction to Jupyter Notebooks, Working with Data
+## Day 01: Exploring data with `pandas`
 
 ### Today, we will:
 
 * Download/Install [Anaconda](https://www.anaconda.com/products/individual) (if needed)
 * Start up and navigate `jupyter lab`
 * Read, slice, and filter data with `pandas`
-* Explore data with `pandas` and `matplotlib`
+* Explore data with `pandas`, `matplotlib`, and `seaborn`
+
+### Materials
+
+* [Getting Started](./getting-started.md)
+* [Day 01: Exploring data with `pandas`](./activities/01-exploring-data-with-pandas-student.ipynb)
+* [Day 01: Exploring data with `pandas` - solution](./activities/01-exploring-data-with-pandas.ipynb)
 
 ### Resources
 
 * [Getting started with `pandas`](https://pandas.pydata.org/docs/getting_started/intro_tutorials/)
 * [`pandas` documentation](https://pandas.pydata.org/docs/user_guide/index.html#user-guide)
 * [Getting started with `matplotlib`](https://towardsdatascience.com/matplotlib-tutorial-learn-basics-of-pythons-powerful-plotting-library-b5d1b8f67596)
+* [Getting started with `seaborn`](https://seaborn.pydata.org/tutorial.html)
 
-### Materials
-
-* [Day 1 notebook - Getting Started](./notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb)
-* [Day 1 notebook - Exploring Data](./notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb)
 
 <!-- ## Day 2 - Building a Regression Model
 

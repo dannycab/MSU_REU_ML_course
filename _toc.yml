@@ -1,9 +1,32 @@
 format: jb-book
 root: intro.md
 parts:
-- caption: Class Activites
+- caption: Logistics
   chapters:
-  - file: notebooks/day-1/01-exploring-data-with-pandas.ipynb
+  - file: getting-started.md
+  - file: schedule.md
+  - file: using-this-book.md
+- caption: Class Activities
+  chapters:
+  - file: activities/01-exploring-data-with-pandas-student.ipynb
+- caption: Solutions
+  chapters:
+  - file: activities/01-exploring-data-with-pandas.ipynb
+- caption: Notes
+  chapters:
+  - file: notes/01_logit.ipynb
+  - file: notes/02_knn.ipynb
+  - file: notes/methods_and_validation.ipynb
+  - file: notes/03_svm.ipynb
+  - file: notes/04_svm_rbf.ipynb
+  - file: notes/05_pca.ipynb
+- caption: Resources
+  chapters:
+  - file: notes/python_review.ipynb
+  - file: notes/importance_of_visualization.ipynb
+  - file: notes/regression_with_scikit.ipynb
+  - file: notes/cross-validation.ipynb
+  - file: notes/reverse-feature-elimination.ipynb
 # - caption: Schedule
 #   chapters:
 #   - file: schedule.md

@@ -57,10 +57,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Exploring data with Pandas" href="notebooks/day-1/01-exploring-data-with-pandas.html" />
+    <link rel="next" title="Getting Started" href="getting-started.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,9 +182,47 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activites</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks/day-1/01-exploring-data-with-pandas.html">Exploring data with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Detailed Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-this-book.html">Using this book</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activities</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="activities/01-exploring-data-with-pandas-student.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="activities/01-exploring-data-with-pandas.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notes/01_logit.html">Machine Learning</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="notes/02_knn.html">The Confusion Matrix</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="notes/methods_and_validation.html">Methods and Model Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes/03_svm.html">Support Vector Machines</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="notes/04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="notes/05_pca.html">Principal Component Analysis (PCA)</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notes/python_review.html">Python Basics Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes/importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
 <ul class="nav bd-sidenav">
@@ -351,6 +391,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="msu-physics-and-astronomy-short-course-on-machine-learning">
 <h1>2025 MSU Physics and Astronomy Short Course on Machine Learning<a class="headerlink" href="#msu-physics-and-astronomy-short-course-on-machine-learning" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>I am actively updating the site to focus more on physics data and to better align the course with your needs. Not everything is ready yet, but I will be updating the site as we go along. If you have any questions or suggestions, please let me know! <a class="reference external" href="mailto:caball14&#37;&#52;&#48;msu&#46;edu">caball14<span>&#64;</span>msu<span>&#46;</span>edu</a></p>
+</div></blockquote>
 <p>This short course will focus on the essential aspects of machine learning that are likely to feature in a variety of research areas that you might interact with. From astrophysics to nuclear physics to physics education, many researchers are using the tools of machine learning to gain insight into essential problems in physics. This course will provide you with the basic tools to get started with machine learning and to begin to explore how these tools might be useful in your own research.</p>
 <section id="connecting-to-the-class">
 <h2>Connecting to the class<a class="headerlink" href="#connecting-to-the-class" title="Link to this heading">#</a></h2>
@@ -382,6 +425,14 @@ document.write(`
 </ol>
 <p>The first class is intended to make sure you have what you need to get started with the course. If you are comfortable with Python and Jupyter notebooks, you can skip the first class (e.g., if you are an MSU student and have already taken CMSE 201). Of course, you are welcome to attend the first class if you would like a refresher on the basics of Python and Jupyter notebooks, or just to hang out.</p>
 </section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -419,11 +470,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="notebooks/day-1/01-exploring-data-with-pandas.html"
+       href="getting-started.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exploring data with Pandas</p>
+        <p class="prev-next-title">Getting Started</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
