@@ -1,54 +1,57 @@
 format: jb-book
 root: intro.md
 parts:
-- caption: Schedule
+- caption: Class Activites
   chapters:
-  - file: schedule.md
-  - file: project.md
-- caption: Notes
-  chapters:
-  - file: notebooks/notes/01_logit.ipynb
-  - file: notebooks/notes/02_knn.ipynb
-  - file: notebooks/notes/methods_and_validation.ipynb
-  - file: notebooks/notes/03_svm.ipynb
-  - file: notebooks/notes/04_svm_rbf.ipynb
-  #- file: notebooks/notes/05_pca.ipynb
-- caption: Working with Data
-  chapters:
-  - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb
-  - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb
-- caption: Modeling Data
-  chapters:
-  - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models.ipynb
-  - file: notebooks/day-2/day-2_KNN_classification.ipynb
-  - file: notebooks/day-3/Day-3_Polynomial_Regression.ipynb
-  - file: notebooks/day-3/Day-3_Multiple_Regression.ipynb
-# - caption: Evaluating Models
+  - file: notebooks/day-1/01-exploring-data-with-pandas.ipynb
+# - caption: Schedule
 #   chapters:
-#   - file: notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb
-#   - file: notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb
-# - caption: Dimension Reduction
+#   - file: schedule.md
+#   - file: project.md
+# - caption: Notes
 #   chapters:
-#   - file: notebooks/day-5/day_5-What_is_PCA.ipynb
-#   - file: notebooks/notes/pca_example.ipynb
-#   - file: notebooks/day-5/Day_5-Using_PCA.ipynb
-- caption: Resources
-  chapters:
-  - file: notebooks/resources/python_review.ipynb
-  - file: notebooks/notes/importance_of_visualization.ipynb
-  - file: notebooks/notes/regression_with_scikit.ipynb
-  - file: notebooks/notes/cross-validation.ipynb
-  - file: notebooks/notes/reverse-feature-elimination.ipynb
-- caption: Solutions
-  chapters:
-  - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb
-  - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas-SOL.ipynb
-  - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models-SOL.ipynb
-  - file: notebooks/day-2/day-2_KNN_classification-SOL.ipynb
-  - file: notebooks/day-3/Day-3_Polynomial_Regression-SOL.ipynb
-  - file: notebooks/day-3/Day-3_Multiple_Regression-SOL.ipynb
-#   - file: notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb
-#   - file: notebooks/day-5/Day_5-Using_PCA-SOL.ipynb
+#   - file: notebooks/notes/01_logit.ipynb
+#   - file: notebooks/notes/02_knn.ipynb
+#   - file: notebooks/notes/methods_and_validation.ipynb
+#   - file: notebooks/notes/03_svm.ipynb
+#   - file: notebooks/notes/04_svm_rbf.ipynb
+#   #- file: notebooks/notes/05_pca.ipynb
+# - caption: Working with Data
+#   chapters:
+#   - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas.ipynb
+#   - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas.ipynb
+# - caption: Modeling Data
+#   chapters:
+#   - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models.ipynb
+#   - file: notebooks/day-2/day-2_KNN_classification.ipynb
+#   - file: notebooks/day-3/Day-3_Polynomial_Regression.ipynb
+#   - file: notebooks/day-3/Day-3_Multiple_Regression.ipynb
+# # - caption: Evaluating Models
+# #   chapters:
+# #   - file: notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb
+# #   - file: notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb
+# # - caption: Dimension Reduction
+# #   chapters:
+# #   - file: notebooks/day-5/day_5-What_is_PCA.ipynb
+# #   - file: notebooks/notes/pca_example.ipynb
+# #   - file: notebooks/day-5/Day_5-Using_PCA.ipynb
+# - caption: Resources
+#   chapters:
+#   - file: notebooks/resources/python_review.ipynb
+#   - file: notebooks/notes/importance_of_visualization.ipynb
+#   - file: notebooks/notes/regression_with_scikit.ipynb
+#   - file: notebooks/notes/cross-validation.ipynb
+#   - file: notebooks/notes/reverse-feature-elimination.ipynb
+# - caption: Solutions
+#   chapters:
+#   - file: notebooks/day-1/Day-1_Getting-Started-with-Pandas-SOL.ipynb
+#   - file: notebooks/day-1/Day-1_Exploring-data-with-Pandas-SOL.ipynb
+#   - file: notebooks/day-2/day-2_Getting_Started_with_Classification_Models-SOL.ipynb
+#   - file: notebooks/day-2/day-2_KNN_classification-SOL.ipynb
+#   - file: notebooks/day-3/Day-3_Polynomial_Regression-SOL.ipynb
+#   - file: notebooks/day-3/Day-3_Multiple_Regression-SOL.ipynb
+# #   - file: notebooks/day-4/Day_4-Multiplicity_of_Models-SOL.ipynb
+# #   - file: notebooks/day-5/Day_5-Using_PCA-SOL.ipynb
 - caption: Acknowledgements
   chapters:
   - file: contributions.md
