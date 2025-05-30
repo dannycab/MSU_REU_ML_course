@@ -4,6 +4,7 @@ parts:
 - caption: Logistics
   chapters:
   - file: course_info/getting-started.md
+  - file: course_info/setting-up-an-environment.md
   - file: course_info/schedule.md
   - file: course_info/using-this-book.md
 - caption: Class Activities
