@@ -1,27 +1,24 @@
 Traceback (most recent call last):
-  File "/home/venv/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+  File "/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
     asyncio.get_running_loop()
 RuntimeError: no running event loop
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/venv/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/home/venv/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+  File "/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.10/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/venv/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+  File "/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
     return loop.run_until_complete(inner)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+  File "/Users/caballero/anaconda3/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-           ^^^^^^^^^^^^^^^
-  File "/home/venv/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/home/venv/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/home/venv/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -35,14 +32,14 @@ df.head()
 
 [31m---------------------------------------------------------------------------[39m
 [31mModuleNotFoundError[39m                       Traceback (most recent call last)
-[36mFile [39m[32m/home/venv/lib/python3.12/site-packages/pandas/compat/_optional.py:135[39m, in [36mimport_optional_dependency[39m[34m(name, extra, errors, min_version)[39m
+[36mFile [39m[32m~/Downloads/comp-essays/.venv/lib/python3.13/site-packages/pandas/compat/_optional.py:135[39m, in [36mimport_optional_dependency[39m[34m(name, extra, errors, min_version)[39m
 [32m    134[39m [38;5;28;01mtry[39;00m:
 [32m--> [39m[32m135[39m     module = [43mimportlib[49m[43m.[49m[43mimport_module[49m[43m([49m[43mname[49m[43m)[49m
 [32m    136[39m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
 
-[36mFile [39m[32m/usr/lib/python3.12/importlib/__init__.py:90[39m, in [36mimport_module[39m[34m(name, package)[39m
-[32m     89[39m         level += [32m1[39m
-[32m---> [39m[32m90[39m [38;5;28;01mreturn[39;00m [43m_bootstrap[49m[43m.[49m[43m_gcd_import[49m[43m([49m[43mname[49m[43m[[49m[43mlevel[49m[43m:[49m[43m][49m[43m,[49m[43m [49m[43mpackage[49m[43m,[49m[43m [49m[43mlevel[49m[43m)[49m
+[36mFile [39m[32m/opt/homebrew/Cellar/python@3.13/3.13.3/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py:88[39m, in [36mimport_module[39m[34m(name, package)[39m
+[32m     87[39m         level += [32m1[39m
+[32m---> [39m[32m88[39m [38;5;28;01mreturn[39;00m [43m_bootstrap[49m[43m.[49m[43m_gcd_import[49m[43m([49m[43mname[49m[43m[[49m[43mlevel[49m[43m:[49m[43m][49m[43m,[49m[43m [49m[43mpackage[49m[43m,[49m[43m [49m[43mlevel[49m[43m)[49m
 
 [36mFile [39m[32m<frozen importlib._bootstrap>:1387[39m, in [36m_gcd_import[39m[34m(name, package, level)[39m
 
@@ -69,7 +66,7 @@ During handling of the above exception, another exception occurred:
 [32m      3[39m df = tables[[32m0[39m]
 [32m      5[39m df.head()
 
-[36mFile [39m[32m/home/venv/lib/python3.12/site-packages/pandas/io/html.py:1240[39m, in [36mread_html[39m[34m(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only, extract_links, dtype_backend, storage_options)[39m
+[36mFile [39m[32m~/Downloads/comp-essays/.venv/lib/python3.13/site-packages/pandas/io/html.py:1240[39m, in [36mread_html[39m[34m(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only, extract_links, dtype_backend, storage_options)[39m
 [32m   1224[39m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(io, [38;5;28mstr[39m) [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m [38;5;28many[39m(
 [32m   1225[39m     [
 [32m   1226[39m         is_file_like(io),
@@ -101,7 +98,7 @@ During handling of the above exception, another exception occurred:
 [32m   1258[39m [43m    [49m[43mstorage_options[49m[43m=[49m[43mstorage_options[49m[43m,[49m
 [32m   1259[39m [43m[49m[43m)[49m
 
-[36mFile [39m[32m/home/venv/lib/python3.12/site-packages/pandas/io/html.py:971[39m, in [36m_parse[39m[34m(flavor, io, match, attrs, encoding, displayed_only, extract_links, storage_options, **kwargs)[39m
+[36mFile [39m[32m~/Downloads/comp-essays/.venv/lib/python3.13/site-packages/pandas/io/html.py:971[39m, in [36m_parse[39m[34m(flavor, io, match, attrs, encoding, displayed_only, extract_links, storage_options, **kwargs)[39m
 [32m    969[39m retained = [38;5;28;01mNone[39;00m
 [32m    970[39m [38;5;28;01mfor[39;00m flav [38;5;129;01min[39;00m flavor:
 [32m--> [39m[32m971[39m     parser = [43m_parser_dispatch[49m[43m([49m[43mflav[49m[43m)[49m
@@ -112,13 +109,13 @@ During handling of the above exception, another exception occurred:
 [32m    980[39m     )
 [32m    982[39m     [38;5;28;01mtry[39;00m:
 
-[36mFile [39m[32m/home/venv/lib/python3.12/site-packages/pandas/io/html.py:918[39m, in [36m_parser_dispatch[39m[34m(flavor)[39m
+[36mFile [39m[32m~/Downloads/comp-essays/.venv/lib/python3.13/site-packages/pandas/io/html.py:918[39m, in [36m_parser_dispatch[39m[34m(flavor)[39m
 [32m    916[39m     import_optional_dependency([33m"[39m[33mbs4[39m[33m"[39m)
 [32m    917[39m [38;5;28;01melse[39;00m:
 [32m--> [39m[32m918[39m     [43mimport_optional_dependency[49m[43m([49m[33;43m"[39;49m[33;43mlxml.etree[39;49m[33;43m"[39;49m[43m)[49m
 [32m    919[39m [38;5;28;01mreturn[39;00m _valid_parsers[flavor]
 
-[36mFile [39m[32m/home/venv/lib/python3.12/site-packages/pandas/compat/_optional.py:138[39m, in [36mimport_optional_dependency[39m[34m(name, extra, errors, min_version)[39m
+[36mFile [39m[32m~/Downloads/comp-essays/.venv/lib/python3.13/site-packages/pandas/compat/_optional.py:138[39m, in [36mimport_optional_dependency[39m[34m(name, extra, errors, min_version)[39m
 [32m    136[39m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
 [32m    137[39m     [38;5;28;01mif[39;00m errors == [33m"[39m[33mraise[39m[33m"[39m:
 [32m--> [39m[32m138[39m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(msg)
