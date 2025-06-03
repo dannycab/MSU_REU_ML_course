@@ -1,0 +1,1579 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Day 02: Using KNN to classify objects with sklearn and pandas &#8212; 2025 MSU REU Machine Learning Short Course</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'activities/02-classification-models-with-scikit-learn-student';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Day 01: Exploring data with pandas - solution" href="01-exploring-data-with-pandas.html" />
+    <link rel="prev" title="Day 01: Exploring data with pandas" href="01-exploring-data-with-pandas-student.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="2025 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="2025 MSU REU Machine Learning Short Course - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    2025 MSU Physics and Astronomy Short Course on Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../course_info/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_info/setting-up-an-environment.html"><strong>Setting Up Your Python Environment</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_info/schedule.html">Detailed Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_info/using-this-book.html">Using this book</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activities</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-exploring-data-with-pandas-student.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Day 02: Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-exploring-data-with-pandas.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-classification-models-with-scikit-learn.html">Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/01_logit.html">Machine Learning</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/02_knn.html">The Confusion Matrix</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/05_pca.html">Principal Component Analysis (PCA)</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/python_review.html">Python Basics Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/activities/02-classification-models-with-scikit-learn-student.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/activities/02-classification-models-with-scikit-learn-student.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/activities/02-classification-models-with-scikit-learn-student.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/activities/02-classification-models-with-scikit-learn-student.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Day 02: Using KNN to classify objects with sklearn and pandas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-instructions">Notebook instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stellar-classification-dataset-sdss17">1. Stellar Classification Dataset - SDSS17</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">✅ Tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-data-and-filter-it">Read in the data and filter it</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data-to-review-it">Plot the data to review it</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-the-redshift">What about the redshift?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-in-your-data">Bias in your data?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-2-class-problem-modeling-without-redshift">2. The 2 Class Problem - Modeling Without Redshift</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">✅ Tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train-Test Split</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-the-data">Scaling the Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-model">Evaluating the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-classification-report">The Classification Report</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics-explained">Metrics Explained</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">✅ Tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-confusion-matrix">The Confusion Matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-helper-function">Plotting Helper Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-across-different-values-of-k">Performance across different values of k</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-another-value-of-k-work-better">Does another value of k work better?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">✅ Tasks:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-2-class-problem-modeling-with-redshift">3. The 2 Class Problem - Modeling With Redshift</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">✅ Tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-train-and-evaluate-the-model">Build, Train, and Evaluate the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Performance Across Different Values of K</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">✅ Tasks:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-class-problem-modeling-with-redshift">4. The Three Class Problem - Modeling with Redshift</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">✅ Tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Build, Train, and Evaluate the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">✅ Tasks:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="day-02-using-knn-to-classify-objects-with-sklearn-and-pandas">
+<h1>Day 02: Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#day-02-using-knn-to-classify-objects-with-sklearn-and-pandas" title="Link to this heading">#</a></h1>
+<p><em>This is only one of the possible solutions. There are many ways to answer these questions.</em></p>
+<p><img alt="KNN Classifier" src="https://upload.wikimedia.org/wikipedia/commons/7/78/KNN_decision_surface_animation.gif" /></p>
+<section id="learning-goals">
+<h2>Learning goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
+<p>Today, we will make sure that everyone learns how they can use <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> to classify objects using the KNN algorithm. We will also learn how to use <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to load and explore datasets, and how to visualize data with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
+<p>After working through these ideas, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Load a dataset using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+<li><p>Explore a dataset using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+<li><p>Visualize data using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p></li>
+<li><p>Explain how the KNN algorithm works.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> to classify objects using the KNN algorithm.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> to evaluate the performance of a classifier.</p></li>
+<li><p>Explain the framework of a classification task.</p></li>
+</ol>
+</section>
+<section id="notebook-instructions">
+<h2>Notebook instructions<a class="headerlink" href="#notebook-instructions" title="Link to this heading">#</a></h2>
+<p>We will work through the notebook making sure to write all necessary code and answer any questions. We will start together with the most commonly performed tasks. Then you will work on the analyses, posed as research questions, in groups.</p>
+</section>
+<section id="outline">
+<h2>Outline:<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#dataset"><span class="xref myst">Stellar Classification Dataset - SDSS17</span></a></p></li>
+<li><p><a class="reference internal" href="#two-class-no-redshift"><span class="xref myst">The 2 Class Problem - Modeling Without Redshift</span></a></p></li>
+<li><p><a class="reference internal" href="#two-class"><span class="xref myst">The 2 Class Problem - Modeling With Redshift</span></a></p></li>
+<li><p><a class="reference internal" href="#three-class"><span class="xref myst">The Three Class Problem - Modeling with Redshift</span></a></p></li>
+</ol>
+<hr class="docutils" />
+<p><a id="dataset"></a></p>
+</section>
+<section id="stellar-classification-dataset-sdss17">
+<h2>1. Stellar Classification Dataset - SDSS17<a class="headerlink" href="#stellar-classification-dataset-sdss17" title="Link to this heading">#</a></h2>
+<p>We will continue to use the <a class="reference external" href="https://www.kaggle.com/datasets/sohier/stellar-classification-dataset-sdss17">Stellar Classification Dataset</a> from the Sloan Digital Sky Survey (SDSS). The dataset contains information about stars, including their spectral features and classifications.</p>
+<p>The dataset is available in the <code class="docutils literal notranslate"><span class="pre">data/</span></code> directory as <code class="docutils literal notranslate"><span class="pre">stellar_classification.csv</span></code>. But you can also directly download it from GitHub: <a class="reference external" href="https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/refs/heads/main/activities/data/star_classification.csv">https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/refs/heads/main/activities/data/star_classification.csv</a></p>
+<p>Much of the code below for importing, cleaning, and plotting the data is borrowed from the <a class="reference internal" href="01-exploring-data-with-pandas.html"><span class="std std-doc">Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> notebook</span></a>.</p>
+<section id="tasks">
+<h3>✅ Tasks:<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Run the code below to import the necessary libraries and load the dataset.</p></li>
+<li><p>Make sure you understand what each line of code does.</p></li>
+<li><p>Continue to run the code in each cell until you reach the section on redshift.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># necessary imports for this notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span> <span class="c1"># setting style</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span> <span class="c1"># setting context</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)</span> <span class="c1"># setting palette</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-in-the-data-and-filter-it">
+<h3>Read in the data and filter it<a class="headerlink" href="#read-in-the-data-and-filter-it" title="Link to this heading">#</a></h3>
+<p>We read in the data using <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and filter it to only include the relevant columns. The dataset contains a lot of information, but we will focus on the spectral features and the classification. We also drop any rows with missing values to ensure our analysis is accurate. We used <code class="docutils literal notranslate"><span class="pre">describe()</span></code> to get an overview of the data and check that we cleaned it correctly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stellar</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dannycab/MSU_REU_ML_course/refs/heads/main/activities/data/star_classification.csv&#39;</span><span class="p">)</span>
+<span class="n">stellar</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="c1"># remove all the columns that are not needed</span>
+<span class="n">df_stellar</span> <span class="o">=</span> <span class="n">stellar</span><span class="p">[[</span><span class="s1">&#39;obj_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span><span class="s1">&#39;redshift&#39;</span><span class="p">]]</span>
+
+<span class="c1"># drop any row with negative photometric values</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_stellar</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_stellar</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_stellar</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_stellar</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_stellar</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">df_stellar</span> <span class="o">=</span> <span class="n">df_stellar</span><span class="p">[</span><span class="nb">filter</span><span class="p">]</span>
+
+<span class="c1"># describe the data again</span>
+<span class="n">df_stellar</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>obj_ID</th>
+      <th>u</th>
+      <th>g</th>
+      <th>r</th>
+      <th>i</th>
+      <th>z</th>
+      <th>redshift</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>9.999900e+04</td>
+      <td>99999.000000</td>
+      <td>99999.000000</td>
+      <td>99999.000000</td>
+      <td>99999.000000</td>
+      <td>99999.000000</td>
+      <td>99999.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1.237665e+18</td>
+      <td>22.080679</td>
+      <td>20.631583</td>
+      <td>19.645777</td>
+      <td>19.084865</td>
+      <td>18.768988</td>
+      <td>0.576667</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8.438450e+12</td>
+      <td>2.251068</td>
+      <td>2.037384</td>
+      <td>1.854763</td>
+      <td>1.757900</td>
+      <td>1.765982</td>
+      <td>0.730709</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.237646e+18</td>
+      <td>10.996230</td>
+      <td>10.498200</td>
+      <td>9.822070</td>
+      <td>9.469903</td>
+      <td>9.612333</td>
+      <td>-0.009971</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1.237659e+18</td>
+      <td>20.352410</td>
+      <td>18.965240</td>
+      <td>18.135795</td>
+      <td>17.732280</td>
+      <td>17.460830</td>
+      <td>0.054522</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1.237663e+18</td>
+      <td>22.179140</td>
+      <td>21.099930</td>
+      <td>20.125310</td>
+      <td>19.405150</td>
+      <td>19.004600</td>
+      <td>0.424176</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.237668e+18</td>
+      <td>23.687480</td>
+      <td>22.123775</td>
+      <td>21.044790</td>
+      <td>20.396510</td>
+      <td>19.921120</td>
+      <td>0.704172</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.237681e+18</td>
+      <td>32.781390</td>
+      <td>31.602240</td>
+      <td>29.571860</td>
+      <td>32.141470</td>
+      <td>29.383740</td>
+      <td>7.011245</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="plot-the-data-to-review-it">
+<h3>Plot the data to review it<a class="headerlink" href="#plot-the-data-to-review-it" title="Link to this heading">#</a></h3>
+<p>This code is also from the <a class="reference internal" href="01-exploring-data-with-pandas.html"><span class="std std-doc">Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> notebook</span></a>. We use <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to visualize the data. This just reminds us of the data we are working with and helps us understand the distribution of the features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># u vs g</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;u vs g colored by class&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">markerscale</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># u vs r</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;u vs r colored by class&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">markerscale</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># u vs i</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;u vs i colored by class&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">markerscale</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># u vs z</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;u vs z colored by class&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">markerscale</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1d8590455bc6c1d718c15b0e205b14f78b71df747fd2c159a60550c9c22ff1a9.png" src="../_images/1d8590455bc6c1d718c15b0e205b14f78b71df747fd2c159a60550c9c22ff1a9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create subplots</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># plot histograms for each band with KDE</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>  <span class="c1"># Hide the empty subplot</span>
+
+<span class="c1"># set titles for each subplot</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram of u&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram of g&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram of r&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram of i&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram of z&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34f4f1a6712f78de337b74c05c98f8374d54207d46336baf2b00e7ed53adc2ba.png" src="../_images/34f4f1a6712f78de337b74c05c98f8374d54207d46336baf2b00e7ed53adc2ba.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="what-about-the-redshift">
+<h2>What about the redshift?<a class="headerlink" href="#what-about-the-redshift" title="Link to this heading">#</a></h2>
+<p><img alt="Redshift diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Redshift.svg/300px-Redshift.svg.png" /></p>
+<p>We have not yet discussed <a class="reference external" href="https://en.wikipedia.org/wiki/Redshift">redshift</a>, but it is an important concept in astronomy. Redshift is a measure of how much the wavelength of light from an object has been stretched due to the expansion of the universe. It is often used to determine the distance of celestial objects. In this dataset, redshift is included as a feature, but we will not use it (at first) for classification in this activity.</p>
+<p>Let’s see why we might leave it out at first. We can plot the redshift against the spectral features to see how it relates to the classification of stars.</p>
+<section id="id1">
+<h3>✅ Tasks:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Make a histogram of the redshift values; make sure you can see the distribution of redshift values for the different classes.</p></li>
+<li><p>Plot the redshift against the spectral features by class to see how they relate</p></li>
+</ul>
+<p>Once you make them, these plots should help us see that redshift is probably a very good feature for the classification. But we won’t use it at first because we want to focus on the spectral features and demonstrate how we can improve models with additional features later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;redshift&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;dodge&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Redshift Distribution by Class&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Redshift&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3b04aa8a2edaf082455ec09df35bbb68870826eaeaa68b98909df6bfe88e1f0a.png" src="../_images/3b04aa8a2edaf082455ec09df35bbb68870826eaeaa68b98909df6bfe88e1f0a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="c1"># u vs redshift</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;redshift&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Redshift&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;u vs Redshift colored by class&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">markerscale</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># g vs redshift</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;redshift&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Redshift&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;g vs Redshift colored by class&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">markerscale</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># r vs redshift</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;redshift&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Redshift&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;r vs Redshift colored by class&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">markerscale</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># i vs redshift</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;redshift&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Redshift&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;i vs Redshift colored by class&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">markerscale</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># z vs redshift</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;redshift&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_stellar</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Redshift&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;z vs Redshift colored by class&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">markerscale</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># make the last subplot empty</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>  <span class="c1"># Hide the empty subplot</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/80ff3725dbfd19bcd296842c232c1a4201453774acc4bd60138724f4fc09876e.png" src="../_images/80ff3725dbfd19bcd296842c232c1a4201453774acc4bd60138724f4fc09876e.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="bias-in-your-data">
+<h2>Bias in your data?<a class="headerlink" href="#bias-in-your-data" title="Link to this heading">#</a></h2>
+<p>One important aspect of doing machine learning is to be aware of potential biases in your data. In this case, the dataset is biased towards certain types of observation. There are significantly more observations of the “GALAXY” class. This would mean that a model that predicts GALAXY more often than the other classes would have a high accuracy, but it might not be a good model for all classes. Now, this might not be a big problem if the data if the classes are very separable, but it is something to keep in mind when evaluating the model.</p>
+<p>For the purposes of this activity, we will remove “GALAXY” from the dataset to focus on the other classes. This will allow us to see how well the model performs on the other classes without the bias introduced by the GALAXY class. And it makes the resulting model a simple 2-class model, which is easier to start with. We will perform the 3-class model later in the activity.</p>
+<p>THe code below show the class distribution and removes the GALAXY class from the dataset. It creates a new DataFrame called <code class="docutils literal notranslate"><span class="pre">df_no_galaxies</span></code> that contains only the non-GALAXY classes. We will use this DataFrame for the rest of the 2-class modeling activity.</p>
+<section id="id2">
+<h3>✅ Tasks:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Run this code to see the class distribution and remove the GALAXY class from the dataset.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this code to ensure you have the new DataFrame</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># All classes</span>
+<span class="n">class_counts</span> <span class="o">=</span> <span class="n">df_stellar</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">percentages</span> <span class="o">=</span> <span class="n">df_stellar</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">class_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">class_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">class_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;colorblind&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">cls</span><span class="si">}</span><span class="se">\n</span><span class="s2">(</span><span class="si">{</span><span class="n">percentages</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span> <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">class_counts</span><span class="o">.</span><span class="n">index</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Counts of Each Class&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="c1"># Excluding GALAXY</span>
+<span class="n">df_no_galaxies</span> <span class="o">=</span> <span class="n">df_stellar</span><span class="p">[</span><span class="n">df_stellar</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;GALAXY&#39;</span><span class="p">]</span>
+<span class="n">percentages_no_galaxy</span> <span class="o">=</span> <span class="n">df_no_galaxies</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Use colorblind palette but skip the reverse order to make sure labels are same as colors in both plots</span>
+<span class="n">palette_no_galaxy</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_no_galaxies</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">palette_no_galaxy</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">tick_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">tick</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">ax2</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="se">\n</span><span class="s2">(</span><span class="si">{</span><span class="n">percentages_no_galaxy</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">tick_labels</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Counts of Each Class (Excluding GALAXY)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_171/2213807954.py:9: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  axs[0].set_xticklabels([f&quot;{cls}\n({percentages[cls]:.1f}%)&quot; for cls in class_counts.index])
+/tmp/ipykernel_171/2213807954.py:24: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax2.set_xticklabels([f&quot;{label}\n({percentages_no_galaxy[label]:.1f}%)&quot; for label in tick_labels])
+</pre></div>
+</div>
+<img alt="../_images/3e47dbee087ace19c42087627a546b674be4a855038d192d1310fb2906c64666.png" src="../_images/3e47dbee087ace19c42087627a546b674be4a855038d192d1310fb2906c64666.png" />
+</div>
+</div>
+<hr class="docutils" />
+<p><a id="two-class-no-redshift"></a></p>
+</section>
+</section>
+<section id="the-2-class-problem-modeling-without-redshift">
+<h2>2. The 2 Class Problem - Modeling Without Redshift<a class="headerlink" href="#the-2-class-problem-modeling-without-redshift" title="Link to this heading">#</a></h2>
+<p>Now that we have our dataset ready, we can start building a KNN classifier to classify the stars based on their spectral features. We will first build a model without using the redshift feature. To do this we first import the necessary libraries and then split the data into training and testing sets.</p>
+<p>It’s common in these codes and in textbooks to use the variable names <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to represent the features and labels, respectively. In this case, <code class="docutils literal notranslate"><span class="pre">X</span></code> will be the spectral features and <code class="docutils literal notranslate"><span class="pre">y</span></code> will be the class labels.</p>
+<section id="id3">
+<h3>✅ Tasks:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Run the code below to import the necessary libraries and split the data into training and testing sets.</p></li>
+<li><p>Make sure you understand what each line of code does.</p></li>
+<li><p>Continue to run the code in each cell until you reach the classification report.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Import necessary libraries for the classification model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Define features  and target variable</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_no_galaxies</span><span class="p">[[</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_no_galaxies</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="train-test-split">
+<h3>Train-Test Split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
+<p>We will use the <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> function from <code class="docutils literal notranslate"><span class="pre">sklearn.model_selection</span></code> to do this. This will randomly split the data into a set that we will use to train the model and a set that we will use to test the model. Initially, we will use 80% of the data for training and 20% for testing. We have selected a random state of 42 to ensure that the split is reproducible. This means that every time we run the code, we will get the same split of the data. You can remove the <code class="docutils literal notranslate"><span class="pre">random_state</span></code> parameter if you want to get a different split each time you run the code. As we will see later, this is important for evaluating the model’s performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the dataset into training and testing sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="scaling-the-data">
+<h3>Scaling the Data<a class="headerlink" href="#scaling-the-data" title="Link to this heading">#</a></h3>
+<p>We will also use the <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> from <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing</span></code> to standardize the features before training the model. This is important because many algorithms, including KNN, are sensitive to the scale of the features. That is, if one feature has a much larger range of values than another, it can dominate the distance calculations used by KNN. Standardizing the features will ensure that they are all on the same scale.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standardize the features</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="k-nearest-neighbors-classifier">
+<h3>K-Nearest Neighbors Classifier<a class="headerlink" href="#k-nearest-neighbors-classifier" title="Link to this heading">#</a></h3>
+<p>Now, we can create the KNN classifier using the <code class="docutils literal notranslate"><span class="pre">KNeighborsClassifier</span></code> from <code class="docutils literal notranslate"><span class="pre">sklearn.neighbors</span></code>. We will use 3 neighbors for our model. We can change this later if we want to experiment with different values of <code class="docutils literal notranslate"><span class="pre">k</span></code>. We choose 3 neighbors because it is also illustrated well in the KNN animation below (reproduced from the <a class="reference external" href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">Wikipedia article on KNN</a>).</p>
+<p><img alt="KNN Classifier" src="https://upload.wikimedia.org/wikipedia/commons/7/78/KNN_decision_surface_animation.gif" /></p>
+<p>In this animation, we have a 2D feature space, and the points from each of the two classes are shown in red and blue. To classify a new point, we look at the 3 nearest neighbors (the points closest to the new point) and see which class they belong to. In this case, the new point would be predicted to be red or blue depending on the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.distance_metrics.html#sklearn.metrics.pairwise.distance_metrics">strength of the metric</a> used to measure the distance between the points. Weighting and other parameters can also be used to influence the classification.</p>
+<p>In the second part of the animation, the 2D space is shown with a grid of locations where the classifier would predict the class of a point at that location. We can see it selects the class of that point based on the three nearest neighbors. What is missing is the metric used to measure the distance between the points. In this case, it might be the <a class="reference external" href="https://en.wikipedia.org/wiki/Euclidean_space">Euclidean distance</a>, but other metrics can be used as well.</p>
+<p>The very rough grid that it generates is a visualization of the <a class="reference external" href="https://en.wikipedia.org/wiki/Decision_boundary">decision boundary</a> created by the KNN classifier. The decision boundary is the line (or surface in higher dimensions) that separates the different classes; there might be multiple for multi-class problems. In this case, it is a boundary that is determined by the distribution of classes in the feature space. As the animation shows, the KNN classifier can create complex decision boundaries based on the distribution of the points. KNN can be a powerful classifier, especially when the classes are not linearly separable (i.e., where we can draw a straight line to separate the classes).</p>
+<section id="id4">
+<h4>✅ Tasks:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Run the code below to create the KNN classifier and fit it to the training data.</p></li>
+<li><p>Make sure you understand what each line of code does.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and train the KNN classifier</span>
+<span class="n">knn_classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">knn_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Make predictions on the test set</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">knn_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="evaluating-the-model">
+<h3>Evaluating the Model<a class="headerlink" href="#evaluating-the-model" title="Link to this heading">#</a></h3>
+<p>Now that we have trained the model and used it to make predictions given the test set, we can evaluate its performance. This is the supervised part of the supervised learning process. We know what the true labels are for the test set, so we can compare the predicted labels to the true labels to see how well the model performed. If we find that the model performs well, we can use it to classify new data points. If it does not perform well, we can try to improve it by changing the parameters, using different features, or using a different algorithm.</p>
+<p><em>Maybe you can see why we left out the redshift feature for now. It is a very good feature, but we want to see how well the model performs without it first.</em></p>
+<section id="the-classification-report">
+<h4>The Classification Report<a class="headerlink" href="#the-classification-report" title="Link to this heading">#</a></h4>
+<p>We will use the <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> from <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code> to get a detailed report of the model’s performance. This report includes precision, recall, and F1-score for each class, as well as overall accuracy.</p>
+</section>
+<section id="metrics-explained">
+<h4>Metrics Explained<a class="headerlink" href="#metrics-explained" title="Link to this heading">#</a></h4>
+<p>The classification report includes the following metrics:</p>
+<ul class="simple">
+<li><p><strong>Precision</strong>: The ratio of true positive predictions to the total number of positive predictions. It measures how many of the predicted positive cases were actually positive.</p></li>
+<li><p><strong>Recall</strong>: The ratio of true positive predictions to the total number of actual positive cases. It measures how many of the actual positive cases were correctly predicted.</p></li>
+<li><p><strong>F1-score</strong>: The harmonic mean of precision and recall. It is a single metric that balances both precision and recall, especially useful when the class distribution is imbalanced.</p></li>
+</ul>
+</section>
+</section>
+<section id="id5">
+<h3>✅ Tasks:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Run the code below to generate the classification report.</p></li>
+<li><p>Explain the predictions made by the model and the metrics in the classification report to your neighbor.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evaluate the model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+
+<span class="c1"># Print the classification report</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+         QSO       0.86      0.85      0.85      3803
+        STAR       0.87      0.87      0.87      4308
+
+    accuracy                           0.86      8111
+   macro avg       0.86      0.86      0.86      8111
+weighted avg       0.86      0.86      0.86      8111
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-confusion-matrix">
+<h3>The Confusion Matrix<a class="headerlink" href="#the-confusion-matrix" title="Link to this heading">#</a></h3>
+<p>We will use the <code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code> from <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code> to visualize the performance of the model. The confusion matrix shows the number of true positive, true negative, false positive, and false negative predictions. This can help us understand where the model is making mistakes. The code below will create a confusion matrix and plot it using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> for better visualization. This visulization scales the values in the confusion matrix by the total number of data points, so that we can see the relative fraction of correct and incorrect predictions for the whole test set.</p>
+<section id="id6">
+<h4>✅ Tasks:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Run the code below to create the confusion matrix and plot it.</p></li>
+<li><p>Make sure you understand what each line of code does.</p></li>
+<li><p>Explain the confusion matrix to your neighbor.</p></li>
+</ul>
+<p><strong>How well did the model perform?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_confusion_matrix</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">conf_matrix_prop</span> <span class="o">=</span> <span class="n">conf_matrix</span> <span class="o">/</span> <span class="n">conf_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">conf_matrix_prop</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.2%&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;turbo&#39;</span><span class="p">,</span>
+                <span class="n">xticklabels</span><span class="o">=</span><span class="n">classes</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">classes</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Confusion Matrix (N=</span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted Class&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Class&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">,</span> <span class="n">knn_classifier</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;./figures/confusion_matrix_knn_n3.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b76c07e0aa5cb721eaf86df847a4283affd046bab110b1815212cf7d8d38544d.png" src="../_images/b76c07e0aa5cb721eaf86df847a4283affd046bab110b1815212cf7d8d38544d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="plotting-helper-function">
+<h3>Plotting Helper Function<a class="headerlink" href="#plotting-helper-function" title="Link to this heading">#</a></h3>
+<p>There’s a function below that will return two dataframes: one with the correctly classified points and one with the misclassified points. This will help us visualize the performance of the model. You can use this function ot you can write your own. But we will need to plot the correctly classified points and the misclassified points to see how well the model performed.</p>
+<section id="id7">
+<h4>✅ Tasks:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Run the code below to create the plotting helper function.</p></li>
+<li><p>Make sure you understand what each line of code does.</p></li>
+<li><p>Use the function to plot the correctly classified points and the misclassified points.</p></li>
+<li><p>Make a plot of the correctly classified points and the misclassified points using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></li>
+</ul>
+<p><em>You can use the <code class="docutils literal notranslate"><span class="pre">scatterplot</span></code> function from <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to plot the points. Use different colors for the correctly classified points and the misclassified points. You can also use different markers for the two classes to make it easier to see which points belong to which class. Try to compute the number of points in each class and the number of correctly classified points in each class. You can use the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> function from <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to do this.</em></p>
+<div class="cell tag_hide-cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_classification_dfs</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create DataFrames for correctly and misclassified points.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X_test : pd.DataFrame</span>
+<span class="sd">        Test set features.</span>
+<span class="sd">    y_test : pd.Series or np.ndarray</span>
+<span class="sd">        True class labels for the test set.</span>
+<span class="sd">    y_pred : np.ndarray</span>
+<span class="sd">        Predicted class labels for the test set.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        DataFrame with test features, true class, and predicted class.</span>
+<span class="sd">    misclassified : pd.DataFrame</span>
+<span class="sd">        DataFrame with only misclassified samples.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;true_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_test</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;predicted_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+    <span class="n">misclassified</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;true_class&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;predicted_class&#39;</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">misclassified</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare data for plotting</span>
+<span class="n">correctly_classified_df</span><span class="p">,</span> <span class="n">misclassified_df</span> <span class="o">=</span> <span class="n">get_classification_dfs</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="performance-across-different-values-of-k">
+<h3>Performance across different values of k<a class="headerlink" href="#performance-across-different-values-of-k" title="Link to this heading">#</a></h3>
+<p>We can also experiment with different values of <code class="docutils literal notranslate"><span class="pre">k</span></code> to see how it affects the performance of the model. The code below will create a loop that trains a KNN classifier for different values of <code class="docutils literal notranslate"><span class="pre">k</span></code> and evaluates its performance using the classification report and confusion matrix. It will also plot the performance of the model for each value of <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
+<section id="id8">
+<h4>✅ Tasks:<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Run the code below to experiment with different values of <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p></li>
+<li><p>Make sure you understand what each line of code does.</p></li>
+<li><p>Explain the results to your neighbor.</p></li>
+</ul>
+<p>From this experiment for our choice of seed, it appears that the best value is not k=3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">knn_performance_vs_neighbors</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">k_range</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)):</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">f1_score</span>
+    <span class="n">accuracies</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">f1_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k_range</span><span class="p">:</span>
+        <span class="n">knn_classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+        <span class="n">knn_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">knn_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+        <span class="n">accuracies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+        <span class="n">f1_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">k_range</span><span class="p">),</span> <span class="n">accuracies</span><span class="p">,</span> <span class="n">f1_scores</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_knn_performance</span><span class="p">(</span><span class="n">neighbors</span><span class="p">,</span> <span class="n">accuracies</span><span class="p">,</span> <span class="n">f1_scores</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">neighbors</span><span class="p">,</span> <span class="n">accuracies</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">neighbors</span><span class="p">,</span> <span class="n">f1_scores</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;F1 Score&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;KNN Classifier Performance vs. Number of Neighbors&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Neighbors (k)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Score&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">neighbors</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">neighbors</span><span class="p">,</span> <span class="n">accuracies</span><span class="p">,</span> <span class="n">f1_scores</span> <span class="o">=</span> <span class="n">knn_performance_vs_neighbors</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">plot_knn_performance</span><span class="p">(</span><span class="n">neighbors</span><span class="p">,</span> <span class="n">accuracies</span><span class="p">,</span> <span class="n">f1_scores</span><span class="p">,</span> <span class="s1">&#39;./figures/knn_performance_vs_neighbors.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/58829a689bb2c302605c560bd0e17187cd271211340e2c9b78eaa026be06168f.png" src="../_images/58829a689bb2c302605c560bd0e17187cd271211340e2c9b78eaa026be06168f.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="does-another-value-of-k-work-better">
+<h3>Does another value of k work better?<a class="headerlink" href="#does-another-value-of-k-work-better" title="Link to this heading">#</a></h3>
+<p>In the plot above, you probably noticed that the performance of the model varies with different values of <code class="docutils literal notranslate"><span class="pre">k</span></code>. The best value of <code class="docutils literal notranslate"><span class="pre">k</span></code> is the one that gives the highest F1-score, which is a balance between precision and recall.</p>
+<section id="id9">
+<h4>✅ Tasks:<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>For the value of <code class="docutils literal notranslate"><span class="pre">k</span></code> that gives the better F1-score, run a new KNN classifier and evaluate its performance using the classification report and confusion matrix.</p></li>
+<li><p>Make a plot of the correctly classified points and the misclassified points using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></li>
+<li><p>Explain the results to your neighbor and compare them to the previous results.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a id="two-class"></a></p>
+</section>
+</section>
+</section>
+<section id="the-2-class-problem-modeling-with-redshift">
+<h2>3. The 2 Class Problem - Modeling With Redshift<a class="headerlink" href="#the-2-class-problem-modeling-with-redshift" title="Link to this heading">#</a></h2>
+<p>Ok, now that we have a good understanding of how to build a KNN classifier and evaluate its performance, let’s add the redshift feature to the model. This will allow us to see how well the model performs with this additional feature. See the plot below of the histogram of the redhift values for the different classes. It’s likely that the redshift feature will improve the performance of the model, but we will see how much it helps.</p>
+<section id="id10">
+<h3>✅ Tasks:<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Run the code below to add the redshift feature to the model.</p></li>
+<li><p>Make sure you understand what each line of code does.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_no_galaxies</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;redshift&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Redshift by Class&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Redshift&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./figures/histogram_redshift_by_class.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7090dfc745240d13a7837e3311cf45965d4430bfeaac95ae49ab66547f454fcf.png" src="../_images/7090dfc745240d13a7837e3311cf45965d4430bfeaac95ae49ab66547f454fcf.png" />
+</div>
+</div>
+</section>
+<section id="build-train-and-evaluate-the-model">
+<h3>Build, Train, and Evaluate the Model<a class="headerlink" href="#build-train-and-evaluate-the-model" title="Link to this heading">#</a></h3>
+<p>We will use the same steps as before to build, train, and evaluate the model. The only difference is that we will include the redshift feature in the training and testing sets. We will also use the same value of <code class="docutils literal notranslate"><span class="pre">k</span></code> that we found to work best in the previous section.</p>
+<section id="id11">
+<h4>✅ Tasks:<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Run through the scikit-learn approach to build, train, and evaluate the model with the redshift feature.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">k=3</span></code> for the KNN classifier and reserve 20% of the data for testing.</p></li>
+<li><p>Produce the classification report and confusion matrix (including the plot).</p></li>
+<li><p>Plot the correctly classified points and the misclassified points using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></li>
+<li><p>Explain the results to your neighbor and compare them to the previous results without the redshift feature.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id12">
+<h3>Performance Across Different Values of K<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>We can again investigate the performance of the model across different values of <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
+<section id="id13">
+<h4>✅ Tasks:<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Run the code below to experiment with different values of <code class="docutils literal notranslate"><span class="pre">k</span></code> and evaluate the performance of the model.</p></li>
+<li><p>Make sure you understand what each line of code does.</p></li>
+<li><p>Explain the results to your neighbor and compare them to the previous results without the redshift feature.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neighbors</span><span class="p">,</span> <span class="n">accuracies</span><span class="p">,</span> <span class="n">f1_scores</span> <span class="o">=</span> <span class="n">knn_performance_vs_neighbors</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">plot_knn_performance</span><span class="p">(</span><span class="n">neighbors</span><span class="p">,</span> <span class="n">accuracies</span><span class="p">,</span> <span class="n">f1_scores</span><span class="p">,</span> <span class="s1">&#39;./figures/knn_w_redshit_performance_vs_neighbors.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/58829a689bb2c302605c560bd0e17187cd271211340e2c9b78eaa026be06168f.png" src="../_images/58829a689bb2c302605c560bd0e17187cd271211340e2c9b78eaa026be06168f.png" />
+</div>
+</div>
+<hr class="docutils" />
+<p><a id="three-class"></a></p>
+</section>
+</section>
+</section>
+<section id="the-three-class-problem-modeling-with-redshift">
+<h2>4. The Three Class Problem - Modeling with Redshift<a class="headerlink" href="#the-three-class-problem-modeling-with-redshift" title="Link to this heading">#</a></h2>
+<p>Great! Now that we have a good understanding of how to build a KNN classifier and evaluate its performance, let’s add the GALAXY class back to the dataset. This will allow us to see how well the model performs with three classes. We will use the same steps as before to build, train, and evaluate the model.</p>
+<section id="id14">
+<h3>✅ Tasks:<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Run the code below to check that the GALAXY class is back in the dataset.</p></li>
+<li><p>Plot the histogram of the redshift values for the different classes to see how they relate to the classification.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_stellar</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;GALAXY&#39;, &#39;QSO&#39;, &#39;STAR&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id15">
+<h3>Build, Train, and Evaluate the Model<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p>Ok, let’s build, train, and evaluate the model with the GALAXY class included.</p>
+<section id="id16">
+<h4>✅ Tasks:<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> approach, build, train, and evaluate the model with the GALAXY class included.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">k=3</span></code> for the KNN classifier and reserve 20% of the data for testing.</p></li>
+<li><p>Produce the classification report and confusion matrix (including the plot).</p></li>
+<li><p>Plot the correctly classified points and the misclassified points using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></li>
+<li><p>Explain the results to your neighbor and compare them to the previous results without the GALAXY class.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./activities"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01-exploring-data-with-pandas-student.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="01-exploring-data-with-pandas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-instructions">Notebook instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stellar-classification-dataset-sdss17">1. Stellar Classification Dataset - SDSS17</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">✅ Tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-data-and-filter-it">Read in the data and filter it</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data-to-review-it">Plot the data to review it</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-the-redshift">What about the redshift?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-in-your-data">Bias in your data?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-2-class-problem-modeling-without-redshift">2. The 2 Class Problem - Modeling Without Redshift</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">✅ Tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train-Test Split</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-the-data">Scaling the Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-model">Evaluating the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-classification-report">The Classification Report</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics-explained">Metrics Explained</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">✅ Tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-confusion-matrix">The Confusion Matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-helper-function">Plotting Helper Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-across-different-values-of-k">Performance across different values of k</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-another-value-of-k-work-better">Does another value of k work better?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">✅ Tasks:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-2-class-problem-modeling-with-redshift">3. The 2 Class Problem - Modeling With Redshift</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">✅ Tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-train-and-evaluate-the-model">Build, Train, and Evaluate the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">✅ Tasks:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Performance Across Different Values of K</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">✅ Tasks:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-class-problem-modeling-with-redshift">4. The Three Class Problem - Modeling with Redshift</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">✅ Tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Build, Train, and Evaluate the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">✅ Tasks:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-2025, Michigan State University.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
