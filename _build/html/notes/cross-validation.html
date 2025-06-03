@@ -191,6 +191,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activities</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../activities/01-exploring-data-with-pandas-student.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/02-classification-models-with-scikit-learn-student.html">Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
 <ul class="nav bd-sidenav">
@@ -509,7 +510,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/18349c18a1dca301cf6005c4947109ae2c626374d8c88e5f0834f5a4ae96d050.png" src="../_images/18349c18a1dca301cf6005c4947109ae2c626374d8c88e5f0834f5a4ae96d050.png" />
+<img alt="../_images/72929e45b9c7ddb4fd10a4abebaf5cc948245a5fb5984b19e5dca37c72a36b63.png" src="../_images/72929e45b9c7ddb4fd10a4abebaf5cc948245a5fb5984b19e5dca37c72a36b63.png" />
 </div>
 </div>
 </section>
@@ -556,14 +557,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  111.59409451864298
-R2:  0.99214849003712
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  110.63238443327101
+R2:  0.989047892028318
 Fit Coefficients:
- [-1.82416219e-01  2.57904122e-01 -4.98664482e-01  2.88620854e-01
- -5.88464747e-01 -4.64515331e-01  3.72552014e-02  8.88328436e+01
- -4.46695554e-01  2.55455969e-01  5.89058967e+00  8.73768780e+01
-  5.65465492e-01 -9.29409729e-02 -6.96158853e-01 -1.07013504e-01
-  5.27874495e-01  5.72882723e-01 -1.06325165e-01  5.24453137e-01]
+ [ 3.11994055e-01  3.08922746e-02  8.61894870e+01  6.51728771e-01
+ -3.22744022e-01 -4.04013423e-01  3.96051286e-02  8.45547994e-03
+ -2.16981930e-01 -1.03933330e-01  5.93583965e-01  4.46902532e+01
+ -3.96845063e-01 -2.53231169e-01  4.25782616e-01  3.85863836e+01
+ -2.66199331e-01  3.62916594e-01 -1.25395397e-01  1.04666280e-02]
 </pre></div>
 </div>
 </div>
@@ -578,14 +579,14 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  104.44483605626867
-R2:  0.9933311768463058
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  92.60915084855087
+R2:  0.9917385414600659
 Fit Coefficients:
- [-1.85212266e-01  3.93806932e-01 -3.45888516e-01 -5.75862965e-02
- -3.49417157e-01 -4.41966103e-01 -9.77106219e-02  8.85315138e+01
- -4.92797926e-01  2.15724083e-01  6.13631043e+00  8.75001714e+01
-  4.75992104e-01 -1.02510217e-01 -4.26111190e-01  5.47567051e-02
-  3.16836213e-01  4.01345875e-01 -2.80417265e-01  6.04261785e-01]
+ [ 5.56546970e-01  5.17315744e-01  8.62615878e+01  6.72153424e-01
+ -4.53100711e-02 -3.55692749e-01  9.61139623e-02 -1.95365281e-01
+  1.35897875e-02  8.06139544e-02  4.53095940e-01  4.44890266e+01
+ -4.87267490e-01 -3.94398084e-01  2.80358828e-01  3.87891705e+01
+ -6.52782392e-02 -1.19581267e-02 -3.01158718e-01  5.21309228e-02]
 </pre></div>
 </div>
 </div>
@@ -662,7 +663,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/39f9b82769c420a54f0d0dc2ccdb3c3b7b1cc2261a45bf4f6dc229b343e764aa.png" src="../_images/39f9b82769c420a54f0d0dc2ccdb3c3b7b1cc2261a45bf4f6dc229b343e764aa.png" />
+<img alt="../_images/d0552e80ff63edadddfb12410b1f15655f547e75a929602637384319f4276f26.png" src="../_images/d0552e80ff63edadddfb12410b1f15655f547e75a929602637384319f4276f26.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -699,7 +700,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6fc03de0c99d3b267bf1a2e662ea94fc9aae40b8482bcfd975d532530265fcaa.png" src="../_images/6fc03de0c99d3b267bf1a2e662ea94fc9aae40b8482bcfd975d532530265fcaa.png" />
+<img alt="../_images/ff5ecc4c6b1e06369fc7175ed3e314a0fd30855c7e63140d5847cc40e1959fd9.png" src="../_images/ff5ecc4c6b1e06369fc7175ed3e314a0fd30855c7e63140d5847cc40e1959fd9.png" />
 </div>
 </div>
 </section>

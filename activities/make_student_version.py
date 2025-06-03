@@ -4,6 +4,28 @@ import os
 import re
 
 def make_student_version(input_path):
+    """
+    Generate a student version of a Jupyter notebook by removing solution code and solution markers.
+
+    This function reads a Jupyter notebook (.ipynb) file, removes code in cells marked with
+    '### your code here' (leaving only the marker), and cleans up markdown titles that indicate
+    a solution (removing ' - solution' from the first line of such cells). The processed notebook
+    is saved with '-student' appended to the original filename.
+
+    Args:
+        input_path (str): Path to the input Jupyter notebook file.
+
+    Returns:
+        None
+
+    Example:
+        >>> make_student_version("assignment1.ipynb")
+        Student version saved as: assignment1-student.ipynb
+
+    Notes:
+        - The function expects the input file to be a valid Jupyter notebook (version 4).
+        - The output file will be saved in the same directory as the input file.
+    """
     with open(input_path, 'r', encoding='utf-8') as f:
         nb = nbformat.read(f, as_version=4)
 
