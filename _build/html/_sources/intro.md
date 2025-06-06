@@ -25,7 +25,7 @@ By the end of this short course, you should be able to:
 The course will be conducted over the next four weeks. We will meet in 1300 BPS from 10am-12pm EDT. The course will make use of Jupyter notebooks, so you will need to make sure that you have installed the [Anaconda distribution of Python with Jupyter](https://www.anaconda.com/products/individual) or something equivalent. The course is broken down into 6 topics:
 
 1. May 30th - Getting Started with `pandas` and `matplotlib`; software installation, reading data, plotting data, etc.
-2. June 6th - The `scikit-learn` workflow (KNN classification); confusion matrices, ROC curves, etc.
+2. June 6th - The `scikit-learn` workflow (KNN classification); confusion matrices, ROC curves, etc. [Slides](./slides/day-02-classification.pdf)
 3. June 13th - The `scikit-learn` workflow (linear regression); quality of fit, residuals, etc.
 4. June 20th - More `scikit-learn` models (decision trees, random forests, etc.)
 
