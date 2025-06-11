@@ -192,12 +192,13 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../activities/01-exploring-data-with-pandas-student.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/02-classification-models-with-scikit-learn-student.html">Day 02: Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/03-regression-models-with-scikit-student.html">Day 03: Performing Regression with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../activities/01-exploring-data-with-pandas.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/02-classification-models-with-scikit-learn.html">Day 02: Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../activities/03-regression-models-with-scikit.html">Day 03 - Performing Regression with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/03-regression-models-with-scikit.html">Day 03: Performing Regression with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> - solution</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
 <ul class="nav bd-sidenav">
@@ -511,7 +512,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/549335614e6a42db7fff858ea3f8c04b8169fd4b0682055b7a249db15f9cc817.png" src="../_images/549335614e6a42db7fff858ea3f8c04b8169fd4b0682055b7a249db15f9cc817.png" />
+<img alt="../_images/a94e3a39072678cc7f80ed5494b3051bc81e529099592a5abb38e3c570256d3a.png" src="../_images/a94e3a39072678cc7f80ed5494b3051bc81e529099592a5abb38e3c570256d3a.png" />
 </div>
 </div>
 </section>
@@ -558,14 +559,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  113.50814813518828
-R2:  0.9912289530285364
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  101.24905981014761
+R2:  0.993911964494811
 Fit Coefficients:
- [-8.01648722e-02  1.07284754e-01 -3.80824853e-01  9.29467224e-02
- -1.73229736e-01 -2.88612705e-01 -2.93971765e-01 -3.07849877e-02
- -1.77556370e-01  9.11132763e+01  3.34166979e-01  8.24532292e+00
-  3.76951255e-01  6.22196362e-01  6.62187623e+01 -3.72720416e-01
- -1.08163269e-01  1.10692583e-01  5.30913206e-01 -3.39808432e-01]
+ [ 1.19608607e+01  7.55108950e-02 -2.47880017e-01 -9.77656011e-02
+  2.34105320e-01 -2.84793704e-02 -6.77879307e-02  1.39475276e-01
+ -5.62057746e-01  4.51461226e-02 -1.52609569e-01  8.42520599e+01
+ -2.42114851e-01  1.12251598e-01 -3.48969088e-01 -3.13952133e-01
+ -3.45524255e-01  8.92597813e+01 -2.93339586e-01  1.88689479e-01]
 </pre></div>
 </div>
 </div>
@@ -580,13 +581,14 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  100.81165316470442
-R2:  0.9909280417262183
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  91.07529977038233
+R2:  0.9939790241859264
 Fit Coefficients:
- [-0.17456477  0.45992187 -0.34919921  0.44958478 -0.32395899 -0.09949266
- -0.15138616  0.20678159 -0.33612422 90.68917974  0.21326752  8.7478528
-  0.51173897  0.99588837 66.38327281 -0.16918802  0.15098332  0.46316729
-  0.86463706 -0.19361594]
+ [ 1.14536898e+01  2.22145051e-01  3.30495850e-01  2.69210321e-01
+  1.56842669e-01  7.61347537e-03  9.94256975e-02 -7.08320289e-02
+ -6.72393495e-01 -1.09228436e-02  6.93675399e-02  8.41018384e+01
+ -3.95864902e-01  4.83351412e-01 -2.14148077e-01 -4.23254685e-01
+ -3.48586338e-01  8.92515781e+01 -3.72584736e-01 -1.37164100e-01]
 </pre></div>
 </div>
 </div>
@@ -663,7 +665,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5e6f9d129b1103fb1474395f7e51615fb8ee55b84ee9ab117472599b919391ce.png" src="../_images/5e6f9d129b1103fb1474395f7e51615fb8ee55b84ee9ab117472599b919391ce.png" />
+<img alt="../_images/e0383620c075a23489359ead4f88e954c52d18bc8cbfade188d4e1286f4e747c.png" src="../_images/e0383620c075a23489359ead4f88e954c52d18bc8cbfade188d4e1286f4e747c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -700,7 +702,7 @@ Fit Coefficients:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0b1d35e3e566e2ed1ab49c1ae9def864525f77d42d13c85cca8bb8761a9b7cb7.png" src="../_images/0b1d35e3e566e2ed1ab49c1ae9def864525f77d42d13c85cca8bb8761a9b7cb7.png" />
+<img alt="../_images/bb782cdf908da7a2dee57fbb888299d40b9dcf39d34f5570876ed43165ce648d.png" src="../_images/bb782cdf908da7a2dee57fbb888299d40b9dcf39d34f5570876ed43165ce648d.png" />
 </div>
 </div>
 </section>
