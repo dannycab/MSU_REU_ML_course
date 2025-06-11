@@ -1,0 +1,56 @@
+Traceback (most recent call last):
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/caballero/anaconda3/envs/teaching/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Initialize an empty dictionary to store the model performance
+scores = {}
+
+# Specify the model to use
+model = LinearRegression()
+
+# Loop through the number of features to select
+for n_features in range(1, X_train.shape[1]+1):
+
+    # Use RFE to select the most important features
+    rfe = RFE(model, n_features_to_select=n_features)
+    rfe.fit(X_train, y_train)
+    
+    # Get the selected features
+    selected_features = X_train.columns[rfe.support_].tolist()
+
+    # Train the model and calculate the score
+    model.fit(X_train[selected_features], y_train)
+    score = model.score(X_test[selected_features], y_test)
+    
+    # Store the score in the dictionary
+    scores[n_features] = score
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[3], line 18[0m
+[1;32m     15[0m rfe[38;5;241m.[39mfit(X_train, y_train)
+[1;32m     17[0m [38;5;66;03m# Get the selected features[39;00m
+[0;32m---> 18[0m selected_features [38;5;241m=[39m [43mX_train[49m[38;5;241;43m.[39;49m[43mcolumns[49m[rfe[38;5;241m.[39msupport_][38;5;241m.[39mtolist()
+[1;32m     20[0m [38;5;66;03m# Train the model and calculate the score[39;00m
+[1;32m     21[0m model[38;5;241m.[39mfit(X_train[selected_features], y_train)
+
+[0;31mAttributeError[0m: 'numpy.ndarray' object has no attribute 'columns'
+
