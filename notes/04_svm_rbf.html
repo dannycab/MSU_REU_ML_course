@@ -191,6 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../activities/01-exploring-data-with-pandas-student.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/02-classification-models-with-scikit-learn-student.html">Day 02: Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/03-regression-models-with-scikit-student.html">Day 03: Performing Regression with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../activities/04-modeling-project-student.html">Day 04: Modeling Project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
 <ul class="nav bd-sidenav">
@@ -524,7 +525,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0xffff461c9790&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0xffff2c3fe240&gt;
 </pre></div>
 </div>
 <img alt="../_images/c05e33363a9a3e8cfadba1e1c4a466a0da097315075a6e68e13b617299d38a26.png" src="../_images/c05e33363a9a3e8cfadba1e1c4a466a0da097315075a6e68e13b617299d38a26.png" />
@@ -571,7 +572,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.468
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.448
 </pre></div>
 </div>
 </div>
@@ -597,16 +598,24 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report:
                precision    recall  f1-score   support
 
-           0       0.44      0.42      0.43       120
-           1       0.49      0.51      0.50       130
+           0       0.45      1.00      0.62       112
+           1       0.00      0.00      0.00       138
 
-    accuracy                           0.47       250
-   macro avg       0.47      0.47      0.47       250
-weighted avg       0.47      0.47      0.47       250
+    accuracy                           0.45       250
+   macro avg       0.22      0.50      0.31       250
+weighted avg       0.20      0.45      0.28       250
 
 Confusion Matrix:
- [[51 69]
- [64 66]]
+ [[112   0]
+ [138   0]]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+/home/venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+/home/venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
 </pre></div>
 </div>
 </div>
@@ -627,7 +636,7 @@ Confusion Matrix:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e7c708f60e8c450b4458d4531dda793c9beb095cad1d5983f9ad39ab14c14913.png" src="../_images/e7c708f60e8c450b4458d4531dda793c9beb095cad1d5983f9ad39ab14c14913.png" />
+<img alt="../_images/bee086a89f486b637947ff4c50dc9f34027a1991513088e962f7ddd30eb3488e.png" src="../_images/bee086a89f486b637947ff4c50dc9f34027a1991513088e962f7ddd30eb3488e.png" />
 </div>
 </div>
 </section>
@@ -679,16 +688,16 @@ Confusion Matrix:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report:
                precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00       120
-           1       1.00      1.00      1.00       130
+           0       1.00      1.00      1.00       112
+           1       1.00      1.00      1.00       138
 
     accuracy                           1.00       250
    macro avg       1.00      1.00      1.00       250
 weighted avg       1.00      1.00      1.00       250
 
 Confusion Matrix:
- [[120   0]
- [  0 130]]
+ [[112   0]
+ [  0 138]]
 </pre></div>
 </div>
 </div>
