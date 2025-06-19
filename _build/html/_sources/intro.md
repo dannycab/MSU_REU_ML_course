@@ -24,9 +24,9 @@ By the end of this short course, you should be able to:
 
 The course will be conducted over the next four weeks. We will meet in 1300 BPS from 10am-12pm EDT. The course will make use of Jupyter notebooks, so you will need to make sure that you have installed the [Anaconda distribution of Python with Jupyter](https://www.anaconda.com/products/individual) or something equivalent. The course is broken down into 6 topics:
 
-1. May 30th - Getting Started with `pandas` and `matplotlib`; software installation, reading data, plotting data, etc.
-2. June 6th - The `scikit-learn` workflow (KNN classification); confusion matrices, ROC curves, etc. [Slides](./slides/day-02-classification.pdf)
-3. June 13th - The `scikit-learn` workflow (linear regression); quality of fit, residuals, etc.
+1. May 30th - [Getting Started with `pandas` and `matplotlib`](./activities/01-exploring-data-with-pandas-student.ipynb); software installation, reading data, plotting data, etc.
+2. June 6th - The [`scikit-learn` workflow (KNN classification)](./activities/02-classification-models-with-scikit-learn-student.ipynb); confusion matrices, ROC curves, etc. [Slides](./slides/day-02-classification.pdf)
+3. June 13th - The [`scikit-learn` workflow (linear regression)](./activities/03-regression-models-with-scikit-student.ipynb); quality of fit, residuals, etc.
 4. June 20th - More `scikit-learn` models (decision trees, random forests, etc.)
 
 The first class is intended to make sure you have what you need to get started with the course. If you are comfortable with Python and Jupyter notebooks, you can skip the first class (e.g., if you are an MSU student and have already taken CMSE 201). Of course, you are welcome to attend the first class if you would like a refresher on the basics of Python and Jupyter notebooks, or just to hang out.

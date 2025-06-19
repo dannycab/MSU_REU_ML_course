@@ -1,0 +1,925 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Day 04: Modeling Project &#8212; 2025 MSU REU Machine Learning Short Course</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'activities/04-modeling-project-student';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Day 01: Exploring data with pandas - solution" href="01-exploring-data-with-pandas.html" />
+    <link rel="prev" title="Day 03: Performing Regression with scikit-learn" href="03-regression-models-with-scikit-student.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="2025 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="2025 MSU REU Machine Learning Short Course - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    2025 MSU Physics and Astronomy Short Course on Machine Learning
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../course_info/getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_info/setting-up-an-environment.html"><strong>Setting Up Your Python Environment</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_info/schedule.html">Detailed Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_info/using-this-book.html">Using this book</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activities</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-exploring-data-with-pandas-student.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-classification-models-with-scikit-learn-student.html">Day 02: Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-regression-models-with-scikit-student.html">Day 03: Performing Regression with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Day 04: Modeling Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-exploring-data-with-pandas.html">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-classification-models-with-scikit-learn.html">Day 02: Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-regression-models-with-scikit.html">Day 03: Performing Regression with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> - solution</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/01_logit.html">Machine Learning</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/02_knn.html">The Confusion Matrix</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../notes/05_pca.html">Principal Component Analysis (PCA)</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/python_review.html">Python Basics Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html/main?urlpath=lab/tree/activities/04-modeling-project-student.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.egr.msu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/dannycab/MSU_REU_ML_course/docs/_build/html/index.html&urlpath=lab/tree/index.html/activities/04-modeling-project-student.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/html/index.html/blob/main/activities/04-modeling-project-student.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/activities/04-modeling-project-student.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Day 04: Modeling Project</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-instructions">Notebook Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-model-of-the-entire-data-set">1. Making a model of the entire data set</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">✅ Tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-the-data">Reading in the data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-the-model-with-feature-removal-selection">2. Improving the model with feature removal/selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ Tasks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-model-with-cross-validation">3. Evaluating the model with cross-validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ Tasks</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="day-04-modeling-project">
+<h1>Day 04: Modeling Project<a class="headerlink" href="#day-04-modeling-project" title="Link to this heading">#</a></h1>
+<p>Now that you have had some practice with the basics of machine learning, it’s time to apply your skills to a more complex problem. In this project, you will build a model to predict atomic energies using a dataset of atomic structures. Below an example of the prediction that we will be working on:</p>
+<p><img alt="Example Prediction" src="activities/figures/atomic_energy_predictions.png" /></p>
+<p>The dataset contains the ground state energy of molecules developed from simulations. This is a common computational chemistry task, and the dataset cab be placed in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder of this repository. The goal is to predict the energy of a molecule based on its atomic structure.</p>
+<p>The data source is from Kaggle: <a class="reference external" href="https://www.kaggle.com/datasets/burakhmmtgl/energy-molecule">https://www.kaggle.com/datasets/burakhmmtgl/energy-molecule</a>. It’s too big to include in this repository, but you can download it from Kaggle and place it in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder. You can look into <code class="docutils literal notranslate"><span class="pre">opendatasets</span></code> for a Python package that can help you download datasets from Kaggle directly into your Jupyter notebook environment (<a class="reference external" href="https://pypi.org/project/opendatasets/">https://pypi.org/project/opendatasets/</a>)</p>
+<p>The molecules has 1275 features that are the Coloumb matrix of the molecule. The target variable is the energy of the molecule, which is a continuous value and appears in the last column of the dataset.</p>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
+<p>Today, you will apply the skills you have learned in the previous days to build a regression model of a new dataset. After this activity, you will be able to:</p>
+<ul class="simple">
+<li><p>Load and preprocess a dataset for regression tasks.</p></li>
+<li><p>Select and train a regression model.</p></li>
+<li><p>Evaluate the performance of a regression model using appropriate metrics.</p></li>
+<li><p>Make changes to the model based on evaluation results.</p></li>
+<li><p>Perform cross-validation to ensure the model’s robustness.</p></li>
+</ul>
+</section>
+<section id="notebook-instructions">
+<h2>Notebook Instructions<a class="headerlink" href="#notebook-instructions" title="Link to this heading">#</a></h2>
+<p>There is very little code in this notebook. We only read in the data and do some basic preprocessing. The rest of the notebook is for you to complete. You have many sources of information to help you complete the tasks, including:</p>
+<ul class="simple">
+<li><p>The previous notebooks from this class.</p></li>
+<li><p>The documentation for the libraries you are using (e.g., scikit-learn, pandas, matplotlib).</p></li>
+<li><p>Online resources such as Stack Overflow and the scikit-learn documentation.</p></li>
+<li><p>Additional support notebooks in the <code class="docutils literal notranslate"><span class="pre">notes</span></code> and <code class="docutils literal notranslate"><span class="pre">resources</span></code> folders of this repository.</p></li>
+</ul>
+</section>
+<section id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#make_model"><span class="xref myst">Making a model of the entire dataset</span></a></p></li>
+<li><p><a class="reference internal" href="#improve_model"><span class="xref myst">Improving the model with feature removal/selection</span></a></p></li>
+<li><p><a class="reference internal" href="#cross_validation"><span class="xref myst">Evaluating the model with cross-validation</span></a></p></li>
+</ol>
+<p>We start with importing the necessary libraries and loading the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># necessary imports for this notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span> <span class="c1"># setting style</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span> <span class="c1"># setting context</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)</span> <span class="c1"># setting palette</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a name="make_model"></a></p>
+</section>
+<section id="making-a-model-of-the-entire-data-set">
+<h2>1. Making a model of the entire data set<a class="headerlink" href="#making-a-model-of-the-entire-data-set" title="Link to this heading">#</a></h2>
+<section id="tasks">
+<h3>✅ Tasks<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Data Preprocessing</strong>: Load the dataset and perform necessary preprocessing steps such as handling missing values, normalizing the data, and splitting it into training and testing sets.</p></li>
+<li><p><strong>Model Selection</strong>: Choose a suitable machine learning model for regression tasks. Start with Linear Regression and then explore more complex models like Random Forest later.</p></li>
+<li><p><strong>Model Training</strong>: Train the model on the training set and evaluate its performance on the entire testing set with all features.</p></li>
+<li><p><strong>Model Evaluation</strong>: Use appropriate metrics to evaluate the model’s performance, such as Mean Absolute Error (MAE), Mean Squared Error (MSE), and R-squared.</p>
+<ul class="simple">
+<li><p>Plot the residuals.</p></li>
+<li><p>Plot the predicted vs actual values to visualize the model’s performance.</p></li>
+</ul>
+</li>
+</ol>
+<ul class="simple">
+<li><p><em>What do you notice? How well does the model perform?</em></p></li>
+<li><p><em>Are there any patterns in the residuals?</em></p></li>
+<li><p><em>What do the predicted vs actual values look like?</em></p></li>
+</ul>
+<p><strong>Note: your regression model should be terribly bad. And we will ask why it is so bad once you get the initial results.</strong></p>
+</section>
+<section id="reading-in-the-data">
+<h3>Reading in the data<a class="headerlink" href="#reading-in-the-data" title="Link to this heading">#</a></h3>
+<p>Below, we provide a code snippet to read in and organize the data. You can use this as a starting point for your analysis. Make sure to install the necessary libraries if you haven’t already.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_bohr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/roboBohr.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># remove pubchem_id column</span>
+<span class="n">df_bohr</span> <span class="o">=</span> <span class="n">df_bohr</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pubchem_id&#39;</span><span class="p">])</span>
+
+<span class="c1"># rename the Eat column to atomization_energy</span>
+<span class="n">df_bohr</span> <span class="o">=</span> <span class="n">df_bohr</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Eat&#39;</span><span class="p">:</span> <span class="s1">&#39;atomization_energy&#39;</span><span class="p">})</span>
+
+<span class="n">df_bohr</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>1266</th>
+      <th>1267</th>
+      <th>1268</th>
+      <th>1269</th>
+      <th>1270</th>
+      <th>1271</th>
+      <th>1272</th>
+      <th>1273</th>
+      <th>1274</th>
+      <th>atomization_energy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>73.516695</td>
+      <td>17.817765</td>
+      <td>12.469551</td>
+      <td>12.458130</td>
+      <td>12.454607</td>
+      <td>12.447345</td>
+      <td>12.433065</td>
+      <td>12.426926</td>
+      <td>12.387474</td>
+      <td>12.365984</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-19.013763</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>73.516695</td>
+      <td>20.649126</td>
+      <td>18.527789</td>
+      <td>17.891535</td>
+      <td>17.887995</td>
+      <td>17.871731</td>
+      <td>17.852586</td>
+      <td>17.729842</td>
+      <td>15.864270</td>
+      <td>15.227643</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-10.161019</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>73.516695</td>
+      <td>17.830377</td>
+      <td>12.512263</td>
+      <td>12.404775</td>
+      <td>12.394493</td>
+      <td>12.391564</td>
+      <td>12.324461</td>
+      <td>12.238106</td>
+      <td>10.423249</td>
+      <td>8.698826</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-9.376619</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>73.516695</td>
+      <td>17.875810</td>
+      <td>17.871259</td>
+      <td>17.862402</td>
+      <td>17.850920</td>
+      <td>17.850440</td>
+      <td>12.558105</td>
+      <td>12.557645</td>
+      <td>12.517583</td>
+      <td>12.444141</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-13.776438</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>73.516695</td>
+      <td>17.883818</td>
+      <td>17.868256</td>
+      <td>17.864221</td>
+      <td>17.818540</td>
+      <td>12.508657</td>
+      <td>12.490519</td>
+      <td>12.450098</td>
+      <td>10.597068</td>
+      <td>10.595914</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-8.537140</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 1276 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a name="improve_model"></a></p>
+</section>
+</section>
+<section id="improving-the-model-with-feature-removal-selection">
+<h2>2. Improving the model with feature removal/selection<a class="headerlink" href="#improving-the-model-with-feature-removal-selection" title="Link to this heading">#</a></h2>
+<p>You likely noticed that the model is not performing well. This is expected, as the dataset is complex and has some real bad features. In this section, you will improve the model by removing some of the features that seem to be problematic. As a hint, look into the features with many zeros in the dataset.</p>
+<section id="id1">
+<h3>✅ Tasks<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Identify and remove features that are not useful for the model. A suggestion is to plot the number of zeroes in each feature as a histogram and remove the features with a high number of zeroes.</p></li>
+<li><p>Re-train the model with the reduced feature set and evaluate its performance again.</p></li>
+</ol>
+<p><strong>In doing this, use exploratory data analysis (EDA) techniques (e.g., plotting) to understand the data better.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a name="cross_validation"></a></p>
+</section>
+</section>
+<section id="evaluating-the-model-with-cross-validation">
+<h2>3. Evaluating the model with cross-validation<a class="headerlink" href="#evaluating-the-model-with-cross-validation" title="Link to this heading">#</a></h2>
+<p>Once you have a working model, try to use Cross Validation to evaluate the model’s performance. This will help you understand how well your model generalizes to unseen data. Cross Validation is a technique that splits the dataset into multiple subsets, trains the model on some of them, and tests it on the remaining ones. This process is repeated several times to ensure that the model’s performance is consistent across different subsets of the data.</p>
+<section id="id2">
+<h3>✅ Tasks<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Read the following documentation on using Cross Validation with Scikit-learn: <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html">https://scikit-learn.org/stable/modules/cross_validation.html</a>.</p></li>
+<li><p>Implement Cross Validation in your model training process. Use <code class="docutils literal notranslate"><span class="pre">cross_val_score</span></code> or <code class="docutils literal notranslate"><span class="pre">cross_validate</span></code> from scikit-learn to evaluate the model’s performance.</p></li>
+<li><p>Try different sampling strategies, such as K-Fold or Stratified K-Fold, to see how they affect the model’s performance.</p></li>
+</ol>
+<p>Try to answer the following questions:</p>
+<ul class="simple">
+<li><p><em>How consistent is the model’s performance across different folds?</em></p></li>
+<li><p><em>Does it improve the model’s robustness?</em></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./activities"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03-regression-models-with-scikit-student.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Day 03: Performing Regression with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="01-exploring-data-with-pandas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Day 01: Exploring data with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-instructions">Notebook Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-model-of-the-entire-data-set">1. Making a model of the entire data set</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">✅ Tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-the-data">Reading in the data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improving-the-model-with-feature-removal-selection">2. Improving the model with feature removal/selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">✅ Tasks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-model-with-cross-validation">3. Evaluating the model with cross-validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ Tasks</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-2025, Michigan State University.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -12,6 +12,7 @@ parts:
   - file: activities/01-exploring-data-with-pandas-student.ipynb
   - file: activities/02-classification-models-with-scikit-learn-student.ipynb
   - file: activities/03-regression-models-with-scikit-student.ipynb
+  - file: activities/04-modeling-project-student.ipynb
 - caption: Solutions
   chapters:
   - file: activities/01-exploring-data-with-pandas.ipynb
