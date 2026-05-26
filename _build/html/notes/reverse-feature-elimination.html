@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Reverse Feature Elimination &#8212; 2025 MSU REU Machine Learning Short Course</title>
+    <title>Reverse Feature Elimination &#8212; 2026 MSU REU Machine Learning Short Course</title>
   
   
   
@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/reverse-feature-elimination';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Principal Component Analysis (PCA)" href="05_pca.html" />
     <link rel="prev" title="Cross-Validation of your models" href="cross-validation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -152,8 +153,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="2025 MSU REU Machine Learning Short Course - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="2025 MSU REU Machine Learning Short Course - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="2026 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="2026 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
@@ -174,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    2025 MSU Physics and Astronomy Short Course on Machine Learning
+                    2026 MSU Physics and Astronomy Short Course on Machine Learning
                 </a>
             </li>
         </ul>
@@ -184,6 +185,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../course_info/setting-up-an-environment.html"><strong>Setting Up Your Python Environment</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../course_info/schedule.html">Detailed Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../course_info/using-this-book.html">Using this book</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_review.html">Python Basics Review</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -198,33 +203,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../activities/02-classification-models-with-scikit-learn.html">Day 02: Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/03-regression-models-with-scikit.html">Day 03: Performing Regression with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> - solution</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes: Day 2 — Classification</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_logit.html">Machine Learning</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="02_knn.html">The Confusion Matrix</a></li>
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Methods and Model Validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_svm.html">Support Vector Machines</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="svm.html">Support Vector Machines</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes: Day 3 — Regression &amp; Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes: Day 4 — Model Improvement</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reverse Feature Elimination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_pca.html">Principal Component Analysis (PCA)</a></li>
 
 
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="python_review.html">Python Basics Review</a></li>
-<li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_with_scikit.html">Regression using sci-kit learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cross-validation.html">Cross-Validation of your models</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reverse Feature Elimination</a></li>
 </ul>
 
     </div>
@@ -522,6 +516,124 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: divide by zero encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: overflow encountered in matmul
+  return X @ coef_ + self.intercept_
+/Users/caballero/repos/teaching/MSU_REU_ML_course/.venv/lib/python3.13/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul
+  return X @ coef_ + self.intercept_
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="looking-at-the-models">
@@ -550,8 +662,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0a80500ae55c43a3dd8046e0f0496fd928520f289da8e9f1f6ce040d9225327e.png" src="../_images/0a80500ae55c43a3dd8046e0f0496fd928520f289da8e9f1f6ce040d9225327e.png" />
-<img alt="../_images/91b728a9525b12410408239bb600a434fdeda278fbbc68ea84dda11acfe427c1.png" src="../_images/91b728a9525b12410408239bb600a434fdeda278fbbc68ea84dda11acfe427c1.png" />
+<img alt="../_images/e65b808658e4273ff989c6aaf6a543ad56b81ca6137c178ea942af58469bd638.png" src="../_images/e65b808658e4273ff989c6aaf6a543ad56b81ca6137c178ea942af58469bd638.png" />
+<img alt="../_images/81e2300760e0aa8500af319b710598ce7e8b688e16f6d4e00f1925be7c064ecb.png" src="../_images/81e2300760e0aa8500af319b710598ce7e8b688e16f6d4e00f1925be7c064ecb.png" />
 </div>
 </div>
 </section>
@@ -604,6 +716,15 @@ document.write(`
         <p class="prev-next-title">Cross-Validation of your models</p>
       </div>
     </a>
+    <a class="right-next"
+       href="05_pca.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Principal Component Analysis (PCA)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -647,7 +768,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
 
   <p class="copyright">
     
-      © Copyright 2021-2025, Michigan State University.
+      © Copyright 2021-2026, Michigan State University.
       <br/>
     
   </p>

@@ -4,75 +4,93 @@
 
 ### Today, we will:
 
-* Download/Install [Anaconda](https://www.anaconda.com/products/individual) (if needed)
 * Start up and navigate `jupyter lab`
 * Read, slice, and filter data with `pandas`
 * Explore data with `pandas`, `matplotlib`, and `seaborn`
 
 ### Materials
 
-* [Getting Started](./getting-started.md)
 * [Day 01: Exploring data with `pandas`](../activities/01-exploring-data-with-pandas-student.ipynb)
-* [Day 01: Exploring data with `pandas` - solution](../activities/01-exploring-data-with-pandas.ipynb)
+* [Day 01: Solution](../activities/01-exploring-data-with-pandas.ipynb)
+
+### Before you start
+
+* [Python Review](../notes/python_review.ipynb) — work through this if you need a refresher on Python basics, NumPy, and matplotlib
 
 ### Resources
 
 * [Getting started with `pandas`](https://pandas.pydata.org/docs/getting_started/intro_tutorials/)
 * [`pandas` documentation](https://pandas.pydata.org/docs/user_guide/index.html#user-guide)
-* [Getting started with `matplotlib`](https://towardsdatascience.com/matplotlib-tutorial-learn-basics-of-pythons-powerful-plotting-library-b5d1b8f67596)
+* [Getting started with `matplotlib`](https://matplotlib.org/stable/tutorials/index.html)
 * [Getting started with `seaborn`](https://seaborn.pydata.org/tutorial.html)
 
 
-<!-- ## Day 2 - Building a Regression Model
+## Day 02: Using KNN to classify objects with `scikit-learn` and `pandas`
 
 ### Today, we will:
 
-* Read in data
-* Explore and clean data
-* Discuss and plan a regression problem
-* Use `scikit-learn` to build a regression model
-* Evaluate the fit of the model
+* Read in and clean data
+* Discuss and plan a classification problem
+* Use `scikit-learn` to build a KNN classification model
+* Evaluate the model with confusion matrices and classification reports
+
+### Materials
+
+* [Day 02: Classification with `scikit-learn`](../activities/02-classification-models-with-scikit-learn-student.ipynb)
+* [Day 02: Solution](../activities/02-classification-models-with-scikit-learn.ipynb)
+
+### Supporting Notes
+
+* [Methods and Model Validation](../notes/methods_and_validation.ipynb) — when do different classifiers work or fail?
+* [Support Vector Machines](../notes/svm.ipynb) — linear vs. RBF kernels; an alternative classifier to KNN
 
 ### Resources
 
-* [Linear Regression reminder video](https://www.youtube.com/watch?v=nk2CQITm_eo)
-* [Getting started with `scikit-learn` regression](https://www.educative.io/blog/scikit-learn-tutorial-linear-regression) _(You probably don't need to install anything with `pip`.)_
-* [More about `scikit-learn`](https://scikit-learn.org/stable/getting_started.html)
+* [Getting started with `scikit-learn`](https://scikit-learn.org/stable/getting_started.html)
+* [Classification with `scikit-learn`](https://scikit-learn.org/stable/supervised_learning.html#supervised-learning)
+* [Evaluating classification models with `scikit-learn`](https://scikit-learn.org/stable/modules/model_evaluation.html#classification-metrics)
 
-### Materials
 
-* [Day 2 notebook - Polynomial Regression](./notebooks/day-2/Day-2_Polynomial_Regression.ipynb)
-* [Day 2 notebook - Multiple Regression](./notebooks/day-2/Day-2_Multiple_Regression.ipynb)
-
-## Day 3 - Building a Classification Model
+## Day 03: Performing Regression with `scikit-learn`
 
 ### Today, we will:
 
-* Read in data
-* Explore, clean, and transform data
-* Discuss and plan a classification problem
-* Use `scikit-learn` to build a classification model
-* Evaluate the fit of the model
+* Read in and clean data
+* Discuss and plan a regression problem
+* Use `scikit-learn` to build a regression model
+* Evaluate with MSE, R², residual plots, and predicted vs. actual plots
 
 ### Materials
 
-* [Day 3 notebook - Getting Started](./notebooks/day-3/day-3_Getting_Started_with_Classification_Models.ipynb)
-* [Day 3 notebook - KNN](./notebooks/day-3/day-3_KNN_classification.ipynb)
+* [Day 03: Regression with `scikit-learn`](../activities/03-regression-models-with-scikit-student.ipynb)
+* [Day 03: Solution](../activities/03-regression-models-with-scikit.ipynb)
 
-## Day 4 - Using A Multiplicity of Models
+### Supporting Notes
+
+* [The Importance of Visualization](../notes/importance_of_visualization.ipynb) — why residual plots and predicted vs. actual plots matter
+
+### Resources
+
+* [Getting started with `scikit-learn`](https://scikit-learn.org/stable/getting_started.html)
+* [Regression with `scikit-learn`](https://scikit-learn.org/stable/supervised_learning.html#supervised-learning)
+* [Evaluating regression models with `scikit-learn`](https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics)
+
+
+## Day 04: Modeling Project
 
 ### Today, we will:
 
-* Construct data sets
-* Tune parameters to achieve different fits
-* Gain confidence in models through cross validation/Monte Carlo validation
-* Discuss other models that fit into the `scikit-learn` framework
+* Read in a new dataset
+* Explore, clean, and preprocess data
+* Build and evaluate a model
+* Improve the model through feature selection and cross-validation
 
 ### Materials
 
-* [Day 4 notebook - What is Tuning and Validation?](./notebooks/day-4/Day_4-What_is_Tuning_and_Validation.ipynb)
-* [Day 4 notebook - A Multiplicity of Models](./notebooks/day-4/Day_4-Multiplicity_of_Models.ipynb)
+* [Day 04: Modeling Project](../activities/04-modeling-project-student.ipynb)
 
-## Day 5 - Advanced topics 1
+### Supporting Notes
 
-## Day 6 - Advanced topics 2 -->
+* [Cross-Validation](../notes/cross-validation.ipynb) — how to estimate model performance with uncertainty
+* [Recursive Feature Elimination](../notes/reverse-feature-elimination.ipynb) — how to systematically find the best features
+* [Principal Component Analysis](../notes/05_pca.ipynb) — how to reduce dimensionality while preserving information

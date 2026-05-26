@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Principal Component Analysis (PCA) &#8212; 2025 MSU REU Machine Learning Short Course</title>
+    <title>Principal Component Analysis (PCA) &#8212; 2026 MSU REU Machine Learning Short Course</title>
   
   
   
@@ -60,8 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/05_pca';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python Basics Review" href="python_review.html" />
-    <link rel="prev" title="Support Vector Machines (Radial Kernel)" href="04_svm_rbf.html" />
+    <link rel="prev" title="Reverse Feature Elimination" href="reverse-feature-elimination.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -153,8 +152,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="2025 MSU REU Machine Learning Short Course - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="2025 MSU REU Machine Learning Short Course - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="2026 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="2026 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
@@ -175,7 +174,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    2025 MSU Physics and Astronomy Short Course on Machine Learning
+                    2026 MSU Physics and Astronomy Short Course on Machine Learning
                 </a>
             </li>
         </ul>
@@ -185,6 +184,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../course_info/setting-up-an-environment.html"><strong>Setting Up Your Python Environment</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../course_info/schedule.html">Detailed Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../course_info/using-this-book.html">Using this book</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_review.html">Python Basics Review</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -199,33 +202,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../activities/02-classification-models-with-scikit-learn.html">Day 02: Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../activities/03-regression-models-with-scikit.html">Day 03: Performing Regression with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> - solution</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01_logit.html">Machine Learning</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="02_knn.html">The Confusion Matrix</a></li>
-
-
-
-
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes: Day 2 — Classification</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="methods_and_validation.html">Methods and Model Validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_svm.html">Support Vector Machines</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="svm.html">Support Vector Machines</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes: Day 3 — Regression &amp; Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes: Day 4 — Model Improvement</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Principal Component Analysis (PCA)</a></li>
 
 
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="python_review.html">Python Basics Review</a></li>
-<li class="toctree-l1"><a class="reference internal" href="importance_of_visualization.html">The Importance of Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regression_with_scikit.html">Regression using sci-kit learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cross-validation.html">Cross-Validation of your models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 </ul>
 
     </div>
@@ -511,7 +503,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(4.0), np.float64(8.0), np.float64(2.0), np.float64(4.5))
 </pre></div>
 </div>
-<img alt="../_images/0ff63a2801314c2c6c3dbcea0e89ed5038dae9dd4707ac0af7b2f78046169740.png" src="../_images/0ff63a2801314c2c6c3dbcea0e89ed5038dae9dd4707ac0af7b2f78046169740.png" />
+<img alt="../_images/a2cabccb1889ee4ed5c905c1e6bcd7cbc1d1d26299b223897f3c09db43669aea.png" src="../_images/a2cabccb1889ee4ed5c905c1e6bcd7cbc1d1d26299b223897f3c09db43669aea.png" />
 </div>
 </div>
 </section>
@@ -596,7 +588,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-4.0), np.float64(4.0), np.float64(-1.5), np.float64(1.5))
 </pre></div>
 </div>
-<img alt="../_images/d97482e3e9f953a61766eb886ff7ad68f897b47819e38601ddab95fc8b9aca97.png" src="../_images/d97482e3e9f953a61766eb886ff7ad68f897b47819e38601ddab95fc8b9aca97.png" />
+<img alt="../_images/fdb7dda1cc02cf426b26ef3262c3e50b75d517579c10951a7f2c388400c379e5.png" src="../_images/fdb7dda1cc02cf426b26ef3262c3e50b75d517579c10951a7f2c388400c379e5.png" />
 </div>
 </div>
 </section>
@@ -690,22 +682,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="04_svm_rbf.html"
+       href="reverse-feature-elimination.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Support Vector Machines (Radial Kernel)</p>
+        <p class="prev-next-title">Reverse Feature Elimination</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="python_review.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python Basics Review</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -760,7 +743,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
 
   <p class="copyright">
     
-      © Copyright 2021-2025, Michigan State University.
+      © Copyright 2021-2026, Michigan State University.
       <br/>
     
   </p>

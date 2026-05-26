@@ -1,8 +1,8 @@
-title: 2025 MSU REU Machine Learning Short Course
+title: 2026 MSU REU Machine Learning Short Course
 author: Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
 logo: ./course_info/images/logo.png
 
-copyright: "2021-2025, Michigan State University"
+copyright: "2021-2026, Michigan State University"
 
 format: jb-book
 root: intro.md
@@ -24,7 +24,7 @@ html:
   use_issues_button: true
 
 execute:
-  execute_notebooks         : auto  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
+  execute_notebooks         : cache  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
   cache                     : ""    # A path to the jupyter cache that will be used to store execution artifacs. Defaults to `_build/.jupyter_cache/`
   exclude_patterns          : []    # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
   timeout                   : 30    # The maximum time (in seconds) each notebook cell is allowed to run.
@@ -32,6 +32,7 @@ execute:
                                     # otherwise the notebook's parent directory will be the cwd.
   allow_errors              : false # If `False`, when a code cell raises an error the execution is stopped, otherwise all cells are always run.
   stderr_output             : show  # One of 'show', 'remove', 'remove-warn', 'warn', 'error', 'severe'
+  kernel_name               : python3  # Use the Python from the current venv
 
 
 # Parse and render settings
