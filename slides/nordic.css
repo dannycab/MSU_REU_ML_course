@@ -1,0 +1,195 @@
+/* @theme nordic */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400&display=swap');
+
+:root {
+  --bg:       #F7F7F5;
+  --text:     #1C1C1C;
+  --accent:   #3D6B8E;
+  --accent2:  #5E9E7E;   /* sage green — second pop */
+  --warm:     #C46E3A;   /* warm amber — emphasis */
+  --muted:    #767676;
+  --code:     #E8E8E5;
+  --rule:     #D0D0CC;
+}
+
+section {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 1.35rem;
+  line-height: 1.7;
+  background: var(--bg);
+  color: var(--text);
+  padding: 52px 72px;
+}
+
+h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 0.2em;
+  margin-bottom: 0.55em;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--accent);
+  margin-bottom: 0.4em;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+ul, ol {
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* accent pop on bold text */
+strong {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* warm emphasis for second-level highlights */
+em {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--warm);
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  background: var(--code);
+  color: var(--accent);
+  padding: 0.12em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--code);
+  padding: 1em 1.3em;
+  border-radius: 5px;
+  border-left: 4px solid var(--accent);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.82em;
+  color: var(--text);
+}
+
+img {
+  display: block;
+  margin: 0.4em auto 0;
+}
+
+/* resource / note callout */
+blockquote {
+  border-left: 4px solid var(--accent2);
+  margin: 0.8em 0 0;
+  padding: 0.35em 1em;
+  background: #EEF5F1;
+  color: #2A4A3A;
+  font-size: 0.95rem;
+  border-radius: 0 4px 4px 0;
+}
+
+blockquote strong {
+  color: var(--accent2);
+}
+
+/* tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+th {
+  background: var(--accent);
+  color: #F7F7F5;
+  padding: 0.4em 0.8em;
+  font-weight: 400;
+  text-align: left;
+}
+
+td {
+  padding: 0.35em 0.8em;
+  border-bottom: 1px solid var(--rule);
+}
+
+tr:nth-child(even) td {
+  background: #EFEFEC;
+}
+
+/* page number */
+section::after {
+  font-size: 0.72rem;
+  color: var(--muted);
+  content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+}
+
+/* ── title slide ── */
+section.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px 80px;
+  background: var(--bg);
+}
+
+section.title h1 {
+  font-size: 2.8rem;
+  border-bottom: 4px solid var(--accent);
+  margin-bottom: 0.2em;
+}
+
+section.title h2 {
+  font-size: 1.35rem;
+  color: var(--accent2);
+  font-weight: 300;
+  margin-bottom: 0.2em;
+}
+
+section.title p {
+  color: var(--muted);
+  font-weight: 300;
+  font-size: 1rem;
+  margin-top: 0.4em;
+}
+
+/* ── image-focused slide ── */
+section.img-full {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 52px;
+}
+
+section.img-full h1 {
+  margin-bottom: 0.2em;
+  font-size: 1.7rem;
+}
+
+/* ── two-column ── */
+section.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 2.5rem;
+}
+
+section.two-col h1 {
+  grid-column: 1 / -1;
+}

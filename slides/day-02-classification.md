@@ -1,94 +1,105 @@
 ---
 marp: true
-theme: king
+theme: nordic
 paginate: true
 
-title: Day 02 - Classification
-description: Slides for ML Short Course Summer 2025, Day 02: Classification
-author: Prof. Danny Caballero <caball14@msu.edu>
-keywords: classification, machine learning, physics, MSU
-url: https://dannycaballero.info/MSU_REU_ML_course/slides/day-02-classification.html
+title: Day 02 — Classification
+description: MSU REU ML Short Course, Day 02
+author: Danny Caballero
+---
+
+<!-- _class: title -->
+
+# Day 02
+## Classification with KNN and `scikit-learn`
+
+MSU REU Machine Learning Short Course
 
 ---
 
-# Day 02 - Classification
+# The Task
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/KNN_decision_surface_animation.gif" alt="KNN Decision Surface Animation" width="80%">
+Given photometric measurements of an object, predict whether it is a **STAR**, **GALAXY**, or **QSO**.
 
----
+- Yesterday: we *explored* the data
+- Today: we *model* it
 
-# SDSS Data Set
-
-<img src="../activities/figures/stellar_color_diagrams.png" alt="Stellar Color Diagrams" width="60%">
-
----
-
-# SDSS Data Set
-
-<img src="../activities/figures/stellar_histograms.png" alt="Stellar Histograms" width="70%">
+The model learns a **decision boundary** — a rule in feature space that separates classes.
 
 ---
 
-# SDSS Data Set
+# The ML Pipeline
 
-<img src="../activities/figures/stellar_redshift_distribution.png" alt="Stellar Redshift Distribution" width="70%">
+Every model you build this week follows this same structure.
 
----
+![width:900px](./figures/ml-pipeline.svg)
 
-# Classification Task
-
-- Using the SDSS data set, we will classify objects as stars or quasars.
-    - At first, we will only use the color information (u-g, g-r, r-i) to classify objects.
-    - Later, we will add the redshift information (z) to improve our classification.
-- Then, we will perform a 3-class classification to distinguish between stars, quasars, and galaxies; here we will use all available features including redshift.
+Learn it once. It applies to classification *and* regression.
 
 ---
 
-<img src="./figures/ml.png" alt="Machine Learning" width="100%">
+# Train / Test Split and Scaling
+
+**Why split?** You can't evaluate yourself on the data you learned from.
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test  = scaler.transform(X_test)      # same scale as train
+```
+
+**Why scale?** KNN uses distance. A feature with range 0–1000 dominates one with range 0–1.
 
 ---
 
-# Sci-Kit-Learn Classification
+<!-- _class: img-full -->
 
-<img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" alt="Sci-Kit-Learn Logo" width="30%">
+# KNN — You are your neighbors
 
-- Sci-Kit-Learn is a powerful Python library for machine learning.
-- It provides a wide range of classification algorithms, including:
-    - k-Nearest Neighbors (kNN) & Logistic Regression
-    - Decision Trees & Random Forests
-    - Support Vector Machines (SVM)
-- It also includes tools for model evaluation, such as cross-validation and confusion matrices.
+To classify a new point, find the *k* closest training points and take a majority vote.
 
-<https://scikit-learn.org/stable/index.html>
+![width:700px](./figures/knn_classification_results_n3.png)
 
 ---
 
-<img src="./figures/scikit.png" alt="Scikit-learn" width="75%">
+# Evaluation — The Confusion Matrix
+
+Accuracy alone hides the interesting failures.
+
+![width:680px](./figures/confusion-matrix.svg)
+
+**Precision** — when I say YES, how often am I right?
+**Recall** — of all real YESes, how many did I find?
+**F1** — harmonic mean of the two
 
 ---
 
-# K-Nearest Neighbors (kNN)
+<!-- _class: img-full -->
 
-- kNN is a simple and intuitive classification algorithm.
-- It classifies a data point based on the majority class of its k nearest neighbors in the feature space.
-- The distance metric (e.g., Euclidean distance) is used to determine the nearest neighbors.
-- kNN is a non-parametric method, meaning it makes no assumptions about the underlying data distribution.
-- It is sensitive to the choice of k and the distance metric.
+# Redshift changes everything
 
----
+Without redshift: STAR vs QSO is hard. With it: near perfect.
 
-# K-Nearest Neighbors (kNN)
+![width:800px](./figures/knn_classification_results_w_redshift_n3.png)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/KNN_decision_surface_animation.gif" alt="KNN Decision Surface Animation" width="80%">
+> Ask yourself: *why* does redshift help so much?
 
 ---
 
 # Today's Activity
 
-- We will implement a kNN classifier using Sci-Kit-Learn to classify stars and quasars from the SDSS data set.
-- We will:
-    1. Load the SDSS data set and preprocess it.
-    2. Split the data into training and testing sets.
-    3. Train a kNN classifier on the training set.
-    4. Evaluate the classifier's performance on the testing set.
-- We will focus on the evaluation metrics and visualizations to understand the classifier's performance.
+Work through **Activity 02: Classification with scikit-learn**
+
+1. Build a 2-class KNN (STAR vs QSO) without redshift
+2. Tune *k* and observe the effect on performance
+3. Add redshift — compare the confusion matrices
+4. Extend to 3-class (STAR, GALAXY, QSO)
+
+> **Notes:** [Methods & Validation](../notes/methods_and_validation.ipynb) · [Support Vector Machines](../notes/svm.ipynb)
