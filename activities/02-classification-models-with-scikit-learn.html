@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Day 02: Using KNN to classify objects with sklearn and pandas - solution &#8212; 2025 MSU REU Machine Learning Short Course</title>
+    <title>Day 02: Using KNN to classify objects with sklearn and pandas - solution &#8212; 2026 MSU REU Machine Learning Short Course</title>
   
   
   
@@ -153,8 +153,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="2025 MSU REU Machine Learning Short Course - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="2025 MSU REU Machine Learning Short Course - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="2026 MSU REU Machine Learning Short Course - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="2026 MSU REU Machine Learning Short Course - Home"/>`);</script>
   
   
 </a></div>
@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    2025 MSU Physics and Astronomy Short Course on Machine Learning
+                    2026 MSU Physics and Astronomy Short Course on Machine Learning
                 </a>
             </li>
         </ul>
@@ -184,7 +184,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../course_info/getting-started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../course_info/setting-up-an-environment.html"><strong>Setting Up Your Python Environment</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../course_info/schedule.html">Detailed Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_info/slides.html">Lecture Slides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../course_info/using-this-book.html">Using this book</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/python_review.html">Python Basics Review</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Activities</span></p>
 <ul class="nav bd-sidenav">
@@ -199,33 +204,22 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Day 02: Using KNN to classify objects with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-regression-models-with-scikit.html">Day 03: Performing Regression with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> - solution</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes: Day 2 — Classification</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notes/01_logit.html">Machine Learning</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../notes/02_knn.html">The Confusion Matrix</a></li>
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="../notes/methods_and_validation.html">Methods and Model Validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/03_svm.html">Support Vector Machines</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../notes/04_svm_rbf.html">Support Vector Machines (Radial Kernel)</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../notes/svm.html">Support Vector Machines</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes: Day 3 — Regression &amp; Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes: Day 4 — Model Improvement</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/05_pca.html">Principal Component Analysis (PCA)</a></li>
 
 
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notes/python_review.html">Python Basics Review</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/importance_of_visualization.html">The Importance of Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/regression_with_scikit.html">Regression using sci-kit learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/cross-validation.html">Cross-Validation of your models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/reverse-feature-elimination.html">Reverse Feature Elimination</a></li>
 </ul>
 
     </div>
@@ -759,7 +753,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1d8590455bc6c1d718c15b0e205b14f78b71df747fd2c159a60550c9c22ff1a9.png" src="../_images/1d8590455bc6c1d718c15b0e205b14f78b71df747fd2c159a60550c9c22ff1a9.png" />
+<img alt="../_images/639757aecf2d1556e06c0008cdddbe9e59a6189ce62dfc8e815cee7e7f84e0f4.png" src="../_images/639757aecf2d1556e06c0008cdddbe9e59a6189ce62dfc8e815cee7e7f84e0f4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -790,7 +784,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34f4f1a6712f78de337b74c05c98f8374d54207d46336baf2b00e7ed53adc2ba.png" src="../_images/34f4f1a6712f78de337b74c05c98f8374d54207d46336baf2b00e7ed53adc2ba.png" />
+<img alt="../_images/80a8394a521ff95777c49af9be56b9fcc6e39604123af9dbf19375aabeeabed7.png" src="../_images/80a8394a521ff95777c49af9be56b9fcc6e39604123af9dbf19375aabeeabed7.png" />
 </div>
 </div>
 </section>
@@ -826,7 +820,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3b04aa8a2edaf082455ec09df35bbb68870826eaeaa68b98909df6bfe88e1f0a.png" src="../_images/3b04aa8a2edaf082455ec09df35bbb68870826eaeaa68b98909df6bfe88e1f0a.png" />
+<img alt="../_images/d9e51ff444520660f65c9b3fe0ed1b40a17bc593c7bcf92ef5e476aa1a261a91.png" src="../_images/d9e51ff444520660f65c9b3fe0ed1b40a17bc593c7bcf92ef5e476aa1a261a91.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -879,7 +873,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/80ff3725dbfd19bcd296842c232c1a4201453774acc4bd60138724f4fc09876e.png" src="../_images/80ff3725dbfd19bcd296842c232c1a4201453774acc4bd60138724f4fc09876e.png" />
+<img alt="../_images/799ffff8f55c39c2d554f5e53a78eab6a8922686038f20b0031299b10553ff7c.png" src="../_images/799ffff8f55c39c2d554f5e53a78eab6a8922686038f20b0031299b10553ff7c.png" />
 </div>
 </div>
 </section>
@@ -931,13 +925,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1635/2213807954.py:9: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/rh/mck_zfls1nz00lkh8jq3cpv80000gn/T/ipykernel_18138/2213807954.py:9: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
   axs[0].set_xticklabels([f&quot;{cls}\n({percentages[cls]:.1f}%)&quot; for cls in class_counts.index])
-/tmp/ipykernel_1635/2213807954.py:24: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+/var/folders/rh/mck_zfls1nz00lkh8jq3cpv80000gn/T/ipykernel_18138/2213807954.py:24: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
   ax2.set_xticklabels([f&quot;{label}\n({percentages_no_galaxy[label]:.1f}%)&quot; for label in tick_labels])
 </pre></div>
 </div>
-<img alt="../_images/3e47dbee087ace19c42087627a546b674be4a855038d192d1310fb2906c64666.png" src="../_images/3e47dbee087ace19c42087627a546b674be4a855038d192d1310fb2906c64666.png" />
+<img alt="../_images/7cfbdad9e6580bb5b9c438baedbd1ca28633a92e9b633a022b5ec473b5124d4d.png" src="../_images/7cfbdad9e6580bb5b9c438baedbd1ca28633a92e9b633a022b5ec473b5124d4d.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1103,7 +1097,7 @@ weighted avg       0.86      0.86      0.86      8111
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b76c07e0aa5cb721eaf86df847a4283affd046bab110b1815212cf7d8d38544d.png" src="../_images/b76c07e0aa5cb721eaf86df847a4283affd046bab110b1815212cf7d8d38544d.png" />
+<img alt="../_images/ddce13008d6753ec96610033d942268671143ec4d7577aeac899323069e33e2d.png" src="../_images/ddce13008d6753ec96610033d942268671143ec4d7577aeac899323069e33e2d.png" />
 </div>
 </div>
 </section>
@@ -1184,7 +1178,7 @@ weighted avg       0.86      0.86      0.86      8111
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/08e50709b714b6e7cb5a2270a6ec5dc2842dca8e6d142153452ac1b274fface9.png" src="../_images/08e50709b714b6e7cb5a2270a6ec5dc2842dca8e6d142153452ac1b274fface9.png" />
+<img alt="../_images/10fd963714e8ab05e469fb7a34cc342beda2c89983ac807c3341017267c37f55.png" src="../_images/10fd963714e8ab05e469fb7a34cc342beda2c89983ac807c3341017267c37f55.png" />
 </div>
 </div>
 </section>
@@ -1235,7 +1229,7 @@ weighted avg       0.86      0.86      0.86      8111
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/58829a689bb2c302605c560bd0e17187cd271211340e2c9b78eaa026be06168f.png" src="../_images/58829a689bb2c302605c560bd0e17187cd271211340e2c9b78eaa026be06168f.png" />
+<img alt="../_images/d156c93212d694c745675f0895c57f148fa16cbed7c20b88d3760222995ca7ba.png" src="../_images/d156c93212d694c745675f0895c57f148fa16cbed7c20b88d3760222995ca7ba.png" />
 </div>
 </div>
 </section>
@@ -1279,7 +1273,7 @@ weighted avg       0.86      0.86      0.86      8111
 weighted avg       0.87      0.87      0.87      8111
 </pre></div>
 </div>
-<img alt="../_images/7adfb3a8abcb4842e84f46357de4ca88c80d65f97f4971fca8efb51b52397fb2.png" src="../_images/7adfb3a8abcb4842e84f46357de4ca88c80d65f97f4971fca8efb51b52397fb2.png" />
+<img alt="../_images/649a8a410874824b26c94df58b11047b8c4f5779dbf88220fb6a5a38a46d170d.png" src="../_images/649a8a410874824b26c94df58b11047b8c4f5779dbf88220fb6a5a38a46d170d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1303,7 +1297,7 @@ weighted avg       0.87      0.87      0.87      8111
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0a025c9766e3df7195319453c57f18675f2c5b7964c06257c024f24a3a47babf.png" src="../_images/0a025c9766e3df7195319453c57f18675f2c5b7964c06257c024f24a3a47babf.png" />
+<img alt="../_images/1286811a23b75686635b08e112a0d05ad06fe25ae768a4d8b422a8b60b07288d.png" src="../_images/1286811a23b75686635b08e112a0d05ad06fe25ae768a4d8b422a8b60b07288d.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1334,7 +1328,7 @@ weighted avg       0.87      0.87      0.87      8111
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7090dfc745240d13a7837e3311cf45965d4430bfeaac95ae49ab66547f454fcf.png" src="../_images/7090dfc745240d13a7837e3311cf45965d4430bfeaac95ae49ab66547f454fcf.png" />
+<img alt="../_images/b650896074a2a6666716954be8ba1fb47c5999da4a54872105d7c30d361d6ad0.png" src="../_images/b650896074a2a6666716954be8ba1fb47c5999da4a54872105d7c30d361d6ad0.png" />
 </div>
 </div>
 </section>
@@ -1395,7 +1389,7 @@ weighted avg       0.87      0.87      0.87      8111
 weighted avg       0.99      0.99      0.99      8111
 </pre></div>
 </div>
-<img alt="../_images/8bdff6896054626aa0b1c8cdfdfeb483d3636149334f0f6d72b229e3f76330d9.png" src="../_images/8bdff6896054626aa0b1c8cdfdfeb483d3636149334f0f6d72b229e3f76330d9.png" />
+<img alt="../_images/6c40db5d5f53f368e67d0425363e6d307f41e6a9759aae148cf36ae22c1a7a06.png" src="../_images/6c40db5d5f53f368e67d0425363e6d307f41e6a9759aae148cf36ae22c1a7a06.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1419,7 +1413,7 @@ weighted avg       0.99      0.99      0.99      8111
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c6b2c2419904d58ae07036fc35d7e6675cbd466945403e088d5baee36b787ae8.png" src="../_images/c6b2c2419904d58ae07036fc35d7e6675cbd466945403e088d5baee36b787ae8.png" />
+<img alt="../_images/55b670d96dd1cd8ceaee76859f1235e77d788a95b2c83ec1cdf2d40809eb7912.png" src="../_images/55b670d96dd1cd8ceaee76859f1235e77d788a95b2c83ec1cdf2d40809eb7912.png" />
 </div>
 </div>
 </section>
@@ -1442,7 +1436,7 @@ weighted avg       0.99      0.99      0.99      8111
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/db59acafb3aa333a9035097f29aaae6c06781b6b46ba143bd12ac6920ebc0cdb.png" src="../_images/db59acafb3aa333a9035097f29aaae6c06781b6b46ba143bd12ac6920ebc0cdb.png" />
+<img alt="../_images/955c4f34e2d03ba43021839badba167bb74c3f73871183222917a58aa3b86d09.png" src="../_images/955c4f34e2d03ba43021839badba167bb74c3f73871183222917a58aa3b86d09.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1487,7 +1481,7 @@ weighted avg       0.99      0.99      0.99      8111
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a824f8564f69c8fd8c2c5bf28f96c499f85b7952ebd4485a7231e3d7e1e0965b.png" src="../_images/a824f8564f69c8fd8c2c5bf28f96c499f85b7952ebd4485a7231e3d7e1e0965b.png" />
+<img alt="../_images/8e477af5b5f94102b39f65675fe3886953fe3c7e23a19e7cfad3be23d63b814f.png" src="../_images/8e477af5b5f94102b39f65675fe3886953fe3c7e23a19e7cfad3be23d63b814f.png" />
 </div>
 </div>
 </section>
@@ -1547,7 +1541,7 @@ weighted avg       0.99      0.99      0.99      8111
 weighted avg       0.96      0.96      0.96     20000
 </pre></div>
 </div>
-<img alt="../_images/eb1e43f244a834ef74b854ad696315bcc796912cb612c6e55bc51374cb8724cc.png" src="../_images/eb1e43f244a834ef74b854ad696315bcc796912cb612c6e55bc51374cb8724cc.png" />
+<img alt="../_images/a38ab97ac012287a593dea163edcf924e73c870671bd8fd4548949ee47414689.png" src="../_images/a38ab97ac012287a593dea163edcf924e73c870671bd8fd4548949ee47414689.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1571,7 +1565,7 @@ weighted avg       0.96      0.96      0.96     20000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/658e99a658a3b4083e73c6cff78b2a806d0c01e1c2fe24f397c21e0e9f583728.png" src="../_images/658e99a658a3b4083e73c6cff78b2a806d0c01e1c2fe24f397c21e0e9f583728.png" />
+<img alt="../_images/e1a20fe8e2c92d42b17f042850248f0c6b617708a0d1acecede02b1ebd2090d0.png" src="../_images/e1a20fe8e2c92d42b17f042850248f0c6b617708a0d1acecede02b1ebd2090d0.png" />
 </div>
 </div>
 </section>
@@ -1736,7 +1730,7 @@ By Danny Caballero, Morten Hjorth-Jensen, Julie Butler, Jane Kim, Alia Valentine
 
   <p class="copyright">
     
-      © Copyright 2021-2025, Michigan State University.
+      © Copyright 2021-2026, Michigan State University.
       <br/>
     
   </p>

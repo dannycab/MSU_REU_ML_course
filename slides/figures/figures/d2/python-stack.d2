@@ -1,0 +1,21 @@
+direction: right
+
+numpy: "numpy\narrays & math" {
+  style.fill: "#EFEFED"
+  style.stroke: "#767676"
+  style.border-radius: 4
+}
+pandas: "pandas\ntables & data" {
+  style.fill: "#EFEFED"
+  style.stroke: "#3D6B8E"
+  style.border-radius: 4
+}
+viz: "matplotlib\nseaborn\nplots" {
+  style.fill: "#3D6B8E"
+  style.stroke: "#3D6B8E"
+  style.font-color: "#F7F7F5"
+  style.border-radius: 4
+}
+
+numpy -> pandas: {style.stroke: "#767676"}
+pandas -> viz: {style.stroke: "#3D6B8E"}

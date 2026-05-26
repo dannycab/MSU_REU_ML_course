@@ -1,0 +1,44 @@
+direction: down
+
+explanation: "Each fold takes a turn as the test set.\nThis gives 5 independent estimates of model performance." {
+  style.fill: "#F7F7F5"
+  style.stroke: "#F7F7F5"
+  style.font-color: "#767676"
+  style.font-size: 14
+}
+
+runs: "" {
+  grid-rows: 5
+  grid-columns: 5
+  grid-gap: 6
+
+  r1c1: "TEST" { style.fill: "#3D6B8E"; style.font-color: "#F7F7F5"; style.border-radius: 3 }
+  r1c2: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r1c3: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r1c4: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r1c5: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+
+  r2c1: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r2c2: "TEST" { style.fill: "#3D6B8E"; style.font-color: "#F7F7F5"; style.border-radius: 3 }
+  r2c3: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r2c4: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r2c5: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+
+  r3c1: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r3c2: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r3c3: "TEST" { style.fill: "#3D6B8E"; style.font-color: "#F7F7F5"; style.border-radius: 3 }
+  r3c4: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r3c5: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+
+  r4c1: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r4c2: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r4c3: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r4c4: "TEST" { style.fill: "#3D6B8E"; style.font-color: "#F7F7F5"; style.border-radius: 3 }
+  r4c5: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+
+  r5c1: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r5c2: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r5c3: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r5c4: "train" { style.fill: "#EFEFED"; style.stroke: "#767676"; style.border-radius: 3; style.font-color: "#767676" }
+  r5c5: "TEST" { style.fill: "#3D6B8E"; style.font-color: "#F7F7F5"; style.border-radius: 3 }
+}

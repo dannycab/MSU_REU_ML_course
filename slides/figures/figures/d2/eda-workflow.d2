@@ -1,0 +1,27 @@
+direction: right
+
+load: "Load\nread_csv()" {
+  style.fill: "#EFEFED"
+  style.stroke: "#767676"
+  style.border-radius: 4
+}
+inspect: "Inspect\nhead() · info()" {
+  style.fill: "#EFEFED"
+  style.stroke: "#3D6B8E"
+  style.border-radius: 4
+}
+clean: "Clean\nfilter · drop" {
+  style.fill: "#EFEFED"
+  style.stroke: "#3D6B8E"
+  style.border-radius: 4
+}
+visualize: "Visualize\nscatter · hist" {
+  style.fill: "#3D6B8E"
+  style.stroke: "#3D6B8E"
+  style.font-color: "#F7F7F5"
+  style.border-radius: 4
+}
+
+load -> inspect: {style.stroke: "#767676"}
+inspect -> clean: {style.stroke: "#3D6B8E"}
+clean -> visualize: {style.stroke: "#3D6B8E"}
