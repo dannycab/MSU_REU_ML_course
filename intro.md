@@ -25,6 +25,6 @@ The course will be conducted over the next four weeks. We will meet in 1300 BPS 
 1. May 27th - [Getting Started with `pandas` and `matplotlib`](./activities/01-exploring-data-with-pandas-student.ipynb); software installation, reading data, plotting data, etc.
 2. June 1st - The [`scikit-learn` workflow (KNN classification)](./activities/02-classification-models-with-scikit-learn-student.ipynb); confusion matrices, ROC curves, etc. [Slides](./slides/day-02-classification.pdf)
 3. June 3rd - The [`scikit-learn` workflow (linear regression)](./activities/03-regression-models-with-scikit-student.ipynb); quality of fit, residuals, etc.
-4. June 8th - More `scikit-learn` models (decision trees, random forests, etc.)
+4. June 8th - [Modeling project](./activities/04-modeling-project-student.ipynb): putting it all together on a real dataset. 
 
 The first class is intended to make sure you have what you need to get started with the course. If you are comfortable with Python and Jupyter notebooks, you can skip the first class (e.g., if you are an MSU student and have already taken CMSE 201). Of course, you are welcome to attend the first class if you would like a refresher on the basics of Python and Jupyter notebooks, or just to hang out.

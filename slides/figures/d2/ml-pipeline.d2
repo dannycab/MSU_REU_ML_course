@@ -1,39 +1,66 @@
+# The Machine Learning Framework
+# High-level: understand data → build → evaluate → improve
+# Practical: iterate until the model is good enough
+
 direction: right
 
-data: "Raw Data" {
-  style.fill: "#EFEFED"
+# Understand & Explore Phase
+understand: "1. Understand\nthe Problem\n& Questions" {
+  style.fill: "transparent"
   style.stroke: "#767676"
-  style.border-radius: 4
-}
-split: "Train / Test\nSplit" {
-  style.fill: "#EFEFED"
-  style.stroke: "#3D6B8E"
-  style.border-radius: 4
-}
-scale: "Scale\nStandardScaler" {
-  style.fill: "#EFEFED"
-  style.stroke: "#3D6B8E"
-  style.border-radius: 4
-}
-fit: "Fit Model\ne.g. KNN" {
-  style.fill: "#EFEFED"
-  style.stroke: "#3D6B8E"
-  style.border-radius: 4
-}
-predict: "Predict" {
-  style.fill: "#EFEFED"
-  style.stroke: "#3D6B8E"
-  style.border-radius: 4
-}
-evaluate: "Evaluate\nconfusion matrix\nMSE · R²" {
-  style.fill: "#3D6B8E"
-  style.stroke: "#3D6B8E"
-  style.font-color: "#F7F7F5"
-  style.border-radius: 4
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
 }
 
-data -> split: {style.stroke: "#767676"}
-split -> scale: {style.stroke: "#3D6B8E"}
-scale -> fit: {style.stroke: "#3D6B8E"}
-fit -> predict: {style.stroke: "#3D6B8E"}
-predict -> evaluate: {style.stroke: "#3D6B8E"}
+explore: "2. Explore\n& Prepare\nthe Data" {
+  style.fill: "transparent"
+  style.stroke: "#C46E3A"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+# Build Phase - the pipeline
+build: "3. Build\nthe Model\n(train)" {
+  style.fill: "transparent"
+  style.stroke: "#3D6B8E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+# Evaluate Phase
+evaluate: "4. Evaluate\nPerformance\n(test)" {
+  style.fill: "transparent"
+  style.stroke: "#5E9E7E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+# Improve Phase - loops back
+improve: "5. Improve\n& Iterate\nor Accept" {
+  style.fill: "transparent"
+  style.stroke: "#C46E3A"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+# The flow
+understand -> explore: {style.stroke: "#767676"; style.stroke-width: 2}
+explore -> build: {style.stroke: "#C46E3A"; style.stroke-width: 2}
+build -> evaluate: {style.stroke: "#3D6B8E"; style.stroke-width: 2}
+evaluate -> improve: {style.stroke: "#5E9E7E"; style.stroke-width: 2}
+improve -> understand: {style.stroke: "#C46E3A"; style.stroke-width: 3; style.stroke-dash: 2}

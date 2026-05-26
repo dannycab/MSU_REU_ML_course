@@ -1,27 +1,51 @@
+# EDA is an iterative cycle, not a linear process
+# Each pass teaches you something new
+
 direction: right
 
-load: "Load\nread_csv()" {
-  style.fill: "#EFEFED"
+# The four steps of the cycle
+load: "1. LOAD\nImport data\nCheck what broke" {
+  style.fill: "transparent"
   style.stroke: "#767676"
-  style.border-radius: 4
-}
-inspect: "Inspect\nhead() · info()" {
-  style.fill: "#EFEFED"
-  style.stroke: "#3D6B8E"
-  style.border-radius: 4
-}
-clean: "Clean\nfilter · drop" {
-  style.fill: "#EFEFED"
-  style.stroke: "#3D6B8E"
-  style.border-radius: 4
-}
-visualize: "Visualize\nscatter · hist" {
-  style.fill: "#3D6B8E"
-  style.stroke: "#3D6B8E"
-  style.font-color: "#F7F7F5"
-  style.border-radius: 4
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 160
+  height: 120
 }
 
-load -> inspect: {style.stroke: "#767676"}
-inspect -> clean: {style.stroke: "#3D6B8E"}
-clean -> visualize: {style.stroke: "#3D6B8E"}
+transform: "2. TRANSFORM\nFix problems,\nmissing values, outliers" {
+  style.fill: "transparent"
+  style.stroke: "#C46E3A"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 200
+  height: 120
+}
+
+visualize: "3. MODEL &\nVISUALIZE\nReview patterns\nAsk new questions" {
+  style.fill: "transparent"
+  style.stroke: "#3D6B8E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 160
+  height: 120
+}
+
+understand: "4. UNDERSTAND\nWhat's reliable?\nWhat's next?" {
+  style.fill: "transparent"
+  style.stroke: "#5E9E7E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 160
+  height: 120
+}
+
+# The loop arrows
+load -> transform: "inspect" {style.stroke: "#767676"; style.stroke-width: 2}
+transform -> visualize: "explore" {style.stroke: "#C46E3A"; style.stroke-width: 2}
+visualize -> understand: "analyze" {style.stroke: "#3D6B8E"; style.stroke-width: 2}
+understand -> load: "new hypothesis/ideas" {style.stroke: "#5E9E7E"; style.stroke-width: 3; style.stroke-dash: 2}

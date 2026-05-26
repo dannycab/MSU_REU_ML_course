@@ -1,21 +1,50 @@
 direction: right
 
-numpy: "numpy\narrays & math" {
-  style.fill: "#EFEFED"
+# Foundation - Python runtime
+python: "Python\nRuntime" {
+  style.fill: "transparent"
   style.stroke: "#767676"
-  style.border-radius: 4
-}
-pandas: "pandas\ntables & data" {
-  style.fill: "#EFEFED"
-  style.stroke: "#3D6B8E"
-  style.border-radius: 4
-}
-viz: "matplotlib\nseaborn\nplots" {
-  style.fill: "#3D6B8E"
-  style.stroke: "#3D6B8E"
-  style.font-color: "#F7F7F5"
-  style.border-radius: 4
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 130
+  height: 90
 }
 
-numpy -> pandas: {style.stroke: "#767676"}
-pandas -> viz: {style.stroke: "#3D6B8E"}
+# Layer 1 - numpy (foundation for numerical computing)
+numpy: "numpy\nArrays, Math\nComputation" {
+  style.fill: "transparent"
+  style.stroke: "#C46E3A"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 150
+  height: 110
+}
+
+# Layer 2 - pandas (builds on numpy)
+pandas: "pandas\nDataFrames &\nData Manip." {
+  style.fill: "transparent"
+  style.stroke: "#3D6B8E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 160
+  height: 120
+}
+
+# Layer 3 - Visualization (builds on both)
+viz: "matplotlib\nseaborn\nPlots & Viz" {
+  style.fill: "transparent"
+  style.stroke: "#5E9E7E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 150
+  height: 110
+}
+
+# Dependencies
+python -> numpy: {style.stroke: "#767676"; style.stroke-dash: 3; style.stroke-width: 2}
+numpy -> pandas: {style.stroke: "#C46E3A"; style.stroke-width: 3}
+pandas -> viz: {style.stroke: "#3D6B8E"; style.stroke-width: 3}

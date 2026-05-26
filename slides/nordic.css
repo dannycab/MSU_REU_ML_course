@@ -24,33 +24,41 @@ section {
 
 h1 {
   font-family: 'Inter', sans-serif;
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--text);
-  border-bottom: 3px solid var(--accent);
-  padding-bottom: 0.2em;
-  margin-bottom: 0.55em;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-bottom: 4px solid var(--accent);
+  padding-bottom: 0.25em;
+  margin-bottom: 0.5em;
 }
 
 h2 {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--accent);
-  margin-bottom: 0.4em;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--accent2);
+  margin-bottom: 0.45em;
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--accent);
+  margin-bottom: 0.3em;
 }
 
 ul, ol {
-  padding-left: 1.5em;
+  padding-left: 1.8em;
+  margin: 0.6em 0;
 }
 
 li {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.65em;
+  line-height: 1.6;
+}
+
+ul > li::marker {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 /* accent pop on bold text */
@@ -69,29 +77,74 @@ em {
 code {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.85em;
-  background: var(--code);
-  color: var(--accent);
-  padding: 0.12em 0.4em;
-  border-radius: 3px;
+  background: #E8E8E5;
+  color: #2D5A4A;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  font-weight: 500;
 }
 
 pre {
-  background: var(--code);
-  padding: 1em 1.3em;
-  border-radius: 5px;
-  border-left: 4px solid var(--accent);
+  background: #2A3D4A;
+  padding: 1.2em 1.5em;
+  border-radius: 6px;
+  border-left: 5px solid var(--accent2);
+  overflow-x: auto;
 }
 
 pre code {
   background: none;
   padding: 0;
   font-size: 0.82em;
-  color: var(--text);
+  color: #E8E8E5;
+  font-weight: 400;
 }
 
 img {
   display: block;
   margin: 0.4em auto 0;
+}
+
+/* Right-aligned image class */
+img.right {
+  float: right;
+  margin: 0.4em 0 0.4em 1.5em;
+  max-width: 45%;
+}
+
+/* Left-aligned image class */
+img.left {
+  float: left;
+  margin: 0.4em 1.5em 0.4em 0;
+  max-width: 45%;
+}
+
+/* Add this to your existing CSS */
+img.float-right {
+  float: right;
+  margin-left: 1.5em;      /* Space between image and text */
+  margin-bottom: 0.5em;    /* Space below image */
+  max-width: 40%;          /* Prevent it from taking up too much space */
+  height: auto;            /* Keep aspect ratio */
+}
+
+img.float-left {
+  float: left;
+  margin-right: 1.5em;
+  margin-bottom: 0.5em;
+  max-width: 40%;
+  height: auto;
+}
+
+.table-wrapper {
+  float: left;
+  width: 50%;
+  margin-right: 2em;
+}
+.img-wrapper {
+  float: left;
+  width: 35%;
+  margin-right: 5em;
 }
 
 /* resource / note callout */
@@ -114,23 +167,30 @@ table {
   border-collapse: collapse;
   width: 100%;
   font-size: 1.1rem;
+  border: 2px solid var(--accent);
 }
 
 th {
   background: var(--accent);
   color: #F7F7F5;
-  padding: 0.4em 0.8em;
-  font-weight: 400;
+  padding: 0.55em 1em;
+  font-weight: 600;
   text-align: left;
+  font-size: 1.05rem;
 }
 
 td {
-  padding: 0.35em 0.8em;
+  padding: 0.5em 1em;
   border-bottom: 1px solid var(--rule);
+  color: var(--text);
 }
 
 tr:nth-child(even) td {
-  background: #EFEFEC;
+  background: #E8F0F7;
+}
+
+tr:nth-child(odd) td {
+  background: #F7F7F5;
 }
 
 /* page number */
@@ -146,27 +206,30 @@ section.title {
   flex-direction: column;
   justify-content: center;
   padding: 72px 80px;
-  background: var(--bg);
+  background: linear-gradient(135deg, var(--bg) 0%, #F0F3F7 100%);
 }
 
 section.title h1 {
-  font-size: 2.8rem;
-  border-bottom: 4px solid var(--accent);
-  margin-bottom: 0.2em;
+  font-size: 3.5rem;
+  color: var(--accent);
+  border-bottom: 5px solid var(--accent);
+  padding-bottom: 0.3em;
+  margin-bottom: 0.3em;
+  font-weight: 700;
 }
 
 section.title h2 {
-  font-size: 1.35rem;
+  font-size: 1.6rem;
   color: var(--accent2);
-  font-weight: 300;
-  margin-bottom: 0.2em;
+  font-weight: 500;
+  margin-bottom: 0.4em;
 }
 
 section.title p {
-  color: var(--muted);
-  font-weight: 300;
-  font-size: 1rem;
-  margin-top: 0.4em;
+  color: var(--text);
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-top: 0.6em;
 }
 
 /* ── image-focused slide ── */
@@ -192,4 +255,47 @@ section.two-col {
 
 section.two-col h1 {
   grid-column: 1 / -1;
+}
+
+/* ── STRICT TWO-COLUMN LAYOUT (Final Fix) ── */
+section.slide-img-twocol {
+  display: flex !important;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 40px 60px;
+  height: 100%;
+  overflow: hidden; /* Prevents spillover */
+}
+
+/* THE TEXT COLUMN: Force it to be a single vertical stack */
+section.slide-img-twocol .markdown-body {
+  flex: 0 0 35%; /* Width of text column */
+  min-width: 0;
+  display: flex !important; /* Use flex but... */
+  flex-direction: column !important; /* ...force vertical stacking ONLY */
+  gap: 0.5rem; /* Spacing between title and text */
+  width: 100%;
+}
+
+/* Ensure internal elements don't break the vertical flow */
+section.slide-img-twocol .markdown-body > * {
+  width: 100%;
+  margin-bottom: 0.8em;
+  flex-shrink: 0; /* Prevent elements from shrinking weirdly */
+}
+
+/* THE IMAGE COLUMN */
+section.slide-img-twocol .img-wrapper {
+  flex: 0 0 60%; /* Width of image column */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+section.slide-img-twocol img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
