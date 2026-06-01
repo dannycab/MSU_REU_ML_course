@@ -4,24 +4,22 @@
 
 ### Today, we will:
 
+* Download/Install [Anaconda](https://www.anaconda.com/products/individual) (if needed)
 * Start up and navigate `jupyter lab`
 * Read, slice, and filter data with `pandas`
 * Explore data with `pandas`, `matplotlib`, and `seaborn`
 
 ### Materials
 
+* [Getting Started](./getting-started.md)
 * [Day 01: Exploring data with `pandas`](../activities/01-exploring-data-with-pandas-student.ipynb)
-* [Day 01: Solution](../activities/01-exploring-data-with-pandas.ipynb)
-
-### Before you start
-
-* [Python Review](../notes/python_review.ipynb) — work through this if you need a refresher on Python basics, NumPy, and matplotlib
+* [Day 01: Exploring data with `pandas` - solution](../activities/01-exploring-data-with-pandas.ipynb)
 
 ### Resources
 
 * [Getting started with `pandas`](https://pandas.pydata.org/docs/getting_started/intro_tutorials/)
 * [`pandas` documentation](https://pandas.pydata.org/docs/user_guide/index.html#user-guide)
-* [Getting started with `matplotlib`](https://matplotlib.org/stable/tutorials/index.html)
+* [Getting started with `matplotlib`](https://towardsdatascience.com/matplotlib-tutorial-learn-basics-of-pythons-powerful-plotting-library-b5d1b8f67596)
 * [Getting started with `seaborn`](https://seaborn.pydata.org/tutorial.html)
 
 
@@ -29,20 +27,16 @@
 
 ### Today, we will:
 
-* Read in and clean data
+* Read in data
+* Explore and clean data
 * Discuss and plan a classification problem
-* Use `scikit-learn` to build a KNN classification model
-* Evaluate the model with confusion matrices and classification reports
+* Use `scikit-learn` to build a classification model
+* Evaluate the fit of the model
 
 ### Materials
 
-* [Day 02: Classification with `scikit-learn`](../activities/02-classification-models-with-scikit-learn-student.ipynb)
-* [Day 02: Solution](../activities/02-classification-models-with-scikit-learn.ipynb)
-
-### Supporting Notes
-
-* [Methods and Model Validation](../notes/methods_and_validation.ipynb) — when do different classifiers work or fail?
-* [Support Vector Machines](../notes/svm.ipynb) — linear vs. RBF kernels; an alternative classifier to KNN
+* [Day 02: Using KNN to classify objects with `scikit-learn` and `pandas`](../activities/02-classification-models-with-scikit-learn-student.ipynb)
+* [Day 02: Using KNN to classify objects with `scikit-learn` and `pandas` - solution](../activities/02-classification-models-with-scikit-learn.ipynb)
 
 ### Resources
 
@@ -55,19 +49,16 @@
 
 ### Today, we will:
 
-* Read in and clean data
+* Read in data
+* Explore and clean data
 * Discuss and plan a regression problem
 * Use `scikit-learn` to build a regression model
-* Evaluate with MSE, R², residual plots, and predicted vs. actual plots
+* Evaluate the fit of the model
 
 ### Materials
 
-* [Day 03: Regression with `scikit-learn`](../activities/03-regression-models-with-scikit-student.ipynb)
-* [Day 03: Solution](../activities/03-regression-models-with-scikit.ipynb)
-
-### Supporting Notes
-
-* [The Importance of Visualization](../notes/importance_of_visualization.ipynb) — why residual plots and predicted vs. actual plots matter
+* [Day 03: Performing Regression with `scikit-learn`](../activities/03-regression-models-with-scikit-student.ipynb)
+* [Day 03: Performing Regression with `scikit-learn` - solution](../activities/03-regression-models-with-scikit.ipynb)
 
 ### Resources
 
@@ -75,22 +66,15 @@
 * [Regression with `scikit-learn`](https://scikit-learn.org/stable/supervised_learning.html#supervised-learning)
 * [Evaluating regression models with `scikit-learn`](https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics)
 
-
 ## Day 04: Modeling Project
 
 ### Today, we will:
 
-* Read in a new dataset
-* Explore, clean, and preprocess data
-* Build and evaluate a model
-* Improve the model through feature selection and cross-validation
+* Read in data
+* Explore and clean data
+* Discuss and plan a modeling problem
+* Use `scikit-learn` to build a model
+* Evaluate the fit of the model
 
 ### Materials
-
 * [Day 04: Modeling Project](../activities/04-modeling-project-student.ipynb)
-
-### Supporting Notes
-
-* [Cross-Validation](../notes/cross-validation.ipynb) — how to estimate model performance with uncertainty
-* [Recursive Feature Elimination](../notes/reverse-feature-elimination.ipynb) — how to systematically find the best features
-* [Principal Component Analysis](../notes/05_pca.ipynb) — how to reduce dimensionality while preserving information
