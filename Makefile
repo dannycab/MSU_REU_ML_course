@@ -15,7 +15,7 @@ d2: $(D2_SVGS)
 
 slides/figures/%.svg: slides/figures/d2/%.d2
 	@command -v $(D2) >/dev/null 2>&1 || { echo "d2 not installed. Install from https://d2lang.com"; exit 1; }
-	$(D2) --sketch $< $@
+	$(D2) --sketch --pad 20 $< $@
 
 slides: d2
 	cp activities/figures/*.png slides/figures/

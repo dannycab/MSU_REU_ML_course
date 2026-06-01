@@ -1,0 +1,114 @@
+direction: right
+# Decision Boundary Comparison
+
+without_redshift: {
+  label: "Without Redshift"
+  style: {
+    stroke: "#e74c3c"
+    fill: "#fadbd8"
+  }
+
+  plot: {
+    shape: rectangle
+    width: 200
+    height: 150
+    style: {
+      fill: "#ecf0f1"
+      stroke: "#95a5a6"
+      stroke-width: 2
+    }
+  }
+
+  stars: {
+    shape: circle
+    width: 30
+    height: 30
+    style: {
+      fill: "#3498db"
+      stroke: "#2980b9"
+    }
+    label: "STAR"
+  }
+
+  qsos: {
+    shape: circle
+    width: 30
+    height: 30
+    style: {
+      fill: "#e74c3c"
+      stroke: "#c0392b"
+    }
+    label: "QSO"
+  }
+
+  stars -> plot
+  qsos -> plot
+
+  boundary: {
+    shape: text
+    label: "Messy boundary\n(overlapping regions)"
+    style: {
+      fill: "#95a5a6"
+    }
+  }
+}
+
+with_redshift: {
+  label: "With Redshift Feature"
+  style: {
+    stroke: "#27ae60"
+    fill: "#d5f4e6"
+  }
+
+  plot: {
+    shape: rectangle
+    width: 200
+    height: 150
+    style: {
+      fill: "#ecf0f1"
+      stroke: "#95a5a6"
+      stroke-width: 2
+    }
+  }
+
+  stars: {
+    shape: circle
+    width: 30
+    height: 30
+    style: {
+      fill: "#3498db"
+      stroke: "#2980b9"
+    }
+    label: "STAR"
+  }
+
+  qsos: {
+    shape: circle
+    width: 30
+    height: 30
+    style: {
+      fill: "#e74c3c"
+      stroke: "#c0392b"
+    }
+    label: "QSO"
+  }
+
+  stars -> plot
+  qsos -> plot
+
+  boundary: {
+    shape: text
+    label: "Clean boundary\n(well separated)"
+    style: {
+      fill: "#27ae60"
+    }
+  }
+}
+
+without_redshift -> with_redshift: {
+  label: "+ redshift"
+  style: {
+    stroke: "#f39c12"
+    stroke-width: 2
+  }
+}

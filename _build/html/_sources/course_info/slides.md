@@ -14,13 +14,13 @@ Click any preview to download the PDF.
 
 {download}`Download PDF <../slides/day-01-data.pdf>`
 
-<!-- ## Day 02 — Classification with KNN and `scikit-learn`
+## Day 02 — Classification with KNN and `scikit-learn`
 
 [![Day 02 slides preview](../slides/figures/day-02-preview.png)](../slides/day-02-classification.pdf)
 
 {download}`Download PDF <../slides/day-02-classification.pdf>`
 
-## Day 03 — Regression with `scikit-learn`
+<!-- ## Day 03 — Regression with `scikit-learn`
 
 [![Day 03 slides preview](../slides/figures/day-03-preview.png)](../slides/day-03-regression.pdf)
 

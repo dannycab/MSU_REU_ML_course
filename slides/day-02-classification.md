@@ -10,58 +10,98 @@ author: Danny Caballero
 
 <!-- _class: title -->
 
-# Day 02
-## Classification with KNN and `scikit-learn`
+# Day 02: Classification with KNN
+## using `scikit-learn`
 
 MSU REU Machine Learning Short Course
 
 ---
 
-# The Task
+# Learning Goals for Today
 
-Given photometric measurements of an object, predict whether it is a **STAR**, **GALAXY**, or **QSO**.
+By the end of this activity, you'll be able to:
 
-- Yesterday: we *explored* the data
-- Today: we *model* it
+1. **Describe the ML pipeline**: this is the same structure you'll reuse for most models
+2. **Split and scale data** correctly, and explain *why* each step matters
+3. **Build and train a KNN classifier** using `scikit-learn`
+4. **Evaluate a model** with precision, recall, F1, and the confusion matrix
+5. **Improve a model** by adding features and tuning hyperparameters
 
-The model learns a **decision boundary** — a rule in feature space that separates classes.
+This is the workflow professional data scientists use every day.
+
+---
+
+# From Exploration to Modeling
+
+Last week: *which features might separate classes?*
+
+Today: we build a model that makes that separation automatic.
+
+| | Day 01 | Day 02 |
+|---|---|---|
+| Goal | Understand the data | Predict the class |
+| Tools | `pandas`, `seaborn` | `scikit-learn` |
+| Output | Plots and intuitions | A trained classifier |
+
+**Same dataset. New question:** can a machine learn the rules?
 
 ---
 
 # The ML Pipeline
 
-Every model you build this week follows this same structure.
-
 ![width:900px](./figures/ml-pipeline.svg)
 
-Learn it once. It applies to classification *and* regression.
+Every model you build in class follows this same structure — for classification *and* regression.
 
 ---
 
-# Train / Test Split and Scaling
+# Train / Test Split
 
-**Why split?** You can't evaluate yourself on the data you learned from.
+![Train/Test Split](./figures/train-test-split-flow.svg)
+
+---
+
+# Train / Test Split
+
+**Why?** You can't evaluate yourself on data you learned from.
 
 ```python
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
-)
-
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test  = scaler.transform(X_test)      # same scale as train
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 ```
 
-**Why scale?** KNN uses distance. A feature with range 0–1000 dominates one with range 0–1.
+- 80% trains the model
+- 20% evaluates it — *unseen data*
+- `random_state=42` makes splits reproducible
+
+---
+
+# Feature Scaling
+
+## **Why?** KNN uses *distance*. 
+
+Redshift ranges 0–7, photometry 10–33. Without scaling, redshift dominates every distance calculation (*smaller distances are closer neighbors*).
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled  = scaler.transform(X_test)
+```
+
+*Fit on training data only — then apply the same transformation to test.*
 
 ---
 
 <!-- _class: img-full -->
 
-# KNN — You are your neighbors
+![width:800px](./figures/feature-scaling-illustration.svg)
+
+---
+
+# KNN — You Are Your Neighbors
 
 To classify a new point, find the *k* closest training points and take a majority vote.
 
@@ -69,37 +109,79 @@ To classify a new point, find the *k* closest training points and take a majorit
 
 ---
 
-# Evaluation — The Confusion Matrix
+# Building the Model
 
-Accuracy alone hides the interesting failures.
+The `scikit-learn` pattern is nearly the same for every algorithm.
 
-![width:680px](./figures/confusion-matrix.svg)
+```python
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report, confusion_matrix
 
-**Precision** — when I say YES, how often am I right?
-**Recall** — of all real YESes, how many did I find?
-**F1** — harmonic mean of the two
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train_scaled, y_train)       # learn from training data
+
+y_pred = knn.predict(X_test_scaled)    # predict on unseen data
+print(classification_report(y_test, y_pred))
+```
+
+**Fit → Predict → Evaluate.** This four-step pattern carries forward to every model we build.
 
 ---
 
-<!-- _class: img-full -->
+# Evaluation — The Confusion Matrix
 
-# Redshift changes everything
+![width:1000px](./figures/confusion-matrix.svg)
 
-Without redshift: STAR vs QSO is hard. With it: near perfect.
+---
 
-![width:800px](./figures/knn_classification_results_w_redshift_n3.png)
+# Evaluation — Precision, Recall, F1
 
-> Ask yourself: *why* does redshift help so much?
+* **Precision** — when I predict QSO, how often am I right?
+
+$$\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}$$
+
+* **Recall** — of all real QSOs, how many did I catch?
+
+$$\text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}$$
+
+* **F1** — harmonic mean; use it when classes are imbalanced (which is common)
+
+$$\text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$$
+
+*Good values for all three?* **Between 0.8 and 1.0** 
+But the "best" value depends on your goals — there's no single right answer.
+
+---
+
+# Redshift Changes Everything
+
+| Without redshift | With redshift |
+|---|---|
+| ![width:350px](./figures/confusion_matrix_knn_n3.png) | ![width:350px](./figures/confusion_matrix_knn_w_redshift_n3.png) |
+| 86% accuracy | >99% accuracy |
+
+> *Why* does one measurement change everything?
+
+---
+
+# Tuning *k* — Which Value is Best?
+
+Performance varies with the number of neighbors. Finding the best *k* is part of the job.
+
+![width:820px](./figures/knn_performance_vs_neighbors.png)
 
 ---
 
 # Today's Activity
 
-Work through **Activity 02: Classification with scikit-learn**
+Work through **Activity 02: Classification with `scikit-learn`**
 
-1. Build a 2-class KNN (STAR vs QSO) without redshift
-2. Tune *k* and observe the effect on performance
-3. Add redshift — compare the confusion matrices
-4. Extend to 3-class (STAR, GALAXY, QSO)
+1. Build a **2-class KNN** (STAR vs QSO) using spectral features only
+2. **Tune *k*** — find the value that maximizes F1 score
+3. Add **redshift** — compare the confusion matrices before and after
+4. Extend to the **3-class problem** (STAR, GALAXY, QSO)
 
 > **Notes:** [Methods & Validation](../notes/methods_and_validation.ipynb) · [Support Vector Machines](../notes/svm.ipynb)
+
+**Because some of these ideas might be new, there's a lot of scaffolding in the notebook.** Don't worry about memorizing it. 
+*Understand the workflow and how to use the tools.* You'll reuse this pattern for every model you build.

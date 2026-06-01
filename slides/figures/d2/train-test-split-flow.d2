@@ -1,0 +1,81 @@
+direction: right
+
+dataset: {
+  shape: cylinder
+  label: "Full Dataset\n(100,000 samples)"
+}
+
+split: {
+  shape: diamond
+  label: "80/20 Split"
+}
+
+train_set: {
+  shape: rectangle
+  label: "Training Set\n(80,000)"
+  style.fill: "#2ecc71"
+}
+
+test_set: {
+  shape: rectangle
+  label: "Test Set\n(20,000)"
+  style.fill: "#e74c3c"
+}
+
+train_scaler: {
+  shape: rectangle
+  label: "StandardScaler\n.fit_transform()"
+  style.fill: "#9b59b6"
+}
+
+test_scaler: {
+  shape: rectangle
+  label: "StandardScaler\n.transform()"
+  style.fill: "#9b59b6"
+}
+
+train_scaled: {
+  shape: rectangle
+  label: "X_train_scaled\nY_train"
+  style.fill: "#2ecc71"
+}
+
+test_scaled: {
+  shape: rectangle
+  label: "X_test_scaled\nY_test"
+  style.fill: "#e74c3c"
+}
+
+model: {
+  shape: rectangle
+  label: "KNN Model\n.fit() .predict()"
+  style.fill: "#1abc9c"
+}
+
+predictions: {
+  shape: rectangle
+  label: "Predictions\nY_pred"
+  style.fill: "#e67e22"
+}
+
+note: {
+  shape: rectangle
+  label: "⚠️ Fit ONLY on\ntraining data!"
+  style.fill: "#fff3cd"
+}
+
+dataset -> split
+split -> train_set
+split -> test_set
+
+train_set -> train_scaler
+test_set -> test_scaler
+
+train_scaler -> train_scaled
+test_scaler -> test_scaled
+
+train_scaled -> note
+train_scaled -> model: "fit()"
+test_scaled -> model: "predict()"
+
+model -> predictions
