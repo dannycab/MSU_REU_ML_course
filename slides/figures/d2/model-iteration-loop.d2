@@ -1,0 +1,107 @@
+# Model Improvement Loop: The iterative process
+
+direction: right
+
+# Start
+baseline: "Build\nBaseline\nModel" {
+  style.fill: "transparent"
+  style.stroke: "#3D6B8E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+baseline -> evaluate: {style.stroke: "#3D6B8E"; style.stroke-width: 2}
+
+# Evaluate
+evaluate: "Evaluate\nPerformance\nAccuracy? R²?" {
+  style.fill: "transparent"
+  style.stroke: "#5E9E7E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+evaluate -> good: {style.stroke: "#5E9E7E"; style.stroke-width: 2; label: "Good!"}
+evaluate -> bad: {style.stroke: "#8E3D3D"; style.stroke-width: 2; label: "Need to improve"}
+
+# Good outcome
+good: "✓ Accept\nModel" {
+  style.fill: "#d5f4e6"
+  style.stroke: "#5E9E7E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 100
+}
+
+# Diagnose
+bad: "Diagnose\nBottom-neck\nResiduals?\nFeatures?" {
+  style.fill: "transparent"
+  style.stroke: "#C46E3A"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+bad -> improve: {style.stroke: "#C46E3A"; style.stroke-width: 2}
+
+# Improvement options
+improve: "Try Fix" {
+  style.fill: "transparent"
+  style.stroke: "#C46E3A"
+  style.border-radius: 4
+}
+
+improve -> f1: {style.stroke: "#C46E3A"}
+improve -> f2: {style.stroke: "#C46E3A"}
+improve -> f3: {style.stroke: "#C46E3A"}
+
+f1: "Feature\nSelection" {
+  style.fill: "transparent"
+  style.stroke: "#767676"
+  style.border-radius: 6
+  style.stroke-width: 1
+  width: 120
+  height: 80
+}
+
+f2: "Different\nModel" {
+  style.fill: "transparent"
+  style.stroke: "#767676"
+  style.border-radius: 6
+  style.stroke-width: 1
+  width: 120
+  height: 80
+}
+
+f3: "Tune\nHyperparameters" {
+  style.fill: "transparent"
+  style.stroke: "#767676"
+  style.border-radius: 6
+  style.stroke-width: 1
+  width: 120
+  height: 80
+}
+
+f1 -> new_model: {style.stroke: "#767676"}
+f2 -> new_model: {style.stroke: "#767676"}
+f3 -> new_model: {style.stroke: "#767676"}
+
+new_model: "Rebuild\nModel" {
+  style.fill: "transparent"
+  style.stroke: "#3D6B8E"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 100
+}
+
+new_model -> evaluate: {style.stroke: "#C46E3A"; style.stroke-width: 3; style.stroke-dash: 2; label: "Loop"}

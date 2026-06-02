@@ -1,0 +1,59 @@
+# Reading Residuals: What to look for in diagnostic plots
+
+direction: right
+
+grid: "Residuals Diagnostic Guide" {
+  grid-rows: 3
+  grid-columns: 2
+
+  # Header
+  h1: "Pattern" {
+    style.fill: "#3D6B8E"
+    style.font-color: white
+    style.bold: true
+  }
+  h2: "What It Means" {
+    style.fill: "#3D6B8E"
+    style.font-color: white
+    style.bold: true
+  }
+
+  # Good case
+  g1: "✓ Random scatter\naround zero" {
+    style.fill: "#d5f4e6"
+    style.border-radius: 4
+  }
+  g2: "Model is good\nNo systematic error" {
+    style.fill: "#d5f4e6"
+    style.border-radius: 4
+  }
+
+  # Bad case: curved
+  b1: "✗ Curved pattern" {
+    style.fill: "#fadbd8"
+    style.border-radius: 4
+  }
+  b2: "Non-linear relationship\nLinear model is wrong" {
+    style.fill: "#fadbd8"
+    style.border-radius: 4
+  }
+
+  # Bad case: fanned
+  f1: "✗ Fan shape\n(variance increases)" {
+    style.fill: "#fadbd8"
+    style.border-radius: 4
+  }
+  f2: "Heteroscedasticity\nModel less accurate at high values" {
+    style.fill: "#fadbd8"
+    style.border-radius: 4
+  }
+}
+
+# Summary box
+summary: "Key Rule: Residuals should look like random noise\nIf they have pattern, your model is missing something" {
+  style.fill: "#fff9e6"
+  style.stroke: "#C46E3A"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 4
+  style.stroke-width: 2
+}

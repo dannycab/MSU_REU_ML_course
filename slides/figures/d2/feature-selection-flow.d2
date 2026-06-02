@@ -1,0 +1,77 @@
+# Feature Selection: Choosing which features matter
+
+direction: down
+
+start: "1275 Features\n(mostly noise)" {
+  style.fill: "#fadbd8"
+  style.stroke: "#8E3D3D"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 150
+  height: 100
+}
+
+approach: "Choose Approach" {
+  style.fill: "transparent"
+  style.stroke: "#767676"
+  style.border-radius: 4
+}
+
+start -> approach: {style.stroke: "#767676"; style.stroke-width: 2}
+
+# Three approaches
+approach -> rfe: {style.stroke: "#767676"}
+approach -> domain: {style.stroke: "#767676"}
+approach -> threshold: {style.stroke: "#767676"}
+
+rfe: "RFE\nRecursive Feature\nElimination" {
+  style.fill: "transparent"
+  style.stroke: "#3D6B8E"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 100
+}
+
+domain: "Domain\nKnowledge\n(Physics intuition)" {
+  style.fill: "transparent"
+  style.stroke: "#3D6B8E"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 100
+}
+
+threshold: "Correlation\nThreshold\n(remove redundant)" {
+  style.fill: "transparent"
+  style.stroke: "#3D6B8E"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 100
+}
+
+# Converge to result
+rfe -> result: {style.stroke: "#3D6B8E"}
+domain -> result: {style.stroke: "#3D6B8E"}
+threshold -> result: {style.stroke: "#3D6B8E"}
+
+result: "~50 Features\n(signal + structure)" {
+  style.fill: "#d5f4e6"
+  style.stroke: "#5E9E7E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 150
+  height: 100
+}
+
+# Note
+note: "Goal: Remove noise, keep signal\nReduce complexity, improve generalization" {
+  style.fill: "#fff9e6"
+  style.stroke: "#C46E3A"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 4
+  style.stroke-width: 1
+}

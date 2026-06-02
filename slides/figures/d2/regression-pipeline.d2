@@ -1,0 +1,71 @@
+# Regression Pipeline: Same structure as classification, different interpretation
+# Steps: Prepare → Scale → Train → Predict → Evaluate
+
+direction: right
+
+prepare: "1. Prepare\nData\n(train/test split)" {
+  style.fill: "transparent"
+  style.stroke: "#767676"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+scale: "2. Scale\nFeatures\n(StandardScaler)" {
+  style.fill: "transparent"
+  style.stroke: "#C46E3A"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+train: "3. Train\nModel\n(fit)" {
+  style.fill: "transparent"
+  style.stroke: "#3D6B8E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+predict: "4. Predict\nValues\n(y_pred)" {
+  style.fill: "transparent"
+  style.stroke: "#3D6B8E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+evaluate: "5. Evaluate\nPerformance\n(MSE, R²)" {
+  style.fill: "transparent"
+  style.stroke: "#5E9E7E"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 6
+  style.stroke-width: 2
+  width: 140
+  height: 120
+}
+
+# Connections
+prepare -> scale: {style.stroke: "#767676"; style.stroke-width: 2}
+scale -> train: {style.stroke: "#C46E3A"; style.stroke-width: 2}
+train -> predict: {style.stroke: "#3D6B8E"; style.stroke-width: 2}
+predict -> evaluate: {style.stroke: "#3D6B8E"; style.stroke-width: 2}
+
+# Key difference callout
+note: "Note: Output is continuous\n(not a category)" {
+  style.fill: "#fff9e6"
+  style.stroke: "#C46E3A"
+  style.font-color: "#1C1C1C"
+  style.border-radius: 4
+  style.stroke-width: 1
+}
+
+evaluate -> note: {style.stroke: "#C46E3A"; style.stroke-dash: 2; style.stroke-width: 1}
