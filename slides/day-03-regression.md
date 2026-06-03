@@ -181,7 +181,7 @@ Always visualize three things:
 
 ---
 
-![width:500px](./figures/residuals-diagnostic.svg)
+![width:650px](./figures/residuals-diagnostic.svg)
 
 **Rule:** Residuals should look like **random noise** around zero.
 
@@ -227,7 +227,7 @@ y_pred = model.predict(X_test_scaled)
 
 ---
 
-![width:900px](./figures/model-comparison.svg)
+![width:700px](./figures/model-comparison.svg)
 
 ---
 
