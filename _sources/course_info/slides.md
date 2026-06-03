@@ -20,13 +20,13 @@ Click any preview to download the PDF.
 
 {download}`Download PDF <../slides/day-02-classification.pdf>`
 
-<!-- ## Day 03 — Regression with `scikit-learn`
+## Day 03 — Regression with `scikit-learn`
 
 [![Day 03 slides preview](../slides/figures/day-03-preview.png)](../slides/day-03-regression.pdf)
 
 {download}`Download PDF <../slides/day-03-regression.pdf>`
 
-## Day 04 — The Modeling Project
+<!-- ## Day 04 — The Modeling Project
 
 [![Day 04 slides preview](../slides/figures/day-04-preview.png)](../slides/day-04-modeling.pdf)
 
