@@ -26,8 +26,8 @@ Click any preview to download the PDF.
 
 {download}`Download PDF <../slides/day-03-regression.pdf>`
 
-<!-- ## Day 04 — The Modeling Project
+## Day 04 — The Modeling Project
 
 [![Day 04 slides preview](../slides/figures/day-04-preview.png)](../slides/day-04-modeling.pdf)
 
-{download}`Download PDF <../slides/day-04-modeling.pdf>` -->
+{download}`Download PDF <../slides/day-04-modeling.pdf>`
