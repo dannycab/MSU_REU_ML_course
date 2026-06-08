@@ -29,17 +29,14 @@ Real data science is iteration: try something, measure it, diagnose the bottlene
 
 ---
 
-<!-- _class: img-full -->
+# Today's Dataset: Molecular Atomization Energy
 
-# Today's Dataset — Molecular Atomization Energy
+Predict the energy required to pull a molecule apart.
 
-Predict the energy required to pull a molecule apart, from its atomic structure.
+![width:500px](./figures/atomic_energy_predictions.png)
 
-![width:680px](./figures/atomic_energy_predictions.png)
-
-**1275 features** from the Coulomb matrix representation of each molecule.
-
-**Real-world challenge:** Most features are noise. Your job: find the signal.
+* **1275 features** from the Coulomb matrix representation of each molecule.
+* **Real-world challenge:** Most features are noise. Your job: find the signal.
 
 ---
 
@@ -47,13 +44,15 @@ Predict the energy required to pull a molecule apart, from its atomic structure.
 
 | | SDSS (Days 1–3) | Molecular Energy (Today) |
 |---|---|---|
-| **Size** | 100k objects | 1275 features each |
+| **Size** | 100k objects | ~16k molecules |
 | **Features** | 17 (clean, well-understood) | 1275 (mostly noise) |
 | **Problem** | Which features matter for classification? | How do you even start? |
 
 **Day 1–3:** You could visualize all features, understand relationships.
 
 **Today:** 1275-dimensional space. You can't visualize it. You need systematic methods.
+
+> How do you determine which features matter? How do you build a model that generalizes? 
 
 ---
 
@@ -66,13 +65,13 @@ Predict the energy required to pull a molecule apart, from its atomic structure.
 - **Computational cost** — training takes longer
 - **Interpretability collapse** — what do 1275 learned weights mean?
 
-**The goal:** Remove noise, keep signal. Go from 1275 → ~50 features that actually matter.
+**The goal:** Remove noise, keep signal. Go from 1275 → much smaller number of features that actually matter.
 
 ---
 
 # Overfitting vs Underfitting: The Goldilocks Problem
 
-![width:900px](./figures/d2/overfitting-underfitting.svg)
+![width:1100px](./figures/overfitting-underfitting.svg)
 
 **Underfitting:** Model too simple. Misses real patterns. High bias.
 
@@ -88,6 +87,14 @@ Predict the energy required to pull a molecule apart, from its atomic structure.
 
 This is your **diagnostic baseline**. Failure teaches you where to improve.
 
+**A bad R² tells you:** "Something's wrong. What?"
+
+> Then explore: Are features useful? Noisy? Redundant? That's your improvement direction.
+
+---
+
+# Why Start with a Terrible Model?
+
 ```python
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -101,9 +108,13 @@ r2 = r2_score(y_test, model.predict(X_test))
 print(f"R² = {r2:.3f}")  # probably terrible (e.g., 0.15)
 ```
 
-**The bad R² tells you:** "Something's wrong. What?"
+---
 
-Then explore: Are features useful? Noisy? Redundant? That's your improvement direction.
+# Feature Selection: Art and Science
+
+Not all 1275 features carry signal. Systematic methods find which ones to keep.
+
+![width:760px](./figures/feature-selection-flow.svg)
 
 ---
 
@@ -111,14 +122,12 @@ Then explore: Are features useful? Noisy? Redundant? That's your improvement dir
 
 Not all 1275 features carry signal. Systematic methods find which ones to keep.
 
-![width:760px](./figures/d2/feature-selection-flow.svg)
-
 **Approaches:**
 - **Recursive Feature Elimination (RFE):** Iteratively remove least important features
 - **Domain knowledge:** Use physics intuition (some features are obviously useless)
 - **Correlation threshold:** Remove redundant features (e.g., if two features are 99% correlated, keep one)
 
-> See: [Recursive Feature Elimination](../notes/reverse-feature-elimination.ipynb)
+> See: [Recursive Feature Elimination Notebook](../notes/reverse-feature-elimination.ipynb)
 
 ---
 
@@ -128,15 +137,22 @@ One train/test split = one number = could be lucky or unlucky.
 
 **K-fold cross-validation:** Run the model k times, get k scores, average them.
 
-![width:820px](./figures/d2/cross-validation-strategy.svg)
+![width:850px](./figures/cross-validation-strategy.svg)
 
-**Example with k=5:**
+> See: [Cross-Validation](../notes/cross-validation.ipynb)
+
+---
+
+# Cross-Validation: More Robust Confidence
+
+
+## Example with k=5:
+
 - Fold 1: Train on 80%, test on 20%
 - Fold 2: Train on different 80%, test on different 20%
 - ... (repeats 5 times)
-- Average the 5 R² scores
 
-**Benefit:** More robust. One unlucky split won't fool you. You get a distribution, not a single number.
+**Average the 5 R$^2$ scores**
 
 ```python
 from sklearn.model_selection import cross_val_score
@@ -145,19 +161,20 @@ scores = cross_val_score(model, X, y, cv=5, scoring='r2')
 print(f"R² = {scores.mean():.3f} ± {scores.std():.3f}")  # mean and confidence
 ```
 
-> See: [Cross-Validation](../notes/cross-validation.ipynb)
 
 ---
 
-<!-- _class: img-full -->
-
-# Dimensionality Reduction: PCA (Principal Component Analysis)
+# Dimensionality Reduction: PCA
 
 **The problem:** 1275 correlated features. Many measure the same thing.
 
-**The solution:** Find directions of maximum variance. Compress 1275 → 50 components.
+**The solution:** Find directions of maximum variance. Compress 1275 → much fewer components.
 
-![width:720px](./figures/pca_regression_results.png)
+![width:620px](./figures/pca_regression_results.png)
+
+---
+
+# Dimensionality Reduction: PCA
 
 **What's happening?** PCA finds new axes (components) where data spreads out most. First 50 PCs often capture 95% of variance.
 
@@ -165,6 +182,10 @@ print(f"R² = {scores.mean():.3f} ± {scores.std():.3f}")  # mean and confidence
 - Lose interpretability (what does "PC17" mean?)
 - Gain efficiency (fewer numbers to work with)
 - Often improves generalization (noise gets compressed out)
+
+---
+
+# Dimensionality Reduction: PCA
 
 ```python
 from sklearn.decomposition import PCA
@@ -180,9 +201,13 @@ print(pca.explained_variance_ratio_.cumsum())  # how much variance explained?
 
 # The Iteration Loop: How Real Data Science Works
 
-![width:900px](./figures/d2/model-iteration-loop.svg)
+![width:900px](./figures/model-iteration-loop.svg)
 
 **This is not a linear process.** You build, evaluate, diagnose, fix, repeat.
+
+---
+
+# The Iteration Loop: How Real Data Science Works
 
 **Each iteration teaches you:**
 - Where your model fails (residuals)
@@ -219,6 +244,10 @@ Work through **Activity 04: Modeling Project** — *open-ended by design*.
 - Check feature correlations: are some redundant?
 - Diagnose: where is your model failing?
 
+---
+
+# Today's Activity: Modeling Project
+
 ## Step 3: Try an Improvement
 - **Option A:** Remove useless features (RFE or correlation threshold)
 - **Option B:** Use PCA to compress 1275 → 50 components
@@ -229,6 +258,10 @@ Work through **Activity 04: Modeling Project** — *open-ended by design*.
 - Use **cross-validation** (not just train/test split)
 - Report: Mean ± Std of cross-validation scores
 - Compare before/after. Did you improve?
+
+---
+
+# Today's Activity: Modeling Project
 
 ## Step 5: Iterate (If Time)
 - What did you learn? What's still broken?
@@ -241,3 +274,32 @@ Work through **Activity 04: Modeling Project** — *open-ended by design*.
 > **Notes:** [Cross-Validation](../notes/cross-validation.ipynb) · [RFE](../notes/reverse-feature-elimination.ipynb) · [PCA](../notes/05_pca.ipynb)
 >
 > **Real tip:** Ask questions. Discuss with neighbors. This is research.
+
+---
+
+# Supervised ML in Physics & Astro
+
+**It's one loop, repeated.** Same five steps whether you classify spectra or predict energies.
+
+| Step | What you did | Days |
+|---|---|---|
+| **1. Understand & explore** | Load real data, clean it, plot it *before* modeling | 1 |
+| **2. Prepare** | Train/test split, scale features (fit on train only) | 2–4 |
+| **3. Build** | `fit → predict` — same `scikit-learn` API for every model | 2–4 |
+| **4. Evaluate** | Right metric for the question; read residuals & confusion matrices | 2–4 |
+| **5. Improve** | Add/select features, tune, try another model — then loop back | 3–4 |
+
+**Classification vs regression** = *"what is it?"* vs *"how much?"* — same pipeline, different target and metric.
+
+---
+
+# Takeaways: What Transfers to Your Research
+
+1. **Plot before you model, and plot your errors.** Anscombe's quartet, residuals, and class histograms all say the same thing: numbers alone lie.
+2. **A feature can dominate everything.** Redshift turned 86% → 99% accuracy. Always ask: is my model *learning the physics* or *memorizing one shortcut*?
+3. **More features ≠ better.** 1275 noisy features overfit; finding the ~50 that carry signal is the real work.
+4. **Honest evaluation is sacred.** Never tune on the test set. Cross-validation gives you a *distribution*, not a lucky number.
+5. **Start simple and expect to fail.** A bad baseline is a diagnostic, not a defeat — failure points to the next move.
+6. **There is no single right answer.** The goal is a model you *understand*, including where and why it breaks.
+
+> *This is the workflow. The dataset changes; the loop doesn't.*

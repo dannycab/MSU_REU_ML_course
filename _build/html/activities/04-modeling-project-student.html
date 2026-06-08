@@ -466,9 +466,9 @@ document.write(`
 <h1>Day 04: Modeling Project<a class="headerlink" href="#day-04-modeling-project" title="Link to this heading">#</a></h1>
 <p>Now that you have had some practice with the basics of machine learning, it’s time to apply your skills to a more complex problem. In this project, you will build a model to predict atomic energies using a dataset of atomic structures. Below an example of the prediction that we will be working on:</p>
 <p><img alt="Example Prediction" src="../_images/atomic_energy_predictions.png" /></p>
-<p>The dataset contains the ground state energy of molecules developed from simulations. This is a common computational chemistry task, and the dataset cab be placed in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder of this repository. The goal is to predict the energy of a molecule based on its atomic structure.</p>
+<p>The dataset contains the ground state energy of molecules developed from simulations. This is a common computational chemistry task, and the dataset can be placed in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder of this repository. The goal is to predict the energy of a molecule based on its atomic structure.</p>
 <p>The data source is from Kaggle: <a class="reference external" href="https://www.kaggle.com/datasets/burakhmmtgl/energy-molecule">https://www.kaggle.com/datasets/burakhmmtgl/energy-molecule</a>. It’s too big to include in this repository, but you can download it from Kaggle and place it in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder. You can look into <code class="docutils literal notranslate"><span class="pre">opendatasets</span></code> for a Python package that can help you download datasets from Kaggle directly into your Jupyter notebook environment (<a class="reference external" href="https://pypi.org/project/opendatasets/">https://pypi.org/project/opendatasets/</a>)</p>
-<p>The molecules has 1275 features that are the Coloumb matrix of the molecule. The target variable is the energy of the molecule, which is a continuous value and appears in the last column of the dataset.</p>
+<p>Each molecule has 1275 features that come from the Coulomb matrix representation of the molecule (~16,000 molecules in total). The target variable is the energy of the molecule, which is a continuous value and appears in the last column of the dataset.</p>
 <section id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
 <p>Today, you will apply the skills you have learned in the previous days to build a regression model of a new dataset. After this activity, you will be able to:</p>
@@ -745,6 +745,15 @@ document.write(`
 <li><p>Re-train the model with the reduced feature set and evaluate its performance again.</p></li>
 </ol>
 <p><strong>In doing this, use exploratory data analysis (EDA) techniques (e.g., plotting) to understand the data better.</strong></p>
+<blockquote>
+<div><p><strong>Going further (optional):</strong> Dropping zero-heavy features is just one strategy. Once you have a baseline improvement, you may want to compare it against a more systematic approach. Pick <em>one</em> and go deep:</p>
+<ul class="simple">
+<li><p><strong>Recursive Feature Elimination (RFE)</strong> — let the model rank and prune features for you. See <a class="reference internal" href="../notes/reverse-feature-elimination.html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">../notes/reverse-feature-elimination.ipynb</span></code></span></a>.</p></li>
+<li><p><strong>Principal Component Analysis (PCA)</strong> — compress 1275 correlated features into ~50 components. See <a class="reference internal" href="../notes/05_pca.html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">../notes/05_pca.ipynb</span></code></span></a>.</p></li>
+<li><p><strong>A different model</strong> — e.g. <code class="docutils literal notranslate"><span class="pre">Ridge</span></code> (regularized linear) or <code class="docutils literal notranslate"><span class="pre">RandomForestRegressor</span></code>.</p></li>
+</ul>
+<p>Don’t try everything — choose one, and explain <em>why</em> it helped (or didn’t).</p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your code here</span>
