@@ -511,4 +511,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks,latex,macos,windows
-activities/data/roboBohr.csv
+#activities/data/roboBohr.csv
